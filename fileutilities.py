@@ -1,13 +1,14 @@
-import driver
+from models import driver
 import json
 import csv
+
 
 def writeDriversListToJSON(driversList):
     driversListJSON = []
     
     # Try to open the file and if it is not found, then create it
     try:
-        driversJSON = open('drivers.json', 'r+')
+        driversJSON = open('data/json/drivers.json', 'r+')
         
         # Read and load the current drivers JSON
         tempDriversDict = json.load(driversJSON)
@@ -16,7 +17,7 @@ def writeDriversListToJSON(driversList):
         for tempDriver in tempDriversDict:
             driversList.append(driver.Driver(tempDriver))
     except IOError:
-        driversJSON = open('drivers.json', 'w+')
+        driversJSON = open('data/json/drivers.json', 'w+')
     
     # Serialize each driver object as JSON and append it to the JSON list
     for driver in driversList:
@@ -40,7 +41,7 @@ def writeTeamsListToJSON(teamsList):
     for driver in teamsList:
         teamsListJSON.append(json.loads(driver.toJSON()))
 
-    with open('teamsJSON.json', 'w') as teamsJSON:
+    with open('data/json/teamsJSON.json', 'w') as teamsJSON:
         json.dump(teamsListJSON, teamsJSON, indent = 4)
         
 def convertFromCSV():
@@ -52,7 +53,7 @@ def convertFromCSV():
     csvHeader = []
     
     # Must define encoding='utf-8-sig' to function seamlessly with Excel sheets and exports.
-    with open('drivers.csv', mode='r', encoding='utf-8-sig') as driversCSV:
+    with open('data/csv/drivers.csv', mode='r', encoding='utf-8-sig') as driversCSV:
         reader = csv.reader(driversCSV)
         
         # Advance and store the previous line (what will now be the headers)
@@ -76,7 +77,7 @@ def convertFromCSV():
     else:
         print("Header files match! Importing files now...")
         
-        with open('drivers.csv', mode='r', encoding='utf-8-sig') as driversCSV:
+        with open('data/csv/drivers.csv', mode='r', encoding='utf-8-sig') as driversCSV:
             reader = csv.reader(driversCSV)
             
             driversList = []

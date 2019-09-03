@@ -1,5 +1,4 @@
-import driver
-import team
+from models import *
 import fileutilities as futil
 import race
 import json
@@ -9,11 +8,11 @@ driversList = []
 teamsList = []
 
 def run():
-    with open('teams.json', 'r') as teamsJSON:
+    with open('data/json/teams.json', 'r') as teamsJSON:
         tempTeamsDict = json.load(teamsJSON)
         
         for tempTeam in tempTeamsDict:
-            teamsList.append(TM.Team(tempTeam))
+            teamsList.append(team.Team(tempTeam))
             
     #race.processStage(driversList, teamsList)
     #fileutilities.writeDriversListToJSON(driversList)
