@@ -3223,20 +3223,5 @@
         "roadRating": "5",
         "overallRating": "5.1",
         "potentialRetain": "no idea"
-    },
-    {
-        "name": "Jim Inglebright",
-        "age": "40",
-        "teamName": "Roadrunner Motorsports",
-        "contractStatus": "lifetime",
-        "carNumber": "0",
-        "shortRating": "15",
-        "shortIntermediateRating": "14",
-        "intermediateRating": "12",
-        "superSpeedwayRating": "25",
-        "restrictorPlateRating": "12",
-        "roadRating": "60",
-        "overallRating": "17.8",
-        "potentialRetain": "2p(04)1r"
     }
 ]
