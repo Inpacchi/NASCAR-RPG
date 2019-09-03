@@ -2,6 +2,7 @@ from models import *
 import json
 import csv
 import os
+import progressbar
 
 
 # TODO: Add interactive file input functionality
@@ -9,22 +10,42 @@ import os
 def writeDriversListToJSON(driversList):
     driversListJSON = []
 
+    bar = createProgressBar()
+
     # Try to open the file and if it is not found, then create it
     try:
         driversJSON = open('data/json/drivers.json', 'r+')
 
+        print("drivers.json found. Reading drivers from file...")
+
         # Read and load the current drivers JSON
         tempDriversDict = json.load(driversJSON)
+
+        bar.start()
+        i = 0
 
         # Store each driver in the driversList as a driver object
         for tempDriver in tempDriversDict:
             driversList.append(driver.Driver(tempDriver))
+            bar.update(i + 1)
+
+        bar.finish()
+        print()
     except IOError:
         driversJSON = open('data/json/drivers.json', 'w+')
+        print("drivers.json not found. File has been created.")
+
+    print("Appending drivers...")
+    bar.start()
+    i = 0
 
     # Serialize each driver object as JSON and append it to the JSON list
     for driverObject in driversList:
         driversListJSON.append(json.loads(driverObject.toJSON()))
+        bar.update(i+1)
+
+    bar.finish()
+    print()
 
     # Reset JSON current position to 0 (start of file)
     driversJSON.seek(0)
@@ -37,23 +58,44 @@ def writeDriversListToJSON(driversList):
 
     driversJSON.close()
 
+    print("\ndrivers.json has been updated!")
+
 
 def writeTeamsListToJSON(teamsList):
     teamsListJSON = []
 
+    bar = createProgressBar()
+
     try:
         teamsJSON = open('data/json/teams.json', 'r+')
 
+        print("teams.json found. Reading teams from file...")
+
         tempTeamsList = json.load(teamsJSON)
+
+        bar.start()
+        i = 0
 
         for tempTeam in tempTeamsList:
             teamsList.append(team.Team(tempTeam))
+            bar.update(i+1)
 
+        bar.finish()
+        print()
     except IOError:
         teamsJSON = open('data/json/teams.json', 'w+')
+        print("teams.json not found. File has been created.")
+
+    print("Appending teams...")
+    bar.start()
+    i = 0
 
     for teamObject in teamsList:
         teamsListJSON.append(json.loads(teamObject.toJSON()))
+        bar.update(i+1)
+
+    bar.finish()
+    print()
 
     teamsJSON.seek(0)
 
@@ -62,6 +104,8 @@ def writeTeamsListToJSON(teamsList):
     json.dump(teamsListJSON, teamsJSON, indent=4)
 
     teamsJSON.close()
+
+    print("\nteams.json has been updated!")
 
 
 def convertDriverCSVtoJSON():
@@ -108,8 +152,17 @@ def convertDriverCSVtoJSON():
             # Advance the reader past the headers
             next(reader)
 
+            # Initialize progress bar and parameters for displaying
+            bar = createProgressBar()
+            bar.start()
+            i = 0
+
             for row in reader:
                 driversList.append(driver.Driver(row))
+                bar.update(i+1)
+
+            bar.finish()
+            print()
 
         writeDriversListToJSON(driversList)
 
@@ -119,3 +172,7 @@ def convertDriverCSVtoJSON():
 
 def headerDiff(properHeader, csvHeader):
     return [i for i in properHeader + csvHeader if i not in properHeader or i not in csvHeader]
+
+
+def createProgressBar():
+    return progressbar.ProgressBar(max_value=20, widgets=[progressbar.Bar('=', '[', ']'), ' ', progressbar.Percentage()])
