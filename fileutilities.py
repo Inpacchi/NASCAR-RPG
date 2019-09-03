@@ -1,4 +1,4 @@
-from models import driver
+from models import *
 import json
 import csv
 import os
@@ -23,8 +23,8 @@ def writeDriversListToJSON(driversList):
         driversJSON = open('data/json/drivers.json', 'w+')
 
     # Serialize each driver object as JSON and append it to the JSON list
-    for driver in driversList:
-        driversListJSON.append(json.loads(driver.toJSON()))
+    for driverObject in driversList:
+        driversListJSON.append(json.loads(driverObject.toJSON()))
 
     # Reset JSON current position to 0 (start of file)
     driversJSON.seek(0)
@@ -38,15 +38,30 @@ def writeDriversListToJSON(driversList):
     driversJSON.close()
 
 
-# TODO: Copy logic from above method
 def writeTeamsListToJSON(teamsList):
     teamsListJSON = []
+
+    try:
+        teamsJSON = open('data/json/teams.json', 'r+')
+
+        tempTeamsList = json.load(teamsJSON)
+
+        for tempTeam in tempTeamsList:
+            teamsList.append(team.Team(tempTeam))
+
+    except IOError:
+        teamsJSON = open('data/json/teams.json', 'w+')
 
     for teamObject in teamsList:
         teamsListJSON.append(json.loads(teamObject.toJSON()))
 
-    with open('data/json/teamsJSON.json', 'w') as teamsJSON:
-        json.dump(teamsListJSON, teamsJSON, indent=4)
+    teamsJSON.seek(0)
+
+    teamsJSON.truncate(0)
+
+    json.dump(teamsListJSON, teamsJSON, indent=4)
+
+    teamsJSON.close()
 
 
 def convertDriverCSVtoJSON():
