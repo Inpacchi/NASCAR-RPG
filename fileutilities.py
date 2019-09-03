@@ -1,7 +1,9 @@
 from models import driver
 import json
 import csv
+import os
 
+# TODO: Add interactive file input functionality
 
 def writeDriversListToJSON(driversList):
     driversListJSON = []
@@ -89,6 +91,9 @@ def convertFromCSV():
                 driversList.append(driver.Driver(row))
             
         writeDriversListToJSON(driversList)
+        
+        # TODO: Move file to archive and rename it according to what's already in the folder
+        # os.rename('data/csv/drivers.csv', 'data/csv/archive/drivers.csv')
         
 def headerDiff(properHeader, csvHeader): 
     return [i for i in properHeader + csvHeader if i not in properHeader or i not in csvHeader] 
