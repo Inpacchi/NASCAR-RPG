@@ -42,14 +42,14 @@ def writeDriversListToJSON(driversList):
 def writeTeamsListToJSON(teamsList):
     teamsListJSON = []
 
-    for driver in teamsList:
-        teamsListJSON.append(json.loads(driver.toJSON()))
+    for teamObject in teamsList:
+        teamsListJSON.append(json.loads(teamObject.toJSON()))
 
     with open('data/json/teamsJSON.json', 'w') as teamsJSON:
         json.dump(teamsListJSON, teamsJSON, indent=4)
 
 
-def convertFromCSV():
+def convertDriverCSVtoJSON():
     # Define the standard header column names that should be present in the CSV file
     properHeader = ['Name', 'Age', 'Team Name', 'Contract Status', 'Car Number', 'Short Rating',
                     'Short Intermediate Rating',
@@ -83,7 +83,7 @@ def convertFromCSV():
         # print("Got:", headerDiffList[itemCount + 1])
         # itemCount += 1
     else:
-        print("Header files match! Importing files now...")
+        print("The header in both files match! Importing drivers now...")
 
         with open('data/csv/drivers.csv', mode='r', encoding='utf-8-sig') as driversCSV:
             reader = csv.reader(driversCSV)
