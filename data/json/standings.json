@@ -1,16 +1,331 @@
 {
-    "Bryan Reffner": {
+    "Stacy Compton": {
+        "qualifyingPosition": 30,
+        "finishingPosition": 19,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 9,
+        "timesRaceRangeHit": 28
+    },
+    "Michael Waltrip": {
         "qualifyingPosition": 1,
+        "finishingPosition": 16,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 20,
+        "timesRaceRangeHit": 59
+    },
+    "Greg Biffle": {
+        "qualifyingPosition": 6,
+        "finishingPosition": 12,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 28,
+        "timesRaceRangeHit": 38
+    },
+    "Scott Wimmer": {
+        "qualifyingPosition": 37,
+        "finishingPosition": 22,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 10,
+        "timesRaceRangeHit": 35
+    },
+    "Jeff Green": {
+        "qualifyingPosition": 16,
+        "finishingPosition": 4,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 18,
+        "timesRaceRangeHit": 40
+    },
+    "Mike Wallace": {
+        "qualifyingPosition": 14,
+        "finishingPosition": 33,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 10,
+        "timesRaceRangeHit": 32
+    },
+    "Ken Schrader": {
+        "qualifyingPosition": 10,
+        "finishingPosition": 34,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 15,
+        "timesRaceRangeHit": 36
+    },
+    "Jimmy Spencer": {
+        "qualifyingPosition": 33,
+        "finishingPosition": 21,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 8,
+        "timesRaceRangeHit": 30
+    },
+    "Steve Grissom": {
+        "qualifyingPosition": 5,
+        "finishingPosition": 7,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 7,
+        "timesRaceRangeHit": 14
+    },
+    "Jack Sprague": {
+        "qualifyingPosition": 18,
+        "finishingPosition": 23,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 12,
+        "timesRaceRangeHit": 25
+    },
+    "Tony Raines": {
+        "qualifyingPosition": 7,
+        "finishingPosition": 13,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 12,
+        "timesRaceRangeHit": 34
+    },
+    "Mike McLaughlin": {
+        "qualifyingPosition": 12,
+        "finishingPosition": 17,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 16,
+        "timesRaceRangeHit": 38
+    },
+    "Kerry Earnhardt": {
+        "qualifyingPosition": 3,
+        "finishingPosition": 9,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 9,
+        "timesRaceRangeHit": 19
+    },
+    "Kenny Wallace": {
+        "qualifyingPosition": 28,
+        "finishingPosition": 28,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 10,
+        "timesRaceRangeHit": 29
+    },
+    "Jeff Burton": {
+        "qualifyingPosition": 20,
+        "finishingPosition": 15,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 27,
+        "timesRaceRangeHit": 50
+    },
+    "Bryan Reffner": {
+        "qualifyingPosition": 2,
+        "finishingPosition": 31,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 3,
+        "timesRaceRangeHit": 8
+    },
+    "Scott Riggs": {
+        "qualifyingPosition": 24,
+        "finishingPosition": 11,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 17,
+        "timesRaceRangeHit": 27
+    },
+    "Larry Foyt": {
+        "qualifyingPosition": 42,
+        "finishingPosition": 41,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 1,
+        "timesRaceRangeHit": 11
+    },
+    "Chad Chaffin": {
+        "qualifyingPosition": 32,
+        "finishingPosition": 10,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 3,
+        "timesRaceRangeHit": 5
+    },
+    "Tim Sauter": {
+        "qualifyingPosition": 39,
         "finishingPosition": 2,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 5,
+        "timesRaceRangeHit": 23
+    },
+    "Johnny Sauter": {
+        "qualifyingPosition": 22,
+        "finishingPosition": 5,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 13,
+        "timesRaceRangeHit": 30
+    },
+    "Bobby Hamilton, Jr.": {
+        "qualifyingPosition": 27,
+        "finishingPosition": 32,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 15,
+        "timesRaceRangeHit": 31
+    },
+    "Lyndon Amick": {
+        "qualifyingPosition": 34,
+        "finishingPosition": 37,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 5,
+        "timesRaceRangeHit": 16
+    },
+    "Jamie McMurray": {
+        "qualifyingPosition": 29,
+        "finishingPosition": 24,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 19,
+        "timesRaceRangeHit": 26
+    },
+    "Dan Pardus": {
+        "qualifyingPosition": 41,
+        "finishingPosition": 40,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 1,
+        "timesRaceRangeHit": 3
+    },
+    "Hank Parker, Jr.": {
+        "qualifyingPosition": 11,
+        "finishingPosition": 3,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 10,
+        "timesRaceRangeHit": 21
+    },
+    "Christian Elder": {
+        "qualifyingPosition": 46,
+        "finishingPosition": 39,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 1,
+        "timesRaceRangeHit": 7
+    },
+    "Brian Vickers": {
+        "qualifyingPosition": 36,
+        "finishingPosition": 42,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 6,
+        "timesRaceRangeHit": 24
+    },
+    "Mike Harmon": {
+        "qualifyingPosition": 38,
+        "finishingPosition": 46,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 1,
+        "timesRaceRangeHit": 2
+    },
+    "Ashton Lewis": {
+        "qualifyingPosition": 25,
+        "finishingPosition": 1,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 9,
+        "timesRaceRangeHit": 17
+    },
+    "Shane Hmiel": {
+        "qualifyingPosition": 19,
+        "finishingPosition": 27,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 7,
+        "timesRaceRangeHit": 11
+    },
+    "David Starr": {
+        "qualifyingPosition": 17,
+        "finishingPosition": 30,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 11,
+        "timesRaceRangeHit": 26
+    },
+    "Ricky Hendrick": {
+        "qualifyingPosition": 43,
+        "finishingPosition": 14,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 5,
+        "timesRaceRangeHit": 16
+    },
+    "Kelly Denton": {
+        "qualifyingPosition": 40,
+        "finishingPosition": 8,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 2,
+        "timesRaceRangeHit": 5
+    },
+    "Richard Mitchell": {
+        "qualifyingPosition": 47,
+        "finishingPosition": 47,
         "lapsLed": 0,
         "timesQualifyingRangeHit": 1,
         "timesRaceRangeHit": 1
     },
-    "Ken Schrader": {
-        "qualifyingPosition": 2,
-        "finishingPosition": 1,
+    "Jason Keller": {
+        "qualifyingPosition": 8,
+        "finishingPosition": 20,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 11,
+        "timesRaceRangeHit": 42
+    },
+    "David Green": {
+        "qualifyingPosition": 9,
+        "finishingPosition": 35,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 18,
+        "timesRaceRangeHit": 37
+    },
+    "Shane Hall": {
+        "qualifyingPosition": 21,
+        "finishingPosition": 44,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 3,
+        "timesRaceRangeHit": 5
+    },
+    "Casey Mears": {
+        "qualifyingPosition": 13,
+        "finishingPosition": 43,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 6,
+        "timesRaceRangeHit": 14
+    },
+    "Randy LaJoie": {
+        "qualifyingPosition": 31,
+        "finishingPosition": 38,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 13,
+        "timesRaceRangeHit": 23
+    },
+    "Rick Markle": {
+        "qualifyingPosition": 44,
+        "finishingPosition": 45,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 1,
+        "timesRaceRangeHit": 4
+    },
+    "Jason Schuler": {
+        "qualifyingPosition": 15,
+        "finishingPosition": 29,
         "lapsLed": 0,
         "timesQualifyingRangeHit": 1,
         "timesRaceRangeHit": 7
+    },
+    "Andy Kirby": {
+        "qualifyingPosition": 45,
+        "finishingPosition": 36,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 2,
+        "timesRaceRangeHit": 4
+    },
+    "Tim Fedewa": {
+        "qualifyingPosition": 35,
+        "finishingPosition": 18,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 9,
+        "timesRaceRangeHit": 25
+    },
+    "Stanton Barrett": {
+        "qualifyingPosition": 4,
+        "finishingPosition": 6,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 7,
+        "timesRaceRangeHit": 17
+    },
+    "Steadman Marlin": {
+        "qualifyingPosition": 26,
+        "finishingPosition": 25,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 5,
+        "timesRaceRangeHit": 10
+    },
+    "Kasey Kahne": {
+        "qualifyingPosition": 23,
+        "finishingPosition": 26,
+        "lapsLed": 0,
+        "timesQualifyingRangeHit": 12,
+        "timesRaceRangeHit": 20
     }
 }
