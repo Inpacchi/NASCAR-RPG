@@ -1,155 +1,184 @@
-from models import *
+from typing import Union, List, TextIO
+from progressbar import ProgressBar, Bar, Percentage
+
+from models.driver import Driver
+from models.team import Team
+
 import json
 import csv
 import os
-import progressbar
 
 
-def readFromDriversJSON():
-    with open('data/json/drivers.json', 'r') as driversJSON:
-        tempDriversDict = json.load(driversJSON)
+def __JSONFile(modelType: str) -> Union[str, list, TextIO]:
+    """
+    Returns a JSON file based on model type.
 
-    driversList = []
+    Pseudo-private method that takes in a model type and attempts to open the relevant JSON file. If the file is not
+    found, then the file is created. Once the file has been opened or created, it becomes the return value.
 
-    print("Reading drivers from database...")
+    :param modelType: Type of model being loaded
+    :type modelType: string
+    :return: Models loaded from JSON file
+    :rtype: list
+    """
 
-    bar = createProgressBar().start()
-    i = 0
+    if modelType.lower() == 'driver':
+        JSONPath = 'data/json/drivers.json'
+    elif modelType.lower() == 'team':
+        JSONPath = 'data/json/teams.json'
+    else:
+        return 'Incorrect model type!'
 
-    for driverObject in tempDriversDict:
-        driversList.append(driver.Driver(driverObject))
-        bar.update(i + 1)
-
-    bar.finish()
-    print()
-
-    return driversList
-
-
-def readFromTeamsJSON():
-    with open('data/json/teams.json', 'r') as teamsJSON:
-        tempTeamsDict = json.load(teamsJSON)
-
-    teamsList = []
-
-    print("Reading teams from database...")
-
-    bar = createProgressBar().start()
-    i = 0
-
-    for teamObject in tempTeamsDict:
-        teamsList.append(team.Team(teamObject))
-        bar.update(i + 1)
-
-    bar.finish()
-    print()
-
-    return teamsList
-
-
-# TODO: Add interactive file input functionality
-
-def writeDriversListToJSON(driversList):
-    driversListJSON = []
-
-    bar = createProgressBar()
-
-    # Try to open the file and if it is not found, then create it
     try:
-        driversJSON = open('data/json/drivers.json', 'r+')
+        JSONFile = open(JSONPath, 'r+')
 
-        print("drivers.json found. Reading drivers from file...")
+        if os.stat(JSONPath).st_size == 0:
+            os.remove(JSONPath)
+            raise IOError
 
-        # Read and load the current drivers JSON
-        tempDriversDict = json.load(driversJSON)
+        print(modelType, "json found; reading from database...")
+    except IOError:
+        JSONFile = open(JSONPath, 'w+')
 
-        bar.start()
-        i = 0
+        print(modelType, "json not found; database has been created.")
 
-        # Store each driver in the driversList as a driver object
-        for tempDriver in tempDriversDict:
-            driversList.append(driver.Driver(tempDriver))
+    return JSONFile
+
+
+def __readFromJSONFile(modelType: str, modelList: list) -> Union[None, List[Driver], List[Team], str]:
+    """
+    Returns a list of models from model list based on model type.
+
+    Pseudo-private method that takes in a model type, reads each model from the model list and returns them in a list
+    of relevant model objects. If the model list is empty, that means the list and subsequent file was just created;
+    hence there is no data to read and the function returns nothing. There is no need for a validation message here as
+    it is okay to not have data in the model list.
+
+    :param modelType: Type of model being loaded
+    :type modelType: string
+    :param modelList: Models loaded from JSON file
+    :type modelList: list
+    :return: Models initialized as their relevant objects
+    :rtype: list
+    """
+
+    if not modelList:
+        return
+
+    bar = createProgressBar().start()
+    i = 0
+
+    if modelType.lower() == 'driver':
+        driverList = []
+
+        for tempDriver in modelList:
+            driverList.append(Driver(tempDriver))
             bar.update(i + 1)
 
         bar.finish()
         print()
-    except IOError:
-        driversJSON = open('data/json/drivers.json', 'w+')
-        print("drivers.json not found. File has been created.")
 
-    print("Appending drivers...")
+        return driverList
+    elif modelType.lower() == 'team':
+        teamList = []
+
+        for tempTeam in modelList:
+            teamList.append(Team(tempTeam))
+            bar.update(i + 1)
+
+        bar.finish()
+        print()
+
+        return teamList
+    else:
+        return "Incorrect model type!"
+
+
+def readModelsFromJSON(modelType: str) -> Union[str, None, List[Driver], List[Team]]:
+    """
+    Returns a list of models.
+
+    Class available method that simplifies the function call. If the model type is not within the accepted parameters,
+    return an error message.
+
+    :param modelType: Type of model being loaded
+    :type modelType: string
+    :return: Models initialized as their relevant objects
+    :rtype: list
+    """
+
+    if modelType.lower() not in ['driver', 'team']:
+        return "Incorrect model type!"
+
+    return __readFromJSONFile(modelType, json.load(__JSONFile(modelType)))
+
+
+# TODO: Add interactive file input functionality
+
+def writeModelsToJSON(modelType: str, modelList: list) -> Union[None, str]:
+    """
+    Writes the model list to the relevant model type JSON file.
+
+    Class available method that takes in a model type and model list and attempts to write the models to a JSON file.
+    Due to the nature of the JSON format, JSON files must first be read into memory and stored so that they can be
+    properly modified. Once the JSON file is read and the models are properly initialized, the model list is
+    serialized to JSON using the relevant class available toJSON() method and appended to the list. After the file is
+    erased of all contents, this list is written to the file in JSON format.
+
+    :param modelType: Type of model being loaded
+    :type modelType: string
+    :param modelList: Models loaded from JSON file
+    :type modelList: list
+    :return: None
+    :rtype: None
+    """
+
+    if modelType.lower() not in ['driver', 'team']:
+        return "Incorrect model type!"
+
+    JSONFile = __JSONFile(modelType)
+
+    tempModelList = __readFromJSONFile(modelType, json.load(JSONFile))
+
+    print("Appending models...")
+
+    bar = createProgressBar().start()
+    i = 0
+
+    for tempModel in tempModelList:
+        modelList.append(tempModel)
+        bar.update(i + 1)
+
+    bar.finish()
+    print()
+
+    modelListJSON = []
+
     bar.start()
     i = 0
 
-    # Serialize each driver object as JSON and append it to the JSON list
-    for driverObject in driversList:
-        driversListJSON.append(json.loads(driverObject.toJSON()))
+    for model in modelList:
+        modelListJSON.append(json.loads(model.toJSON()))
         bar.update(i + 1)
 
     bar.finish()
     print()
 
     # Reset JSON current position to 0 (start of file)
-    driversJSON.seek(0)
+    JSONFile.seek(0)
 
     # Clear the contents of the JSON
-    driversJSON.truncate(0)
+    JSONFile.truncate(0)
 
     # Write the JSON list to the JSON file with pretty print enabled
-    json.dump(driversListJSON, driversJSON, indent=4)
+    json.dump(modelListJSON, JSONFile, indent=4)
 
-    driversJSON.close()
+    JSONFile.close()
 
-    print("\ndrivers.json has been updated!")
-
-
-def writeTeamsListToJSON(teamsList):
-    teamsListJSON = []
-
-    bar = createProgressBar()
-
-    try:
-        teamsJSON = open('data/json/teams.json', 'r+')
-
-        print("teams.json found. Reading teams from file...")
-
-        tempTeamsList = json.load(teamsJSON)
-
-        bar.start()
-        i = 0
-
-        for tempTeam in tempTeamsList:
-            teamsList.append(team.Team(tempTeam))
-            bar.update(i + 1)
-
-        bar.finish()
-        print()
-    except IOError:
-        teamsJSON = open('data/json/teams.json', 'w+')
-        print("teams.json not found. File has been created.")
-
-    print("Appending teams...")
-    bar.start()
-    i = 0
-
-    for teamObject in teamsList:
-        teamsListJSON.append(json.loads(teamObject.toJSON()))
-        bar.update(i + 1)
-
-    bar.finish()
-    print()
-
-    teamsJSON.seek(0)
-
-    teamsJSON.truncate(0)
-
-    json.dump(teamsListJSON, teamsJSON, indent=4)
-
-    teamsJSON.close()
-
-    print("\nteams.json has been updated!")
+    print("\n", modelType, "json has been updated")
 
 
+# TODO: Docstring documentation once method is near completion
 def convertDriverCSVtoJSON():
     # Define the standard header column names that should be present in the CSV file
     properHeader = ['Name', 'Age', 'Team Name', 'Contract Status', 'Car Number', 'Short Rating',
@@ -200,22 +229,40 @@ def convertDriverCSVtoJSON():
             i = 0
 
             for row in reader:
-                driversList.append(driver.Driver(row))
+                driversList.append(Driver(row))
                 bar.update(i + 1)
 
             bar.finish()
             print()
 
-        writeDriversListToJSON(driversList)
+        writeModelsToJSON('driver', driversList)
 
         # TODO: Move file to archive and rename it according to what's already in the folder
         # os.rename('data/csv/drivers.csv', 'data/csv/archive/drivers.csv')
 
 
-def headerDiff(properHeader, csvHeader):
+def headerDiff(properHeader: list, csvHeader: list) -> list:
+    """
+    Returns a list of differences between the two lists.
+
+    :param properHeader: Values that the header file should be
+    :type properHeader: list
+    :param csvHeader: Header taken from the CSV file
+    :type csvHeader: list
+    :return: Differences between the two lists
+    :rtype: list
+    """
     return [i for i in properHeader + csvHeader if i not in properHeader or i not in csvHeader]
 
 
-def createProgressBar():
-    return progressbar.ProgressBar(max_value=20,
-                                   widgets=[progressbar.Bar('=', '[', ']'), ' ', progressbar.Percentage()])
+def createProgressBar() -> ProgressBar:
+    """
+    Simple function call to create a progress bar with the relevant parameters.
+
+    Parameters are taken from the progressbar import statement.
+
+    :return: Progress Bar with parameters
+    :rtype: ProgressBar
+    """
+
+    return ProgressBar(max_value=20, widgets=[Bar('=', '[', ']'), ' ', Percentage()])
