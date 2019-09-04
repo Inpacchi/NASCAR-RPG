@@ -11,23 +11,34 @@ standingsDict = {}
 endingRange = 0
 
 
-def processStage(driversList, teamsList):
-    populateRangesDict(driversList, teamsList)
+# def processStage(driversList, teamsList):
+def processStage(driversList):
+    populateRangesDict(driversList)
     populateStandingsDict(driversList)
     qualifying()
     race()
     writeStandingsDictToFile()
 
 
-def calculateRange(driver, team, startingBonus=0):
-    driverResult = pow(driver.overall, DRIVER_FACTOR)
-    teamResult = pow(team.overall, TEAM_FACTOR)
+# TODO: Fix driver class variable types
+
+def calculateRange(driver, team_overall, startingBonus=0):
+    driverResult = pow(float(driver.overallRating), DRIVER_FACTOR)
+    teamResult = pow(team_overall, TEAM_FACTOR)
     bonusResult = startingBonus * 50
 
     return round(((driverResult * teamResult) + bonusResult) / 100)
 
+# def calculateRange(driver, team, startingBonus=0):
+#     driverResult = pow(driver.overallRating, DRIVER_FACTOR)
+#     teamResult = pow(team.overall, TEAM_FACTOR)
+#     bonusResult = startingBonus * 50
+#
+#     return round(((driverResult * teamResult) + bonusResult) / 100)
 
-def populateRangesDict(driversList, teamsList):
+
+# def populateRangesDict(driversList, teamsList):
+def populateRangesDict(driversList):
     startingRange = 0
 
     for driver in driversList:
@@ -38,14 +49,19 @@ def populateRangesDict(driversList, teamsList):
             }
         }
 
-        for team in teamsList:
-            # TODO: Check if driver is the only driver in teams driver list.
-            if driver.name in team.drivers:
-                startingRange += calculateRange(driver, team)
-                dictToAdd[driver.name]['endingRange'] = startingRange
-                rateRangesDict.update(dictToAdd)
-                startingRange += 1
-                break
+        startingRange += calculateRange(driver, 50)
+        dictToAdd[driver.name]['endingRange'] = startingRange
+        rateRangesDict.update(dictToAdd)
+        startingRange += 1
+
+        # for team in teamsList:
+        #     # TODO: Check if driver is the only driver in teams driver list.
+        #     if driver.name in team.drivers:
+        #         startingRange += calculateRange(driver, team)
+        #         dictToAdd[driver.name]['endingRange'] = startingRange
+        #         rateRangesDict.update(dictToAdd)
+        #         startingRange += 1
+        #         break
 
     global endingRange
     endingRange = startingRange
@@ -100,5 +116,5 @@ def race():
 
 
 def writeStandingsDictToFile():
-    with open('standings.json', 'w') as standingsJSON:
+    with open('data/json/standings.json', 'w') as standingsJSON:
         json.dump(standingsDict, standingsJSON, indent=4)
