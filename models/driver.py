@@ -17,7 +17,7 @@ class Driver:
     restrictorPlateRating = 0
     roadRating = 0
     overallRating = 0
-    progressionRate = ""
+    potential = ""
 
     momentum = 0
 
@@ -42,7 +42,7 @@ class Driver:
             self.restrictorPlateRating = driver['restrictorPlateRating']
             self.roadRating = driver['roadRating']
             self.overallRating = driver['overallRating']
-            self.progressionRate = driver['progressionRate']
+            self.potential = driver['potential']
         else:
             self.name = driver[0]
             self.age = driver[1]
@@ -56,7 +56,7 @@ class Driver:
             self.restrictorPlateRating = driver[9]
             self.roadRating = driver[10]
             self.overallRating = driver[11]
-            self.progressionRate = driver[12]
+            self.potential = driver[12]
 
     # TODO replace str() with string.format()
     def printInfo(self):
@@ -71,7 +71,7 @@ class Driver:
               "\nSuperspeedway Track Rating:", str(self.superSpeedwayRating),
               "\nRoad Course Rating:", str(self.roadRating),
               "\nOverall Rating:", str(self.overallRating),
-              "\nProgression Rate:", self.progressionRate, "\n")
+              "\nPotential:", self.potential, "\n")
 
     def toJSON(self):
         return json.dumps(self, default=lambda o: o.__dict__, indent=4)

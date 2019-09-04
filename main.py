@@ -3,6 +3,7 @@ import fileutilities as futil
 import race
 import json
 import importlib
+import progression
 
 # Global Variables for Interactive Python
 driversList = []

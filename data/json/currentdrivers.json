@@ -12,7 +12,7 @@
         "restrictorPlateRating": "68",
         "roadRating": "40",
         "overallRating": "46.1",
-        "progressionRate": "0p;34;3r"
+        "potential": "0p;34;3r"
     },
     {
         "name": "Michael Waltrip",
@@ -27,7 +27,7 @@
         "restrictorPlateRating": "105",
         "roadRating": "79",
         "overallRating": "84.3",
-        "progressionRate": "0p;39;2r"
+        "potential": "0p;39;2r"
     },
     {
         "name": "Greg Biffle",
@@ -42,7 +42,7 @@
         "restrictorPlateRating": "72",
         "roadRating": "34",
         "overallRating": "76.3",
-        "progressionRate": "4p;35-42;3r"
+        "potential": "4p;35-42;3r"
     },
     {
         "name": "Scott Wimmer",
@@ -57,7 +57,7 @@
         "restrictorPlateRating": "60",
         "roadRating": "54",
         "overallRating": "61.6",
-        "progressionRate": "1p;31-32;1r"
+        "potential": "1p;31-32;1r"
     },
     {
         "name": "Jeff Green",
@@ -72,7 +72,7 @@
         "restrictorPlateRating": "76",
         "roadRating": "80",
         "overallRating": "69.6",
-        "progressionRate": "0p;39;2r"
+        "potential": "0p;39;2r"
     },
     {
         "name": "Mike Wallace",
@@ -87,7 +87,7 @@
         "restrictorPlateRating": "88",
         "roadRating": "19",
         "overallRating": "53.7",
-        "progressionRate": "0p;48;3r"
+        "potential": "0p;48;3r"
     },
     {
         "name": "Ken Schrader",
@@ -102,7 +102,7 @@
         "restrictorPlateRating": "80",
         "roadRating": "59",
         "overallRating": "60.8",
-        "progressionRate": "0p;49;1r"
+        "potential": "0p;49;1r"
     },
     {
         "name": "Jimmy Spencer",
@@ -117,7 +117,7 @@
         "restrictorPlateRating": "72",
         "roadRating": "32",
         "overallRating": "63.2",
-        "progressionRate": "0p;45;1r"
+        "potential": "0p;45;1r"
     },
     {
         "name": "Steve Grissom",
@@ -132,7 +132,7 @@
         "restrictorPlateRating": "37",
         "roadRating": "40",
         "overallRating": "32.9",
-        "progressionRate": "0p;38;2r"
+        "potential": "0p;38;2r"
     },
     {
         "name": "Jack Sprague",
@@ -147,7 +147,7 @@
         "restrictorPlateRating": "54",
         "roadRating": "14",
         "overallRating": "52.2",
-        "progressionRate": "0p;37;4r"
+        "potential": "0p;37;4r"
     },
     {
         "name": "Tony Raines",
@@ -162,7 +162,7 @@
         "restrictorPlateRating": "78",
         "roadRating": "15",
         "overallRating": "52.1",
-        "progressionRate": "0p;42;2r"
+        "potential": "0p;42;2r"
     },
     {
         "name": "Mike McLaughlin",
@@ -177,7 +177,7 @@
         "restrictorPlateRating": "28",
         "roadRating": "73",
         "overallRating": "60.1",
-        "progressionRate": "0p;45;2r"
+        "potential": "0p;45;2r"
     },
     {
         "name": "Kerry Earnhardt",
@@ -192,7 +192,7 @@
         "restrictorPlateRating": "55",
         "roadRating": "10",
         "overallRating": "44.9",
-        "progressionRate": "0p;34;2r"
+        "potential": "0p;34;2r"
     },
     {
         "name": "Kenny Wallace",
@@ -207,7 +207,7 @@
         "restrictorPlateRating": "73",
         "roadRating": "41",
         "overallRating": "59.3",
-        "progressionRate": "0p;41;3r"
+        "potential": "0p;41;3r"
     },
     {
         "name": "Jeff Burton",
@@ -222,7 +222,7 @@
         "restrictorPlateRating": "85",
         "roadRating": "55",
         "overallRating": "85.5",
-        "progressionRate": "4p;36-40;2r"
+        "potential": "4p;36-40;2r"
     },
     {
         "name": "Bryan Reffner",
@@ -237,7 +237,7 @@
         "restrictorPlateRating": "15",
         "roadRating": "5",
         "overallRating": "20.9",
-        "progressionRate": "0p;38;3r"
+        "potential": "0p;38;3r"
     },
     {
         "name": "Scott Riggs",
@@ -252,7 +252,7 @@
         "restrictorPlateRating": "91",
         "roadRating": "46",
         "overallRating": "62",
-        "progressionRate": "2p;35;2r"
+        "potential": "2p;35;2r"
     },
     {
         "name": "Larry Foyt",
@@ -267,7 +267,7 @@
         "restrictorPlateRating": "63",
         "roadRating": "5",
         "overallRating": "26.7",
-        "progressionRate": "0p;32;1r"
+        "potential": "0p;32;1r"
     },
     {
         "name": "Chad Chaffin",
@@ -282,7 +282,7 @@
         "restrictorPlateRating": "33",
         "roadRating": "5",
         "overallRating": "23.6",
-        "progressionRate": "3p;34-35;2r"
+        "potential": "3p;34-35;2r"
     },
     {
         "name": "Tim Sauter",
@@ -297,7 +297,7 @@
         "restrictorPlateRating": "61",
         "roadRating": "10",
         "overallRating": "49.8",
-        "progressionRate": "0p;37;2r"
+        "potential": "0p;37;2r"
     },
     {
         "name": "Johnny Sauter",
@@ -312,7 +312,7 @@
         "restrictorPlateRating": "56",
         "roadRating": "46",
         "overallRating": "53.6",
-        "progressionRate": "1p; 31-39;0r"
+        "potential": "1p; 31-39;0r"
     },
     {
         "name": "Bobby Hamilton, Jr.",
@@ -327,7 +327,7 @@
         "restrictorPlateRating": "40",
         "roadRating": "5",
         "overallRating": "54",
-        "progressionRate": "2p;25-29;2r"
+        "potential": "2p;25-29;2r"
     },
     {
         "name": "Lyndon Amick",
@@ -342,7 +342,7 @@
         "restrictorPlateRating": "24",
         "roadRating": "30",
         "overallRating": "28.4",
-        "progressionRate": "0p;25;0r"
+        "potential": "0p;25;0r"
     },
     {
         "name": "Jamie McMurray",
@@ -357,7 +357,7 @@
         "restrictorPlateRating": "86",
         "roadRating": "62",
         "overallRating": "70.4",
-        "progressionRate": "1p;27-40;2r"
+        "potential": "1p;27-40;2r"
     },
     {
         "name": "Dan Pardus",
@@ -372,7 +372,7 @@
         "restrictorPlateRating": "10",
         "roadRating": "5",
         "overallRating": "13.1",
-        "progressionRate": "0p;38;2r"
+        "potential": "0p;38;2r"
     },
     {
         "name": "Hank Parker, Jr.",
@@ -387,7 +387,7 @@
         "restrictorPlateRating": "21",
         "roadRating": "15",
         "overallRating": "39.9",
-        "progressionRate": "2p;28;3r"
+        "potential": "2p;28;3r"
     },
     {
         "name": "Christian Elder",
@@ -402,7 +402,7 @@
         "restrictorPlateRating": "6",
         "roadRating": "7",
         "overallRating": "15.2",
-        "progressionRate": "0p;33;3r"
+        "potential": "0p;33;3r"
     },
     {
         "name": "Brian Vickers",
@@ -417,7 +417,7 @@
         "restrictorPlateRating": "64",
         "roadRating": "25",
         "overallRating": "43.3",
-        "progressionRate": "3p;20-28;3r"
+        "potential": "3p;20-28;3r"
     },
     {
         "name": "Mike Harmon",
@@ -432,7 +432,7 @@
         "restrictorPlateRating": "24",
         "roadRating": "5",
         "overallRating": "9.9",
-        "progressionRate": "2p;57;3r"
+        "potential": "2p;57;3r"
     },
     {
         "name": "Ashton Lewis",
@@ -447,7 +447,7 @@
         "restrictorPlateRating": "35",
         "roadRating": "58",
         "overallRating": "47.2",
-        "progressionRate": "3p;31-32;2r"
+        "potential": "3p;31-32;2r"
     },
     {
         "name": "Shane Hmiel",
@@ -462,7 +462,7 @@
         "restrictorPlateRating": "35",
         "roadRating": "5",
         "overallRating": "35.2",
-        "progressionRate": "2p;24;0r"
+        "potential": "2p;24;0r"
     },
     {
         "name": "David Starr",
@@ -477,7 +477,7 @@
         "restrictorPlateRating": "35",
         "roadRating": "15",
         "overallRating": "46.1",
-        "progressionRate": "0p;38;3r"
+        "potential": "0p;38;3r"
     },
     {
         "name": "Ricky Hendrick",
@@ -492,7 +492,7 @@
         "restrictorPlateRating": "25",
         "roadRating": "10",
         "overallRating": "40.1",
-        "progressionRate": "1p;29-31;3r"
+        "potential": "1p;29-31;3r"
     },
     {
         "name": "Kelly Denton",
@@ -507,7 +507,7 @@
         "restrictorPlateRating": "30",
         "roadRating": "5",
         "overallRating": "19.2",
-        "progressionRate": "0p;30;3r"
+        "potential": "0p;30;3r"
     },
     {
         "name": "Richard Mitchell",
@@ -522,7 +522,7 @@
         "restrictorPlateRating": "7",
         "roadRating": "1",
         "overallRating": "5.8",
-        "progressionRate": "0p;35;0r"
+        "potential": "0p;35;0r"
     },
     {
         "name": "Jason Keller",
@@ -537,7 +537,7 @@
         "restrictorPlateRating": "62",
         "roadRating": "26",
         "overallRating": "57.9",
-        "progressionRate": "0p;31;3r"
+        "potential": "0p;31;3r"
     },
     {
         "name": "David Green",
@@ -552,7 +552,7 @@
         "restrictorPlateRating": "61",
         "roadRating": "15",
         "overallRating": "59.2",
-        "progressionRate": "0p;45;3r"
+        "potential": "0p;45;3r"
     },
     {
         "name": "Shane Hall",
@@ -567,7 +567,7 @@
         "restrictorPlateRating": "7",
         "roadRating": "35",
         "overallRating": "26.6",
-        "progressionRate": "0p;32;2r"
+        "potential": "0p;32;2r"
     },
     {
         "name": "Casey Mears",
@@ -582,7 +582,7 @@
         "restrictorPlateRating": "43",
         "roadRating": "59",
         "overallRating": "34.2",
-        "progressionRate": "3p;27-28;3r"
+        "potential": "3p;27-28;3r"
     },
     {
         "name": "Randy LaJoie",
@@ -597,7 +597,7 @@
         "restrictorPlateRating": "55",
         "roadRating": "12",
         "overallRating": "53",
-        "progressionRate": "0p;40;3r"
+        "potential": "0p;40;3r"
     },
     {
         "name": "Rick Markle",
@@ -612,7 +612,7 @@
         "restrictorPlateRating": "38",
         "roadRating": "5",
         "overallRating": "10.2",
-        "progressionRate": "3p;31-32;2r"
+        "potential": "3p;31-32;2r"
     },
     {
         "name": "Jason Schuler",
@@ -627,7 +627,7 @@
         "restrictorPlateRating": "7",
         "roadRating": "5",
         "overallRating": "12.9",
-        "progressionRate": "0p;30;1r"
+        "potential": "0p;30;1r"
     },
     {
         "name": "Andy Kirby",
@@ -642,7 +642,7 @@
         "restrictorPlateRating": "55",
         "roadRating": "8",
         "overallRating": "14.4",
-        "progressionRate": "0p;40;1r"
+        "potential": "0p;40;1r"
     },
     {
         "name": "Tim Fedewa",
@@ -657,7 +657,7 @@
         "restrictorPlateRating": "53",
         "roadRating": "5",
         "overallRating": "41.4",
-        "progressionRate": "0p;36;1r"
+        "potential": "0p;36;1r"
     },
     {
         "name": "Stanton Barrett",
@@ -672,7 +672,7 @@
         "restrictorPlateRating": "9",
         "roadRating": "48",
         "overallRating": "30.3",
-        "progressionRate": "3p;30-35;3r"
+        "potential": "3p;30-35;3r"
     },
     {
         "name": "Steadman Marlin",
@@ -687,7 +687,7 @@
         "restrictorPlateRating": "18",
         "roadRating": "5",
         "overallRating": "28.9",
-        "progressionRate": "1p;26-32;1r"
+        "potential": "1p;26-32;1r"
     },
     {
         "name": "Kasey Kahne",
@@ -702,6 +702,6 @@
         "restrictorPlateRating": "19",
         "roadRating": "31",
         "overallRating": "41.8",
-        "progressionRate": "5p;25-32;4r"
+        "potential": "5p;25-32;4r"
     }
 ]

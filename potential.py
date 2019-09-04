@@ -1,28 +1,28 @@
 import json
 
 # Global Pseudo-Private Variable Declaration
-__potentialDict = {}
+__progressionDict = {}
 __regressionDict = {}
 
 
-def readPotential():
+def __loadPotentialDicts():
     with open('data/json/potential.json', 'r') as potentialJSON:
-        __potentialDict.update(json.load(potentialJSON))
+        __progressionDict.update(json.load(potentialJSON))
 
     with open('data/json/regression.json', 'r') as regressionJSON:
         __regressionDict.update(json.load(regressionJSON))
 
 
-def getProgressionRates():
-    progressionRates = []
+def getPotentialRates():
+    potentialRates = []
 
     # for driver in driversList:
-    #     progressionRates.append(driver.progressionRate)
+    #     potentials.append(driver.potential)
 
-    return progressionRates
+    return potentials
 
 
-def defineProgressionRate(driver):
-    potential = ''
+def definePotential(driver):
+    progression = ''
     ageRange = ''
     regression = ''
