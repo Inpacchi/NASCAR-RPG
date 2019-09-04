@@ -4,32 +4,28 @@ import race
 import json
 import importlib
 
+# Global Variables for Interactive Python
 driversList = []
 teamsList = []
 
 
-def run():
-    with open('data/json/teams.json', 'r') as teamsJSON:
-        tempTeamsDict = json.load(teamsJSON)
+def main():
+    global driversList
+    driversList = futil.readFromDriversJSON()
 
-        for tempTeam in tempTeamsDict:
-            teamsList.append(team.Team(tempTeam))
-
-    # race.processStage(driversList, teamsList)
-    # futil.writeDriversListToJSON(driversList)
-    # futil.convertFromCSV()
+    global teamsList
+    teamsList = futil.readFromTeamsJSON()
 
 
 def printInfo():
+    print("--- DRIVERS ---")
     for driverObject in driversList:
-        print("--- DRIVERS ---")
-        driverObject.toString()
-        print()
+        driverObject.printInfo()
 
-    for teamObject in teamsList:
-        print("--- TEAMS ---")
-        teamObject.toString()
-        print()
+    # print("\n\n--- TEAMS ---")
+    # for teamObject in teamsList:
+    #     teamObject.printInfo()
+    #     print()
 
 
 # Overview: Ask user for parameters of driver and input to

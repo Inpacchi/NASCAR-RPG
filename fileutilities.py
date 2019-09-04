@@ -5,6 +5,48 @@ import os
 import progressbar
 
 
+def readFromDriversJSON():
+    with open('data/json/drivers.json', 'r') as driversJSON:
+        tempDriversDict = json.load(driversJSON)
+
+    driversList = []
+
+    print("Reading drivers from database...")
+
+    bar = createProgressBar().start()
+    i = 0
+
+    for driverObject in tempDriversDict:
+        driversList.append(driver.Driver(driverObject))
+        bar.update(i + 1)
+
+    bar.finish()
+    print()
+
+    return driversList
+
+
+def readFromTeamsJSON():
+    with open('data/json/teams.json', 'r') as teamsJSON:
+        tempTeamsDict = json.load(teamsJSON)
+
+    teamsList = []
+
+    print("Reading teams from database...")
+
+    bar = createProgressBar().start()
+    i = 0
+
+    for teamObject in tempTeamsDict:
+        teamsList.append(team.Team(teamObject))
+        bar.update(i + 1)
+
+    bar.finish()
+    print()
+
+    return teamsList
+
+
 # TODO: Add interactive file input functionality
 
 def writeDriversListToJSON(driversList):
@@ -42,7 +84,7 @@ def writeDriversListToJSON(driversList):
     # Serialize each driver object as JSON and append it to the JSON list
     for driverObject in driversList:
         driversListJSON.append(json.loads(driverObject.toJSON()))
-        bar.update(i+1)
+        bar.update(i + 1)
 
     bar.finish()
     print()
@@ -78,7 +120,7 @@ def writeTeamsListToJSON(teamsList):
 
         for tempTeam in tempTeamsList:
             teamsList.append(team.Team(tempTeam))
-            bar.update(i+1)
+            bar.update(i + 1)
 
         bar.finish()
         print()
@@ -92,7 +134,7 @@ def writeTeamsListToJSON(teamsList):
 
     for teamObject in teamsList:
         teamsListJSON.append(json.loads(teamObject.toJSON()))
-        bar.update(i+1)
+        bar.update(i + 1)
 
     bar.finish()
     print()
@@ -159,7 +201,7 @@ def convertDriverCSVtoJSON():
 
             for row in reader:
                 driversList.append(driver.Driver(row))
-                bar.update(i+1)
+                bar.update(i + 1)
 
             bar.finish()
             print()
@@ -175,4 +217,5 @@ def headerDiff(properHeader, csvHeader):
 
 
 def createProgressBar():
-    return progressbar.ProgressBar(max_value=20, widgets=[progressbar.Bar('=', '[', ']'), ' ', progressbar.Percentage()])
+    return progressbar.ProgressBar(max_value=20,
+                                   widgets=[progressbar.Bar('=', '[', ']'), ' ', progressbar.Percentage()])
