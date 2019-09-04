@@ -1,20 +1,1146 @@
 [
-	{
-		"Name": "Conely Racing",
-		"Owner": "",
-		"Overall": 17,
-		"Manufacturer": "Chevrolet",
-		"Drivers": [
-			"Bryan Reffner"
-		]
-	},
-	{
-		"Name": "Ken Schrader Racing",
-		"Owner": "Ken Schrader",
-		"Overall": 29,
-		"Manufacturer": "Chevrolet",
-		"Drivers": [
-			"Ken Schrader"
-		]
-	}
+    {
+        "name": "Joe Gibbs Racing",
+        "owner": "",
+        "carManufacturer": "Pontiac",
+        "equipmentRating": "101",
+        "teamRating": "100",
+        "raceRating": "101"
+    },
+    {
+        "name": "Roush Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "96",
+        "teamRating": "101",
+        "raceRating": "99"
+    },
+    {
+        "name": "Hendrick Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "98",
+        "teamRating": "95",
+        "raceRating": "97"
+    },
+    {
+        "name": "Penske Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "92",
+        "teamRating": "93",
+        "raceRating": "93"
+    },
+    {
+        "name": "Chip Ganassi Racing",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "94",
+        "teamRating": "91",
+        "raceRating": "93"
+    },
+    {
+        "name": "Robert Yates Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "90",
+        "teamRating": "87",
+        "raceRating": "89"
+    },
+    {
+        "name": "Dale Earnhardt Inc.",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "89",
+        "teamRating": "91",
+        "raceRating": "90"
+    },
+    {
+        "name": "Evernham Motorsports",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "86",
+        "teamRating": "85",
+        "raceRating": "86"
+    },
+    {
+        "name": "Richard Childress Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "87",
+        "teamRating": "87",
+        "raceRating": "87"
+    },
+    {
+        "name": "Bill Davis Racing",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "76",
+        "teamRating": "76",
+        "raceRating": "76"
+    },
+    {
+        "name": "MB2 Motorsports",
+        "owner": "",
+        "carManufacturer": "Pontiac",
+        "equipmentRating": "71",
+        "teamRating": "70",
+        "raceRating": "71"
+    },
+    {
+        "name": "Jasper Motorsports",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "87",
+        "teamRating": "67",
+        "raceRating": "77"
+    },
+    {
+        "name": "Wood Brothers Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "86",
+        "teamRating": "66",
+        "raceRating": "76"
+    },
+    {
+        "name": "Xpress Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "72",
+        "teamRating": "65",
+        "raceRating": "69"
+    },
+    {
+        "name": "Ultra Motorsports",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "81",
+        "teamRating": "67",
+        "raceRating": "74"
+    },
+    {
+        "name": "PPI Motorsports",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "88",
+        "teamRating": "63",
+        "raceRating": "76"
+    },
+    {
+        "name": "Petty Enterprises",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "66",
+        "teamRating": "61",
+        "raceRating": "64"
+    },
+    {
+        "name": "Reiser Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "80",
+        "teamRating": "61",
+        "raceRating": "70"
+    },
+    {
+        "name": "Haas-Carter Motorsports",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "80",
+        "teamRating": "60",
+        "raceRating": "70"
+    },
+    {
+        "name": "Brewco Motorsports",
+        "owner": "",
+        "carManufacturer": "Pontiac",
+        "equipmentRating": "67",
+        "teamRating": "58",
+        "raceRating": "63"
+    },
+    {
+        "name": "Harvick Motorsports",
+        "owner": "Kevin Harvick",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "58",
+        "teamRating": "58",
+        "raceRating": "58"
+    },
+    {
+        "name": "ppc Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "80",
+        "teamRating": "63",
+        "raceRating": "72"
+    },
+    {
+        "name": "Andy Petree Racing",
+        "owner": "Andy Petree",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "61",
+        "teamRating": "54",
+        "raceRating": "58"
+    },
+    {
+        "name": "Bobby Hamilton Racing",
+        "owner": "Bobby Hamilton ",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "62",
+        "teamRating": "59",
+        "raceRating": "61"
+    },
+    {
+        "name": "Addington Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "52",
+        "teamRating": "48",
+        "raceRating": "50"
+    },
+    {
+        "name": "Evans Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "59",
+        "teamRating": "48",
+        "raceRating": "54"
+    },
+    {
+        "name": "Phoenix Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "50",
+        "teamRating": "47",
+        "raceRating": "49"
+    },
+    {
+        "name": "Morgan-McClure Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "52",
+        "teamRating": "45",
+        "raceRating": "49"
+    },
+    {
+        "name": "Haas CNC Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "93",
+        "teamRating": "45",
+        "raceRating": "69"
+    },
+    {
+        "name": "Herzog Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "52",
+        "teamRating": "46",
+        "raceRating": "49"
+    },
+    {
+        "name": "NEMCO Motorsports",
+        "owner": "Joe Nemecheck",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "48",
+        "teamRating": "48",
+        "raceRating": "48"
+    },
+    {
+        "name": "Akins Motorsports",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "45",
+        "teamRating": "44",
+        "raceRating": "45"
+    },
+    {
+        "name": "FitzBradshaw Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "76",
+        "teamRating": "42",
+        "raceRating": "59"
+    },
+    {
+        "name": "Michael Waltrip Racing",
+        "owner": "Michael Waltrip ",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "76",
+        "teamRating": "42",
+        "raceRating": "59"
+    },
+    {
+        "name": "Biagi Brothers",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "46",
+        "teamRating": "37",
+        "raceRating": "42"
+    },
+    {
+        "name": "SealMaster Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "36",
+        "teamRating": "36",
+        "raceRating": "36"
+    },
+    {
+        "name": "Henderson Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "35",
+        "teamRating": "35",
+        "raceRating": "35"
+    },
+    {
+        "name": "HT Motorsports",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "36",
+        "teamRating": "36",
+        "raceRating": "36"
+    },
+    {
+        "name": "Circle Bar Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "42",
+        "teamRating": "35",
+        "raceRating": "39"
+    },
+    {
+        "name": "ST Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "77",
+        "teamRating": "42",
+        "raceRating": "60"
+    },
+    {
+        "name": "Lewis Motorsports",
+        "owner": "Ashton Lewis",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "39",
+        "teamRating": "34",
+        "raceRating": "37"
+    },
+    {
+        "name": "Carroll Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "42",
+        "teamRating": "33",
+        "raceRating": "38"
+    },
+    {
+        "name": "Moy Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "38",
+        "teamRating": "32",
+        "raceRating": "35"
+    },
+    {
+        "name": "A. J. Foyt Racing",
+        "owner": "",
+        "carManufacturer": "Pontiac",
+        "equipmentRating": "43",
+        "teamRating": "32",
+        "raceRating": "38"
+    },
+    {
+        "name": "Innovative Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "45",
+        "teamRating": "32",
+        "raceRating": "39"
+    },
+    {
+        "name": "AP Performance Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "41",
+        "teamRating": "30",
+        "raceRating": "36"
+    },
+    {
+        "name": "BACE Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "51",
+        "teamRating": "30",
+        "raceRating": "41"
+    },
+    {
+        "name": "Team Rensi Motorsports",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "80",
+        "teamRating": "31",
+        "raceRating": "56"
+    },
+    {
+        "name": "BAM Racing",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "41",
+        "teamRating": "29",
+        "raceRating": "35"
+    },
+    {
+        "name": "Day Enterprises",
+        "owner": "",
+        "carManufacturer": "Pontiac",
+        "equipmentRating": "36",
+        "teamRating": "27",
+        "raceRating": "32"
+    },
+    {
+        "name": "Morgan-Dollar Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "48",
+        "teamRating": "29",
+        "raceRating": "39"
+    },
+    {
+        "name": "Team Jesel",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "40",
+        "teamRating": "27",
+        "raceRating": "34"
+    },
+    {
+        "name": "Brett Bodine Racing",
+        "owner": "Brett Bodine",
+        "carManufacturer": "Ford",
+        "equipmentRating": "80",
+        "teamRating": "26",
+        "raceRating": "53"
+    },
+    {
+        "name": "BLV Motorsports",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "42",
+        "teamRating": "25",
+        "raceRating": "34"
+    },
+    {
+        "name": "Orleans Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "50",
+        "teamRating": "24",
+        "raceRating": "37"
+    },
+    {
+        "name": "Ken Schrader Racing",
+        "owner": "Ken Schrader",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "33",
+        "teamRating": "24",
+        "raceRating": "29"
+    },
+    {
+        "name": "Marsh Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "22",
+        "teamRating": "22",
+        "raceRating": "22"
+    },
+    {
+        "name": "Matrix Motorsports",
+        "owner": "Kevin Lepage",
+        "carManufacturer": "Ford",
+        "equipmentRating": "29",
+        "teamRating": "21",
+        "raceRating": "25"
+    },
+    {
+        "name": "Tommy Baldwin Racing",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "66",
+        "teamRating": "21",
+        "raceRating": "44"
+    },
+    {
+        "name": "Billy Ballew Motorsports",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "31",
+        "teamRating": "20",
+        "raceRating": "26"
+    },
+    {
+        "name": "Frank Cicci Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "22",
+        "teamRating": "20",
+        "raceRating": "21"
+    },
+    {
+        "name": "Green Light Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "41",
+        "teamRating": "20",
+        "raceRating": "31"
+    },
+    {
+        "name": "Melling Racing",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "27",
+        "teamRating": "20",
+        "raceRating": "24"
+    },
+    {
+        "name": "MB Motorsports",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "31",
+        "teamRating": "20",
+        "raceRating": "26"
+    },
+    {
+        "name": "Spears Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "42",
+        "teamRating": "19",
+        "raceRating": "31"
+    },
+    {
+        "name": "Stanton Barrett Motorsports",
+        "owner": "Stanton Barrett",
+        "carManufacturer": "Ford",
+        "equipmentRating": "86",
+        "teamRating": "19",
+        "raceRating": "53"
+    },
+    {
+        "name": "Marcis Auto Racing",
+        "owner": "Dave Marics",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "77",
+        "teamRating": "19",
+        "raceRating": "48"
+    },
+    {
+        "name": "Victory Motorsports",
+        "owner": "Morgan Sheppard",
+        "carManufacturer": "Ford",
+        "equipmentRating": "19",
+        "teamRating": "19",
+        "raceRating": "19"
+    },
+    {
+        "name": "MacDonald Motorsports",
+        "owner": "Randy MacDonald",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "23",
+        "teamRating": "18",
+        "raceRating": "21"
+    },
+    {
+        "name": "Donlavey Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "80",
+        "teamRating": "18",
+        "raceRating": "49"
+    },
+    {
+        "name": "Team CLR",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "80",
+        "teamRating": "18",
+        "raceRating": "49"
+    },
+    {
+        "name": "Quest Motor Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "17",
+        "teamRating": "17",
+        "raceRating": "17"
+    },
+    {
+        "name": "GIC Mixon Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "20",
+        "teamRating": "17",
+        "raceRating": "19"
+    },
+    {
+        "name": "JD Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "17",
+        "teamRating": "17",
+        "raceRating": "17"
+    },
+    {
+        "name": "Linro Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "16",
+        "teamRating": "16",
+        "raceRating": "16"
+    },
+    {
+        "name": "Kirk Shelmerdine Racing",
+        "owner": "Kirk Shelmerdine",
+        "carManufacturer": "Ford",
+        "equipmentRating": "19",
+        "teamRating": "16",
+        "raceRating": "18"
+    },
+    {
+        "name": "SCORE Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "30",
+        "teamRating": "16",
+        "raceRating": "23"
+    },
+    {
+        "name": "Baker Curb Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "15",
+        "teamRating": "15",
+        "raceRating": "15"
+    },
+    {
+        "name": "Curb Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "15",
+        "teamRating": "15",
+        "raceRating": "15"
+    },
+    {
+        "name": "Roadrunner Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "15",
+        "teamRating": "15",
+        "raceRating": "15"
+    },
+    {
+        "name": "Means Motorsports",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "20",
+        "teamRating": "15",
+        "raceRating": "18"
+    },
+    {
+        "name": "Sadler Brothers Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "24",
+        "teamRating": "15",
+        "raceRating": "20"
+    },
+    {
+        "name": "McGlynn Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "15",
+        "teamRating": "13",
+        "raceRating": "14"
+    },
+    {
+        "name": "Leik Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "13",
+        "teamRating": "13",
+        "raceRating": "13"
+    },
+    {
+        "name": "K Automotive Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "40",
+        "teamRating": "33",
+        "raceRating": "37"
+    },
+    {
+        "name": "Bailey Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "10",
+        "teamRating": "10",
+        "raceRating": "10"
+    },
+    {
+        "name": "Bobby Gerhart Racing",
+        "owner": "Bobby Gerhart",
+        "carManufacturer": "Pontiac",
+        "equipmentRating": "10",
+        "teamRating": "10",
+        "raceRating": "10"
+    },
+    {
+        "name": "DF2 Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "10",
+        "teamRating": "10",
+        "raceRating": "10"
+    },
+    {
+        "name": "Glidden Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "10",
+        "teamRating": "10",
+        "raceRating": "10"
+    },
+    {
+        "name": "Hover Motorsports",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "10",
+        "teamRating": "10",
+        "raceRating": "10"
+    },
+    {
+        "name": "Lefturn Motorsports",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "20",
+        "teamRating": "10",
+        "raceRating": "15"
+    },
+    {
+        "name": "Derrike Cope Racing",
+        "owner": "Derrike Cope",
+        "carManufacturer": "Ford",
+        "equipmentRating": "10",
+        "teamRating": "10",
+        "raceRating": "10"
+    },
+    {
+        "name": "Mansion Motorsports",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "12",
+        "teamRating": "9",
+        "raceRating": "11"
+    },
+    {
+        "name": "Team Racing",
+        "owner": "",
+        "carManufacturer": "Pontiac",
+        "equipmentRating": "10",
+        "teamRating": "9",
+        "raceRating": "10"
+    },
+    {
+        "name": "Lowell Bennett Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "8",
+        "teamRating": "8",
+        "raceRating": "8"
+    },
+    {
+        "name": "Team Bristol Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "21",
+        "teamRating": "8",
+        "raceRating": "15"
+    },
+    {
+        "name": "Ware Racing Enterprises",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "24",
+        "teamRating": "17",
+        "raceRating": "21"
+    },
+    {
+        "name": "Truex Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "23",
+        "teamRating": "8",
+        "raceRating": "16"
+    },
+    {
+        "name": "RDS Motorsports",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "18",
+        "teamRating": "7",
+        "raceRating": "13"
+    },
+    {
+        "name": "Havill-Spoerl Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "7",
+        "teamRating": "6",
+        "raceRating": "7"
+    },
+    {
+        "name": "Jarvis Racin",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "6",
+        "teamRating": "6",
+        "raceRating": "6"
+    },
+    {
+        "name": "Robinson-Blakeney Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "25",
+        "teamRating": "6",
+        "raceRating": "16"
+    },
+    {
+        "name": "Santerre Racing",
+        "owner": "Andy Santerre",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "17",
+        "teamRating": "6",
+        "raceRating": "12"
+    },
+    {
+        "name": "Benning Racing ",
+        "owner": "Norm Benning",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "5",
+        "teamRating": "5",
+        "raceRating": "5"
+    },
+    {
+        "name": "Big Fan Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "5",
+        "teamRating": "5",
+        "raceRating": "5"
+    },
+    {
+        "name": "Bost Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "12",
+        "teamRating": "5",
+        "raceRating": "9"
+    },
+    {
+        "name": "Brian Weber & Associates Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "11",
+        "teamRating": "5",
+        "raceRating": "8"
+    },
+    {
+        "name": "CDS Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "5",
+        "teamRating": "5",
+        "raceRating": "5"
+    },
+    {
+        "name": "Conely Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "5",
+        "teamRating": "5",
+        "raceRating": "5"
+    },
+    {
+        "name": "Craig Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "5",
+        "teamRating": "5",
+        "raceRating": "5"
+    },
+    {
+        "name": "Danford Motorsports",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "5",
+        "teamRating": "5",
+        "raceRating": "5"
+    },
+    {
+        "name": "EVI Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "8",
+        "teamRating": "5",
+        "raceRating": "7"
+    },
+    {
+        "name": "Fauerbach Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "5",
+        "teamRating": "5",
+        "raceRating": "5"
+    },
+    {
+        "name": "Hensley Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "34",
+        "teamRating": "13",
+        "raceRating": "24"
+    },
+    {
+        "name": "Hispanic Racing Team",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "77",
+        "teamRating": "5",
+        "raceRating": "41"
+    },
+    {
+        "name": "Hoff Racing",
+        "owner": "",
+        "carManufacturer": "Pontiac",
+        "equipmentRating": "5",
+        "teamRating": "5",
+        "raceRating": "5"
+    },
+    {
+        "name": "Horn Auto Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "10",
+        "teamRating": "5",
+        "raceRating": "8"
+    },
+    {
+        "name": "Jim & Judie Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "5",
+        "teamRating": "5",
+        "raceRating": "5"
+    },
+    {
+        "name": "Joe Bessey Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "5",
+        "teamRating": "5",
+        "raceRating": "5"
+    },
+    {
+        "name": "L & R Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "24",
+        "teamRating": "5",
+        "raceRating": "15"
+    },
+    {
+        "name": "Mac Hill Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "5",
+        "teamRating": "5",
+        "raceRating": "5"
+    },
+    {
+        "name": "Midgley Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "5",
+        "teamRating": "5",
+        "raceRating": "5"
+    },
+    {
+        "name": "Portenga Motorsports",
+        "owner": "Steve Portenga",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "11",
+        "teamRating": "5",
+        "raceRating": "8"
+    },
+    {
+        "name": "Price Motorsports",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "5",
+        "teamRating": "5",
+        "raceRating": "5"
+    },
+    {
+        "name": "",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "5",
+        "teamRating": "5",
+        "raceRating": "5"
+    },
+    {
+        "name": "SKI Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "8",
+        "teamRating": "5",
+        "raceRating": "7"
+    },
+    {
+        "name": "Tri-State Motorsports",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "5",
+        "teamRating": "5",
+        "raceRating": "5"
+    },
+    {
+        "name": "Tuttle Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "9",
+        "teamRating": "5",
+        "raceRating": "7"
+    },
+    {
+        "name": "Powers Motorsports",
+        "owner": "Tom Powers",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "15",
+        "teamRating": "4",
+        "raceRating": "10"
+    },
+    {
+        "name": "Sonntag Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "7",
+        "teamRating": "4",
+        "raceRating": "6"
+    },
+    {
+        "name": "Troxell Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "13",
+        "teamRating": "4",
+        "raceRating": "9"
+    },
+    {
+        "name": "Wellrich Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "4",
+        "teamRating": "4",
+        "raceRating": "4"
+    },
+    {
+        "name": "Long Brothers Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "3",
+        "teamRating": "3",
+        "raceRating": "3"
+    },
+    {
+        "name": "Premier Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "3",
+        "teamRating": "3",
+        "raceRating": "3"
+    },
+    {
+        "name": "R & J Racing",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": "10",
+        "teamRating": "3",
+        "raceRating": "7"
+    },
+    {
+        "name": "Richardson Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "10",
+        "teamRating": "3",
+        "raceRating": "7"
+    },
+    {
+        "name": "Smith Brothers Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "14",
+        "teamRating": "3",
+        "raceRating": "9"
+    },
+    {
+        "name": "Miller Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "2",
+        "teamRating": "2",
+        "raceRating": "2"
+    },
+    {
+        "name": "Otto Motorsports",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": "80",
+        "teamRating": "2",
+        "raceRating": "41"
+    },
+    {
+        "name": "Sockwell Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "17",
+        "teamRating": "12",
+        "raceRating": "15"
+    },
+    {
+        "name": "Team EJP",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "10",
+        "teamRating": "10",
+        "raceRating": "10"
+    },
+    {
+        "name": "Young Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "10",
+        "teamRating": "2",
+        "raceRating": "6"
+    },
+    {
+        "name": "ORTEC Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": "3",
+        "teamRating": "3",
+        "raceRating": "3"
+    }
 ]
