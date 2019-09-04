@@ -94,6 +94,27 @@ def __readFromJSONFile(modelType: str, modelList: list) -> Union[None, List[Driv
         return "Incorrect model type!"
 
 
+def __CSVFile(modelType):
+    if modelType.lower() == 'driver':
+        CSVPath = 'data/csv/drivers.csv'
+    elif modelType.lower() == 'team':
+        CSVPath = 'data/csv/teams.csv'
+    else:
+        return 'Incorrect model type!'
+
+    try:
+        # Must define encoding='utf-8-sig' to function seamlessly with Excel sheets and exports.
+        CSVFile = open(CSVPath, 'r', encoding='utf-8-sig')
+
+        if os.stat(CSVPath).st_size == 0:
+            os.remove(CSVPath)
+            raise IOError
+    except IOError:
+        return "No CSV file found!"
+
+    return CSVFile
+
+
 def readModelsFromJSON(modelType: str) -> Union[str, None, List[Driver], List[Team]]:
     """
     Returns a list of models.
@@ -138,19 +159,22 @@ def writeModelsToJSON(modelType: str, modelList: list) -> Union[None, str]:
 
     JSONFile = __JSONFile(modelType)
 
-    tempModelList = __readFromJSONFile(modelType, json.load(JSONFile))
-
-    print("Appending models...")
-
     bar = createProgressBar().start()
-    i = 0
 
-    for tempModel in tempModelList:
-        modelList.append(tempModel)
-        bar.update(i + 1)
+    # If the first line is empty, assume the file is empty (it is not in the right format)
+    if JSONFile.readline() != '':
+        tempModelList = __readFromJSONFile(modelType, json.load(JSONFile))
 
-    bar.finish()
-    print()
+        i = 0
+
+        print("Appending models...")
+
+        for tempModel in tempModelList:
+            modelList.append(tempModel)
+            bar.update(i + 1)
+
+        bar.finish()
+        print()
 
     modelListJSON = []
 
@@ -179,25 +203,27 @@ def writeModelsToJSON(modelType: str, modelList: list) -> Union[None, str]:
 
 
 # TODO: Docstring documentation once method is near completion
-def convertDriverCSVtoJSON():
-    # Define the standard header column names that should be present in the CSV file
-    properHeader = ['Name', 'Age', 'Team Name', 'Contract Status', 'Car Number', 'Short Rating',
-                    'Short Intermediate Rating',
-                    'Intermediate Rating', 'Superspeedway Rating', 'Restrictor Plate Rating', 'Road Rating',
-                    'Overall Rating', 'Potential Retain']
 
-    # Temporary variable to store the actual headers from the CSV file to compare to the proper header
+
+def convertCSV(modelType):
+    if modelType.lower() == 'driver':
+        properHeader = ['Name', 'Age', 'Team Name', 'Contract Status', 'Car Number', 'Short Rating',
+                        'Short Intermediate Rating',
+                        'Intermediate Rating', 'Superspeedway Rating', 'Restrictor Plate Rating', 'Road Rating',
+                        'Overall Rating', 'Potential Retain']
+    elif modelType.lower() == 'team':
+        properHeader = ['Name', 'Owner', 'Car Manufacturer', 'Equipment Rating', 'Team Rating', 'Race Rating']
+    else:
+        return 'Incorrect model type!'
+
     csvHeader = []
 
-    # Must define encoding='utf-8-sig' to function seamlessly with Excel sheets and exports.
-    with open('data/csv/drivers.csv', mode='r', encoding='utf-8-sig') as driversCSV:
-        reader = csv.reader(driversCSV)
+    reader = csv.reader(__CSVFile(modelType))
 
-        # Advance and store the previous line (what will now be the headers)
-        header = next(reader)
+    header = next(reader)
 
-        for column in header:
-            csvHeader.append(column)
+    for column in header:
+        csvHeader.append(column)
 
     # TODO: Refine error checking and display messages when the headers don't match up.
     headerDiffList = headerDiff(properHeader, csvHeader)
@@ -213,29 +239,31 @@ def convertDriverCSVtoJSON():
         # print("Got:", headerDiffList[itemCount + 1])
         # itemCount += 1
     else:
-        print("The header in both files match! Importing drivers now...")
+        print("The header in both files match! Importing models now...")
 
-        with open('data/csv/drivers.csv', mode='r', encoding='utf-8-sig') as driversCSV:
-            reader = csv.reader(driversCSV)
+        reader = csv.reader(__CSVFile(modelType))
 
-            driversList = []
+        modelList = []
 
-            # Advance the reader past the headers
-            next(reader)
+        next(reader)
 
-            # Initialize progress bar and parameters for displaying
-            bar = createProgressBar()
-            bar.start()
-            i = 0
+        bar = createProgressBar()
+        bar.start()
+        i = 0
 
+        if modelType.lower() == 'driver':
             for row in reader:
-                driversList.append(Driver(row))
+                modelList.append(Driver(row))
+                bar.update(i + 1)
+        elif modelType.lower() == 'team':
+            for row in reader:
+                modelList.append(Team(row))
                 bar.update(i + 1)
 
-            bar.finish()
-            print()
+        bar.finish()
+        print()
 
-        writeModelsToJSON('driver', driversList)
+        writeModelsToJSON(modelType, modelList)
 
         # TODO: Move file to archive and rename it according to what's already in the folder
         # os.rename('data/csv/drivers.csv', 'data/csv/archive/drivers.csv')
