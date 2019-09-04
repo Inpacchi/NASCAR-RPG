@@ -32,6 +32,7 @@ class Team:
               "\nOverall:", str(self.overall),
               "\nDrivers:", "".join(self.drivers))
 
-    def writeToJSON(self):
+    # TODO: Finish correct implementation of toJSON()
+    def toJSON(self):
         with open('teams.json', 'w') as teamsJSON:
             json.dump(self, teamsJSON, indent=4)
