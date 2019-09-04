@@ -10,11 +10,12 @@ teamsList = []
 
 
 def main():
-    global driversList
-    driversList = futil.readFromDriversJSON()
-
-    global teamsList
-    teamsList = futil.readFromTeamsJSON()
+    # global driversList
+    # driversList = futil.readModelsFromJSON('driver')
+    #
+    # global teamsList
+    # teamsList = futil.readModelsFromJSON('team')
+    # futil.convertDriverCSVtoJSON()
 
 
 def printInfo():
