@@ -8,8 +8,7 @@ __regressionDict = {}
 __driverPotentialDict = {}
 
 
-def processStage(standingsDict):
-    driversDict = futil.readDictFromJSON('currentdrivers')
+def processStage(standingsDict, driversDict):
     __getPotentialDicts()
     __getDriverPotentialDict(driversDict)
     __calculateDriverPotential(driversDict, standingsDict)
@@ -37,19 +36,25 @@ def __getDriverPotentialDict(driversDict):
 
 # TODO: Update proper progression/regression training
 def __calculateDriverPotential(driversDict, standingsDict):
-    for driver in __driverPotentialDict:
-        string = __driverPotentialDict[driver]['potential'].split(';')
-        progression = string[0]
+    for driverName in __driverPotentialDict:
+        driver = driversDict[driverName]
+
+        string = __driverPotentialDict[driverName]['potential'].split(';')
         ageRange = string[1]
-        regression = string[2]
 
-        standingPlacement = determineStandingPlacement(standingsDict[driver]['finishingPosition'])
+        standingPlacement = determineStandingPlacement(standingsDict[driverName]['finishingPosition'])
+        rate = 0
 
-        rate = __progressionDict[progression][standingPlacement]
+        if driver.age < ageRange[0]:
+            rate = __progressionDict[string[0]][standingPlacement]
+        elif driver.age in ageRange:
+            rate = __progressionDict['0p'][standingPlacement]
+        elif driver.age > ageRange or driver.age > ageRange[1]:
+            rate = __regressionDict[string[2]][standingPlacement]
 
-        overallRating = float(driversDict[driver].overallRating)
+        overallRating = float(driversDict[driverName].overallRating)
         overallRating += rate
-        driversDict[driver].overallRating = str(overallRating)
+        driversDict[driverName].overallRating = str(overallRating)
 
     futil.writeDictToJSON('currentdrivers', driversDict)
 

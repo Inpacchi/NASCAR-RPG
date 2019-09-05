@@ -26,6 +26,7 @@ class Driver:
     # salary = 0
     # carManufacturer = ""
 
+    # TODO: Fix driver class variable types
     # TODO: Constructor for new drivers
     # Use an overload to initialize based on the driver type input
     def __init__(self, driver):

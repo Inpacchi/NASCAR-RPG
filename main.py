@@ -14,7 +14,7 @@ def main():
     # global driversList
     # driversList = futil.readModelsFromJSON('currentdrivers')
     #
-    race.processStage(driversList)
+    race.processStage(futil.readDictFromJSON('currentdrivers'))
 
 
     # global teamsList

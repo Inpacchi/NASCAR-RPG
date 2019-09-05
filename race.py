@@ -1,33 +1,106 @@
 from random import randint
-import json
 import potential
 import fileutilities as futil
 
-# Global Constant Parameters
-DRIVER_FACTOR = 1.25
-TEAM_FACTOR = 1.4
+# Pseudo-Private Global Constants
+__DRIVER_FACTOR = 1.25
+__TEAM_FACTOR = 1.4
 
-# Global Mutable Parameters
-rateRangesDict = {}
-standingsDict = {}
-endingRange = 0
-
-
-# def processStage(driversList, teamsList):
-def processStage(driversList):
-    # populateRangesDict(driversList)
-    # populateStandingsDict(driversList)
-    # qualifying()
-    # race()
-    # writeStandingsDictToFile()
-    processDriverPotential()
+# Pseudo-Private Mutable Parameters
+__rateRangesDict = {}
+__standingsDict = {}
+__endingRange = 0
 
 
-# TODO: Fix driver class variable types
+def processStage(driversDict: dict) -> None:
+    """
+    Main entry method for race.py
 
-def calculateRange(driver, team_overall, startingBonus=0):
-    driverResult = pow(float(driver.overallRating), DRIVER_FACTOR)
-    teamResult = pow(team_overall, TEAM_FACTOR)
+    Package available method that handles all function calls and logic processing for the race package.
+
+    :param driversDict: Dictionary of drivers to be processed through the race stages
+    :type driversDict: dict
+    :return: None
+    :rtype: None
+    """
+
+    __populateRangesDict(driversDict)
+    __populateStandingsDict(driversDict)
+    __qualifying()
+    __race()
+    futil.writeDictToJSON('standings', __standingsDict)
+    __processDriverPotential(driversDict)
+
+
+def __populateRangesDict(driversDict: dict) -> None:
+    """
+    Populates the rateRangesDict with rate ranges to be used for race stage processing.
+
+    :param driversDict: Dictionary of drivers to be processed through the race stages
+    :type driversDict: dictionary
+    :return: None
+    :rtype: None
+    """
+    startingRange = 0
+
+    for driver in driversDict:
+        dictToAdd = {
+            driver: {
+                "startingRange": startingRange,
+                "endingRange": 0
+            }
+        }
+
+        # TODO: Finish team implementation
+        # TODO: Check if driver is the only driver in teams driver list.
+
+        startingRange += __calculateRange(driversDict[driver], 50)
+        dictToAdd[driver]['endingRange'] = startingRange
+        __rateRangesDict.update(dictToAdd)
+        startingRange += 1
+
+        # for team in teamsList:
+        #     if driver.name in team.drivers:
+        #         startingRange += calculateRange(driver, team)
+        #         dictToAdd[driver.name]['endingRange'] = startingRange
+        #         rateRangesDict.update(dictToAdd)
+        #         startingRange += 1
+        #         break
+
+    global __endingRange
+    __endingRange = startingRange
+
+
+def __populateStandingsDict(driversDict: dict) -> None:
+    """
+    Populates the standingsDict with the standings generated during race stage processing.
+
+    :param driversDict: Dictionary of drivers to be processed through the race stages
+    :type driversDict: dictionary
+    :return: None
+    :rtype: None
+    """
+
+    for driver in driversDict:
+        dictToAdd = {
+            driver: {
+                "qualifyingPosition": 0,
+                "finishingPosition": 0,
+                "lapsLed": 0,
+                "timesQualifyingRangeHit": 0,
+                "timesRaceRangeHit": 0
+            }
+        }
+
+        __standingsDict.update(dictToAdd)
+
+
+def __calculateRange(driver, team_overall, startingBonus=0):
+    # TODO: Implement team functionality
+    # TODO: docstring
+
+    driverResult = pow(float(driver.overallRating), __DRIVER_FACTOR)
+    teamResult = pow(team_overall, __TEAM_FACTOR)
     bonusResult = startingBonus * 50
 
     return round(((driverResult * teamResult) + bonusResult) / 100)
@@ -40,98 +113,65 @@ def calculateRange(driver, team_overall, startingBonus=0):
 #     return round(((driverResult * teamResult) + bonusResult) / 100)
 
 
-# def populateRangesDict(driversList, teamsList):
-def populateRangesDict(driversList):
-    startingRange = 0
+def __qualifying() -> None:
+    """
+    Processes the qualifying stage of the race and writes the results to the standingsDict.
 
-    for driver in driversList:
-        dictToAdd = {
-            driver.name: {
-                "startingRange": startingRange,
-                "endingRange": 0
-            }
-        }
+    :return: None
+    :rtype: None
+    """
 
-        startingRange += calculateRange(driver, 50)
-        dictToAdd[driver.name]['endingRange'] = startingRange
-        rateRangesDict.update(dictToAdd)
-        startingRange += 1
-
-        # for team in teamsList:
-        #     # TODO: Check if driver is the only driver in teams driver list.
-        #     if driver.name in team.drivers:
-        #         startingRange += calculateRange(driver, team)
-        #         dictToAdd[driver.name]['endingRange'] = startingRange
-        #         rateRangesDict.update(dictToAdd)
-        #         startingRange += 1
-        #         break
-
-    global endingRange
-    endingRange = startingRange
-
-
-# Populate with more standings criteria
-def populateStandingsDict(driversList):
-    for driver in driversList:
-        dictToAdd = {
-            driver.name: {
-                "qualifyingPosition": 0,
-                "finishingPosition": 0,
-                "lapsLed": 0,
-                "timesQualifyingRangeHit": 0,
-                "timesRaceRangeHit": 0
-            }
-        }
-
-        standingsDict.update(dictToAdd)
-
-
-def qualifying():
     qualifyingPosition = 1
 
-    while qualifyingPosition != len(standingsDict) + 1:
-        randomNumber = randint(0, endingRange)
+    while qualifyingPosition != len(__standingsDict) + 1:
+        randomNumber = randint(0, __endingRange)
 
-        for rateRange in rateRangesDict:
-            if rateRangesDict[rateRange]['startingRange'] <= randomNumber <= rateRangesDict[rateRange]['endingRange']:
-                if standingsDict[rateRange]['qualifyingPosition'] == 0:
-                    standingsDict[rateRange]['qualifyingPosition'] = qualifyingPosition
-                    standingsDict[rateRange]['timesQualifyingRangeHit'] += 1
+        for rateRange in __rateRangesDict:
+            if __rateRangesDict[rateRange]['startingRange'] <= randomNumber <= __rateRangesDict[rateRange]['endingRange']:
+                if __standingsDict[rateRange]['qualifyingPosition'] == 0:
+                    __standingsDict[rateRange]['qualifyingPosition'] = qualifyingPosition
+                    __standingsDict[rateRange]['timesQualifyingRangeHit'] += 1
                     qualifyingPosition += 1
                 else:
-                    standingsDict[rateRange]['timesQualifyingRangeHit'] += 1
+                    __standingsDict[rateRange]['timesQualifyingRangeHit'] += 1
 
 
-def race():
+def __race() -> None:
+    """
+    Processes the actual race portion and writes the results to the standingsDict.
+
+    :return: None
+    :rtype: None
+    """
+
     finishingPosition = 1
 
-    while finishingPosition != len(standingsDict) + 1:
-        randomNumber = randint(0, endingRange)
+    while finishingPosition != len(__standingsDict) + 1:
+        randomNumber = randint(0, __endingRange)
 
-        for rateRange in rateRangesDict:
-            if rateRangesDict[rateRange]['startingRange'] <= randomNumber <= rateRangesDict[rateRange]['endingRange']:
-                if standingsDict[rateRange]['finishingPosition'] == 0:
-                    standingsDict[rateRange]['finishingPosition'] = finishingPosition
-                    standingsDict[rateRange]['timesRaceRangeHit'] += 1
+        for rateRange in __rateRangesDict:
+            if __rateRangesDict[rateRange]['startingRange'] <= randomNumber <= __rateRangesDict[rateRange]['endingRange']:
+                if __standingsDict[rateRange]['finishingPosition'] == 0:
+                    __standingsDict[rateRange]['finishingPosition'] = finishingPosition
+                    __standingsDict[rateRange]['timesRaceRangeHit'] += 1
                     finishingPosition += 1
                 else:
-                    standingsDict[rateRange]['timesRaceRangeHit'] += 1
+                    __standingsDict[rateRange]['timesRaceRangeHit'] += 1
 
 
-def writeStandingsDictToFile():
-    with open('data/json/standings.json', 'w') as standingsJSON:
-        json.dump(standingsDict, standingsJSON, indent=4)
+def __processDriverPotential(driversDict: dict) -> None:
+    """
+    Processes driver potential after the race stages has run.
 
+    :param driversDict: Dictionary of drivers to be processed through the race stages
+    :type driversDict: dictionary
+    :return: None
+    :rtype: None
+    """
 
-def processDriverPotential():
-    global standingsDict
+    global __standingsDict
 
-    if not standingsDict:
-        standingsDict = futil.readDictFromJSON('standings')
+    if not __standingsDict:
+        __standingsDict = futil.readDictFromJSON('standings')
 
-    potential.processStage(standingsDict)
-
-
-def getStandingsDict():
-    with open('data/json/standings.json', 'r') as standingsJSON:
-        standingsDict.update(json.load(standingsJSON))
+    potential.processStage(__standingsDict, driversDict)

@@ -8,18 +8,20 @@ import json
 import csv
 import os
 
+# TODO: Add interactive file input functionality
 
-def __JSONFile(modelType: str) -> Union[str, list, TextIO]:
+
+def __JSONFile(modelType: str) -> Union[str, TextIO]:
     """
     Returns a JSON file based on model type.
 
     Pseudo-private method that takes in a model type and attempts to open the relevant JSON file. If the file is not
-    found, then the file is created. Once the file has been opened or created, it becomes the return value.
+    found, then it is is created. Once the file has been opened or created, it becomes the return value.
 
     :param modelType: Type of model being loaded
     :type modelType: string
-    :return: Models loaded from JSON file
-    :rtype: list
+    :return: Raw JSON connection string
+    :rtype: TextIO
     """
 
     if modelType.lower() == 'driver':
@@ -44,7 +46,7 @@ def __JSONFile(modelType: str) -> Union[str, list, TextIO]:
     except IOError:
         JSONFile = open(JSONPath, 'w+')
 
-        print(modelType, "json not found; database has been created.")
+        print(modelType, "json not found; database has been created")
 
     return JSONFile
 
@@ -76,6 +78,7 @@ def __readModelListFromJSONFile(modelType: str, JSONFile: list) -> Union[None, L
         driverList = []
 
         for tempDriver in JSONFile:
+            print(tempDriver)
             driverList.append(Driver(tempDriver))
             bar.update(i + 1)
 
@@ -98,7 +101,19 @@ def __readModelListFromJSONFile(modelType: str, JSONFile: list) -> Union[None, L
         return "Incorrect model type!"
 
 
-def __CSVFile(modelType):
+def __CSVFile(modelType: str) -> Union[str, TextIO]:
+    """
+    Returns a CSV file based on model type.
+
+    Pseudo-private method that takes in a model type and attempts to open the relevant CSV file. If the file is not
+    found, then it is created. Once the file has been opened or created, it becomes the return value.
+
+    :param modelType: Type of model being loaded
+    :type modelType: string
+    :return: Raw CSV connection string
+    :rtype: TextIO
+    """
+
     if modelType.lower() == 'driver':
         CSVPath = 'data/csv/drivers.csv'
     elif modelType.lower() == 'team':
@@ -123,7 +138,7 @@ def readModelListFromJSON(modelType: str) -> Union[str, None, List[Driver], List
     """
     DEPRECATED: Returns a list of models.
 
-    Class available method that simplifies the function call.
+    Package available method that simplifies the function call.
 
     :param modelType: Type of model being loaded
     :type modelType: string
@@ -134,13 +149,11 @@ def readModelListFromJSON(modelType: str) -> Union[str, None, List[Driver], List
     return __readModelListFromJSONFile(modelType, json.load(__JSONFile(modelType)))
 
 
-# TODO: Add interactive file input functionality
-
 def writeModelListToJSON(modelType: str, modelList: list) -> Union[None, str]:
     """
     DEPRECATED: Writes the model list to the relevant model type JSON file.
 
-    Class available method that takes in a model type and model list and attempts to write the models to a JSON file.
+    Package available method that takes in a model type and model list and attempts to write the models to a JSON file.
     Due to the nature of the JSON format, JSON files must first be read into memory and stored so that they can be
     properly modified. Once the JSON file is read and the models are properly initialized, the model list is
     serialized to JSON using the relevant class available toJSON() method and appended to the list. After the file is
@@ -202,7 +215,19 @@ def writeModelListToJSON(modelType: str, modelList: list) -> Union[None, str]:
     print("\n", modelType, "json has been updated")
 
 
-def readDictFromJSON(modelType):
+def readDictFromJSON(modelType: str) -> dict:
+    """
+    Returns a dictionary loaded directly from a JSON file.
+
+    Package available method that returns a Python dictionary as defined in the relevant JSON file. The function will
+    return either the dictionary converted into models or a directly loaded JSON dictionary.
+
+    :param modelType: Type of model being loaded
+    :type modelType: string
+    :return: Dictionary of models
+    :rtype: dictionary
+    """
+
     tempDict = json.load(__JSONFile(modelType))
 
     modelDict = {}
@@ -219,26 +244,51 @@ def readDictFromJSON(modelType):
     return modelDict
 
 
-def writeDictToJSON(modelType, modelDict):
+def writeDictToJSON(modelType: str, modelDict: dict) -> None:
+    """
+    Writes the model dictionary to the relevant model type JSON file.
+
+    Package available method that takes in a model type and model dictionary and attempts to write the models to a JSON
+    file.
+
+    :param modelType: Type of model being written to
+    :type modelType: string
+    :param modelDict: Dictionary of models to be written to the JSON file
+    :type modelDict: dict
+    :return: None
+    :rtype: None
+    """
     JSONFile = __JSONFile(modelType)
 
+    # Clear the file
     JSONFile.seek(0)
-
     JSONFile.truncate(0)
 
-    tempDict = {}
+    if modelType.lower() in ['driver', 'team', 'currentdrivers']:
+        tempDict = {}
 
-    for x in modelDict:
-        tempDict[x] = modelDict[x].toDict()
+        for x in modelDict:
+            tempDict[x] = modelDict[x].toDict()
 
-    json.dump(tempDict, JSONFile, indent=4)
+        json.dump(tempDict, JSONFile, indent=4)
+    elif modelType.lower() == 'standings':
+        json.dump(modelDict, JSONFile, indent=4)
 
     JSONFile.close()
 
 
-# TODO: Docstring documentation once method is near completion
+def convertCSVToJSON(modelType: str) -> Union[None, str]:
+    """
+    Converts the relevant CSV file to JSON format.
 
-def convertCSV(modelType):
+    Package available method that converts a CSV file into a JSON file.
+
+    :param modelType: Type of model being loaded
+    :type modelType: string
+    :return: None
+    :rtype: None
+    """
+
     if modelType.lower() == 'driver':
         properHeader = ['Name', 'Age', 'Team Name', 'Contract Status', 'Car Number', 'Short Rating',
                         'Short Intermediate Rating',
@@ -296,7 +346,7 @@ def convertCSV(modelType):
         bar.finish()
         print()
 
-        writeModelsToJSON(modelType, modelList)
+        writeModelListToJSON(modelType, modelList)
 
         # TODO: Move file to archive and rename it according to what's already in the folder
         # os.rename('data/csv/drivers.csv', 'data/csv/archive/drivers.csv')
