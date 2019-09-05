@@ -289,11 +289,11 @@ def convertCSVToJSON(modelType: str) -> None:
     :rtype: None
     """
 
-    if modelType.lower() == 'driver':
+    if modelType.lower() in ['driver', 'currentdrivers']:
         properHeader = ['Name', 'Age', 'Team Name', 'Contract Status', 'Car Number', 'Short Rating',
                         'Short Intermediate Rating',
                         'Intermediate Rating', 'Superspeedway Rating', 'Restrictor Plate Rating', 'Road Rating',
-                        'Overall Rating', 'Potential Retain']
+                        'Overall Rating', 'Potential']
     elif modelType.lower() == 'team':
         properHeader = ['Name', 'Owner', 'Car Manufacturer', 'Equipment Rating', 'Team Rating', 'Race Rating']
     else:
