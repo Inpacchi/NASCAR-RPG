@@ -277,7 +277,7 @@ def writeDictToJSON(modelType: str, modelDict: dict) -> None:
     JSONFile.close()
 
 
-def convertCSVToJSON(modelType: str) -> None:
+def convertCSVToJSON(modelType: str) -> dict:
     """
     Converts the relevant CSV file to JSON format.
 
@@ -285,8 +285,8 @@ def convertCSVToJSON(modelType: str) -> None:
 
     :param modelType: Type of model being loaded
     :type modelType: string
-    :return: None
-    :rtype: None
+    :return: Dictionary of models
+    :rtype: dictionary
     """
 
     if modelType.lower() in ['driver', 'currentdrivers']:
@@ -314,7 +314,7 @@ def convertCSVToJSON(modelType: str) -> None:
     # Get the differences of the two lists; if they are not ordered correctly or have different column names,
     # don't do anything.
     if headerDiffList:
-        print("Seems like the header is messed up. Check the CSV and try again.\n")
+        raise Exception("Seems like the header is messed up. Check the CSV and try again.")
         # itemCount = 0
         # for item in headerDiffList:
         # if itemCount == 0 or itemCount % 2 == 0:
@@ -343,6 +343,8 @@ def convertCSVToJSON(modelType: str) -> None:
         print()
 
         writeDictToJSON(modelType, modelDict)
+
+        return modelDict
         # TODO: Move file to archive and rename it according to what's already in the folder
         # os.rename('data/csv/drivers.csv', 'data/csv/archive/drivers.csv')
 

@@ -1,7 +1,12 @@
 import fileutilities as futil
 
 
-def processTeamImport():
+def importDriversToTeam() -> None:
+    """
+    Populates the team dictionary with drivers.
+    :return: None
+    """
+
     driversDict = futil.readDictFromJSON('driver')
     teamsDict = futil.readDictFromJSON('team')
 

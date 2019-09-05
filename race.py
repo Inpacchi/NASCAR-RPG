@@ -12,7 +12,7 @@ __standingsDict = {}
 __endingRange = 0
 
 
-def processStage(driversDict: dict) -> None:
+def processStage(driversDict: dict, teamsDict: dict) -> None:
     """
     Main entry method for race.py
 
@@ -20,24 +20,28 @@ def processStage(driversDict: dict) -> None:
 
     :param driversDict: Dictionary of drivers to be processed through the race stages
     :type driversDict: dict
+    :param teamsDict: Dictionary of teams to be processed through the race stages
+    :type teamsDict: dict
     :return: None
     :rtype: None
     """
 
     __populateRangesDict(driversDict)
-    __populateStandingsDict(driversDict)
+    __populateStandingsDict(driversDict, teamsDict)
     __qualifying()
     __race()
     futil.writeDictToJSON('standings', __standingsDict)
     __processDriverPotential(driversDict)
 
 
-def __populateRangesDict(driversDict: dict) -> None:
+def __populateRangesDict(driversDict: dict, teamsDict: dict) -> None:
     """
     Populates the rateRangesDict with rate ranges to be used for race stage processing.
 
     :param driversDict: Dictionary of drivers to be processed through the race stages
     :type driversDict: dictionary
+    :param teamsDict: Dictionary of teams to be processed through the race stages
+    :type teamsDict: dict
     :return: None
     :rtype: None
     """
