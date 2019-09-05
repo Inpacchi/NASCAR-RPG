@@ -96,8 +96,16 @@ def __populateStandingsDict(driversDict: dict) -> None:
 
 
 def __calculateRange(driver, team_overall, startingBonus=0):
-    # TODO: Implement team functionality
-    # TODO: docstring
+    """
+    TODO: Implement team functionality
+
+    TODO: Complete docstring
+
+    :param driver:
+    :param team_overall:
+    :param startingBonus:
+    :return:
+    """
 
     driverResult = pow(float(driver.overallRating), __DRIVER_FACTOR)
     teamResult = pow(team_overall, __TEAM_FACTOR)
