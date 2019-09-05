@@ -324,26 +324,25 @@ def convertCSVToJSON(modelType: str) -> None:
     else:
         print("The header in both files match! Importing models now...")
 
-        modelList = []
+        modelDict = {}
 
         bar = createProgressBar()
         bar.start()
         i = 0
 
-        if modelType.lower() == 'driver':
+        if modelType.lower() in ['driver', 'currentdrivers']:
             for row in reader:
-                modelList.append(Driver(row))
+                modelDict[row[0]] = Driver(row)
                 bar.update(i + 1)
         elif modelType.lower() == 'team':
             for row in reader:
-                modelList.append(Team(row))
+                modelDict[row[0]] = Team(row)
                 bar.update(i + 1)
 
         bar.finish()
         print()
 
-        writeModelListToJSON(modelType, modelList)
-
+        writeDictToJSON(modelType, modelDict)
         # TODO: Move file to archive and rename it according to what's already in the folder
         # os.rename('data/csv/drivers.csv', 'data/csv/archive/drivers.csv')
 
