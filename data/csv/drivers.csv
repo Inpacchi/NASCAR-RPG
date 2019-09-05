@@ -27,7 +27,7 @@ Jerry Nadeau,31,Hendrick Motorsports,2004,25,51,49,82,75,66,81,66.5,2r
 Joe Nemechek,38,Haas-Carter Motorsports,2002/Owner,26,44,81,79,69,77,83,71.9,2p(04-05)3r
 Scott Wimmer,26,Bill Davis Racing,2005,27,43,69,70,60,60,54,61.6,1p(07-08)1r
 Ricky Rudd,45,Robert Yates Racing,2002,28,83,81,81,87,76,89,82.2,3r
-Kevin Harvick,26,Richard Childress Racing,2006/Owner,29,82,91,84,83,73,79,83.6,2p(10) 02,04-05,09slump 18yoy
+Kevin Harvick,26,Richard Childress Racing,2006/Owner,29,82,91,84,83,73,79,83.6,2p(10)
 Jeff Green,39,Richard Childress Racing,2003,30,69,61,79,58,76,80,69.6,(02)2r
 Robby Gordon,33,Richard Childress Racing,2004,31,53,83,88,67,77,101,77.1,3p(03)4r
 Ricky Craven,35,PPI Motorsports,2004,32,74,88,63,76,72,52,72.9,(02)2r
@@ -45,10 +45,10 @@ Buckshot Jones,31,Petty Enterprises,2002/2002,44,16,48,37,20,64,10,34.6,1r
 Kyle Petty,41,Petty Enterprises,lifetime,45,76,56,60,68,68,63,64.2,3r
 Brandon Ash,24,Tri-State Motorsports,owner,46,6,20,18,2,1,43,13.3,1p(06)1r
 Jimmie Johnson,26,Hendrick Motorsports,2010,48,89,90,91,99,79,72,89.4,3p(06-13)4r
-Ron Hornaday Jr.,43,BAM Racing,2002/2002,49,75,64,72,34,65,30,61.3,(11)2r Truck Superstar
+Ron Hornaday Jr.,43,BAM Racing,2002/2002,49,75,64,72,34,65,30,61.3,(11)2r
 Shawna Robinson,37,BAM Racing,2002,49,8,13,23,20,51,30,21.3,2r
 Terry Labonte,45,Hendrick Motorsports,2004,5,79,78,68,73,83,79,75.2,(03)2r
-Kevin Grubb,23,Team Bristol Motorsports,2002,54,58,44,35,22,43,23,38.9,1p(03)1r red flag
+Kevin Grubb,23,Team Bristol Motorsports,2002,54,58,44,35,22,43,23,38.9,1p(03)1r
 Bobby Hamilton,44,Andy Petree Racing,2003/Owner,55,76,70,67,40,65,37,62.8,4r
 Stuart Kirby,20,Team CLR,2002,57,9,26,9,7,5,5,11.8,1p
 Derrike Cope,43,Team CLR,2002,57,16,15,26,28,46,25,24.4,5r
@@ -58,7 +58,7 @@ Mark Martin,43,Roush Racing,2005,6,87,100,85,90,83,87,89.4,(09)3r 03slump
 Jack Sprague,37,Haas CNC Racing,2003, hendrick,60,45,51,56,66,54,14,52.2,4r
 Austin Cameron,25,Orleans Racing,2002/2002,62,30,15,5,13,5,48,15.1,1p (04Health retire)
 Brendan Gaughan,26,Orleans Racing,lifetime,62,50,46,55,54,58,48,51.9,2p(03-14)4r slump(05-08,10-13)
-Todd The Onion Bodine,37,Haas-Carter Motorsports,2003/2002,66,64,80,59,78,83,70,70.9,(03)4r Truck supers star
+Todd The Onion Bodine,37,Haas-Carter Motorsports,2003/2002,66,64,80,59,78,83,70,70.9,(03)4r
 Frank Kimmel,39,Haas-Carter Motorsports,2003,66,63,51,52,43,53,30,51,(07)4r
 Hideo Fukuyama,46,Haas-Carter Motorsports,2003,66,6,11,18,9,6,37,12.7,4r
 Boris Said,39,Jasper Motorsports,2002,67,30,23,52,33,73,94,43.4,1p(05-10)4r
@@ -72,7 +72,7 @@ Dwayne Leik,38,Marcis Auto Racing,2002/owner,72,15,18,27,17,13,5,18.6,3r
 Tony Raines,37,BACE Motorsports,2003,73,60,35,55,57,78,15,52.1,(07)2r
 Chad Little,38,BACE Motorsports,2002,74,20,23,37,28,51,5,29.3,1r
 Dave Blaney,39,Jasper Motorsports,2004,77,60,65,73,75,76,39,67.8,3r
-Dale Earnhardt Jr.,27,Dale Earnhardt Inc.,2007/2002,8,93,89,90,75,114,76,89.7,3p(03-06)2r(09)3p(12-15)1r 05slmp
+Dale Earnhardt Jr.,27,Dale Earnhardt Inc.,2007/2002,8,93,89,90,75,114,76,89.7,3p(03-06)2r(09)3p(12-15)1r
 Mike McLaughlin,45,Joe Gibbs Racing,2004,80,55,76,60,61,28,73,60.1,2r
 Kerry Earnhardt,32,FitzBradshaw Racing,2003,83,37,61,44,38,55,10,44.9,(04)2r
 Norm Benning,50,Norm Benning Racing,owner,84,28,24,22,17,8,5,20.1,1p(09-18) Truck Goon
@@ -83,7 +83,7 @@ Morgan Shepherd,60,Victory Motorsports,Owner,89,47,19,38,11,41,29,30.6,4r
 Bill Elliott,46,Evernham Motorsports,2003,9,74,74,90,93,89,81,83.7,(03)1r
 Rick Mast,44,Donlavey Racing,2002,90,14,36,35,20,1,10,24.1,0r Illness
 Robert Pressley,42,Melling Racing,2002/2002,92,36,41,37,65,81,5,45.5,3r
-Kurt Busch,23,Roush Racing,2006,97,85,85,93,91,86,85,88.3,3p(04-09)5r  08slump 15-16ren
+Kurt Busch,23,Roush Racing,2006,97,85,85,93,91,86,85,88.3,3p(04-09)5r
 Kenny Wallace,38,Innovative Motorsports,2002,98,76,69,56,32,73,41,59.3,(05)3r
 Jeff Burton,34,Roush Racing,2005,99,78,95,95,75,85,55,85.5,03)3r(05)4p(06-08)2r
 Bryan Reffner,38,,2002,,26,15,18,38,15,5,20.9,3r
@@ -156,14 +156,14 @@ Bill Hoff,51,,owner,,10,17,10,10,10,17,11.9,1p(03)3r
 Jeff Spraker,42,,2002,,5,5,5,5,36,5,8.4,2r
 Steadman Marlin,21,,2002,,16,16,38,59,18,5,28.9,1p(?)
 Gus Wasson,28,,2002,,5,11,5,5,5,5,6.3,
-Kasey Kahne,21,,2005,Ford/2002,,28,41,51,60,19,31,41.8,5p(06-13)4r (Slumps07,10)
+Kasey Kahne,21,,2005,Ford/2002,,28,41,51,60,19,31,41.8,5p(06-13)4r
 Darrell Waltrip,55,,2006/2002,,55,35,25,23,18,21,30.9,3r
 Dennis Setzer,41,,2006,,62,62,71,56,21,15,56.3,2p(03-05)3r
 Travis Kvapil,25,,2002,,64,47,56,55,70,38,55.7,2p(03-08)4r
 Mike Bliss,36,,2002,,76,52,88,54,75,15,66.8,(09)3r
 Rick Crawford,43,,2010,,58,70,59,51,45,1,55.2,3r
 Lance Norick,33,,2002,,36,35,32,46,33,35,35.9,(02)1r
-Carl Edwards,22,,2002,,19,38,47,44,10,34,35,5p(08-11)5r slumps09,12
+Carl Edwards,22,,2002,,19,38,47,44,10,34,35,5p(08-11)5r
 Terry Cook,33,,2003,,75,61,58,40,34,10,53.2,(06)3r
 Rich Bickle,41,,2002,,52,39,42,38,48,26,42.1,3r
 Steve Portenga,31,,owner,,36,5,33,38,10,10,24.3,1r
@@ -173,7 +173,7 @@ Jason White,23,,2002,,10,15,20,31,18,5,18,2p(10-12)1r
 Stan Boyd,31,,2002,,6,12,22,31,24,5,17.9,1p(03-04)1r
 Bobby Dotter,41,,2003,,49,28,22,29,11,5,26.8,2r
 Jason Leffler,26,,2003,,50,73,67,28,61,23,55.9,1p(09-12)1r
-Jon Wood,20,,2004,,31,22,42,28,14,13,28.7,2p(05-06)2r (04 slump)
+Jon Wood,20,,2004,,31,22,42,28,14,13,28.7,2p(05-06)2r
 Randy MacDonald,39,,owner,,25,23,24,27,32,5,24.3,(03)4r
 Ricky Sanders,35,,2002,,3,16,29,20,22,15,18.7,2p(03)
 Jerry Hill,40,,owner,,14,9,12,20,2,5,11.5,2r
@@ -192,7 +192,7 @@ Chris Horn,28,,owner,,10,9,23,10,5,5,12.6,no idea
 Mike Hamby,55,,2002,,13,5,5,9,5,5,7,no idea
 Carlos Contreras,31,,2002,,5,5,31,8,38,61,19.5,(03)4r
 Gary Bradberry,41,,,,10,8,8,8,8,5,8.2,
-Michael Dokken,30,,2002,,30,27,11,7,4,5,15.9,(03 Major injury
+Michael Dokken,30,,2002,,30,27,11,7,4,5,15.9,(03)
 Randy Tolsma,36,,2002,,35,25,10,6,28,18,19.3,1r
 Brian Rose,22,,2002,,5,9,30,5,39,5,16.6,1p red flag
 Rodney Sawyers,34,,2002,,34,29,6,5,5,5,15.4,
