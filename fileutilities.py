@@ -11,7 +11,7 @@ import os
 # TODO: Add interactive file input functionality
 
 
-def __JSONFile(modelType: str) -> Union[str, TextIO]:
+def __JSONFile(modelType: str) -> TextIO:
     """
     Returns a JSON file based on model type.
 
@@ -33,7 +33,7 @@ def __JSONFile(modelType: str) -> Union[str, TextIO]:
     elif modelType.lower() == 'standings':
         JSONPath = 'data/json/standings.json'
     else:
-        return 'Incorrect model type!'
+        raise Exception('Incorrect model type!')
 
     try:
         JSONFile = open(JSONPath, 'r+')
@@ -51,14 +51,13 @@ def __JSONFile(modelType: str) -> Union[str, TextIO]:
     return JSONFile
 
 
-def __readModelListFromJSONFile(modelType: str, JSONFile: list) -> Union[None, List[Driver], List[Team], str]:
+def __readModelListFromJSONFile(modelType: str, JSONFile: list) -> Union[None, List[Driver], List[Team]]:
     """
     DEPRECATED: Returns a list of models from model list based on model type.
 
     Pseudo-private method that takes in a model type, reads each model from the model list and returns them in a list
     of relevant model objects. If the model list is empty, that means the list and subsequent file was just created;
-    hence there is no data to read and the function returns nothing. There is no need for a validation message here as
-    it is okay to not have data in the model list.
+    hence there is no data to read and the function returns nothing.
 
     :param modelType: Type of model being loaded
     :type modelType: string
@@ -68,6 +67,7 @@ def __readModelListFromJSONFile(modelType: str, JSONFile: list) -> Union[None, L
     :rtype: list
     """
 
+    # There is no need for a validation message here as it is okay to not have data in the model list.
     if not JSONFile:
         return
 
@@ -98,7 +98,7 @@ def __readModelListFromJSONFile(modelType: str, JSONFile: list) -> Union[None, L
 
         return teamList
     else:
-        return "Incorrect model type!"
+        raise Exception("Incorrect model type!")
 
 
 def __CSVFile(modelType: str) -> Union[str, TextIO]:
@@ -119,7 +119,7 @@ def __CSVFile(modelType: str) -> Union[str, TextIO]:
     elif modelType.lower() == 'team':
         CSVPath = 'data/csv/teams.csv'
     else:
-        return 'Incorrect model type!'
+        raise Exception('Incorrect model type!')
 
     try:
         # Must define encoding='utf-8-sig' to function seamlessly with Excel sheets and exports.
@@ -129,12 +129,12 @@ def __CSVFile(modelType: str) -> Union[str, TextIO]:
             os.remove(CSVPath)
             raise IOError
     except IOError:
-        return "No CSV file found!"
+        raise
 
     return CSVFile
 
 
-def readModelListFromJSON(modelType: str) -> Union[str, None, List[Driver], List[Team]]:
+def readModelListFromJSON(modelType: str) -> Union[None, List[Driver], List[Team]]:
     """
     DEPRECATED: Returns a list of models.
 
@@ -149,7 +149,7 @@ def readModelListFromJSON(modelType: str) -> Union[str, None, List[Driver], List
     return __readModelListFromJSONFile(modelType, json.load(__JSONFile(modelType)))
 
 
-def writeModelListToJSON(modelType: str, modelList: list) -> Union[None, str]:
+def writeModelListToJSON(modelType: str, modelList: list) -> None:
     """
     DEPRECATED: Writes the model list to the relevant model type JSON file.
 
@@ -168,7 +168,7 @@ def writeModelListToJSON(modelType: str, modelList: list) -> Union[None, str]:
     """
 
     if modelType.lower() not in ['driver', 'currentdrivers', 'team']:
-        return "Incorrect model type!"
+        raise Exception("Incorrect model type!")
 
     JSONFile = __JSONFile(modelType)
 
@@ -277,7 +277,7 @@ def writeDictToJSON(modelType: str, modelDict: dict) -> None:
     JSONFile.close()
 
 
-def convertCSVToJSON(modelType: str) -> Union[None, str]:
+def convertCSVToJSON(modelType: str) -> None:
     """
     Converts the relevant CSV file to JSON format.
 
@@ -297,7 +297,7 @@ def convertCSVToJSON(modelType: str) -> Union[None, str]:
     elif modelType.lower() == 'team':
         properHeader = ['Name', 'Owner', 'Car Manufacturer', 'Equipment Rating', 'Team Rating', 'Race Rating']
     else:
-        return 'Incorrect model type!'
+        raise Exception('Incorrect model type!')
 
     csvHeader = []
 
