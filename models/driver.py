@@ -75,3 +75,6 @@ class Driver:
 
     def toJSON(self):
         return json.dumps(self, default=lambda o: o.__dict__, indent=4)
+
+    def toDict(self):
+        return self.__dict__

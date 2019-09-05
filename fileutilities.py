@@ -47,9 +47,9 @@ def __JSONFile(modelType: str) -> Union[str, list, TextIO]:
     return JSONFile
 
 
-def __readFromJSONFile(modelType: str, modelList: list) -> Union[None, List[Driver], List[Team], str]:
+def __readModelListFromJSONFile(modelType: str, JSONFile: list) -> Union[None, List[Driver], List[Team], str]:
     """
-    Returns a list of models from model list based on model type.
+    DEPRECATED: Returns a list of models from model list based on model type.
 
     Pseudo-private method that takes in a model type, reads each model from the model list and returns them in a list
     of relevant model objects. If the model list is empty, that means the list and subsequent file was just created;
@@ -58,13 +58,13 @@ def __readFromJSONFile(modelType: str, modelList: list) -> Union[None, List[Driv
 
     :param modelType: Type of model being loaded
     :type modelType: string
-    :param modelList: Models loaded from JSON file
-    :type modelList: list
+    :param JSONFile: JSON file with models
+    :type JSONFile: list
     :return: Models initialized as their relevant objects
     :rtype: list
     """
 
-    if not modelList:
+    if not JSONFile:
         return
 
     bar = createProgressBar().start()
@@ -73,7 +73,7 @@ def __readFromJSONFile(modelType: str, modelList: list) -> Union[None, List[Driv
     if modelType.lower() in ['driver', 'currentdrivers']:
         driverList = []
 
-        for tempDriver in modelList:
+        for tempDriver in JSONFile:
             driverList.append(Driver(tempDriver))
             bar.update(i + 1)
 
@@ -84,7 +84,7 @@ def __readFromJSONFile(modelType: str, modelList: list) -> Union[None, List[Driv
     elif modelType.lower() == 'team':
         teamList = []
 
-        for tempTeam in modelList:
+        for tempTeam in JSONFile:
             teamList.append(Team(tempTeam))
             bar.update(i + 1)
 
@@ -117,9 +117,9 @@ def __CSVFile(modelType):
     return CSVFile
 
 
-def readModelsFromJSON(modelType: str) -> Union[str, None, List[Driver], List[Team]]:
+def readModelListFromJSON(modelType: str) -> Union[str, None, List[Driver], List[Team]]:
     """
-    Returns a list of models.
+    DEPRECATED: Returns a list of models.
 
     Class available method that simplifies the function call.
 
@@ -129,14 +129,14 @@ def readModelsFromJSON(modelType: str) -> Union[str, None, List[Driver], List[Te
     :rtype: list
     """
 
-    return __readFromJSONFile(modelType, json.load(__JSONFile(modelType)))
+    return __readModelListFromJSONFile(modelType, json.load(__JSONFile(modelType)))
 
 
 # TODO: Add interactive file input functionality
 
-def writeModelsToJSON(modelType: str, modelList: list) -> Union[None, str]:
+def writeModelListToJSON(modelType: str, modelList: list) -> Union[None, str]:
     """
-    Writes the model list to the relevant model type JSON file.
+    DEPRECATED: Writes the model list to the relevant model type JSON file.
 
     Class available method that takes in a model type and model list and attempts to write the models to a JSON file.
     Due to the nature of the JSON format, JSON files must first be read into memory and stored so that they can be
@@ -161,7 +161,7 @@ def writeModelsToJSON(modelType: str, modelList: list) -> Union[None, str]:
 
     # If the first line is empty, assume the file is empty (it is not in the right format)
     if JSONFile.readline() != '':
-        tempModelList = __readFromJSONFile(modelType, json.load(JSONFile))
+        tempModelList = __readModelListFromJSONFile(modelType, json.load(JSONFile))
 
         i = 0
 
@@ -200,8 +200,35 @@ def writeModelsToJSON(modelType: str, modelList: list) -> Union[None, str]:
     print("\n", modelType, "json has been updated")
 
 
-# TODO: Docstring documentation once method is near completion
+def readDictFromJSON(modelType):
+    tempDict = json.load(__JSONFile(modelType))
 
+    modelDict = {}
+
+    for model in tempDict:
+        modelDict[model] = Driver(tempDict[model])
+
+    return modelDict
+
+
+def writeDictToJSON(modelType, modelDict):
+    JSONFile = __JSONFile(modelType)
+
+    JSONFile.seek(0)
+
+    JSONFile.truncate(0)
+
+    tempDict = {}
+
+    for x in modelDict:
+        tempDict[x] = modelDict[x].toDict()
+
+    json.dump(tempDict, JSONFile, indent=4)
+
+    JSONFile.close()
+
+
+# TODO: Docstring documentation once method is near completion
 
 def convertCSV(modelType):
     if modelType.lower() == 'driver':
