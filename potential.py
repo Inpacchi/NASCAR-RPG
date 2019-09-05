@@ -8,7 +8,7 @@ __regressionDict = {}
 __driverPotentialDict = {}
 
 
-def processStage(driversList, standingsDict):
+def processStage(standingsDict):
     driversDict = futil.readDictFromJSON('currentdrivers')
     __getPotentialDicts()
     __getDriverPotentialDict(driversDict)

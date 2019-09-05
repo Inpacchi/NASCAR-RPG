@@ -1,6 +1,7 @@
 from random import randint
 import json
 import potential
+import fileutilities as futil
 
 # Global Constant Parameters
 DRIVER_FACTOR = 1.25
@@ -19,7 +20,7 @@ def processStage(driversList):
     # qualifying()
     # race()
     # writeStandingsDictToFile()
-    processDriverPotential(driversList, standingsDict)
+    processDriverPotential()
 
 
 # TODO: Fix driver class variable types
@@ -122,11 +123,13 @@ def writeStandingsDictToFile():
         json.dump(standingsDict, standingsJSON, indent=4)
 
 
-def processDriverPotential(driversList, standingsDict):
-    if not standingsDict:
-        getStandingsDict()
+def processDriverPotential():
+    global standingsDict
 
-    potential.processStage(driversList, standingsDict)
+    if not standingsDict:
+        standingsDict = futil.readDictFromJSON('standings')
+
+    potential.processStage(standingsDict)
 
 
 def getStandingsDict():

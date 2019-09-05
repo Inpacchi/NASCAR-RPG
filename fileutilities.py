@@ -28,6 +28,8 @@ def __JSONFile(modelType: str) -> Union[str, list, TextIO]:
         JSONPath = 'data/json/teams.json'
     elif modelType.lower() == 'currentdrivers':
         JSONPath = 'data/json/currentdrivers.json'
+    elif modelType.lower() == 'standings':
+        JSONPath = 'data/json/standings.json'
     else:
         return 'Incorrect model type!'
 
@@ -205,8 +207,14 @@ def readDictFromJSON(modelType):
 
     modelDict = {}
 
-    for model in tempDict:
-        modelDict[model] = Driver(tempDict[model])
+    if modelType.lower() in ['driver', 'currentdrivers']:
+        for model in tempDict:
+            modelDict[model] = Driver(tempDict[model])
+    elif modelType.lower() == 'team':
+        for model in tempDict:
+            modelDict[model] = Team(tempDict[model])
+    elif modelType.lower() == 'standings':
+        modelDict.update(tempDict)
 
     return modelDict
 
