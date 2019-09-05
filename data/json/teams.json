@@ -1142,5 +1142,13 @@
         "equipmentRating": 3,
         "teamRating": 3,
         "raceRating": 3
-    }
+    },
+	"Norm Benning Racing": {
+		"name": "Norm Benning Racing",
+		"owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": 5,
+        "teamRating": 9,
+        "raceRating": 7
+	}
 }
