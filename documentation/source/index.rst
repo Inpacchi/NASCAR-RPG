@@ -15,7 +15,11 @@ Welcome to NASRAC NG's documentation!
    potential
    race
    fileutilities
+   changelog
 	
+Changelog
+=========
+changelog
 
 Indices and tables
 ==================
