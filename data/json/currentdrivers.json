@@ -1,5 +1,5 @@
-[
-    {
+{
+    "Stacy Compton": {
         "name": "Stacy Compton",
         "age": "34",
         "teamName": "A. J. Foyt Racing",
@@ -11,10 +11,10 @@
         "superSpeedwayRating": "15",
         "restrictorPlateRating": "68",
         "roadRating": "40",
-        "overallRating": "46.1",
+        "overallRating": "53.1",
         "potential": "0p;34;3r"
     },
-    {
+    "Michael Waltrip": {
         "name": "Michael Waltrip",
         "age": "38",
         "teamName": "Dale Earnhardt Inc.",
@@ -29,7 +29,7 @@
         "overallRating": "84.3",
         "potential": "0p;39;2r"
     },
-    {
+    "Greg Biffle": {
         "name": "Greg Biffle",
         "age": "32",
         "teamName": "Roush Racing",
@@ -44,7 +44,7 @@
         "overallRating": "76.3",
         "potential": "4p;35-42;3r"
     },
-    {
+    "Scott Wimmer": {
         "name": "Scott Wimmer",
         "age": "26",
         "teamName": "Bill Davis Racing",
@@ -59,7 +59,7 @@
         "overallRating": "61.6",
         "potential": "1p;31-32;1r"
     },
-    {
+    "Jeff Green": {
         "name": "Jeff Green",
         "age": "39",
         "teamName": "Richard Childress Racing",
@@ -74,7 +74,7 @@
         "overallRating": "69.6",
         "potential": "0p;39;2r"
     },
-    {
+    "Mike Wallace": {
         "name": "Mike Wallace",
         "age": "42",
         "teamName": "Andy Petree Racing",
@@ -89,7 +89,7 @@
         "overallRating": "53.7",
         "potential": "0p;48;3r"
     },
-    {
+    "Ken Schrader": {
         "name": "Ken Schrader",
         "age": "46",
         "teamName": "MB2 Motorsports",
@@ -104,7 +104,7 @@
         "overallRating": "60.8",
         "potential": "0p;49;1r"
     },
-    {
+    "Jimmy Spencer": {
         "name": "Jimmy Spencer",
         "age": "44",
         "teamName": "Chip Ganassi Racing",
@@ -119,7 +119,7 @@
         "overallRating": "63.2",
         "potential": "0p;45;1r"
     },
-    {
+    "Steve Grissom": {
         "name": "Steve Grissom",
         "age": "38",
         "teamName": "Petty Enterprises",
@@ -131,10 +131,10 @@
         "superSpeedwayRating": "27",
         "restrictorPlateRating": "37",
         "roadRating": "40",
-        "overallRating": "32.9",
+        "overallRating": "33.9",
         "potential": "0p;38;2r"
     },
-    {
+    "Jack Sprague": {
         "name": "Jack Sprague",
         "age": "37",
         "teamName": "Haas CNC Racing",
@@ -146,10 +146,10 @@
         "superSpeedwayRating": "66",
         "restrictorPlateRating": "54",
         "roadRating": "14",
-        "overallRating": "52.2",
+        "overallRating": "55.2",
         "potential": "0p;37;4r"
     },
-    {
+    "Tony Raines": {
         "name": "Tony Raines",
         "age": "37",
         "teamName": "BACE Motorsports",
@@ -161,10 +161,10 @@
         "superSpeedwayRating": "57",
         "restrictorPlateRating": "78",
         "roadRating": "15",
-        "overallRating": "52.1",
+        "overallRating": "49.1",
         "potential": "0p;42;2r"
     },
-    {
+    "Mike McLaughlin": {
         "name": "Mike McLaughlin",
         "age": "45",
         "teamName": "Joe Gibbs Racing",
@@ -179,7 +179,7 @@
         "overallRating": "60.1",
         "potential": "0p;45;2r"
     },
-    {
+    "Kerry Earnhardt": {
         "name": "Kerry Earnhardt",
         "age": "32",
         "teamName": "FitzBradshaw Racing",
@@ -194,7 +194,7 @@
         "overallRating": "44.9",
         "potential": "0p;34;2r"
     },
-    {
+    "Kenny Wallace": {
         "name": "Kenny Wallace",
         "age": "38",
         "teamName": "Innovative Motorsports",
@@ -206,10 +206,10 @@
         "superSpeedwayRating": "32",
         "restrictorPlateRating": "73",
         "roadRating": "41",
-        "overallRating": "59.3",
+        "overallRating": "58.3",
         "potential": "0p;41;3r"
     },
-    {
+    "Jeff Burton": {
         "name": "Jeff Burton",
         "age": "34",
         "teamName": "Roush Racing",
@@ -224,7 +224,7 @@
         "overallRating": "85.5",
         "potential": "4p;36-40;2r"
     },
-    {
+    "Bryan Reffner": {
         "name": "Bryan Reffner",
         "age": "38",
         "teamName": "",
@@ -236,10 +236,10 @@
         "superSpeedwayRating": "38",
         "restrictorPlateRating": "15",
         "roadRating": "5",
-        "overallRating": "20.9",
+        "overallRating": "19.9",
         "potential": "0p;38;3r"
     },
-    {
+    "Scott Riggs": {
         "name": "Scott Riggs",
         "age": "31",
         "teamName": "",
@@ -251,10 +251,10 @@
         "superSpeedwayRating": "44",
         "restrictorPlateRating": "91",
         "roadRating": "46",
-        "overallRating": "62",
+        "overallRating": "62.0",
         "potential": "2p;35;2r"
     },
-    {
+    "Larry Foyt": {
         "name": "Larry Foyt",
         "age": "25",
         "teamName": "",
@@ -266,10 +266,10 @@
         "superSpeedwayRating": "33",
         "restrictorPlateRating": "63",
         "roadRating": "5",
-        "overallRating": "26.7",
+        "overallRating": "25.7",
         "potential": "0p;32;1r"
     },
-    {
+    "Chad Chaffin": {
         "name": "Chad Chaffin",
         "age": "33",
         "teamName": "",
@@ -284,7 +284,7 @@
         "overallRating": "23.6",
         "potential": "3p;34-35;2r"
     },
-    {
+    "Tim Sauter": {
         "name": "Tim Sauter",
         "age": "37",
         "teamName": "",
@@ -299,7 +299,7 @@
         "overallRating": "49.8",
         "potential": "0p;37;2r"
     },
-    {
+    "Johnny Sauter": {
         "name": "Johnny Sauter",
         "age": "23",
         "teamName": "",
@@ -311,10 +311,10 @@
         "superSpeedwayRating": "40",
         "restrictorPlateRating": "56",
         "roadRating": "46",
-        "overallRating": "53.6",
+        "overallRating": "51.6",
         "potential": "1p; 31-39;0r"
     },
-    {
+    "Bobby Hamilton, Jr.": {
         "name": "Bobby Hamilton, Jr.",
         "age": "24",
         "teamName": "",
@@ -326,10 +326,10 @@
         "superSpeedwayRating": "53",
         "restrictorPlateRating": "40",
         "roadRating": "5",
-        "overallRating": "54",
+        "overallRating": "54.0",
         "potential": "2p;25-29;2r"
     },
-    {
+    "Lyndon Amick": {
         "name": "Lyndon Amick",
         "age": "24",
         "teamName": "",
@@ -344,7 +344,7 @@
         "overallRating": "28.4",
         "potential": "0p;25;0r"
     },
-    {
+    "Jamie McMurray": {
         "name": "Jamie McMurray",
         "age": "25",
         "teamName": "",
@@ -359,7 +359,7 @@
         "overallRating": "70.4",
         "potential": "1p;27-40;2r"
     },
-    {
+    "Dan Pardus": {
         "name": "Dan Pardus",
         "age": "38",
         "teamName": "",
@@ -371,10 +371,10 @@
         "superSpeedwayRating": "23",
         "restrictorPlateRating": "10",
         "roadRating": "5",
-        "overallRating": "13.1",
+        "overallRating": "10.1",
         "potential": "0p;38;2r"
     },
-    {
+    "Hank Parker, Jr.": {
         "name": "Hank Parker, Jr.",
         "age": "27",
         "teamName": "",
@@ -389,7 +389,7 @@
         "overallRating": "39.9",
         "potential": "2p;28;3r"
     },
-    {
+    "Christian Elder": {
         "name": "Christian Elder",
         "age": "33",
         "teamName": "",
@@ -401,10 +401,10 @@
         "superSpeedwayRating": "13",
         "restrictorPlateRating": "6",
         "roadRating": "7",
-        "overallRating": "15.2",
+        "overallRating": "12.2",
         "potential": "0p;33;3r"
     },
-    {
+    "Brian Vickers": {
         "name": "Brian Vickers",
         "age": "18",
         "teamName": "",
@@ -419,7 +419,7 @@
         "overallRating": "43.3",
         "potential": "3p;20-28;3r"
     },
-    {
+    "Mike Harmon": {
         "name": "Mike Harmon",
         "age": "44",
         "teamName": "",
@@ -431,10 +431,10 @@
         "superSpeedwayRating": "13",
         "restrictorPlateRating": "24",
         "roadRating": "5",
-        "overallRating": "9.9",
+        "overallRating": "7.9",
         "potential": "2p;57;3r"
     },
-    {
+    "Ashton Lewis": {
         "name": "Ashton Lewis",
         "age": "30",
         "teamName": "",
@@ -446,10 +446,10 @@
         "superSpeedwayRating": "28",
         "restrictorPlateRating": "35",
         "roadRating": "58",
-        "overallRating": "47.2",
+        "overallRating": "45.2",
         "potential": "3p;31-32;2r"
     },
-    {
+    "Shane Hmiel": {
         "name": "Shane Hmiel",
         "age": "21",
         "teamName": "",
@@ -464,7 +464,7 @@
         "overallRating": "35.2",
         "potential": "2p;24;0r"
     },
-    {
+    "David Starr": {
         "name": "David Starr",
         "age": "34",
         "teamName": "",
@@ -479,7 +479,7 @@
         "overallRating": "46.1",
         "potential": "0p;38;3r"
     },
-    {
+    "Ricky Hendrick": {
         "name": "Ricky Hendrick",
         "age": "21",
         "teamName": "",
@@ -494,7 +494,7 @@
         "overallRating": "40.1",
         "potential": "1p;29-31;3r"
     },
-    {
+    "Kelly Denton": {
         "name": "Kelly Denton",
         "age": "28",
         "teamName": "",
@@ -509,7 +509,7 @@
         "overallRating": "19.2",
         "potential": "0p;30;3r"
     },
-    {
+    "Richard Mitchell": {
         "name": "Richard Mitchell",
         "age": "35",
         "teamName": "",
@@ -521,10 +521,10 @@
         "superSpeedwayRating": "5",
         "restrictorPlateRating": "7",
         "roadRating": "1",
-        "overallRating": "5.8",
+        "overallRating": "2.8",
         "potential": "0p;35;0r"
     },
-    {
+    "Jason Keller": {
         "name": "Jason Keller",
         "age": "31",
         "teamName": "",
@@ -539,7 +539,7 @@
         "overallRating": "57.9",
         "potential": "0p;31;3r"
     },
-    {
+    "David Green": {
         "name": "David Green",
         "age": "44",
         "teamName": "",
@@ -554,7 +554,7 @@
         "overallRating": "59.2",
         "potential": "0p;45;3r"
     },
-    {
+    "Shane Hall": {
         "name": "Shane Hall",
         "age": "32",
         "teamName": "",
@@ -566,10 +566,10 @@
         "superSpeedwayRating": "25",
         "restrictorPlateRating": "7",
         "roadRating": "35",
-        "overallRating": "26.6",
+        "overallRating": "27.6",
         "potential": "0p;32;2r"
     },
-    {
+    "Casey Mears": {
         "name": "Casey Mears",
         "age": "23",
         "teamName": "",
@@ -584,7 +584,7 @@
         "overallRating": "34.2",
         "potential": "3p;27-28;3r"
     },
-    {
+    "Randy LaJoie": {
         "name": "Randy LaJoie",
         "age": "40",
         "teamName": "",
@@ -596,10 +596,10 @@
         "superSpeedwayRating": "27",
         "restrictorPlateRating": "55",
         "roadRating": "12",
-        "overallRating": "53",
+        "overallRating": "53.0",
         "potential": "0p;40;3r"
     },
-    {
+    "Rick Markle": {
         "name": "Rick Markle",
         "age": "30",
         "teamName": "",
@@ -611,10 +611,10 @@
         "superSpeedwayRating": "5",
         "restrictorPlateRating": "38",
         "roadRating": "5",
-        "overallRating": "10.2",
+        "overallRating": "6.199999999999999",
         "potential": "3p;31-32;2r"
     },
-    {
+    "Jason Schuler": {
         "name": "Jason Schuler",
         "age": "29",
         "teamName": "",
@@ -626,10 +626,10 @@
         "superSpeedwayRating": "12",
         "restrictorPlateRating": "7",
         "roadRating": "5",
-        "overallRating": "12.9",
+        "overallRating": "9.9",
         "potential": "0p;30;1r"
     },
-    {
+    "Andy Kirby": {
         "name": "Andy Kirby",
         "age": "40",
         "teamName": "",
@@ -641,10 +641,10 @@
         "superSpeedwayRating": "13",
         "restrictorPlateRating": "55",
         "roadRating": "8",
-        "overallRating": "14.4",
+        "overallRating": "15.4",
         "potential": "0p;40;1r"
     },
-    {
+    "Tim Fedewa": {
         "name": "Tim Fedewa",
         "age": "34",
         "teamName": "",
@@ -659,7 +659,7 @@
         "overallRating": "41.4",
         "potential": "0p;36;1r"
     },
-    {
+    "Stanton Barrett": {
         "name": "Stanton Barrett",
         "age": "29",
         "teamName": "",
@@ -671,10 +671,10 @@
         "superSpeedwayRating": "17",
         "restrictorPlateRating": "9",
         "roadRating": "48",
-        "overallRating": "30.3",
+        "overallRating": "32.3",
         "potential": "3p;30-35;3r"
     },
-    {
+    "Steadman Marlin": {
         "name": "Steadman Marlin",
         "age": "21",
         "teamName": "",
@@ -689,7 +689,7 @@
         "overallRating": "28.9",
         "potential": "1p;26-32;1r"
     },
-    {
+    "Kasey Kahne": {
         "name": "Kasey Kahne",
         "age": "21",
         "teamName": "",
@@ -704,4 +704,4 @@
         "overallRating": "41.8",
         "potential": "5p;25-32;4r"
     }
-]
+}
