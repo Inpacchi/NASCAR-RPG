@@ -38,7 +38,7 @@ class Team:
 
         self.drivers = []
 
-    def toString(self):
+    def printInfo(self):
         print("Team Name:", self.name,
               "\nOwner:", self.owner,
               "\ncarManufacturer:", self.carManufacturer,
@@ -46,9 +46,6 @@ class Team:
               "\nteamRating:", int(self.teamRating),
               "\nraceRating:", int(self.raceRating),
               "\nDrivers:", "".join(self.drivers))
-
-    def toJSON(self):
-        return json.dumps(self, default=lambda o: o.__dict__, indent=4)
 
     def toDict(self):
         return self.__dict__
