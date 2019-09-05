@@ -324,11 +324,7 @@ def convertCSVToJSON(modelType: str) -> None:
     else:
         print("The header in both files match! Importing models now...")
 
-        reader = csv.reader(__CSVFile(modelType))
-
         modelList = []
-
-        next(reader)
 
         bar = createProgressBar()
         bar.start()
