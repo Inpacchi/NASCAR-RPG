@@ -36,14 +36,15 @@ class Team:
             self.teamRating = int(team[4])
             self.raceRating = int(team[5])
 
-    # TODO replace str() with string.format()
+        self.drivers = []
+
     def toString(self):
         print("Team Name:", self.name,
               "\nOwner:", self.owner,
               "\ncarManufacturer:", self.carManufacturer,
-              "\nequipmentRating:", "".join(self.equipmentRating),
-              "\nteamRating:", "".join(self.teamRating),
-              "\nraceRating:", "".join(self.raceRating),
+              "\nequipmentRating:", int(self.equipmentRating),
+              "\nteamRating:", int(self.teamRating),
+              "\nraceRating:", int(self.raceRating),
               "\nDrivers:", "".join(self.drivers))
 
     def toJSON(self):
