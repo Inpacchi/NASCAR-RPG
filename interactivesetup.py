@@ -1,10 +1,8 @@
-from models import *
-import fileutilities as futil
-import gameutilities as gutil
-import race
 import importlib
-import potential
 
-# Global Variables for Interactive Python
-driversList = []
-teamsList = []
+from models import *
+from game import  *
+from utilities import *
+
+driversList = futil.readDictFromJSON('driver')
+teamsList = futil.readDictFromJSON('team')
