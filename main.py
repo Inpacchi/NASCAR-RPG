@@ -3,7 +3,7 @@ import fileutilities as futil
 import race
 import json
 import importlib
-import progression
+import potential
 
 # Global Variables for Interactive Python
 driversList = []
@@ -12,8 +12,11 @@ teamsList = []
 
 def main():
     # global driversList
-    # driversList = futil.readModelsFromJSON('driver')
+    # driversList = futil.readModelsFromJSON('currentdrivers')
     #
+    race.processStage(driversList)
+
+
     # global teamsList
     # teamsList = futil.readModelsFromJSON('team')
     # futil.convertDriverCSVtoJSON()

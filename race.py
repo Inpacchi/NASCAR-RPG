@@ -1,5 +1,6 @@
 from random import randint
 import json
+import potential
 
 # Global Constant Parameters
 DRIVER_FACTOR = 1.25
@@ -13,11 +14,12 @@ endingRange = 0
 
 # def processStage(driversList, teamsList):
 def processStage(driversList):
-    populateRangesDict(driversList)
-    populateStandingsDict(driversList)
-    qualifying()
-    race()
-    writeStandingsDictToFile()
+    # populateRangesDict(driversList)
+    # populateStandingsDict(driversList)
+    # qualifying()
+    # race()
+    # writeStandingsDictToFile()
+    processDriverPotential(driversList, standingsDict)
 
 
 # TODO: Fix driver class variable types
@@ -118,3 +120,15 @@ def race():
 def writeStandingsDictToFile():
     with open('data/json/standings.json', 'w') as standingsJSON:
         json.dump(standingsDict, standingsJSON, indent=4)
+
+
+def processDriverPotential(driversList, standingsDict):
+    if not standingsDict:
+        getStandingsDict()
+
+    potential.processStage(driversList, standingsDict)
+
+
+def getStandingsDict():
+    with open('data/json/standings.json', 'r') as standingsJSON:
+        standingsDict.update(json.load(standingsJSON))
