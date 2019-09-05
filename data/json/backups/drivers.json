@@ -89,20 +89,20 @@
         "overallRating": "63.4",
         "potential": "1r"
     },
-    "Johnny Benson": {
-        "name": "Johnny Benson",
-        "age": " Jr.",
-        "teamName": "38",
-        "contractStatus": "MB2 Motorsports",
-        "carNumber": "2004/2002",
-        "shortRating": "10",
-        "shortIntermediateRating": "71",
-        "intermediateRating": "78",
-        "superSpeedwayRating": "67",
-        "restrictorPlateRating": "82",
-        "roadRating": "59",
-        "overallRating": "50",
-        "potential": "70.8"
+    "Johnny Benson Jr.": {
+        "name": "Johnny Benson Jr.",
+        "age": "38",
+        "teamName": "MB2 Motorsports",
+        "contractStatus": "2004/2002",
+        "carNumber": "10",
+        "shortRating": "71",
+        "shortIntermediateRating": "78",
+        "intermediateRating": "67",
+        "superSpeedwayRating": "82",
+        "restrictorPlateRating": "59",
+        "roadRating": "50",
+        "overallRating": "70.8",
+        "potential": "(03)3r"
     },
     "Brett Bodine": {
         "name": "Brett Bodine",
@@ -179,20 +179,20 @@
         "overallRating": "84.3",
         "potential": "(03)2r"
     },
-    "Wally Dallenbach": {
-        "name": "Wally Dallenbach",
-        "age": " Jr.",
-        "teamName": "38",
-        "contractStatus": "Roush Racing",
-        "carNumber": "2002/2002",
-        "shortRating": "16",
-        "shortIntermediateRating": "15",
-        "intermediateRating": "68",
-        "superSpeedwayRating": "60",
-        "restrictorPlateRating": "61",
-        "roadRating": "46",
-        "overallRating": "57",
-        "potential": "52.7"
+    "Wally Dallenbach Jr.": {
+        "name": "Wally Dallenbach Jr.",
+        "age": "38",
+        "teamName": "Roush Racing",
+        "contractStatus": "2002/2002",
+        "carNumber": "16",
+        "shortRating": "15",
+        "shortIntermediateRating": "68",
+        "intermediateRating": "60",
+        "superSpeedwayRating": "61",
+        "restrictorPlateRating": "46",
+        "roadRating": "57",
+        "overallRating": "52.7",
+        "potential": "1r"
     },
     "Greg Biffle": {
         "name": "Greg Biffle",
@@ -222,7 +222,7 @@
         "restrictorPlateRating": "81",
         "roadRating": "72",
         "overallRating": "90.1",
-        "potential": "2p(06-16)2r 08-09slump"
+        "potential": "2p(06-16)2r"
     },
     "Bobby Labonte": {
         "name": "Bobby Labonte",
@@ -237,7 +237,7 @@
         "restrictorPlateRating": "72",
         "roadRating": "69",
         "overallRating": "82.8",
-        "potential": "(04)2r 02 Slump"
+        "potential": "(04)2r"
     },
     "Jeremy Mayfield": {
         "name": "Jeremy Mayfield",
@@ -432,7 +432,7 @@
         "restrictorPlateRating": "73",
         "roadRating": "79",
         "overallRating": "83.6",
-        "potential": "2p(10) 02"
+        "potential": "2p(10)"
     },
     "Jeff Green": {
         "name": "Jeff Green",
@@ -702,7 +702,7 @@
         "restrictorPlateRating": "65",
         "roadRating": "30",
         "overallRating": "61.3",
-        "potential": "(11)2r Truck Superstar"
+        "potential": "(11)2r"
     },
     "Shawna Robinson": {
         "name": "Shawna Robinson",
@@ -747,22 +747,22 @@
         "restrictorPlateRating": "43",
         "roadRating": "23",
         "overallRating": "38.9",
-        "potential": "1p(03)1r red flag"
+        "potential": "1p(03)1r"
     },
     "Bobby Hamilton": {
         "name": "Bobby Hamilton",
-        "age": " Jr.",
-        "teamName": "24",
-        "contractStatus": "",
-        "carNumber": "2004",
-        "shortRating": "",
-        "shortIntermediateRating": "35",
-        "intermediateRating": "77",
-        "superSpeedwayRating": "63",
-        "restrictorPlateRating": "53",
-        "roadRating": "40",
-        "overallRating": "5",
-        "potential": "54"
+        "age": "44",
+        "teamName": "Andy Petree Racing",
+        "contractStatus": "2003/Owner",
+        "carNumber": "55",
+        "shortRating": "76",
+        "shortIntermediateRating": "70",
+        "intermediateRating": "67",
+        "superSpeedwayRating": "40",
+        "restrictorPlateRating": "65",
+        "roadRating": "37",
+        "overallRating": "62.8",
+        "potential": "4r"
     },
     "Stuart Kirby": {
         "name": "Stuart Kirby",
@@ -837,22 +837,22 @@
         "restrictorPlateRating": "83",
         "roadRating": "87",
         "overallRating": "89.4",
-        "potential": "(09)3r 03slump"
+        "potential": "(09)3r"
     },
     "Jack Sprague": {
         "name": "Jack Sprague",
         "age": "37",
         "teamName": "Haas CNC Racing",
         "contractStatus": "2003",
-        "carNumber": " hendrick",
-        "shortRating": "60",
-        "shortIntermediateRating": "45",
-        "intermediateRating": "51",
-        "superSpeedwayRating": "56",
-        "restrictorPlateRating": "66",
-        "roadRating": "54",
-        "overallRating": "14",
-        "potential": "52.2"
+        "carNumber": "60",
+        "shortRating": "45",
+        "shortIntermediateRating": "51",
+        "intermediateRating": "56",
+        "superSpeedwayRating": "66",
+        "restrictorPlateRating": "54",
+        "roadRating": "14",
+        "overallRating": "52.2",
+        "potential": "4r"
     },
     "Austin Cameron": {
         "name": "Austin Cameron",
@@ -882,7 +882,7 @@
         "restrictorPlateRating": "58",
         "roadRating": "48",
         "overallRating": "51.9",
-        "potential": "2p(03-14)4r slump(05-08"
+        "potential": "2p(03-14)4r"
     },
     "Todd The Onion Bodine": {
         "name": "Todd The Onion Bodine",
@@ -897,7 +897,7 @@
         "restrictorPlateRating": "83",
         "roadRating": "70",
         "overallRating": "70.9",
-        "potential": "(03)4r Truck supers star"
+        "potential": "(03)4r"
     },
     "Frank Kimmel": {
         "name": "Frank Kimmel",
@@ -949,15 +949,15 @@
         "age": "21",
         "teamName": "Ultra Motorsports",
         "contractStatus": "2003",
-        "carNumber": " Everham",
-        "shortRating": "7",
-        "shortIntermediateRating": "44",
-        "intermediateRating": "57",
-        "superSpeedwayRating": "54",
-        "restrictorPlateRating": "36",
-        "roadRating": "17",
-        "overallRating": "35",
-        "potential": "44.8"
+        "carNumber": "7",
+        "shortRating": "44",
+        "shortIntermediateRating": "57",
+        "intermediateRating": "54",
+        "superSpeedwayRating": "36",
+        "restrictorPlateRating": "17",
+        "roadRating": "35",
+        "overallRating": "44.8",
+        "potential": ""
     },
     "Jay Sauter": {
         "name": "Jay Sauter",
@@ -1094,20 +1094,20 @@
         "overallRating": "67.8",
         "potential": "3r"
     },
-    "Dale Earnhardt": {
-        "name": "Dale Earnhardt",
-        "age": " Jr.",
-        "teamName": "27",
-        "contractStatus": "Dale Earnhardt Inc.",
-        "carNumber": "2007/2002",
-        "shortRating": "8",
-        "shortIntermediateRating": "93",
-        "intermediateRating": "89",
-        "superSpeedwayRating": "90",
-        "restrictorPlateRating": "75",
-        "roadRating": "114",
-        "overallRating": "76",
-        "potential": "89.7"
+    "Dale Earnhardt Jr.": {
+        "name": "Dale Earnhardt Jr.",
+        "age": "27",
+        "teamName": "Dale Earnhardt Inc.",
+        "contractStatus": "2007/2002",
+        "carNumber": "8",
+        "shortRating": "93",
+        "shortIntermediateRating": "89",
+        "intermediateRating": "90",
+        "superSpeedwayRating": "75",
+        "restrictorPlateRating": "114",
+        "roadRating": "76",
+        "overallRating": "89.7",
+        "potential": "3p(03-06)2r(09)3p(12-15)1r"
     },
     "Mike McLaughlin": {
         "name": "Mike McLaughlin",
@@ -1182,7 +1182,7 @@
         "restrictorPlateRating": "8",
         "roadRating": "87",
         "overallRating": "14.6",
-        "potential": "(07)4r (06 slump"
+        "potential": "(07)4r"
     },
     "Dale Jarrett": {
         "name": "Dale Jarrett",
@@ -1272,7 +1272,7 @@
         "restrictorPlateRating": "86",
         "roadRating": "85",
         "overallRating": "88.3",
-        "potential": "3p(04-09)5r  08slump 15-16ren"
+        "potential": "3p(04-09)5r"
     },
     "Kenny Wallace": {
         "name": "Kenny Wallace",
@@ -1399,15 +1399,15 @@
         "age": "31",
         "teamName": "",
         "contractStatus": "2006",
-        "carNumber": "Yates/2003",
-        "shortRating": "",
-        "shortIntermediateRating": "72",
-        "intermediateRating": "45",
-        "superSpeedwayRating": "72",
-        "restrictorPlateRating": "44",
-        "roadRating": "91",
-        "overallRating": "46",
-        "potential": "62"
+        "carNumber": "",
+        "shortRating": "72",
+        "shortIntermediateRating": "45",
+        "intermediateRating": "72",
+        "superSpeedwayRating": "44",
+        "restrictorPlateRating": "91",
+        "roadRating": "46",
+        "overallRating": "62",
+        "potential": "2p(06)2r"
     },
     "Josh Richeson": {
         "name": "Josh Richeson",
@@ -1467,7 +1467,7 @@
         "restrictorPlateRating": "19",
         "roadRating": "38",
         "overallRating": "44.5",
-        "potential": "5p(08) 12"
+        "potential": "5p(08)"
     },
     "Tim Sauter": {
         "name": "Tim Sauter",
@@ -1514,6 +1514,21 @@
         "overallRating": "46.2",
         "potential": "2p(03 retirement)"
     },
+    "Bobby Hamilton Jr.": {
+        "name": "Bobby Hamilton Jr.",
+        "age": "24",
+        "teamName": "",
+        "contractStatus": "2004",
+        "carNumber": "",
+        "shortRating": "35",
+        "shortIntermediateRating": "77",
+        "intermediateRating": "63",
+        "superSpeedwayRating": "53",
+        "restrictorPlateRating": "40",
+        "roadRating": "5",
+        "overallRating": "54",
+        "potential": "2p(03-07)2r"
+    },
     "Lyndon Amick": {
         "name": "Lyndon Amick",
         "age": "24",
@@ -1542,7 +1557,7 @@
         "restrictorPlateRating": "86",
         "roadRating": "62",
         "overallRating": "70.4",
-        "potential": "1p(04-17)2r Slumps (06-09"
+        "potential": "1p(04-17)2r"
     },
     "Brad Baker": {
         "name": "Brad Baker",
@@ -1604,20 +1619,20 @@
         "overallRating": "11.1",
         "potential": "no idea"
     },
-    "Hank Parker": {
-        "name": "Hank Parker",
-        "age": " Jr.",
-        "teamName": "27",
-        "contractStatus": "",
-        "carNumber": "2002",
-        "shortRating": "",
-        "shortIntermediateRating": "61",
-        "intermediateRating": "36",
-        "superSpeedwayRating": "44",
-        "restrictorPlateRating": "38",
-        "roadRating": "21",
-        "overallRating": "15",
-        "potential": "39.9"
+    "Hank Parker Jr.": {
+        "name": "Hank Parker Jr.",
+        "age": "27",
+        "teamName": "",
+        "contractStatus": "2002",
+        "carNumber": "",
+        "shortRating": "61",
+        "shortIntermediateRating": "36",
+        "intermediateRating": "44",
+        "superSpeedwayRating": "38",
+        "restrictorPlateRating": "21",
+        "roadRating": "15",
+        "overallRating": "39.9",
+        "potential": "2p(03)"
     },
     "Jeff Purvis": {
         "name": "Jeff Purvis",
@@ -1722,7 +1737,7 @@
         "restrictorPlateRating": "35",
         "roadRating": "5",
         "overallRating": "35.2",
-        "potential": "2p(05)0r Red flag"
+        "potential": "2p(05)0r"
     },
     "David Starr": {
         "name": "David Starr",
@@ -1829,20 +1844,20 @@
         "overallRating": "19.2",
         "potential": "(04)3r"
     },
-    "Martin Truex": {
-        "name": "Martin Truex",
-        "age": " Jr.",
-        "teamName": "22",
-        "contractStatus": "",
-        "carNumber": "lifetime",
-        "shortRating": "",
-        "shortIntermediateRating": "24",
-        "intermediateRating": "42",
-        "superSpeedwayRating": "57",
-        "restrictorPlateRating": "30",
-        "roadRating": "36",
-        "overallRating": "39",
-        "potential": "40.3"
+    "Martin Truex Jr.": {
+        "name": "Martin Truex Jr.",
+        "age": "22",
+        "teamName": "",
+        "contractStatus": "lifetime",
+        "carNumber": "",
+        "shortRating": "24",
+        "shortIntermediateRating": "42",
+        "intermediateRating": "57",
+        "superSpeedwayRating": "30",
+        "restrictorPlateRating": "36",
+        "roadRating": "39",
+        "overallRating": "40.3",
+        "potential": "3p(17-18)"
     },
     "Richard Mitchell": {
         "name": "Richard Mitchell",
@@ -1934,20 +1949,20 @@
         "overallRating": "26.6",
         "potential": "2r"
     },
-    "Richard Jarvis": {
-        "name": "Richard Jarvis",
-        "age": " Jr.",
-        "teamName": "22",
-        "contractStatus": "",
-        "carNumber": "owner",
-        "shortRating": "",
-        "shortIntermediateRating": "11",
-        "intermediateRating": "18",
+    "Richard Jarvis Jr.": {
+        "name": "Richard Jarvis Jr.",
+        "age": "22",
+        "teamName": "",
+        "contractStatus": "owner",
+        "carNumber": "",
+        "shortRating": "11",
+        "shortIntermediateRating": "18",
+        "intermediateRating": "5",
         "superSpeedwayRating": "5",
         "restrictorPlateRating": "5",
         "roadRating": "5",
-        "overallRating": "5",
-        "potential": "8.9"
+        "overallRating": "8.9",
+        "potential": "1p(?)"
     },
     "Casey Mears": {
         "name": "Casey Mears",
@@ -2344,15 +2359,15 @@
         "age": "21",
         "teamName": "",
         "contractStatus": "2005",
-        "carNumber": "Ford/2002",
-        "shortRating": "",
-        "shortIntermediateRating": "28",
-        "intermediateRating": "41",
-        "superSpeedwayRating": "51",
-        "restrictorPlateRating": "60",
-        "roadRating": "19",
-        "overallRating": "31",
-        "potential": "41.8"
+        "carNumber": "",
+        "shortRating": "28",
+        "shortIntermediateRating": "41",
+        "intermediateRating": "51",
+        "superSpeedwayRating": "60",
+        "restrictorPlateRating": "19",
+        "roadRating": "31",
+        "overallRating": "41.8",
+        "potential": "5p(06-13)4r"
     },
     "Darrell Waltrip": {
         "name": "Darrell Waltrip",
@@ -2457,7 +2472,7 @@
         "restrictorPlateRating": "10",
         "roadRating": "34",
         "overallRating": "35",
-        "potential": "5p(08-11)5r slumps09"
+        "potential": "5p(08-11)5r"
     },
     "Terry Cook": {
         "name": "Terry Cook",
@@ -2607,7 +2622,7 @@
         "restrictorPlateRating": "14",
         "roadRating": "13",
         "overallRating": "28.7",
-        "potential": "2p(05-06)2r (04 slump)"
+        "potential": "2p(05-06)2r"
     },
     "Randy MacDonald": {
         "name": "Randy MacDonald",
@@ -2892,7 +2907,7 @@
         "restrictorPlateRating": "4",
         "roadRating": "5",
         "overallRating": "15.9",
-        "potential": "(03 Major injury"
+        "potential": "(03)"
     },
     "Randy Tolsma": {
         "name": "Randy Tolsma",
@@ -2922,7 +2937,7 @@
         "restrictorPlateRating": "39",
         "roadRating": "5",
         "overallRating": "16.6",
-        "potential": "1p red flag"
+        "potential": "1p"
     },
     "Rodney Sawyers": {
         "name": "Rodney Sawyers",
@@ -2954,20 +2969,20 @@
         "overallRating": "13.8",
         "potential": "no idea"
     },
-    "Ron Barfield": {
-        "name": "Ron Barfield",
-        "age": " Jr.",
-        "teamName": "30",
-        "contractStatus": "",
-        "carNumber": "2002",
-        "shortRating": "",
-        "shortIntermediateRating": "23",
-        "intermediateRating": "26",
-        "superSpeedwayRating": "7",
-        "restrictorPlateRating": "5",
-        "roadRating": "6",
-        "overallRating": "5",
-        "potential": "13.3"
+    "Ron Barfield Jr.": {
+        "name": "Ron Barfield Jr.",
+        "age": "30",
+        "teamName": "",
+        "contractStatus": "2002",
+        "carNumber": "",
+        "shortRating": "23",
+        "shortIntermediateRating": "26",
+        "intermediateRating": "7",
+        "superSpeedwayRating": "5",
+        "restrictorPlateRating": "6",
+        "roadRating": "5",
+        "overallRating": "13.3",
+        "potential": "2p(03)1r"
     },
     "Teri MacDonald": {
         "name": "Teri MacDonald",
@@ -2984,20 +2999,20 @@
         "overallRating": "13.3",
         "potential": "1p(04)1r"
     },
-    "Tom Carey": {
-        "name": "Tom Carey",
-        "age": " Jr.",
-        "teamName": "36",
-        "contractStatus": "",
-        "carNumber": "2002",
-        "shortRating": "",
-        "shortIntermediateRating": "9",
-        "intermediateRating": "29",
+    "Tom Carey Jr.": {
+        "name": "Tom Carey Jr.",
+        "age": "36",
+        "teamName": "",
+        "contractStatus": "2002",
+        "carNumber": "",
+        "shortRating": "9",
+        "shortIntermediateRating": "29",
+        "intermediateRating": "5",
         "superSpeedwayRating": "5",
         "restrictorPlateRating": "5",
-        "roadRating": "5",
-        "overallRating": "8",
-        "potential": "11.2"
+        "roadRating": "8",
+        "overallRating": "11.2",
+        "potential": "no idea"
     },
     "Tom Powers": {
         "name": "Tom Powers",
@@ -3179,20 +3194,20 @@
         "overallRating": "5.3",
         "potential": "retire"
     },
-    "Mike Swaim": {
-        "name": "Mike Swaim",
-        "age": " Jr.",
-        "teamName": "25",
-        "contractStatus": "",
-        "carNumber": "2002",
-        "shortRating": "",
-        "shortIntermediateRating": "6",
-        "intermediateRating": "4",
-        "superSpeedwayRating": "6",
+    "Mike Swaim Jr.": {
+        "name": "Mike Swaim Jr.",
+        "age": "25",
+        "teamName": "",
+        "contractStatus": "2002",
+        "carNumber": "",
+        "shortRating": "6",
+        "shortIntermediateRating": "4",
+        "intermediateRating": "6",
+        "superSpeedwayRating": "5",
         "restrictorPlateRating": "5",
         "roadRating": "5",
-        "overallRating": "5",
-        "potential": "5.2"
+        "overallRating": "5.2",
+        "potential": "no idea"
     },
     "Jake Hobgood": {
         "name": "Jake Hobgood",
