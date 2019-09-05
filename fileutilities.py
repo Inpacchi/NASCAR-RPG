@@ -121,17 +121,13 @@ def readModelsFromJSON(modelType: str) -> Union[str, None, List[Driver], List[Te
     """
     Returns a list of models.
 
-    Class available method that simplifies the function call. If the model type is not within the accepted parameters,
-    return an error message.
+    Class available method that simplifies the function call.
 
     :param modelType: Type of model being loaded
     :type modelType: string
     :return: Models initialized as their relevant objects
     :rtype: list
     """
-
-    if modelType.lower() not in ['driver', 'team']:
-        return "Incorrect model type!"
 
     return __readFromJSONFile(modelType, json.load(__JSONFile(modelType)))
 
