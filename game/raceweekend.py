@@ -1,6 +1,6 @@
 from random import randint
-import potential
-import fileutilities as futil
+from game import potential
+from utilities import futil
 
 # Pseudo-Private Global Constants
 __DRIVER_FACTOR = 1.25
@@ -14,7 +14,7 @@ __endingRange = 0
 
 def processStage(driversDict: dict, teamsDict: dict) -> None:
     """
-    Main entry method for race.py
+    Main entry method for raceweekend.py
 
     Package available method that handles all function calls and logic processing for the race package.
 

@@ -1,5 +1,5 @@
 import json
-import fileutilities as futil
+from utilities import futil
 
 # Global Pseudo-Private Variable Declaration
 __progressionDict = {}
@@ -15,10 +15,10 @@ def processStage(standingsDict, driversDict):
 
 
 def __getPotentialDicts():
-    with open('data/json/progression.json', 'r') as progressionJSON:
+    with open('data/json/potential/progression.json', 'r') as progressionJSON:
         __progressionDict.update(json.load(progressionJSON))
 
-    with open('data/json/regression.json', 'r') as regressionJSON:
+    with open('data/json/potential/regression.json', 'r') as regressionJSON:
         __regressionDict.update(json.load(regressionJSON))
 
 
