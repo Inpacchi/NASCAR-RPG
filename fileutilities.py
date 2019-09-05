@@ -26,6 +26,8 @@ def __JSONFile(modelType: str) -> Union[str, list, TextIO]:
         JSONPath = 'data/json/drivers.json'
     elif modelType.lower() == 'team':
         JSONPath = 'data/json/teams.json'
+    elif modelType.lower() == 'currentdrivers':
+        JSONPath = 'data/json/currentdrivers.json'
     else:
         return 'Incorrect model type!'
 
@@ -68,7 +70,7 @@ def __readFromJSONFile(modelType: str, modelList: list) -> Union[None, List[Driv
     bar = createProgressBar().start()
     i = 0
 
-    if modelType.lower() == 'driver':
+    if modelType.lower() in ['driver', 'currentdrivers']:
         driverList = []
 
         for tempDriver in modelList:
@@ -154,7 +156,7 @@ def writeModelsToJSON(modelType: str, modelList: list) -> Union[None, str]:
     :rtype: None
     """
 
-    if modelType.lower() not in ['driver', 'team']:
+    if modelType.lower() not in ['driver', 'currentdrivers', 'team']:
         return "Incorrect model type!"
 
     JSONFile = __JSONFile(modelType)
