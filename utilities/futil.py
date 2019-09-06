@@ -8,6 +8,23 @@ import json
 import csv
 import os
 
+MODEL_TYPE_DICT ={
+    'models': {
+        'driverSubset': {
+            'driver',
+            'currentdrivers',
+            'testdriver'
+        },
+        'teamSubset': {
+            'team',
+            'testteam'
+        }
+    },
+    'miscSubset': {
+        'standings'
+    }
+}
+
 # TODO: Add interactive file input functionality
 
 
@@ -74,7 +91,7 @@ def __readModelListFromJSONFile(modelType: str, JSONFile: list) -> Union[None, L
     bar = createProgressBar().start()
     i = 0
 
-    if modelType.lower() in ['driver', 'currentdrivers']:
+    if modelType.lower() in MODEL_TYPE_DICT.get('models').get('driverSubset'):
         driverList = []
 
         for tempDriver in JSONFile:
@@ -86,7 +103,7 @@ def __readModelListFromJSONFile(modelType: str, JSONFile: list) -> Union[None, L
         print()
 
         return driverList
-    elif modelType.lower() == 'team':
+    elif modelType.lower() in MODEL_TYPE_DICT.get('models').get('teamSubset'):
         teamList = []
 
         for tempTeam in JSONFile:
@@ -167,7 +184,7 @@ def writeModelListToJSON(modelType: str, modelList: list) -> None:
     :rtype: None
     """
 
-    if modelType.lower() not in ['driver', 'currentdrivers', 'team']:
+    if modelType.lower() not in MODEL_TYPE_DICT.get('models'):
         raise Exception("Incorrect model type!")
 
     JSONFile = __JSONFile(modelType)
@@ -232,13 +249,13 @@ def readDictFromJSON(modelType: str) -> dict:
 
     modelDict = {}
 
-    if modelType.lower() in ['driver', 'currentdrivers']:
+    if modelType.lower() in MODEL_TYPE_DICT.get('models').get('driverSubset'):
         for model in tempDict:
             modelDict[model] = Driver(tempDict[model])
-    elif modelType.lower() == 'team':
+    elif modelType.lower() in MODEL_TYPE_DICT.get('models').get('teamSubset'):
         for model in tempDict:
             modelDict[model] = Team(tempDict[model])
-    elif modelType.lower() == 'standings':
+    elif modelType.lower() in MODEL_TYPE_DICT.get('miscSubset'):
         modelDict.update(tempDict)
 
     return modelDict
@@ -264,14 +281,14 @@ def writeDictToJSON(modelType: str, modelDict: dict) -> None:
     JSONFile.seek(0)
     JSONFile.truncate(0)
 
-    if modelType.lower() in ['driver', 'team', 'currentdrivers']:
+    if modelType.lower() in MODEL_TYPE_DICT.get('models'):
         tempDict = {}
 
         for x in modelDict:
             tempDict[x] = modelDict[x].toDict()
 
         json.dump(tempDict, JSONFile, indent=4)
-    elif modelType.lower() == 'standings':
+    elif modelType.lower() in MODEL_TYPE_DICT.get('miscSubset'):
         json.dump(modelDict, JSONFile, indent=4)
 
     JSONFile.close()
@@ -289,12 +306,12 @@ def convertCSVToJSON(modelType: str) -> dict:
     :rtype: dictionary
     """
 
-    if modelType.lower() in ['driver', 'currentdrivers']:
+    if modelType.lower() in MODEL_TYPE_DICT.get('models').get('driverSubset'):
         properHeader = ['Name', 'Age', 'Team Name', 'Contract Status', 'Car Number', 'Short Rating',
                         'Short Intermediate Rating',
                         'Intermediate Rating', 'Superspeedway Rating', 'Restrictor Plate Rating', 'Road Rating',
                         'Overall Rating', 'Potential']
-    elif modelType.lower() == 'team':
+    elif modelType.lower() in MODEL_TYPE_DICT.get('models').get('teamSubset'):
         properHeader = ['Name', 'Owner', 'Car Manufacturer', 'Equipment Rating', 'Team Rating', 'Race Rating']
     else:
         raise Exception('Incorrect model type!')
@@ -330,11 +347,11 @@ def convertCSVToJSON(modelType: str) -> dict:
         bar.start()
         i = 0
 
-        if modelType.lower() in ['driver', 'currentdrivers']:
+        if modelType.lower() in MODEL_TYPE_DICT.get('models').get('driverSubset'):
             for row in reader:
                 modelDict[row[0]] = Driver(row)
                 bar.update(i + 1)
-        elif modelType.lower() == 'team':
+        elif modelType.lower() in MODEL_TYPE_DICT.get('models').get('teamSubset'):
             for row in reader:
                 modelDict[row[0]] = Team(row)
                 bar.update(i + 1)
