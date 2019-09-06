@@ -324,7 +324,8 @@ def convertCSVToJSON(modelType: str) -> dict:
 
     csvHeader = []
 
-    reader = csv.reader(__CSVFile(modelType))
+    CSVFile = __CSVFile(modelType)
+    reader = csv.reader(CSVFile)
 
     header = next(reader)
 
@@ -364,6 +365,8 @@ def convertCSVToJSON(modelType: str) -> dict:
 
         bar.finish()
         print()
+
+        CSVFile.close()
 
         writeDictToJSON(modelType, modelDict)
 
