@@ -62,16 +62,16 @@ class Driver:
     # TODO replace str() with string.format()
     def printInfo(self):
         print("\nDriver Name:", self.name,
-              "\nAge:", str(self.age),
+              "\nAge: {}".format(self.age),
               "\nTeam Name:", self.teamName,
-              "\nContract Status:", str(self.contractStatus),
-              "\nCar Number:", str(self.carNumber),
-              "\nShort Track Rating:", str(self.shortRating),
-              "\nShort-Intermediate Track Rating:", str(self.shortIntermediateRating),
-              "\nIntermediate Track Rating:", str(self.intermediateRating),
-              "\nSuperspeedway Track Rating:", str(self.superSpeedwayRating),
-              "\nRoad Course Rating:", str(self.roadRating),
-              "\nOverall Rating:", str(self.overallRating),
+              "\nContract Status: {}".format(self.contractStatus),
+              "\nCar Number: {}".format(self.carNumber),
+              "\nShort Track Rating: {}".format(self.shortRating),
+              "\nShort-Intermediate Track Rating: {}".format(self.shortIntermediateRating),
+              "\nIntermediate Track Rating: {}".format(self.intermediateRating),
+              "\nSuperspeedway Track Rating: {}".format(self.superSpeedwayRating),
+              "\nRoad Course Rating: {}".format(self.roadRating),
+              "\nOverall Rating: {}".format(self.overallRating),
               "\nPotential:", self.potential, "\n")
 
     def toJSON(self):
