@@ -163,7 +163,11 @@ def readModelListFromJSON(modelType: str) -> Union[None, List[Driver], List[Team
     :rtype: list
     """
 
-    return __readModelListFromJSONFile(modelType, json.load(__JSONFile(modelType)))
+    JSONFile = __JSONFile(modelType)
+    JSONData = json.load(JSONFile)
+    JSONFile.close()
+
+    return __readModelListFromJSONFile(modelType, JSONData)
 
 
 def writeModelListToJSON(modelType: str, modelList: list) -> None:
@@ -245,7 +249,9 @@ def readDictFromJSON(modelType: str) -> dict:
     :rtype: dictionary
     """
 
-    tempDict = json.load(__JSONFile(modelType))
+    JSONFile = __JSONFile(modelType)
+    tempDict = json.load(JSONFile)
+    JSONFile.close()
 
     modelDict = {}
 
