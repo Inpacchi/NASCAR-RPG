@@ -28,6 +28,7 @@ class Team:
             self.equipmentRating = team['equipmentRating']
             self.teamRating = team['teamRating']
             self.raceRating = team['raceRating']
+            self.drivers = team['drivers']
         else:
             self.name = team[0]
             self.owner = team[1]
@@ -35,8 +36,8 @@ class Team:
             self.equipmentRating = int(team[3])
             self.teamRating = int(team[4])
             self.raceRating = int(team[5])
+            self.drivers = []
 
-        self.drivers = []
 
     def printInfo(self):
         print("Team Name:", self.name,
@@ -45,7 +46,7 @@ class Team:
               "\nequipmentRating:", int(self.equipmentRating),
               "\nteamRating:", int(self.teamRating),
               "\nraceRating:", int(self.raceRating),
-              "\nDrivers:", "".join(self.drivers))
+              "\nDrivers:", "".join(self.drivers), "\n")
 
     def toDict(self):
         return self.__dict__
