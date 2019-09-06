@@ -22,6 +22,7 @@ class ModelTest(unittest.TestCase):
             * __JSONFile()
             * __CSVFile()
             * __headerDiff()
+
         :return: None
         """
 
@@ -56,6 +57,7 @@ class ModelTest(unittest.TestCase):
             * __JSONFile()
             * __CSVFile()
             * __headerDiff()
+
         :return: None
         """
 

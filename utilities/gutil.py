@@ -5,9 +5,11 @@ from utilities import futil
 
 def importDriversToTeam(teamType: str, driverType: str = None, driversDict: dict = None, teamsDict: dict = None) -> None:
     """
-    Populates the team dictionary with drivers.
+    Populates each Team model drivers list variable with their respective drivers.
+
     :return: None
     """
+
     if driverType is None and driversDict is None:
         raise Exception("You must define either a driver type or a driver dictionary!")
     elif driversDict is None:
