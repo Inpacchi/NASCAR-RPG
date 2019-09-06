@@ -1,0 +1,56 @@
+{
+    "Hendrick Motorsports": {
+        "name": "Hendrick Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": 98,
+        "teamRating": 95,
+        "raceRating": 97,
+        "drivers": [
+            "Jeff Gordon",
+            "Jerry Nadeau",
+            "Jimmie Johnson",
+            "Terry Labonte"
+        ]
+    },
+    "Richard Childress Racing": {
+        "name": "Richard Childress Racing",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": 87,
+        "teamRating": 87,
+        "raceRating": 87,
+        "drivers": [
+            "Kevin Harvick",
+            "Jeff Green",
+            "Robby Gordon"
+        ]
+    },
+    "Xpress Motorsports": {
+        "name": "Xpress Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": 72,
+        "teamRating": 65,
+        "raceRating": 69,
+        "drivers": []
+    },
+    "Petty Enterprises": {
+        "name": "Petty Enterprises",
+        "owner": "",
+        "carManufacturer": "Dodge",
+        "equipmentRating": 66,
+        "teamRating": 61,
+        "raceRating": 64,
+        "drivers": []
+    },
+    "Reiser Racing": {
+        "name": "Reiser Racing",
+        "owner": "",
+        "carManufacturer": "Ford",
+        "equipmentRating": 80,
+        "teamRating": 61,
+        "raceRating": 70,
+        "drivers": []
+    }
+}

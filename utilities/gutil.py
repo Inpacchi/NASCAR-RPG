@@ -3,21 +3,27 @@ from timeit import default_timer as timer
 from utilities import futil
 
 
-def importDriversToTeam() -> None:
+def importDriversToTeam(teamType: str, driverType: str = None, driversDict: dict = None, teamsDict: dict = None) -> None:
     """
     Populates the team dictionary with drivers.
     :return: None
     """
+    if driverType is None and driversDict is None:
+        raise Exception("You must define either a driver type or a driver dictionary!")
+    elif driversDict is None:
+        driversDict = futil.readDictFromJSON(driverType)
 
-    driversDict = futil.readDictFromJSON('driver')
-    teamsDict = futil.readDictFromJSON('team')
+    if teamType is None and teamsDict is None:
+        raise Exception("You must define either a team type or a team dictionary!")
+    elif teamsDict is None:
+        teamsDict = futil.readDictFromJSON(teamType)
 
     for name in driversDict:
         driver = driversDict[name]
         if not driver.teamName == "" and driver.teamName in teamsDict:
             teamsDict[driver.teamName].drivers.append(driver.name)
 
-    futil.writeDictToJSON('team', teamsDict)
+    futil.writeDictToJSON(teamType, teamsDict)
 
 
 def getFunctionTime() -> None:

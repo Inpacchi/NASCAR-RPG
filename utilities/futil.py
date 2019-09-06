@@ -8,7 +8,7 @@ import json
 import csv
 import os
 
-MODEL_TYPE_DICT ={
+MODEL_TYPE_DICT = {
     'models': {
         'driverSubset': {
             'driver',
@@ -20,10 +20,15 @@ MODEL_TYPE_DICT ={
             'testteam'
         }
     },
+    'testSubset': {
+        'testdriver',
+        'testteam'
+    },
     'miscSubset': {
         'standings'
     }
 }
+
 
 # TODO: Add interactive file input functionality
 
@@ -49,6 +54,10 @@ def __JSONFile(modelType: str) -> TextIO:
         JSONPath = 'data/json/currentdrivers.json'
     elif modelType.lower() == 'standings':
         JSONPath = 'data/json/standings.json'
+    elif modelType.lower() == 'testdriver':
+        JSONPath = '../data/tests/json/drivers.json'
+    elif modelType.lower() == 'testteam':
+        JSONPath = '../data/tests/json/teams.json'
     else:
         raise Exception('Incorrect model type!')
 
@@ -131,6 +140,10 @@ def __CSVFile(modelType: str) -> Union[str, TextIO]:
         CSVPath = 'data/csv/drivers.csv'
     elif modelType.lower() == 'team':
         CSVPath = 'data/csv/teams.csv'
+    elif modelType.lower() == 'testdriver':
+        CSVPath = '../data/tests/csv/drivers.csv'
+    elif modelType.lower() == 'testteam':
+        CSVPath = '../data/tests/csv/teams.csv'
     else:
         raise Exception('Incorrect model type!')
 
@@ -184,7 +197,8 @@ def writeModelListToJSON(modelType: str, modelList: list) -> None:
     :rtype: None
     """
 
-    if modelType.lower() not in MODEL_TYPE_DICT.get('models'):
+    if modelType.lower() not in MODEL_TYPE_DICT.get('models').get('driverSubset') \
+            or modelType.lower() not in MODEL_TYPE_DICT.get('models').get('teamSubset'):
         raise Exception("Incorrect model type!")
 
     JSONFile = __JSONFile(modelType)
@@ -283,7 +297,8 @@ def writeDictToJSON(modelType: str, modelDict: dict) -> None:
     JSONFile.seek(0)
     JSONFile.truncate(0)
 
-    if modelType.lower() in MODEL_TYPE_DICT.get('models'):
+    if modelType.lower() not in MODEL_TYPE_DICT.get('models').get('driverSubset') \
+            or modelType.lower() not in MODEL_TYPE_DICT.get('models').get('teamSubset'):
         tempDict = {}
 
         for x in modelDict:
