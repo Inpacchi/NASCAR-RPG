@@ -1,21 +1,21 @@
-models package
-==============
+game package
+============
 
 Submodules
 ----------
 
-models.driver module
---------------------
+game.potential module
+---------------------
 
-.. automodule:: models.driver
+.. automodule:: game.potential
    :members:
    :undoc-members:
    :show-inheritance:
 
-models.team module
-------------------
+game.raceweekend module
+-----------------------
 
-.. automodule:: models.team
+.. automodule:: game.raceweekend
    :members:
    :undoc-members:
    :show-inheritance:
@@ -24,7 +24,7 @@ models.team module
 Module contents
 ---------------
 
-.. automodule:: models
+.. automodule:: game
    :members:
    :undoc-members:
    :show-inheritance:

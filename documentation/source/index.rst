@@ -10,12 +10,9 @@ Welcome to NASRAC NG's documentation!
    :maxdepth: 2
    :caption: Contents:
    
-   main
+   game
+   utilities
    models
-   potential
-   race
-   fileutilities
-   changelog
 	
 Changelog
 =========

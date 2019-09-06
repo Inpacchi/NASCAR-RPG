@@ -1,21 +1,21 @@
-models package
-==============
+utilities package
+=================
 
 Submodules
 ----------
 
-models.driver module
---------------------
+utilities.futil module
+----------------------
 
-.. automodule:: models.driver
+.. automodule:: utilities.futil
    :members:
    :undoc-members:
    :show-inheritance:
 
-models.team module
-------------------
+utilities.gutil module
+----------------------
 
-.. automodule:: models.team
+.. automodule:: utilities.gutil
    :members:
    :undoc-members:
    :show-inheritance:
@@ -24,7 +24,7 @@ models.team module
 Module contents
 ---------------
 
-.. automodule:: models
+.. automodule:: utilities
    :members:
    :undoc-members:
    :show-inheritance:
