@@ -4,5 +4,5 @@ from models import *
 from game import  *
 from utilities import *
 
-driversList = futil.readDictFromJSON('driver')
-teamsList = futil.readDictFromJSON('team')
+driversDict = futil.readDictFromJSON('driver')
+teamsDict = futil.readDictFromJSON('team')

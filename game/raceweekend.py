@@ -1,5 +1,8 @@
 from random import randint
+
 from game import potential
+from models.driver import Driver
+from models.team import Team
 from utilities import futil
 
 # Pseudo-Private Global Constants
@@ -26,7 +29,7 @@ def processStage(driversDict: dict, teamsDict: dict) -> None:
     :rtype: None
     """
 
-    __populateRangesDict(driversDict)
+    __populateRangesDict(driversDict, teamsDict)
     __populateStandingsDict(driversDict, teamsDict)
     __qualifying()
     __race()
@@ -45,39 +48,53 @@ def __populateRangesDict(driversDict: dict, teamsDict: dict) -> None:
     :return: None
     :rtype: None
     """
-    startingRange = 0
 
-    for driver in driversDict:
+    placementRange = 0
+    for name in driversDict:
+        driver = driversDict[name]
+
         dictToAdd = {
-            driver: {
-                "startingRange": startingRange,
+            driver.name: {
+                "startingRange": placementRange,
                 "endingRange": 0
             }
         }
 
-        # TODO: Finish team implementation
-        # TODO: Check if driver is the only driver in teams driver list.
-
-        startingRange += __calculateRange(driversDict[driver], 50)
-        dictToAdd[driver]['endingRange'] = startingRange
-        __rateRangesDict.update(dictToAdd)
-        startingRange += 1
-
-        # for team in teamsList:
-        #     if driver.name in team.drivers:
-        #         startingRange += calculateRange(driver, team)
-        #         dictToAdd[driver.name]['endingRange'] = startingRange
-        #         rateRangesDict.update(dictToAdd)
-        #         startingRange += 1
-        #         break
+        if driver.teamName != '':
+            placementRange += __calculateRange(driver, teamsDict.get(driver.teamName))
+            dictToAdd[driver.name]['endingRange'] = placementRange
+            __rateRangesDict.update(dictToAdd)
+            placementRange += 1
+            break
 
     global __endingRange
-    __endingRange = startingRange
+    __endingRange = placementRange
+
+
+def __calculateRange(driver: Driver, team: Team, startingBonus: int = 0) -> float:
+    """
+    Returns a range for each driver dependent upon their overall rating as well as their team rating and any bonuses.
+
+    :param driver: Driver model object
+    :type driver: Driver
+    :param team: Team model object
+    :type team: Team
+    :param startingBonus: Any bonus to be added to the formula
+    :type startingBonus: integer
+    :return: Range to determine standings
+    :rtype: float
+    """
+
+    driverResult = pow(float(driver.overallRating), __DRIVER_FACTOR)
+    teamResult = pow(team.raceRating, __TEAM_FACTOR)
+    bonusResult = startingBonus * 50
+
+    return round(((driverResult * teamResult) + bonusResult) / 100)
 
 
 def __populateStandingsDict(driversDict: dict) -> None:
     """
-    Populates the standingsDict with the standings generated during race stage processing.
+    Populates the standingsDict with the standard standings that will be generated during race stage processing.
 
     :param driversDict: Dictionary of drivers to be processed through the race stages
     :type driversDict: dictionary
@@ -97,32 +114,6 @@ def __populateStandingsDict(driversDict: dict) -> None:
         }
 
         __standingsDict.update(dictToAdd)
-
-
-def __calculateRange(driver, team_overall, startingBonus=0):
-    """
-    TODO: Implement team functionality
-
-    TODO: Complete docstring
-
-    :param driver:
-    :param team_overall:
-    :param startingBonus:
-    :return:
-    """
-
-    driverResult = pow(float(driver.overallRating), __DRIVER_FACTOR)
-    teamResult = pow(team_overall, __TEAM_FACTOR)
-    bonusResult = startingBonus * 50
-
-    return round(((driverResult * teamResult) + bonusResult) / 100)
-
-# def calculateRange(driver, team, startingBonus=0):
-#     driverResult = pow(driver.overallRating, DRIVER_FACTOR)
-#     teamResult = pow(team.overall, TEAM_FACTOR)
-#     bonusResult = startingBonus * 50
-#
-#     return round(((driverResult * teamResult) + bonusResult) / 100)
 
 
 def __qualifying() -> None:
