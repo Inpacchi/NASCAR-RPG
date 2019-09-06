@@ -58,12 +58,8 @@ def __JSONFile(modelType: str) -> TextIO:
         if os.stat(JSONPath).st_size == 0:
             os.remove(JSONPath)
             raise IOError
-
-        print(modelType, "json found; reading from database...")
     except IOError:
         JSONFile = open(JSONPath, 'w+')
-
-        print(modelType, "json not found; database has been created")
 
     return JSONFile
 
@@ -88,7 +84,7 @@ def __readModelListFromJSONFile(modelType: str, JSONFile: list) -> Union[None, L
     if not JSONFile:
         return
 
-    bar = createProgressBar().start()
+    bar = __createProgressBar().start()
     i = 0
 
     if modelType.lower() in MODEL_TYPE_DICT.get('models').get('driverSubset'):
@@ -193,7 +189,7 @@ def writeModelListToJSON(modelType: str, modelList: list) -> None:
 
     JSONFile = __JSONFile(modelType)
 
-    bar = createProgressBar().start()
+    bar = __createProgressBar().start()
 
     # If the first line is empty, assume the file is empty (it is not in the right format)
     if JSONFile.readline() != '':
@@ -333,7 +329,7 @@ def convertCSVToJSON(modelType: str) -> dict:
         csvHeader.append(column)
 
     # TODO: Refine error checking and display messages when the headers don't match up.
-    headerDiffList = headerDiff(properHeader, csvHeader)
+    headerDiffList = __headerDiff(properHeader, csvHeader)
 
     # Get the differences of the two lists; if they are not ordered correctly or have different column names,
     # don't do anything.
@@ -350,7 +346,7 @@ def convertCSVToJSON(modelType: str) -> dict:
 
         modelDict = {}
 
-        bar = createProgressBar()
+        bar = __createProgressBar()
         bar.start()
         i = 0
 
@@ -375,9 +371,9 @@ def convertCSVToJSON(modelType: str) -> dict:
         # os.rename('data/csv/drivers.csv', 'data/csv/archive/drivers.csv')
 
 
-def headerDiff(properHeader: list, csvHeader: list) -> list:
+def __headerDiff(properHeader: list, csvHeader: list) -> list:
     """
-    Returns a list of differences between the two lists.
+    Pseduo-private function that returns a list of differences between the two lists.
 
     :param properHeader: Values that the header file should be
     :type properHeader: list
@@ -389,9 +385,9 @@ def headerDiff(properHeader: list, csvHeader: list) -> list:
     return [i for i in properHeader + csvHeader if i not in properHeader or i not in csvHeader]
 
 
-def createProgressBar() -> ProgressBar:
+def __createProgressBar() -> ProgressBar:
     """
-    Simple function call to create a progress bar with the relevant parameters.
+    Pseudo-private simple function call to create a progress bar with the relevant parameters.
 
     Parameters are taken from the progressbar import statement.
 

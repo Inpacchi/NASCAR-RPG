@@ -29,7 +29,7 @@ class Team:
             self.teamRating = team['teamRating']
             self.raceRating = team['raceRating']
             self.drivers = team['drivers']
-        else:
+        else:  # Most likely coming from CSV, so no need to populate drivers
             self.name = team[0]
             self.owner = team[1]
             self.carManufacturer = team[2]
