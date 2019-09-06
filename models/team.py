@@ -38,15 +38,14 @@ class Team:
             self.raceRating = int(team[5])
             self.drivers = []
 
-
-    def printInfo(self):
-        print("Team Name:", self.name,
-              "\nOwner:", self.owner,
-              "\ncarManufacturer:", self.carManufacturer,
-              "\nequipmentRating:", int(self.equipmentRating),
-              "\nteamRating:", int(self.teamRating),
-              "\nraceRating:", int(self.raceRating),
-              "\nDrivers:", "".join(self.drivers), "\n")
+    def __str__(self):
+        return (f'Team Name: {self.name}\n'
+                f'Owner: {self.owner}\n'
+                f'Car Manufacturer: {self.carManufacturer}\n'
+                f'Equipment Rating: {self.equipmentRating}\n'
+                f'Team Rating: {self.teamRating}\n'
+                f'Race Rating: {self.raceRating}\n'
+                f'Drivers: {self.drivers}\n')
 
     def toDict(self):
         return self.__dict__

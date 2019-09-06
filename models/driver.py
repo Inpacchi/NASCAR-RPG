@@ -59,20 +59,19 @@ class Driver:
             self.overallRating = driver[11]
             self.potential = driver[12]
 
-    # TODO replace str() with string.format()
-    def printInfo(self):
-        print("\nDriver Name:", self.name,
-              "\nAge: {}".format(self.age),
-              "\nTeam Name:", self.teamName,
-              "\nContract Status: {}".format(self.contractStatus),
-              "\nCar Number: {}".format(self.carNumber),
-              "\nShort Track Rating: {}".format(self.shortRating),
-              "\nShort-Intermediate Track Rating: {}".format(self.shortIntermediateRating),
-              "\nIntermediate Track Rating: {}".format(self.intermediateRating),
-              "\nSuperspeedway Track Rating: {}".format(self.superSpeedwayRating),
-              "\nRoad Course Rating: {}".format(self.roadRating),
-              "\nOverall Rating: {}".format(self.overallRating),
-              "\nPotential:", self.potential, "\n")
+    def __str__(self):
+        return (f"Driver Name: {self.name}\n"
+                f"Age: {self.age}\n"
+                f"Team Name: {self.teamName}\n"
+                f"Contract Status: {self.contractStatus}\n"
+                f"Car Number: {self.carNumber}\n"
+                f"Short Track Rating: {self.shortRating}\n"
+                f"Short-Intermediate Track Rating: {self.shortIntermediateRating}\n"
+                f"Intermediate Track Rating: {self.intermediateRating}\n"
+                f"Superspeedway Track Rating: {self.superSpeedwayRating}\n"
+                f"Road Course Rating: {self.roadRating}\n"
+                f"Overall Rating: {self.overallRating}\n"
+                f"Potential: {self.potential}\n")
 
     def toJSON(self):
         return json.dumps(self, default=lambda o: o.__dict__, indent=4)
