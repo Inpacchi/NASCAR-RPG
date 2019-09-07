@@ -302,7 +302,7 @@ def writeDictToJSON(modelType: str, modelDict: dict) -> None:
         tempDict = {}
 
         for x in modelDict:
-            tempDict[x] = modelDict[x].toDict()
+            tempDict[x] = modelDict[x].__dict__
 
         json.dump(tempDict, JSONFile, indent=4)
     elif modelType.lower() in MODEL_TYPE_DICT.get('miscSubset'):

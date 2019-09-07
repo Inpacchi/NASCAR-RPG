@@ -33,12 +33,12 @@ class ModelTest(unittest.TestCase):
         tempDictCSV = futil.convertCSVToJSON('testdriver')
 
         for driver in tempDictCSV:
-            driversDictCSV[driver] = tempDictCSV[driver].toDict()
+            driversDictCSV[driver] = tempDictCSV[driver].__dict__
 
         tempDictJSON = futil.readDictFromJSON('testdriver')
 
         for driver in tempDictJSON:
-            driversDictJSON[driver] = tempDictJSON[driver].toDict()
+            driversDictJSON[driver] = tempDictJSON[driver].__dict__
 
         self.assertEqual(driversDictCSV, driversDictJSON, 'Dictionaries should be equal.')
 
@@ -70,12 +70,12 @@ class ModelTest(unittest.TestCase):
         gutil.importDriversToTeam('testteam', 'testdriver', None, tempDictCSV)
 
         for team in tempDictCSV:
-            teamsDictCSV[team] = tempDictCSV[team].toDict()
+            teamsDictCSV[team] = tempDictCSV[team].__dict__
 
         tempDictJSON = futil.readDictFromJSON('testteam')
 
         for team in tempDictJSON:
-            teamsDictJSON[team] = tempDictJSON[team].toDict()
+            teamsDictJSON[team] = tempDictJSON[team].__dict__
 
         self.assertEqual(teamsDictCSV, teamsDictJSON, 'Dictionaries should be equal.')
 
