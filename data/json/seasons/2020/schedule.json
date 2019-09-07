@@ -1,0 +1,327 @@
+{
+  "Advance Auto Parts Clash": {
+    "name": "Advance Auto Parts Clash",
+    "date": "02/09/2020",
+    "track": "Daytona International Speedway",
+    "laps": 75,
+    "stages": ""
+  },
+  "Gander RV Duel 1 at Daytona": {
+    "name": "Gander RV Duel 1 at Daytona",
+    "date": "02/13/2020",
+    "track": "Daytona International Speedway",
+    "laps": 60,
+    "stages": ""
+  },
+  "Gander RV Duel 2 at Daytona": {
+    "name": "Gander RV Duel 2 at Daytona",
+    "date": "02/13/2020",
+    "track": "Daytona International Speedway",
+    "laps": 60,
+    "stages": ""
+  },
+  "Daytona 500": {
+    "name": "Daytona 500",
+    "date": "02/16/2020",
+    "type": "regular",
+    "track": "Daytona International Speedway",
+    "laps": 200,
+    "stages": [60, 60, 80]
+  },
+  "Pennzoil 400": {
+    "name": "Pennzoil 400",
+    "date": "02/23/2020",
+    "type": "regular",
+    "track": "Las Vegas Motor Speedway",
+    "laps": 267,
+    "stages": [80, 80, 107]
+  },
+  "Auto Club 400": {
+    "name": "Auto Club 400",
+    "date": "03/01/2020",
+    "type": "regular",
+    "track": "Auto Club Speedway",
+    "laps": 200,
+    "stages": [60, 60, 80]
+  },
+  "TicketGuardian 500": {
+    "name": "TicketGuardian 500",
+    "date": "03/08/2020",
+    "type": "regular",
+    "track": "ISM Raceway",
+    "laps": 312,
+    "stages": [75, 75, 162]
+  },
+  "Folds of Honor QuikTrip 500": {
+    "name": "Folds of Honor QuikTrip 500",
+    "date": "03/15/2020",
+    "type": "regular",
+    "track": "Atlanta Motor Speedway",
+    "laps": 325,
+    "stages": [85, 85, 155]
+  },
+  "NASCAR Cup Series Race at Homestead": {
+    "name": "NASCAR Cup Series Race at Homestead",
+    "date": "03/22/2020",
+    "type": "regular",
+    "track": "Homestead-Miami Speedway",
+    "laps": 267,
+    "stages": [80, 80, 107]
+  },
+  "O’Reilly Auto Parts 500": {
+    "name": "O’Reilly Auto Parts 500",
+    "date": "03/29/2020",
+    "type": "regular",
+    "track": "Texas Motor Speedway",
+    "laps": 334,
+    "stages": [80, 80, 107]
+  },
+  "Food City 500": {
+    "name": "Food City 500",
+    "date": "04/05/2020",
+    "type": "regular",
+    "track": "Bristol Motor Speedway",
+    "laps": 500,
+    "stages": [125, 125, 250]
+  },
+  "Toyota Owners 400": {
+    "name": "Toyota Owners 400",
+    "date": "04/19/2020",
+    "type": "regular",
+    "track": "Richmond Raceway",
+    "laps": 400,
+    "stages": [100, 100, 200]
+  },
+  "GEICO 500": {
+    "name": "GEICO 500",
+    "date": "04/26/2020",
+    "type": "regular",
+    "track": "Talladega Superspeedway",
+    "laps": 188,
+    "stages": [55, 55, 78]
+  },
+  "NASCAR Cup Series Race #1 at Dover": {
+    "name": "NASCAR Cup Series #1 Race at Dover",
+    "date": "05/03/2020",
+    "type": "regular",
+    "track": "Dover International Speedway",
+    "laps": 400,
+    "stages": [120, 120, 160]
+  },
+  "STP 500": {
+    "name": "STP 500",
+    "date": "05/09/2020",
+    "type": "regular",
+    "track": "Martinsville Speedway",
+    "laps": 500,
+    "stages": [130, 130, 240]
+  },
+  "NASCAR Open": {
+    "name": "NASCAR Open",
+    "date": "05/16/2020",
+    "type": "regular",
+    "track": "Charlotte Motor Speedway",
+    "laps": 60,
+    "stages": [20, 20, 10]
+  },
+  "NASCAR All-Star Race": {
+    "name": "NASCAR All-Star Race",
+    "date": "05/16/2020",
+    "type": "regular",
+    "track": "Charlotte Motor Speedway",
+    "laps": 85,
+    "stages": [30, 20, 20, 15]
+  },
+  "Coca-Cola 600": {
+    "name": "Coca-Cola 600",
+    "date": "05/24/2020",
+    "type": "regular",
+    "track": "Charlotte Motor Speedway",
+    "laps": 400,
+    "stages": [100, 100, 100, 100]
+  },
+  "NASCAR Cup Series Race at Kansas": {
+    "name": "NASCAR Cup Series Race at Kansas",
+    "date": "05/31/2020",
+    "type": "regular",
+    "track": "Kansas Speedway",
+    "laps": 267,
+    "stages": [80, 80, 107]
+  },
+  "FireKeepers Casino 400": {
+    "name": "FireKeepers Casino 400",
+    "date": "06/07/2020",
+    "type": "regular",
+    "track": "Michigan International Speedway",
+    "laps": 200,
+    "stages": [60, 60, 80]
+  },
+  "Toyota/Save Mart 350": {
+    "name": "Toyota/Save Mart 350",
+    "date": "06/14/2020",
+    "type": "regular",
+    "track": "Sonoma Raceway",
+    "laps": 90,
+    "stages": [20, 20, 50]
+  },
+  "Camping World 400": {
+    "name": "Camping World 400",
+    "date": "06/21/2020",
+    "type": "regular",
+    "track": "Chicagoland Speedway",
+    "laps": 267,
+    "stages": [80, 80, 107]
+  },
+  "Pocono 400": {
+    "name": "Pocono 400",
+    "date": "06/27/2020",
+    "type": "regular",
+    "track": "Pocono Raceway",
+    "laps": 160,
+    "stages": [50, 50, 60]
+  },
+  "Gander RV 400": {
+    "name": "Gander RV 400",
+    "date": "06/28/2020",
+    "type": "regular",
+    "track": "Pocono Raceway",
+    "laps": 160,
+    "stages": [50, 50, 60]
+  },
+  "Big Machine Vodka 400 at the Brickyard": {
+    "name": "Big Machine Vodka 400 at the Brickyard",
+    "date": "07/05/2020",
+    "type": "regular",
+    "track": "Indianapolis Motor Speedway",
+    "laps": 160,
+    "stages": [50, 50, 60]
+  },
+  "Quaker State 400": {
+    "name": "Quaker State 400",
+    "date": "07/11/2020",
+    "type": "regular",
+    "track": "Kentucky Speedway",
+    "laps": 267,
+    "stages": [80, 80, 107]
+  },
+  "Foxwoods Resort Casino 301": {
+    "name": "Foxwoods Resort Casino 301",
+    "date": "07/19/2020",
+    "type": "regular",
+    "track": "New Hampshire Motor Speedway",
+    "laps": 301,
+    "stages": [75, 75, 151]
+  },
+  "Consumers Energy 400": {
+    "name": "Consumers Energy 400",
+    "date": "08/09/2020",
+    "type": "regular",
+    "track": "Michigan International Speedway",
+    "laps": 200,
+    "stages": [60, 60, 80]
+  },
+  "GoBowling at The Glen": {
+    "name": "GoBowling at The Glen",
+    "date": "08/16/2020",
+    "type": "regular",
+    "track": "Watkins Glen International",
+    "laps": 90,
+    "stages": [20, 20, 50]
+  },
+  "NASCAR Cup Series Race #2 at Dover": {
+    "name": "NASCAR Cup Series #2 Race at Dover",
+    "date": "08/23/2020",
+    "type": "regular",
+    "track": "Dover International Speedway",
+    "laps": 400,
+    "stages": [120, 120, 160]
+  },
+  "Coke Zero Sugar 400": {
+    "name": "Coke Zero Sugar 400",
+    "date": "08/29/2020",
+    "type": "regular",
+    "track": "Daytona International Speedway",
+    "laps": 160,
+    "stages": [50, 50, 60]
+  },
+  "Bojangles’ Southern 500": {
+    "name": "Bojangles’ Southern 500",
+    "date": "09/06/2020",
+    "type": "playoff",
+    "track": "Darlington Raceway",
+    "laps": 367,
+    "stages": [100, 100, 167]
+  },
+  "Federated Auto Parts 400": {
+    "name": "Federated Auto Parts 400",
+    "date": "09/12/2020",
+    "type": "playoff",
+    "track": "Richmond Raceway",
+    "laps": 400,
+    "stages": [100, 100, 200]
+  },
+  "Bass Pro Shops NRA Night Race": {
+    "name": "Bass Pro Shops NRA Night Race",
+    "date": "09/19/2020",
+    "type": "playoff",
+    "track": "Bristol Motor Speedway",
+    "laps": 500,
+    "stages": [125, 125, 250]
+  },
+  "South Point 400": {
+    "name": "South Point 400",
+    "date": "09/27/2020",
+    "type": "playoff",
+    "track": "Las Vegas Motor Speedway",
+    "laps": 267,
+    "stages": [80, 80, 107]
+  },
+  "1000Bulbs.com 500": {
+    "name": "1000Bulbs.com 500",
+    "date": "10/04/2020",
+    "type": "playoff",
+    "track": "Talladega Superspeedway",
+    "laps": 188,
+    "stages": [55, 55, 78]
+  },
+  "Bank of America Roval 400": {
+    "name": "Bank of America Roval 400",
+    "date": "10/11/2020",
+    "type": "playoff",
+    "track": "Charlotte Motor Speedway Road Course",
+    "laps": 109,
+    "stages": [25, 25, 59]
+  },
+  "Hollywood Casino 400": {
+    "name": "Hollywood Casino 400",
+    "date": "10/18/2020",
+    "type": "playoff",
+    "track": "Kansas Speedway",
+    "laps": 267,
+    "stages": [80, 80, 107]
+  },
+  "AAA Texas 500": {
+    "name": "AAA Texas 500",
+    "date": "10/25/2020",
+    "type": "playoff",
+    "track": "Texas Motor Speedway",
+    "laps": 334,
+    "stages": [85, 85, 164]
+  },
+  "First Data 500": {
+    "name": "First Data 500",
+    "date": "11/01/2020",
+    "type": "playoff",
+    "track": "Martinsville Speedway",
+    "laps": 500,
+    "stages": [130, 130, 240]
+  },
+  "NASCAR Cup Series Race at ISM Raceway": {
+    "name": "NASCAR Cup Series Race at ISM Raceway",
+    "date": "11/08/2020",
+    "type": "playoff",
+    "track": "ISM Raceway",
+    "laps": 312,
+    "stages": [75, 75, 162]
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "Atlanta Motor Speedway": {
+    "name": "Atlanta Motor Speedway",
+    "length": 1.540,
+    "type": "intermediate"
+  },
+  "Auto Club Speedway": {
+    "name": "Auto Club Speedway",
+    "length": 2.000,
+    "type": "intermediate"
+  },
+  "Bristol Motor Speedway": {
+    "name": "Bristol Motor Speedway",
+    "length": 0.533,
+    "type": "short"
+  },
+  "Canadian Tire Motorsport Park": {
+    "name": "Canadian Tire Motorsport Park",
+    "length": 2.459,
+    "type": "road"
+  },
+  "Charlotte Motor Speedway": {
+    "name": "Charlotte Motor Speedway",
+    "length": 2.280,
+    "type": "intermediate"
+  },
+  "Charlotte Motor Speedway Road Course": {
+    "name": "Charlotte Motor Speedway Road Course",
+    "length": 2.280,
+    "type": "road"
+  },
+  "Chicagoland Speedway": {
+    "name": "Chicagoland Speedway",
+    "length": 1.500,
+    "type": "intermediate"
+  },
+  "Darlington Raceway": {
+    "name": "Darlington Raceway",
+    "length": 1.366,
+    "type": "intermediate"
+  },
+  "Daytona International Speedway": {
+    "name": "Daytona International Speedway",
+    "length": 2.500,
+    "type": "superspeedway"
+  },
+  "Dover International Speedway": {
+    "name": "Dover International Speedway",
+    "length": 1.000,
+    "type": "intermediate"
+  },
+  "Eldora Speedway": {
+    "name": "Eldora Speedway",
+    "length": 0.500,
+    "type": "short"
+  },
+  "Homestead-Miami Speedway": {
+    "name": "Homestead-Miami Speedway",
+    "length": 1.500,
+    "type": "intermediate"
+  },
+  "ISM Raceway": {
+    "name": "ISM Raceway",
+    "length": 1.000,
+    "type": "intermediate"
+  },
+  "Indianapolis Motor Speedway": {
+    "name": "Indianapolis Motor Speedway",
+    "length": 2.500,
+    "type": "superspeedway"
+  },
+  "Iowa Speedway": {
+    "name": "Iowa Speedway",
+    "length": 0.875,
+    "type": "short"
+  },
+  "Kansas Speedway": {
+    "name": "Kansas Speedway",
+    "length": 1.500,
+    "type": "intermediate"
+  },
+  "Kentucky Speedway": {
+    "name": "Kentucky Speedway",
+    "length": 1.500,
+    "type": "intermediate"
+  },
+  "Las Vegas Motor Speedway": {
+    "name": "Las Vegas Motor Speedway",
+    "length": 1.500,
+    "type": "intermediate"
+  },
+  "Martinsville Speedway": {
+    "name": "Martinsville Speedway",
+    "length": 0.526,
+    "type": "short"
+  },
+  "Michigan International Speedway": {
+    "name": "Michigan International Speedway",
+    "length": 2.000,
+    "type": "intermediate"
+  },
+  "Mid-Ohio Sports Car Course": {
+    "name": "Mid-Ohio Sports Car Course",
+    "length": 2.250,
+    "type": "road"
+  },
+  "New Hampshire Motor Speedway": {
+    "name": "New Hampshire Motor Speedway",
+    "length": 1.058,
+    "type": "intermediate"
+  },
+  "Pocono Raceway": {
+    "name": "Pocono Raceway",
+    "length": 2.500,
+    "type": "superspeedway"
+  },
+  "Richmond Raceway": {
+    "name": "Richmond Raceway",
+    "length": 0.750,
+    "type": "short"
+  },
+  "Road America": {
+    "name": "Road America",
+    "length": 4.048,
+    "type": "road"
+  },
+  "Sonoma Raceway": {
+    "name": "Sonoma Raceway",
+    "length": 0.750,
+    "type": "road"
+  },
+  "Talladega Superspeedway": {
+    "name": "Talladega Superspeedway",
+    "length": 2.660,
+    "type": "superspeedway"
+  },
+  "Texas Motor Speedway": {
+    "name": "Texas Motor Speedway",
+    "length": 1.500,
+    "type": "intermediate"
+  },
+  "Watkins Glen International": {
+    "name": "Watkins Glen International",
+    "length": 2.450,
+    "type": "road"
+  },
+  "World Wide Technology Raceway at Gateway": {
+    "name": "World Wide Technology Raceway at Gateway",
+    "length": 1.250,
+    "type": "intermediate"
+  }
+}
