@@ -1,0 +1,39 @@
+{
+    "Hendrick Motorsports": {
+        "name": "Hendrick Motorsports",
+        "owner": "",
+        "carManufacturer": "Chevrolet",
+        "equipmentRating": 98,
+        "teamRating": 95,
+        "raceRating": 97,
+        "drivers": [
+            "Jeff Gordon",
+            "Jerry Nadeau",
+            "Jimmie Johnson",
+            "Terry Labonte"
+        ],
+        "charterAmount": 4,
+        "charterDict": {
+            "5": {
+                "number": 5,
+                "placement": [],
+                "worth": 0
+            },
+            "24": {
+                "number": 24,
+                "placement": [],
+                "worth": 0
+            },
+            "48": {
+                "number": 48,
+                "placement": [],
+                "worth": 0
+            },
+            "88": {
+                "number": 88,
+                "placement": [],
+                "worth": 0
+            }
+        }
+    }
+}
