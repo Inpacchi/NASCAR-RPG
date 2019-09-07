@@ -7,7 +7,7 @@
   "Auto Club Speedway": {
     "name": "Auto Club Speedway",
     "length": 2.000,
-    "type": "intermediate"
+    "type": "superspeedway"
   },
   "Bristol Motor Speedway": {
     "name": "Bristol Motor Speedway",
@@ -37,17 +37,17 @@
   "Darlington Raceway": {
     "name": "Darlington Raceway",
     "length": 1.366,
-    "type": "intermediate"
+    "type": "short-intermediate"
   },
   "Daytona International Speedway": {
     "name": "Daytona International Speedway",
     "length": 2.500,
-    "type": "superspeedway"
+    "type": "restricted"
   },
   "Dover International Speedway": {
     "name": "Dover International Speedway",
     "length": 1.000,
-    "type": "intermediate"
+    "type": "short-intermediate"
   },
   "Eldora Speedway": {
     "name": "Eldora Speedway",
@@ -62,7 +62,7 @@
   "ISM Raceway": {
     "name": "ISM Raceway",
     "length": 1.000,
-    "type": "intermediate"
+    "type": "short-intermediate"
   },
   "Indianapolis Motor Speedway": {
     "name": "Indianapolis Motor Speedway",
@@ -97,7 +97,7 @@
   "Michigan International Speedway": {
     "name": "Michigan International Speedway",
     "length": 2.000,
-    "type": "intermediate"
+    "type": "superspeedway"
   },
   "Mid-Ohio Sports Car Course": {
     "name": "Mid-Ohio Sports Car Course",
@@ -107,7 +107,7 @@
   "New Hampshire Motor Speedway": {
     "name": "New Hampshire Motor Speedway",
     "length": 1.058,
-    "type": "intermediate"
+    "type": "short-intermediate"
   },
   "Pocono Raceway": {
     "name": "Pocono Raceway",
@@ -132,7 +132,7 @@
   "Talladega Superspeedway": {
     "name": "Talladega Superspeedway",
     "length": 2.660,
-    "type": "superspeedway"
+    "type": "restricted"
   },
   "Texas Motor Speedway": {
     "name": "Texas Motor Speedway",
@@ -147,6 +147,6 @@
   "World Wide Technology Raceway at Gateway": {
     "name": "World Wide Technology Raceway at Gateway",
     "length": 1.250,
-    "type": "intermediate"
+    "type": "short-intermediate"
   }
 }
