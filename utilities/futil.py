@@ -246,7 +246,7 @@ def writeModelListToJSON(modelType: str, modelList: list) -> None:
     print("\n", modelType, "json has been updated")
 
 
-def readDictFromJSON(modelType: str) -> dict:
+def readDictFromJSON(modelType: str) -> Union[None, dict]:
     """
     Returns a dictionary loaded directly from a JSON file.
 
@@ -255,26 +255,26 @@ def readDictFromJSON(modelType: str) -> dict:
 
     :param modelType: Type of model being loaded
     :type modelType: string
-    :return: Dictionary of models
+    :return: Dictionary if type is not a model
     :rtype: dictionary
+    :return: None if type is a model
+    :rtype: None
     """
 
     JSONFile = __JSONFile(modelType)
     tempDict = json.load(JSONFile)
     JSONFile.close()
 
-    modelDict = {}
-
     if modelType.lower() in MODEL_TYPE_DICT.get('models').get('driverSubset'):
         for model in tempDict:
-            modelDict[model] = Driver(tempDict[model])
+            Driver(tempDict[model])
+        return
     elif modelType.lower() in MODEL_TYPE_DICT.get('models').get('teamSubset'):
         for model in tempDict:
-            modelDict[model] = Team(tempDict[model])
+            Team(tempDict[model])
+        return
     elif modelType.lower() in MODEL_TYPE_DICT.get('miscSubset'):
-        modelDict.update(tempDict)
-
-    return modelDict
+        return tempDict
 
 
 def writeDictToJSON(modelType: str, modelDict: dict) -> None:
@@ -297,8 +297,8 @@ def writeDictToJSON(modelType: str, modelDict: dict) -> None:
     JSONFile.seek(0)
     JSONFile.truncate(0)
 
-    if modelType.lower() not in MODEL_TYPE_DICT.get('models').get('driverSubset') \
-            or modelType.lower() not in MODEL_TYPE_DICT.get('models').get('teamSubset'):
+    if modelType.lower() in MODEL_TYPE_DICT.get('models').get('driverSubset') \
+            or modelType.lower() in MODEL_TYPE_DICT.get('models').get('teamSubset'):
         tempDict = {}
 
         for x in modelDict:
@@ -311,7 +311,7 @@ def writeDictToJSON(modelType: str, modelDict: dict) -> None:
     JSONFile.close()
 
 
-def convertCSVToJSON(modelType: str) -> dict:
+def convertCSVToJSON(modelType: str) -> None:
     """
     Converts the relevant CSV file to JSON format.
 
@@ -359,29 +359,24 @@ def convertCSVToJSON(modelType: str) -> dict:
     else:
         print("The header in both files match! Importing models now...")
 
-        modelDict = {}
-
         bar = __createProgressBar()
         bar.start()
         i = 0
 
         if modelType.lower() in MODEL_TYPE_DICT.get('models').get('driverSubset'):
             for row in reader:
-                modelDict[row[0]] = Driver(row)
+                Driver(row)
                 bar.update(i + 1)
+            writeDictToJSON(modelType, Driver.instances)
         elif modelType.lower() in MODEL_TYPE_DICT.get('models').get('teamSubset'):
             for row in reader:
-                modelDict[row[0]] = Team(row)
+                Team(row)
                 bar.update(i + 1)
+            writeDictToJSON(modelType, Team.instances)
 
         bar.finish()
         print()
-
         CSVFile.close()
-
-        writeDictToJSON(modelType, modelDict)
-
-        return modelDict
         # TODO: Move file to archive and rename it according to what's already in the folder
         # os.rename('data/csv/drivers.csv', 'data/csv/archive/drivers.csv')
 
