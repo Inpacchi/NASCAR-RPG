@@ -3,22 +3,7 @@ import json
 
 
 class Team:
-    name = ""
-    owner = ""
-    carManufacturer = ""
-
-    equipmentRating = 0
-    teamRating = 0
-    raceRating = 0
-
-    # TODO: Implement these features
-    # wins = 0
-    # dnf = 0
-    # poles = 0
-    # sponsors = []
-    drivers = []
-
-    momentum = 0
+    instances = {}
 
     def __init__(self, team):
         if type(team) == dict:
@@ -37,6 +22,8 @@ class Team:
             self.teamRating = int(team[4])
             self.raceRating = int(team[5])
             self.drivers = []
+
+        Team.instances[self.name] = self
 
     def __str__(self):
         return (f'Team Name: {self.name}\n'

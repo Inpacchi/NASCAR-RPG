@@ -1,34 +1,13 @@
 import random
 import json
 
+# TODO: Fix driver class variable types
+# TODO: Constructor for new drivers
+
 
 class Driver:
-    name = ""
-    age = 0
-    contractStatus = ""
+    instances = {}
 
-    teamName = ""
-    carNumber = 0
-
-    shortRating = 0
-    shortIntermediateRating = 0
-    intermediateRating = 0
-    superSpeedwayRating = 0
-    restrictorPlateRating = 0
-    roadRating = 0
-    overallRating = 0
-    potential = ""
-
-    momentum = 0
-
-    # TODO: Implement these two features
-    # contractLength = 0
-    # salary = 0
-    # carManufacturer = ""
-
-    # TODO: Fix driver class variable types
-    # TODO: Constructor for new drivers
-    # Use an overload to initialize based on the driver type input
     def __init__(self, driver):
         if type(driver) == dict:
             self.name = driver['name']
@@ -58,6 +37,8 @@ class Driver:
             self.roadRating = driver[10]
             self.overallRating = driver[11]
             self.potential = driver[12]
+
+        Driver.instances[self.name] = self
 
     def __str__(self):
         return (f"Driver Name: {self.name}\n"
