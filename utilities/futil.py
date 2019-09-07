@@ -48,13 +48,13 @@ def __JSONFile(modelType: str) -> TextIO:
     """
 
     if modelType.lower() == 'driver':
-        JSONPath = 'data/json/drivers.json'
+        JSONPath = 'data/json/drivers/drivers.json'
     elif modelType.lower() == 'currentdrivers':
-        JSONPath = 'data/json/currentdrivers.json'
+        JSONPath = 'data/json/drivers/currentdrivers.json'
     elif modelType.lower() == 'team':
-        JSONPath = 'data/json/teams.json'
+        JSONPath = 'data/json/teams/teams.json'
     elif modelType.lower() == 'charterteam':
-        JSONPath = 'data/json/charterteams.json'
+        JSONPath = 'data/json/teams/charterteams.json'
     elif modelType.lower() == 'standings':
         JSONPath = 'data/json/standings.json'
     elif modelType.lower() == 'testdriver':
