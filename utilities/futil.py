@@ -97,11 +97,11 @@ def __CSVFile(modelType: str, filename: str = None) -> Union[str, TextIO]:
 
     if filename is not None:
         if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset'):
-            CSVPath = f'data/csv/drivers/{filename}.json'
+            CSVPath = f'data/csv/drivers/{filename}.csv'
         elif modelType.lower() in MODEL_TYPE_DICT.get('teamSubset'):
-            CSVPath = f'data/csv/teams/{filename}.json'
+            CSVPath = f'data/csv/teams/{filename}.csv'
         elif modelType.lower() in MODEL_TYPE_DICT.get('testSubset'):
-            CSVPath = f'../data/csv/tests/{filename}.json'
+            CSVPath = f'../data/csv/tests/{filename}.csv'
         else:
             raise Exception('You entered a filename, but did not enter a valid model type!')
     else:
@@ -125,11 +125,11 @@ def __CSVFile(modelType: str, filename: str = None) -> Union[str, TextIO]:
 
 
 def __getCSVHeader(modelType: str):
-    if modelType.lower() in (MODEL_TYPE_DICT.get('driverSubset') + ['testdriver']):
+    if modelType.lower() in (MODEL_TYPE_DICT.get('driverSubset').union('testdriver')):
         header = ['name', 'age', 'teamName', 'contractStatus', 'carNumber', 'shortRating', 'shortIntermediateRating',
                   'intermediateRating', 'superSpeedwayRating', 'restrictedTrackRating', 'roadCourseRating',
                   'overallRating', 'potential']
-    elif modelType.lower() in (MODEL_TYPE_DICT.get('teamSubset') + ['testteam']):
+    elif modelType.lower() in (MODEL_TYPE_DICT.get('teamSubset').union('testteam')):
         header = ['name', 'owner', 'carManufacturer', 'equipmentRacing', 'teamRating', 'raceRating']
     else:
         raise Exception('Incorrect model type!')
@@ -245,6 +245,9 @@ def convertDictToCSV(modelType: str, dataDict: dict = None, filename: str = None
     :return: None
     :rtype: None
     """
+
+    if not Driver.instances:
+        readDictFromJSON(modelType)
 
     CSVFile = __CSVFile(modelType, filename)
 
