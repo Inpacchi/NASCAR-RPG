@@ -26,7 +26,9 @@ MODEL_TYPE_DICT = {
         'testteam'
     },
     'miscSubset': {
-        'standings'
+        'standings',
+        'tracks',
+        '2020schedule'
     }
 }
 
@@ -57,6 +59,10 @@ def __JSONFile(modelType: str) -> TextIO:
         JSONPath = 'data/json/teams/charterteams.json'
     elif modelType.lower() == 'standings':
         JSONPath = 'data/json/standings.json'
+    elif modelType.lower() == 'tracks':
+        JSONPath = 'data/json/tracks.json'
+    elif modelType.lower() == '2020schedule':
+        JSONPath = 'data/json/seasons/2020/schedule.json'
     elif modelType.lower() == 'testdriver':
         JSONPath = '../data/tests/json/drivers.json'
     elif modelType.lower() == 'testteam':
