@@ -19,8 +19,8 @@ class Driver:
             self.shortIntermediateRating = driver['shortIntermediateRating']
             self.intermediateRating = driver['intermediateRating']
             self.superSpeedwayRating = driver['superSpeedwayRating']
-            self.restrictorPlateRating = driver['restrictorPlateRating']
-            self.roadRating = driver['roadRating']
+            self.restrictedTrackRating = driver['restrictedTrackRating']
+            self.roadCourseRating = driver['roadCourseRating']
             self.overallRating = driver['overallRating']
             self.potential = driver['potential']
         else:
