@@ -65,13 +65,13 @@ def __JSONFile(modelType: str) -> TextIO:
         raise Exception('Incorrect model type!')
 
     try:
-        JSONFile = open(JSONPath, 'r+')
+        JSONFile = open(JSONPath, 'r+', encoding='utf-8-sig')
 
         if os.stat(JSONPath).st_size == 0:
             os.remove(JSONPath)
             raise IOError
     except IOError:
-        JSONFile = open(JSONPath, 'w+')
+        JSONFile = open(JSONPath, 'w+', encoding='utf-8-sig')
 
     return JSONFile
 
@@ -151,7 +151,6 @@ def __CSVFile(modelType: str) -> Union[str, TextIO]:
         raise Exception('Incorrect model type!')
 
     try:
-        # Must define encoding='utf-8-sig' to function seamlessly with Excel sheets and exports.
         CSVFile = open(CSVPath, 'r', encoding='utf-8-sig')
 
         if os.stat(CSVPath).st_size == 0:
