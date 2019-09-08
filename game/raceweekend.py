@@ -27,14 +27,25 @@ def processStage() -> None:
 
    #  scheduleDict = futil.readDictFromJSON('2020schedule')
 
-    futil.readDictFromJSON('currentdrivers')
-    futil.readDictFromJSON('teams')
-    __populateRangesDict()
-    __populateStandingsDict()
-    __qualifying()
-    __race()
-    futil.writeDictToJSON('standings', __standingsDict)
-    __processDriverPotential()
+    # for raceObject in scheduleDict:
+    #     race = scheduleDict[raceObject]
+    #     if race['raceProcessed'] == 'no':
+    #         unprocessedRaces[raceIndex] = (race['name'])
+    #         raceIndex += 1
+            # if len(race['name']) > longestWordLength:
+            #     longestWordLength = len(race['name']) + 10
+
+    # futil.readDictFromJSON('currentdrivers')
+    # futil.readDictFromJSON('teams')
+    #
+    # tracksDict = futil.readDictFromJSON('tracks')
+    #
+    # __populateRangesDict()
+    # __populateStandingsDict()
+    # __qualifying()
+    # __race()
+    # futil.writeDictToJSON('standings', __standingsDict)
+    # __processDriverPotential()
 
 
 def __populateRangesDict() -> None:
@@ -81,6 +92,8 @@ def __calculateRange(driver: Driver, team: Team, startingBonus: int = 0) -> floa
     :rtype: float
     """
 
+    trackRating = 0
+
     driverResult = pow(float(driver.overallRating), __DRIVER_FACTOR)
     teamResult = pow(team.raceRating, __TEAM_FACTOR)
     bonusResult = startingBonus * 50
@@ -103,7 +116,8 @@ def __populateStandingsDict() -> None:
                 "finishingPosition": 0,
                 "lapsLed": 0,
                 "timesQualifyingRangeHit": 0,
-                "timesRaceRangeHit": 0
+                "timesRaceRangeHit": 0,
+                "fastestQualifyingLap": 0
             }
         }
 
