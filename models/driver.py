@@ -9,34 +9,19 @@ class Driver:
     instances = {}
 
     def __init__(self, driver):
-        if type(driver) == dict:
-            self.name = driver['name']
-            self.age = driver['age']
-            self.teamName = driver['teamName']
-            self.contractStatus = driver['contractStatus']
-            self.carNumber = driver['carNumber']
-            self.shortRating = driver['shortRating']
-            self.shortIntermediateRating = driver['shortIntermediateRating']
-            self.intermediateRating = driver['intermediateRating']
-            self.superSpeedwayRating = driver['superSpeedwayRating']
-            self.restrictedTrackRating = driver['restrictedTrackRating']
-            self.roadCourseRating = driver['roadCourseRating']
-            self.overallRating = driver['overallRating']
-            self.potential = driver['potential']
-        else:
-            self.name = driver[0]
-            self.age = driver[1]
-            self.teamName = driver[2]
-            self.contractStatus = driver[3]
-            self.carNumber = driver[4]
-            self.shortRating = driver[5]
-            self.shortIntermediateRating = driver[6]
-            self.intermediateRating = driver[7]
-            self.superSpeedwayRating = driver[8]
-            self.restrictorPlateRating = driver[9]
-            self.roadRating = driver[10]
-            self.overallRating = driver[11]
-            self.potential = driver[12]
+        self.name = driver['name']
+        self.age = driver['age']
+        self.teamName = driver['teamName']
+        self.contractStatus = driver['contractStatus']
+        self.carNumber = driver['carNumber']
+        self.shortRating = driver['shortRating']
+        self.shortIntermediateRating = driver['shortIntermediateRating']
+        self.intermediateRating = driver['intermediateRating']
+        self.superSpeedwayRating = driver['superSpeedwayRating']
+        self.restrictedTrackRating = driver['restrictedTrackRating']
+        self.roadCourseRating = driver['roadCourseRating']
+        self.overallRating = driver['overallRating']
+        self.potential = driver['potential']
 
         Driver.instances[self.name] = self
 
@@ -50,7 +35,7 @@ class Driver:
                 f"Short-Intermediate Track Rating: {self.shortIntermediateRating}\n"
                 f"Intermediate Track Rating: {self.intermediateRating}\n"
                 f"Superspeedway Track Rating: {self.superSpeedwayRating}\n"
-                f"Road Course Rating: {self.roadRating}\n"
+                f"Road Course Rating: {self.roadCourseRating}\n"
                 f"Overall Rating: {self.overallRating}\n"
                 f"Potential: {self.potential}\n")
 

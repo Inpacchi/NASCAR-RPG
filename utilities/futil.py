@@ -137,21 +137,6 @@ def __getCSVHeader(modelType: str):
     return header
 
 
-def __headerDiff(properHeader: list, csvHeader: list) -> list:
-    """
-    Returns a list of differences between two CSV header lists.
-
-    :param properHeader: Values that the header file should be
-    :type properHeader: list
-    :param csvHeader: Header taken from the CSV file
-    :type csvHeader: list
-    :return: Differences between the two lists
-    :rtype: list
-    """
-
-    return [i for i in properHeader + csvHeader if i not in properHeader or i not in csvHeader]
-
-
 def readDictFromJSON(modelType: str) -> Union[None, dict]:
     """
     Returns a dictionary loaded directly from a JSON file.
@@ -208,7 +193,9 @@ def writeDictToJSON(modelType: str, dataDict: dict, filename: str = None) -> Non
     JSONFile.seek(0)
     JSONFile.truncate(0)
 
-    if modelType.lower() in (MODEL_TYPE_DICT.get('driverSubset') + MODEL_TYPE_DICT.get('teamSubset') + MODEL_TYPE_DICT.get('testSubset')):
+    if modelType.lower() in (
+            MODEL_TYPE_DICT.get('driverSubset') + MODEL_TYPE_DICT.get('teamSubset') + MODEL_TYPE_DICT.get(
+            'testSubset')):
         tempDict = {}
 
         for name in dataDict:
@@ -222,43 +209,27 @@ def writeDictToJSON(modelType: str, dataDict: dict, filename: str = None) -> Non
     print(f'\nJSON file created at {JSONFile.name}')
 
 
-def convertCSVToJSON(modelType: str) -> None:
+def convertCSVToJSON(modelType: str = None, filename: str = None) -> None:
     """
     Imports lines from a CSV file as models and converts to JSON format
 
     :param modelType: Type of model being loaded
     :type modelType: string
+    :param filename: If specified, the specific path to write the CSV file to
+    :type filename: string
+    :return: None
+    :rtype: None
     """
 
-    properHeader = __getCSVHeader(modelType)
+    CSVFile = __CSVFile(modelType, filename)
+    reader = csv.DictReader(CSVFile)
+    next(reader)  # Skip the header lines
 
-    csvHeader = []
+    for row in reader:
+        Driver(row)
 
-    CSVFile = __CSVFile(modelType)
-    reader = csv.reader(CSVFile)
-    header = next(reader)
-
-    for column in header:
-        csvHeader.append(column)
-
-    # TODO: Refine error checking and display messages when the headers don't match up.
-    headerDiffList = __headerDiff(properHeader, csvHeader)
-
-    # If the headers are not ordered correctly or have different column names, don't do anything.
-    if headerDiffList:
-        raise Exception("Seems like the header is messed up. Check the CSV and try again.")
-    else:
-        if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset'):
-            for row in reader:
-                Driver(row)
-            writeDictToJSON(modelType, Driver.instances)
-        elif modelType.lower() in MODEL_TYPE_DICT.get('teamSubset'):
-            for row in reader:
-                Team(row)
-            writeDictToJSON(modelType, Team.instances)
-
-        CSVFile.close()
-        print(f'CSV file converted from {CSVFile.name}')
+    CSVFile.close()
+    print(f'CSV file converted from {CSVFile.name}')
 
 
 def convertDictToCSV(modelType: str, dataDict: dict = None, filename: str = None) -> None:
