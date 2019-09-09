@@ -1,4 +1,4 @@
-﻿Name,Age,Team Name,Contract Status,Car Number,Short Rating,Short Intermediate Rating,Intermediate Rating,Superspeedway Rating,Restrictor Plate Rating,Road Rating,Overall Rating,Potential
+﻿name,age,teamName,contractStatus,carNumber,shortRating,shortIntermediateRating,intermediateRating,superSpeedwayRating,restrictedTrackRating,roadCourseRating,overallRating,Potential
 Jim Inglebright,40,Roadrunner Motorsports,lifetime,0,15,14,12,25,12,60,17.8,2p(04)1r
 Hermie Sadler,32,SCORE Motorsports,2003,2,67,39,35,23,37,38,39.6,(04)4r
 Ted Musgrave,46,Ultra Motorsports,2005,7,75,68,64,65,52,29,63.6,(05)2r
