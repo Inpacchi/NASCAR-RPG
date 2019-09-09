@@ -12,6 +12,7 @@ decorator==4.4.0
 docutils==0.15.2
 Flask==1.1.1
 Flask-Login==0.4.1
+Flask-SQLAlchemy==2.4.0
 Flask-WTF==0.14.2
 idna==2.8
 imagesize==1.1.0
@@ -51,6 +52,7 @@ sphinxcontrib-htmlhelp==1.0.2
 sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==1.0.2
 sphinxcontrib-serializinghtml==1.1.3
+SQLAlchemy==1.3.8
 sqlitebiter==0.28.0
 sqliteschema==0.16.2
 tabledata==0.9.1
