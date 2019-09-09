@@ -21,7 +21,9 @@ MODEL_TYPE_DICT = {
     },
     'miscSubset': {
         'standings',
-        'tracks',
+        'tracks'
+    },
+    'schedules': {
         '2020schedule'
     }
 }
@@ -144,8 +146,8 @@ def __getCSVHeader(modelType: str):
                   "fastestQualifyingLap"]
     elif modelType.lower() == 'tracks':
         header = ['name', 'length', 'type']
-    elif modelType.lower() == 'schedule':
-        header = ['name', 'date', 'track', 'laps', 'stages', 'raceProcessed']
+    elif modelType.lower() in MODEL_TYPE_DICT.get('schedules'):
+        header = ['name', 'date', 'type', 'track', 'laps', 'stages', 'raceProcessed']
 
     else:
         raise Exception('Incorrect model type!')
@@ -180,7 +182,7 @@ def readDictFromJSON(modelType: str) -> Union[None, dict]:
         for model in tempDict:
             Team(tempDict[model])
         return
-    elif modelType.lower() in MODEL_TYPE_DICT.get('miscSubset'):
+    elif modelType.lower() in (MODEL_TYPE_DICT.get('miscSubset').union(MODEL_TYPE_DICT.get('schedules'))):
         return tempDict
 
     print(f'JSON file read from {JSONFile.name}')
@@ -209,16 +211,14 @@ def writeDictToJSON(modelType: str, dataDict: dict, filename: str = None) -> Non
     JSONFile.seek(0)
     JSONFile.truncate(0)
 
-    if modelType.lower() in (
-            MODEL_TYPE_DICT.get('driverSubset') + MODEL_TYPE_DICT.get('teamSubset') + MODEL_TYPE_DICT.get(
-        'testSubset')):
+    if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset').union(MODEL_TYPE_DICT.get('teamSubset')).union(MODEL_TYPE_DICT.get('testSubset')):
         tempDict = {}
 
         for name in dataDict:
             tempDict[name] = dataDict[name].__dict__
 
         json.dump(tempDict, JSONFile, indent=4)
-    elif modelType.lower() in MODEL_TYPE_DICT.get('miscSubset'):
+    elif modelType.lower() in MODEL_TYPE_DICT.get('miscSubset').union(MODEL_TYPE_DICT.get('schedules')):
         json.dump(dataDict, JSONFile, indent=4)
 
     JSONFile.close()
@@ -264,7 +264,10 @@ def convertDictToCSV(modelType: str, dataDict: dict = None, filename: str = None
     :rtype: None
     """
 
-    if not Driver.instances:
+    if dataDict is None and modelType.lower() in MODEL_TYPE_DICT.get('miscSubset').union(
+            MODEL_TYPE_DICT.get('schedules')):
+        dataDict = readDictFromJSON(modelType)
+    elif not Driver.instances and dataDict is None:
         readDictFromJSON(modelType)
 
     CSVFile = __CSVFile(modelType, filename, conversion)
@@ -279,7 +282,7 @@ def convertDictToCSV(modelType: str, dataDict: dict = None, filename: str = None
         for team in Team.instances.values():
             writer.writerow(team.__dict__)
     else:
-        writer.writerows(dataDict)
+        writer.writerows(dataDict.values())
 
     CSVFile.close()
     print(f'\nCSV file created at {CSVFile.name}')
