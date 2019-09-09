@@ -15,15 +15,12 @@ itsdangerous==1.1.0
 Jinja2==2.10.1
 MarkupSafe==1.1.1
 packaging==19.1
-path.py==12.0.1
 Pygments==2.4.2
 pyparsing==2.4.2
-pyrsistent==0.15.4
 pytz==2019.2
 requests==2.22.0
-simplejson==3.16.0
 six==1.12.0
-snowballstemmer==1.9.0
+snowballstemmer==1.9.1
 Sphinx==2.2.0
 sphinxcontrib-applehelp==1.0.1
 sphinxcontrib-devhelp==1.0.1
