@@ -1,5 +1,6 @@
 import json
 from utilities import futil
+from models.driver import Driver
 
 # Global Pseudo-Private Variable Declaration
 __progressionDict = {}
@@ -22,12 +23,12 @@ def __getPotentialDicts():
         __regressionDict.update(json.load(regressionJSON))
 
 
-def __getDriverPotentialDict(driversDict):
-    for driver in driversDict:
+def __getDriverPotentialDict():
+    for driver in Driver.instances:
         tempDict = {
             driver: {
-                "age": driversDict[driver].age,
-                "potential": driversDict[driver].potential
+                "age": Driver.instances[driver].age,
+                "potential": Driver.instances[driver].potential
             }
         }
 
@@ -35,9 +36,9 @@ def __getDriverPotentialDict(driversDict):
 
 
 # TODO: Update proper progression/regression training
-def __calculateDriverPotential(driversDict, standingsDict):
+def __calculateDriverPotential(standingsDict):
     for driverName in __driverPotentialDict:
-        driver = driversDict[driverName]
+        driver = Driver.instances[driverName]
 
         string = __driverPotentialDict[driverName]['potential'].split(';')
         ageRange = string[1]
@@ -52,11 +53,11 @@ def __calculateDriverPotential(driversDict, standingsDict):
         elif driver.age > ageRange or driver.age > ageRange[1]:
             rate = __regressionDict[string[2]][standingPlacement]
 
-        overallRating = float(driversDict[driverName].overallRating)
+        overallRating = float(Driver.instances[driverName].overallRating)
         overallRating += rate
-        driversDict[driverName].overallRating = str(overallRating)
+        Driver.instances[driverName].overallRating = str(overallRating)
 
-    futil.writeDictToJSON('currentdrivers', driversDict)
+    futil.writeDictToJSON('currentdrivers', Driver.instances)
 
 
 def determineStandingPlacement(finishingPosition):

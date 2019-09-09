@@ -4,8 +4,8 @@ from models import *
 from game import  *
 from utilities import *
 
-futil.readDictFromJSON('driver')
-futil.readDictFromJSON('team')
+# futil.readDictFromJSON('driver')
+# futil.readDictFromJSON('team')
 
 # HM = team.Team.instances.get('Hendrick Motorsports')
 #

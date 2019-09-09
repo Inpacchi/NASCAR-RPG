@@ -1,12 +1,23 @@
-import random
-import json
-
-# TODO: Fix driver class variable types
-# TODO: Constructor for new drivers
-
+from app import db
 
 class Driver:
     instances = {}
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(32), index=True, nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    teamId = db.Column(db.Integer, db.ForeignKey('team.id'), index=True)
+    contractId = db.Column(db.String(32), db.ForeignKey('contract.id'))
+    carNumber = db.Column(db.Integer, index=True)
+    shortRating = db.Column(db.Integer, nullable=False)
+    shortIntermediateRating = db.Column(db.Integer, nullable=False)
+    intermediateRating = db.Column(db.Integer, nullable=False)
+    superSpeedwayRating = db.Column(db.Integer, nullable=False)
+    restrictedTrackRating = db.Column(db.Integer, nullable=False)
+    roadCourseRating = db.Column(db.Integer, nullable=False)
+    overallRating = db.Column(db.Integer, nullable=False)
+    potential = db.Column(db.String(16), nullable=False)
+
 
     def __init__(self, driver):
         self.name = driver['name']

@@ -1,8 +1,15 @@
-import random
-import json
-
+from app import db
 
 class Team:
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(32), index=True, nullable=False)
+    owner = db.Column(db.String(32), index=True)
+    carManufacturer = db.Column(db.String(32))
+    equipmentRating = db.Column(db.Integer, nullable=False)
+    teamRating = db.Column(db.Integer, nullable=False)
+    raceRating = db.Column(db.Integer, nullable=False)
+    drivers = db.relationship('Driver', backref='driver')
+
     instances = {}
 
     def __init__(self, team):
