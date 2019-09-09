@@ -101,7 +101,9 @@ def __CSVFile(modelType: str, filename: str = None, conversion: str = None) -> U
     :rtype: TextIO
     """
 
-    if filename is not None:
+    if conversion.lower() == 'y':
+        CSVPath = f'data/sqlite/conversion/{filename}.csv'
+    elif filename is not None:
         if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset'):
             CSVPath = f'data/csv/drivers/{filename}.csv'
         elif modelType.lower() in MODEL_TYPE_DICT.get('teamSubset'):
@@ -238,7 +240,7 @@ def convertCSVToJSON(modelType: str = None, filename: str = None) -> None:
     print(f'CSV file converted from {CSVFile.name}')
 
 
-def convertDictToCSV(modelType: str, dataDict: dict = None, filename: str = None) -> None:
+def convertDictToCSV(modelType: str, dataDict: dict = None, filename: str = None, conversion: str = None) -> None:
     """
     Converts regular dictionaries and model dictionaries to a CSV format.
 
@@ -248,6 +250,8 @@ def convertDictToCSV(modelType: str, dataDict: dict = None, filename: str = None
     :type dataDict: dict
     :param filename: If specified, the specific path to write the CSV file to
     :type filename: string
+    :param conversion: If specified, use conversion output path
+    :type conversion: string
     :return: None
     :rtype: None
     """
@@ -255,7 +259,7 @@ def convertDictToCSV(modelType: str, dataDict: dict = None, filename: str = None
     if not Driver.instances:
         readDictFromJSON(modelType)
 
-    CSVFile = __CSVFile(modelType, filename)
+    CSVFile = __CSVFile(modelType, filename, conversion)
 
     writer = csv.DictWriter(CSVFile, fieldnames=__getCSVHeader(modelType))
     writer.writeheader()
