@@ -101,7 +101,9 @@ def __CSVFile(modelType: str, filename: str = None, conversion: str = None) -> U
     :rtype: TextIO
     """
 
-    if filename is not None:
+    if conversion.lower() == 'y':
+        CSVPath = f'data/sqlite/conversion/{filename}.csv'
+    elif filename is not None:
         if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset'):
             CSVPath = f'data/csv/drivers/{filename}.csv'
         elif modelType.lower() in MODEL_TYPE_DICT.get('teamSubset'):
