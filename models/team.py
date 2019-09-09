@@ -6,30 +6,13 @@ class Team:
     instances = {}
 
     def __init__(self, team):
-        if type(team) == dict:
-            self.name = team['name']
-            self.owner = team['owner']
-            self.carManufacturer = team['carManufacturer']
-            self.equipmentRating = team['equipmentRating']
-            self.teamRating = team['teamRating']
-            self.raceRating = team['raceRating']
-            self.drivers = team['drivers']
-        elif type(team) == Team:
-            self.name = team.name
-            self.owner = team.owner
-            self.carManufacturer = team.carManufacturer
-            self.equipmentRating = team.equipmentRating
-            self.teamRating = team.teamRating
-            self.raceRating = team.raceRating
-            self.drivers = team.drivers
-        else:  # Most likely coming from CSV, so no need to populate drivers
-            self.name = team[0]
-            self.owner = team[1]
-            self.carManufacturer = team[2]
-            self.equipmentRating = int(team[3])
-            self.teamRating = int(team[4])
-            self.raceRating = int(team[5])
-            self.drivers = []
+        self.name = team['name']
+        self.owner = team['owner']
+        self.carManufacturer = team['carManufacturer']
+        self.equipmentRating = team['equipmentRating']
+        self.teamRating = team['teamRating']
+        self.raceRating = team['raceRating']
+        self.drivers = team['drivers']
 
         Team.instances[self.name] = self
 

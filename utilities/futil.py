@@ -138,7 +138,7 @@ def __getCSVHeader(modelType: str):
                   'intermediateRating', 'superSpeedwayRating', 'restrictedTrackRating', 'roadCourseRating',
                   'overallRating', 'potential']
     elif modelType.lower() in (MODEL_TYPE_DICT.get('teamSubset').union('testteam')):
-        header = ['name', 'owner', 'carManufacturer', 'equipmentRacing', 'teamRating', 'raceRating']
+        header = ['name', 'owner', 'carManufacturer', 'equipmentRating', 'teamRating', 'raceRating', 'drivers']
     elif modelType.lower() == 'standings':
         header = ["qualifyingPosition", "finishingPosition", "lapsLed", "timesQualifyingRangeHit", "timesRaceRangeHit",
                   "fastestQualifyingLap"]
