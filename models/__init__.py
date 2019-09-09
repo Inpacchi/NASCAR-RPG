@@ -1,1 +1,3 @@
-__all__ = ["driver", "team"]
+from webapp import db
+
+__all__ = ['driver', 'team', 'webapp', 'contract']

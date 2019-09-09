@@ -1,25 +1,25 @@
-from app import db
+from webapp import db
 
-class Driver:
+
+class Driver(db.Model):
     instances = {}
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(32), index=True, nullable=False)
     age = db.Column(db.Integer, nullable=False)
     teamId = db.Column(db.Integer, db.ForeignKey('team.id'), index=True)
-    contractId = db.Column(db.String(32), db.ForeignKey('contract.id'))
+    contract = db.relationship('contract', uselist=False, back_populates="driver")
     carNumber = db.Column(db.Integer, index=True)
-    shortRating = db.Column(db.Integer, nullable=False)
-    shortIntermediateRating = db.Column(db.Integer, nullable=False)
-    intermediateRating = db.Column(db.Integer, nullable=False)
-    superSpeedwayRating = db.Column(db.Integer, nullable=False)
-    restrictedTrackRating = db.Column(db.Integer, nullable=False)
-    roadCourseRating = db.Column(db.Integer, nullable=False)
-    overallRating = db.Column(db.Integer, nullable=False)
+    shortRating = db.Column(db.Float, nullable=False)
+    shortIntermediateRating = db.Column(db.Float, nullable=False)
+    intermediateRating = db.Column(db.Float, nullable=False)
+    superSpeedwayRating = db.Column(db.Float, nullable=False)
+    restrictedTrackRating = db.Column(db.Float, nullable=False)
+    roadCourseRating = db.Column(db.Float, nullable=False)
+    overallRating = db.Column(db.Float, nullable=False)
     potential = db.Column(db.String(16), nullable=False)
 
-
-    def __init__(self, driver):
+    def __initFromJSON(self, driver):
         self.name = driver['name']
         self.age = driver['age']
         self.teamName = driver['teamName']
