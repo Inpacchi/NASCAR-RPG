@@ -39,6 +39,8 @@ def __JSONFile(modelType: str, filename: str = None) -> TextIO:
 
     :param modelType: Type of model being loaded
     :type modelType: string
+    :param filename: If specified, name of file to be used for I/O
+    :type filename: string
     :return: Raw JSON connection string
     :rtype: TextIO
     """
@@ -82,7 +84,7 @@ def __JSONFile(modelType: str, filename: str = None) -> TextIO:
     return JSONFile
 
 
-def __CSVFile(modelType: str, filename: str = None) -> Union[str, TextIO]:
+def __CSVFile(modelType: str, filename: str = None, conversion: str = None) -> Union[str, TextIO]:
     """
     Returns a CSV file based on model type.
 
@@ -91,6 +93,10 @@ def __CSVFile(modelType: str, filename: str = None) -> Union[str, TextIO]:
 
     :param modelType: Type of model being loaded
     :type modelType: string
+    :param filename: If specified, name of file to be used for I/O
+    :type filename: string
+    :param conversion: If specified, use conversion output path
+    :type conversion: string
     :return: Raw CSV connection string
     :rtype: TextIO
     """
