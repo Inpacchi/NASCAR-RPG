@@ -1,4 +1,5 @@
 alabaster==0.7.12
+alembic==1.1.0
 appconfigpy==0.4.2
 attrs==19.1.0
 Babel==2.7.0
@@ -12,6 +13,7 @@ decorator==4.4.0
 docutils==0.15.2
 Flask==1.1.1
 Flask-Login==0.4.1
+Flask-Migrate==2.5.2
 Flask-SQLAlchemy==2.4.0
 Flask-WTF==0.14.2
 idna==2.8
@@ -23,6 +25,7 @@ Jinja2==2.10.1
 jsonschema==3.0.2
 jupyter-core==4.5.0
 Logbook==1.5.2
+Mako==1.1.0
 Markdown==2.6.11
 MarkupSafe==1.1.1
 mbstrdecoder==0.8.1
@@ -37,6 +40,8 @@ Pygments==2.4.2
 pyparsing==2.4.2
 pyrsistent==0.15.4
 pytablereader==0.26.1
+python-dateutil==2.8.0
+python-editor==1.0.4
 pytz==2019.2
 requests==2.22.0
 retryrequests==0.0.3
