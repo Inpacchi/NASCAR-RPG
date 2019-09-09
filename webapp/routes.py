@@ -2,17 +2,17 @@ from flask import render_template, flash, redirect, url_for
 
 from flask_login import current_user, login_user
 
-from app import webapp
-from app.forms import LoginForm
+from webapp import app
+from webapp.forms import LoginForm
 
 
-@webapp.route('/')
-@webapp.route('/index')
+@app.route('/')
+@app.route('/index')
 def index():
     return render_template('index.html')
 
 
-@webapp.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
 
