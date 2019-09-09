@@ -139,6 +139,14 @@ def __getCSVHeader(modelType: str):
                   'overallRating', 'potential']
     elif modelType.lower() in (MODEL_TYPE_DICT.get('teamSubset').union('testteam')):
         header = ['name', 'owner', 'carManufacturer', 'equipmentRacing', 'teamRating', 'raceRating']
+    elif modelType.lower() == 'standings':
+        header = ["qualifyingPosition", "finishingPosition", "lapsLed", "timesQualifyingRangeHit", "timesRaceRangeHit",
+                  "fastestQualifyingLap"]
+    elif modelType.lower() == 'tracks':
+        header = ['name', 'length', 'type']
+    elif modelType.lower() == 'schedule':
+        header = ['name', 'date', 'track', 'laps', 'stages', 'raceProcessed']
+
     else:
         raise Exception('Incorrect model type!')
 
@@ -203,7 +211,7 @@ def writeDictToJSON(modelType: str, dataDict: dict, filename: str = None) -> Non
 
     if modelType.lower() in (
             MODEL_TYPE_DICT.get('driverSubset') + MODEL_TYPE_DICT.get('teamSubset') + MODEL_TYPE_DICT.get(
-            'testSubset')):
+        'testSubset')):
         tempDict = {}
 
         for name in dataDict:
