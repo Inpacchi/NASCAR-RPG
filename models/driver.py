@@ -50,5 +50,18 @@ class Driver(db.Model):
                 f"Overall Rating: {self.overallRating}\n"
                 f"Potential: {self.potential}\n")
 
-    def toDict(self):
-        return self.__dict__
+    def serialize(self):
+        return {
+            'name': self.name,
+            'age': self.age,
+            'teamName': self.teamName,
+            'contractStatus': self.contractStatus,
+            'carNumber': self.carNumber,
+            'shortRating': self.shortRating,
+            'shortIntermediateRating': self.shortIntermediateRating,
+            'intermediateRating': self.intermediateRating,
+            'superSpeedwayRating': self.superSpeedwayRating,
+            'roadCourseRating': self.roadCourseRating,
+            'overallRating': self.overallRating,
+            'potential': self.potential
+        }

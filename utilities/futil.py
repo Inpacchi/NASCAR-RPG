@@ -255,8 +255,14 @@ def convertCSVToJSON(modelType: str, filename: str = None) -> None:
     reader = csv.DictReader(CSVFile)
     next(reader)  # Skip the header lines
 
-    for row in reader:
-        Driver(row)
+    if modelType in MODEL_TYPE_DICT.get('driverSubset'):
+        for row in reader:
+            Driver(row)
+        writeDictToJSON(modelType, Driver.instances, filename)
+    elif modelType in MODEL_TYPE_DICT.get('teamSubset'):
+        for row in reader:
+            Team(row)
+        writeDictToJSON(modelType, Team.instances, filename)
 
     CSVFile.close()
     print(f'CSV file converted from {CSVFile.name}')
@@ -291,10 +297,10 @@ def convertDictToCSV(modelType: str, dataDict: dict = None, filename: str = None
 
     if modelType in MODEL_TYPE_DICT.get('driverSubset'):
         for driver in Driver.instances.values():
-            writer.writerow(driver.__dict__)
+            writer.writerow(driver.serialize())
     elif modelType in MODEL_TYPE_DICT.get('teamSubset'):
         for team in Team.instances.values():
-            writer.writerow(team.__dict__)
+            writer.writerow(team.serialize())
     else:
         writer.writerows(dataDict.values())
 

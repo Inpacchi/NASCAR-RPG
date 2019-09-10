@@ -33,6 +33,18 @@ class Team(db.Model):
                 f'Race Rating: {self.raceRating}\n'
                 f'Drivers: {self.drivers}\n')
 
+    def serialize(self):
+        return {
+            'name': self.name,
+            'owner': self.owner,
+            'carManufacturer': self.carManufacturer,
+            'equipmentRating': self.equipmentRating,
+            'teamRating': self.teamRating,
+            'raceRating': self.raceRating,
+            'drivers': self.drivers
+        }
+
+
 
 class CharterTeam(Team):
     instances = {}
