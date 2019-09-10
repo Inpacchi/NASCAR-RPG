@@ -123,5 +123,3 @@ dmypy.json
 .pyre/
 *.xml
 *.iml
-
-data/sqlite/database.sqlite
