@@ -8,7 +8,7 @@ class Driver(db.Model):
     name = db.Column(db.String(32), index=True, nullable=False)
     age = db.Column(db.Integer, nullable=False)
     teamId = db.Column(db.Integer, db.ForeignKey('team.id'), index=True)
-    contract = db.relationship('contract', uselist=False, back_populates="driver")
+    contract = db.relationship('Contract', uselist=False, back_populates='driver')
     carNumber = db.Column(db.Integer, index=True)
     shortRating = db.Column(db.Float, nullable=False)
     shortIntermediateRating = db.Column(db.Float, nullable=False)
@@ -19,7 +19,7 @@ class Driver(db.Model):
     overallRating = db.Column(db.Float, nullable=False)
     potential = db.Column(db.String(16), nullable=False)
 
-    def __initFromJSON(self, driver):
+    def __init__(self, driver):
         self.name = driver['name']
         self.age = driver['age']
         self.teamName = driver['teamName']
@@ -37,18 +37,18 @@ class Driver(db.Model):
         Driver.instances[self.name] = self
 
     def __str__(self):
-        return (f"Driver Name: {self.name}\n"
-                f"Age: {self.age}\n"
-                f"Team Name: {self.teamName}\n"
-                f"Contract Status: {self.contractStatus}\n"
-                f"Car Number: {self.carNumber}\n"
-                f"Short Track Rating: {self.shortRating}\n"
-                f"Short-Intermediate Track Rating: {self.shortIntermediateRating}\n"
-                f"Intermediate Track Rating: {self.intermediateRating}\n"
-                f"Superspeedway Track Rating: {self.superSpeedwayRating}\n"
-                f"Road Course Rating: {self.roadCourseRating}\n"
-                f"Overall Rating: {self.overallRating}\n"
-                f"Potential: {self.potential}\n")
+        return (f'Driver Name: {self.name}\n'
+                f'Age: {self.age}\n'
+                f'Team Name: {self.teamName}\n'
+                f'Contract Status: {self.contractStatus}\n'
+                f'Car Number: {self.carNumber}\n'
+                f'Short Track Rating: {self.shortRating}\n'
+                f'Short-Intermediate Track Rating: {self.shortIntermediateRating}\n'
+                f'Intermediate Track Rating: {self.intermediateRating}\n'
+                f'Superspeedway Track Rating: {self.superSpeedwayRating}\n'
+                f'Road Course Rating: {self.roadCourseRating}\n'
+                f'Overall Rating: {self.overallRating}\n'
+                f'Potential: {self.potential}\n')
 
     def serialize(self):
         return {
