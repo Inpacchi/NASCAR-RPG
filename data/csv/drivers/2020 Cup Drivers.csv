@@ -1,0 +1,70 @@
+name,age,teamName,contractStatus,carNumber,shortRating,intermediateRating,shortIntermediateRating,superSpeedwayRating,restrictedTrackRating,roadCourseRating,dirtTrackRating,overallRating,potential
+Kyle Busch,35,Joe Gibbs Racing,2022,18,100,94,97,88,86,94,,93.61,
+Joey Logano,30,Team Penske Racing,2023,22,95,95,90,91,85,87,,91.72,
+Denny Hamlin,39,Joe Gibbs Racing,2022,11,92,90,95,94,89,85,,91.31,
+Kevin Harvick,44,Stewart Haas Racing,,4,90,94,92,89,88,89,,91.08,r
+Kurt Busch,41,Chip Ganassi Racing,2019,1,93,91,92,87,90,86,,90.31,r
+Martin Truex Jr.,40,Joe Gibbs Racing,,19,86,97,93,88,72,93,,89.89,r
+Brad Keselowski,36,Team Penske Racing,2020+,2,87,89,90,96,87,82,,89.19,
+Chase Elliott,24,Hendrick Motorsports,2020,9,87,84,90,87,91,93,,87.53,p
+Kyle Larson,27,Chip Ganassi Racing,,42,88,86,96,91,68,79,,86.25,p
+Ryan Blaney,26,Team Penske Racing,,12,79,83,86,93,70,89,,83.56,p
+Erik Jones,24,Joe Gibbs Racing,2020,20,73,80,87,83,86,84,,81.50,
+Aric Almirola,36,Stewart Haas Racing,2020,10,81,84,87,63,94,66,,80.11,
+Alex Bowman,27,Hendrick Motorsports,2020,88,81,88,79,68,73,78,,79.50,
+William Byron,22,Hendrick Motorsports,,24,69,77,80,88,81,80,,78.69,p
+Clint Bowyer,41,Stewart Haas Racing,2019,14,86,74,78,70,81,82,,77.44,r
+Ryan Newman,42,Roush Racing,2021,6,79,78,74,80,76,75,,77.36,r
+Matt DiBenedetto,28,Leavine Family Racing,Free Agent,95,86,74,79,65,78,84,,76.61,p
+Chris Buescher,27,JTG Daugherty,2019+,37,76,78,64,84,80,78,,76.56,
+Daniel Suárez,28,Stewart Haas Racing,2020+,41,74,76,78,81,58,81,,75.25,p
+Jimmie Johnson,44,Hendrick Motorsports,2020,48,70,79,83,64,82,76,,75.75,r
+Tyler Reddick(i),24,Richard Childress Racing,,,64,82,61,77,81,59,,72.64,
+Ricky Stenhouse Jr.,32,Roush Racing,2021,17,76,66,69,66,97,48,,70.11,
+Matt Kenseth,48,,,,68,74,71,77,63,52,,69.94,
+Paul Menard,39,Wood Brothers Racing,2020,21,64,71,57,79,83,68,,69.92,
+Austin Dillon,30,Richard Childress Racing,,3,72,77,57,68,87,38,,69.19,
+Jamie McMurray,44,,Retire,,61,70,53,69,78,75,,66.81,
+A. J. Allmendinger,38,,,,57,64,69,44,81,91,,64.47,
+Ty Dillon,28,Germain Racing,,13,70,55,72,72,79,29,,63.67,p
+Ryan Preece,29,JTG Daugherty,,47,66,48,53,70,78,63,,60.08,
+Darrell Wallace Jr.,26,Richard Petty Motorsports,2020,43,50,64,66,61,80,18,,59.44,
+Daniel Hemric,29,Richard Childress Racing,2020,8,52,55,45,77,76,61,,59.33,
+Regan Smith,36,,,,41,61,58,58,69,50,,56.64,
+Corey LaJoie,28,GoFas Racing,,32,67,61,45,59,68,22,,56.53,
+David Ragan,34,Front Row Motorsports,Retire,38,66,51,41,64,86,31,,56.22,
+Michael McDowell,35,Front Row Motorsports,,34,56,52,38,53,74,66,,54.11,
+Trevor Bayne,29,,,,66,52,38,48,85,31,,53.25,
+Matt Tifft,24,Front Row Motorsports,,36,28,50,61,54,68,74,,52.83,p
+Brendan Gaughan(i),44,,,,32,54,39,50,79,51,,49.69,r
+Casey Mears,42,,,,31,56,33,48,61,77,,48.97,r
+Landon Cassill(i),30,StarCom Racing,,0,60,46,26,54,68,16,,46.28,
+Justin Haley(i),21,,,,36,49,30,38,79,56,,45.75,
+Gray Gaulding(i),22,,,,43,42,40,29,68,51,,43.31,p
+Jeffrey Earnhardt(i),32,,,,25,48,30,31,69,31,,39.25,
+Ryan Truex(i),28,,,,38,37,54,38,20,36,,38.19,
+Parker Kligerman(i),29,,,,40,38,23,15,72,56,,37.28,
+Jeb Burton(i),27,,,,37,45,28,48,39,13,,38.00,
+Reed Sorenson,34,,,,20,35,43,40,60,14,,35.69,
+Joey Gase(i),27,,,,35,34,28,24,65,30,,34.61,1p
+Timmy Hill(i),27,,,,42,28,32,21,56,37,,33.69,
+Garrett Smithley(i),28,,,,37,30,17,39,47,21,,31.64,
+Austin Theriault,26,,,,27,28,32,22,60,31,,31.31,2p
+Quin Houff,22,,,,37,38,19,47,15,10,,31.28,1p
+Blake Jones,23,,,,38,28,20,22,47,10,,27.94,
+Bayley Currey(i),23,,,,30,31,33,33,10,7,,27.17,
+Cole Whitt,29,,,,21,33,29,28,26,9,,26.72,
+Stanton Barrett,47,,,,27,18,33,30,12,57,,26.58,r
+D. J. Kennington(i),42,,,,23,18,26,16,45,38,,24.50,
+Harrison Rhodes,26,,,,20,28,18,13,57,10,,24.22,
+Cody Ware(i),24,Rick Ware Racing,,,11,14,23,17,37,46,,20.72,
+Alon Day,28,,,,17,20,18,11,8,69,,20.42,
+Derrike Cope,61,,,,20,13,29,10,44,15,,19.94,
+B. J. McLeod(i),36,,,,18,20,11,23,36,10,,19.61,
+Kyle Weatherman,22,,,,37,20,14,14,10,12,,19.06,
+Andy Seuss,33,,,,21,11,46,9,16,6,,18.31,
+Tanner Berryhill,26,,,,13,19,21,12,6,38,,17.31,
+Hermie Sadler,51,,,,28,9,11,7,16,8,,12.86,
+Mark Thompson,68,,,,5,8,5,11,49,5,,11.81,
+Chris Cook,48,,,,7,5,9,5,5,55,,10.17,r
+Tomy Drissi,61,,,,5,5,6,5,5,61,,9.83,
