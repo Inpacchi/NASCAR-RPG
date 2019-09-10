@@ -3,7 +3,10 @@ from os.path import dirname, abspath
 
 import unittest
 
+from models.driver import Driver
+from models.team import Team
 from utilities import futil, gutil
+
 
 # TODO: Update tests to reflect new futil methods
 
@@ -27,20 +30,23 @@ class ModelTest(unittest.TestCase):
         :return: None
         """
 
-        driversDictCSV = {}
-        driversDictJSON = {}
+        futil.convertCSVToJSON('testdriver')
 
-        tempDictCSV = futil.convertCSVToJSON('testdriver')
+        driversDictFromCSV = {}
+        for driver in Driver.instances:
+            driversDictFromCSV[driver] = Driver.instances[driver].__dict__
 
-        for driver in tempDictCSV:
-            driversDictCSV[driver] = tempDictCSV[driver].__dict__
+        # Because driver models get stored in instances, clear it out before reading from JSON
+        Driver.instances = {}
 
-        tempDictJSON = futil.readDictFromJSON('testdriver')
+        futil.readDictFromJSON('testdriver')
 
-        for driver in tempDictJSON:
-            driversDictJSON[driver] = tempDictJSON[driver].__dict__
+        driversDictFromJSON = {}
+        for driver in Driver.instances:
+            driversDictFromJSON[driver] = Driver.instances[driver].__dict__
 
-        self.assertEqual(driversDictCSV, driversDictJSON, 'Dictionaries should be equal.')
+        self.assertEqual(driversDictFromCSV, driversDictFromJSON, 'Dictionaries should be equal.')
+        # Add clear for Drier.instances???
 
     def testTeamUtilities(self) -> None:
         """
@@ -62,22 +68,24 @@ class ModelTest(unittest.TestCase):
         :return: None
         """
 
-        teamsDictCSV = {}
-        teamsDictJSON = {}
 
-        tempDictCSV = futil.convertCSVToJSON('testteam')
+        futil.convertCSVToJSON('testteam')
 
-        gutil.importDriversToTeam('testteam', 'testdriver', None, tempDictCSV)
+        gutil.importDriversToTeam('testteam', 'testdriver')
 
-        for team in tempDictCSV:
-            teamsDictCSV[team] = tempDictCSV[team].__dict__
+        teamsDictFromCSV = {}
+        for team in Team.instances:
+            teamsDictFromCSV[team] = teamsDictFromCSV[team].__dict__
 
-        tempDictJSON = futil.readDictFromJSON('testteam')
+        Team.instances = {}
 
-        for team in tempDictJSON:
-            teamsDictJSON[team] = tempDictJSON[team].__dict__
+        futil.readDictFromJSON('testteam')
 
-        self.assertEqual(teamsDictCSV, teamsDictJSON, 'Dictionaries should be equal.')
+        teamsDictFromJSON = {}
+        for team in Team.instances:
+            teamsDictFromJSON[team] = teamsDictFromJSON[team].__dict__
+
+        self.assertEqual(teamsDictFromCSV, teamsDictFromJSON, 'Dictionaries should be equal.')
 
 
 if __name__ == '__main__':

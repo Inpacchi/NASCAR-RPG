@@ -2,30 +2,29 @@ from timeit import default_timer as timer
 
 from utilities import futil
 
+from models.driver import Driver
+from models.team import Team
 
-def importDriversToTeam(teamType: str, driverType: str = None, driversDict: dict = None, teamsDict: dict = None) -> None:
+
+def importDriversToTeam(teamType: str, driverType: str = None) -> None:
     """
     Populates each Team model drivers list variable with their respective drivers.
 
     :return: None
     """
 
-    if driverType is None and driversDict is None:
-        raise Exception("You must define either a driver type or a driver dictionary!")
-    elif driversDict is None:
-        driversDict = futil.readDictFromJSON(driverType)
+    if Driver.instances == {}:
+        futil.readDictFromJSON(driverType)
 
-    if teamType is None and teamsDict is None:
-        raise Exception("You must define either a team type or a team dictionary!")
-    elif teamsDict is None:
-        teamsDict = futil.readDictFromJSON(teamType)
+    if Team.instances == {}:
+        futil.readDictFromJSON(teamType)
 
-    for name in driversDict:
-        driver = driversDict[name]
-        if not driver.teamName == "" and driver.teamName in teamsDict:
-            teamsDict[driver.teamName].drivers.append(driver.name)
+    for name in Driver.instances:
+        driver = Driver.instances[name]
+        if not driver.teamName == "" and driver.teamName in Team.instances:
+            Team.instances[driver.teamName].drivers.append(driver.name)
 
-    futil.writeDictToJSON(teamType, teamsDict)
+    futil.writeDictToJSON(teamType, Team.instances)
 
 
 def getFunctionTime() -> None:
