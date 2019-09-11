@@ -1,4 +1,19 @@
 from webapp import db
+from models.driver import Driver
+
+
+def getDriverModels(driversList):
+    driverModelsList = []
+
+    for driver in driversList:
+        if type(driver) in [dict, Driver]:
+            driverModelsList.append(driver)
+        else:
+            return driversList
+        # elif type(driver) == :
+        #     driverModelsList.append(Driver.instances[driver])
+
+    return driverModelsList
 
 
 class Team(db.Model):
@@ -20,8 +35,9 @@ class Team(db.Model):
         self.equipmentRating = team['equipmentRating']
         self.teamRating = team['teamRating']
         self.raceRating = team['raceRating']
-        self.drivers.append(team['drivers'])
-        #TODO: Append driver object instead
+
+        if 'drivers' in team.keys():
+            self.drivers = getDriverModels(team['drivers'])
 
         Team.instances[self.name] = self
 
