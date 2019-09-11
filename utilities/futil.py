@@ -295,7 +295,6 @@ def convertCSVToJSON(modelType: str, filename: str = None) -> None:
 
     CSVFile = __CSVFile(modelType, filename)
     reader = csv.DictReader(CSVFile)
-    next(reader)  # Skip the header lines
 
     if modelType in MODEL_TYPE_DICT.get('driverSubset'):
         for row in reader:
