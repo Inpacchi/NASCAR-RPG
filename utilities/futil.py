@@ -92,9 +92,9 @@ def __JSONFile(modelType: str, filepath: str = None, filename: str = None, datab
         elif modelType.lower() == '2020schedule':
             JSONPath = 'data/json/seasons/2020/schedule.json'
         elif modelType.lower() == 'testdriver':
-            JSONPath = '../data/tests/json/drivers/drivers.json'
+            JSONPath = 'data/tests/json/drivers/drivers.json'
         elif modelType.lower() == 'testteam':
-            JSONPath = '../data/tests/json/teams/teams.json'
+            JSONPath = 'data/tests/json/teams/teams.json'
         else:
             raise Exception('Incorrect model type!')
 
@@ -147,9 +147,9 @@ def __CSVFile(modelType: str, filename: str = None, conversion: str = None) -> T
         elif modelType.lower() == 'team':
             CSVPath = 'data/csv/teams/teams.csv'
         elif modelType.lower() == 'testdriver':
-            CSVPath = '../data/tests/csv/drivers/drivers.csv'
+            CSVPath = 'data/tests/csv/drivers/drivers.csv'
         elif modelType.lower() == 'testteam':
-            CSVPath = '../data/tests/csv/teams/teams.csv'
+            CSVPath = 'data/tests/csv/teams/teams.csv'
         else:
             raise Exception('Incorrect model type!')
 
@@ -212,18 +212,16 @@ def readDictFromJSON(modelType: str, filename: str = None, filepath: str = None)
     tempDict = json.load(JSONFile)
     JSONFile.close()
 
-    if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset'):
+    if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset').union('testdriver'):
         for model in tempDict:
             Driver(tempDict[model])
         return
-    elif modelType.lower() in MODEL_TYPE_DICT.get('teamSubset'):
+    elif modelType.lower() in MODEL_TYPE_DICT.get('teamSubset').union(MODEL_TYPE_DICT.get('testSubset')):
         for model in tempDict:
             Team(tempDict[model])
         return
     elif modelType.lower() in (MODEL_TYPE_DICT.get('miscSubset').union(MODEL_TYPE_DICT.get('schedules'))):
         return tempDict
-
-    print(f'JSON file for model type "{modelType}" read from {JSONFile.name}')
 
 
 def writeDictToJSON(modelType: str, dataDict: dict, filename: str = None, databaseError: str = None) -> None:
