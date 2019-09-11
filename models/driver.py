@@ -24,7 +24,6 @@ class Driver(db.Model):
         self.name = driver['name']
         self.age = driver['age']
         self.teamName = driver['teamName']
-        self.contractStatus = driver['contractStatus']
         self.carNumber = driver['carNumber']
         self.shortRating = driver['shortRating']
         self.shortIntermediateRating = driver['shortIntermediateRating']
@@ -41,12 +40,12 @@ class Driver(db.Model):
         return (f'Driver Name: {self.name}\n'
                 f'Age: {self.age}\n'
                 f'Team Name: {self.teamName}\n'
-                f'Contract Status: {self.contractStatus}\n'
                 f'Car Number: {self.carNumber}\n'
                 f'Short Track Rating: {self.shortRating}\n'
                 f'Short-Intermediate Track Rating: {self.shortIntermediateRating}\n'
                 f'Intermediate Track Rating: {self.intermediateRating}\n'
                 f'Superspeedway Track Rating: {self.superSpeedwayRating}\n'
+                f'Restricted (Super Speedway) Track Rating: {self.restrictedTrackRating}\n'
                 f'Road Course Rating: {self.roadCourseRating}\n'
                 f'Overall Rating: {self.overallRating}\n'
                 f'Potential: {self.potential}\n')
@@ -54,15 +53,15 @@ class Driver(db.Model):
     def serialize(self):
         return {
             'name': self.name,
-            'age': self.age,
+            'age': int(self.age),
             'teamName': self.teamName,
-            'contractStatus': self.contractStatus,
-            'carNumber': self.carNumber,
-            'shortRating': self.shortRating,
-            'shortIntermediateRating': self.shortIntermediateRating,
-            'intermediateRating': self.intermediateRating,
-            'superSpeedwayRating': self.superSpeedwayRating,
-            'roadCourseRating': self.roadCourseRating,
-            'overallRating': self.overallRating,
+            'carNumber': int(self.carNumber),
+            'shortRating': float(self.shortRating),
+            'shortIntermediateRating': float(self.shortIntermediateRating),
+            'intermediateRating': float(self.intermediateRating),
+            'superSpeedwayRating': float(self.superSpeedwayRating),
+            'restrictedTrackRating': float(self.restrictedTrackRating),
+            'roadCourseRating': float(self.roadCourseRating),
+            'overallRating': float(self.overallRating),
             'potential': self.potential
         }
