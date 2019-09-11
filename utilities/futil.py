@@ -219,7 +219,16 @@ def readDictFromJSON(modelType: str, filename: str = None, filepath: str = None)
             Driver(tempDict[model])
         return
     elif modelType.lower() in MODEL_TYPE_DICT.get('teamSubset'):
+        if Driver.instances == {}:
+            readDictFromJSON(modelType)
+
         for model in tempDict:
+            driversDict = tempDict[model]['drivers']
+            tempDict[model]['drivers'] = []
+
+            for name in driversDict:
+                tempDict[model]['drivers'].append(Driver.instances[name])
+
             Team(tempDict[model])
         return
     elif modelType.lower() in (MODEL_TYPE_DICT.get('miscSubset').union(MODEL_TYPE_DICT.get('schedules'))):
@@ -258,6 +267,11 @@ def writeDictToJSON(modelType: str, dataDict: dict, filename: str = None, databa
         tempDict = {}
         for name in dataDict:
             tempDict[name] = dataDict[name].serialize()
+
+            if modelType.lower() in MODEL_TYPE_DICT.get('teamSubset'):
+                tempDict[name]['drivers'] = []
+                for driver in dataDict[name].drivers:
+                    tempDict[name]['drivers'].append(driver.name)
 
         json.dump(tempDict, JSONFile, indent=4)
     elif modelType.lower() in MODEL_TYPE_DICT.get('miscSubset').union(MODEL_TYPE_DICT.get('schedules')):
