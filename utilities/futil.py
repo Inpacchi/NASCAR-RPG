@@ -12,11 +12,13 @@ from webapp import db
 MODEL_TYPE_DICT = {
     'driverSubset': {
         'driver',
-        'currentdrivers'
+        'currentdrivers',
+        'testdriver'
     },
     'teamSubset': {
         'team',
-        'charterteam'
+        'charterteam',
+        'testteam'
     },
     'testSubset': {
         'testdriver',
@@ -92,9 +94,9 @@ def __JSONFile(modelType: str, filepath: str = None, filename: str = None, datab
         elif modelType.lower() == '2020schedule':
             JSONPath = 'data/json/seasons/2020/schedule.json'
         elif modelType.lower() == 'testdriver':
-            JSONPath = 'data/tests/json/drivers/drivers.json'
+            JSONPath = '../data/tests/json/drivers/drivers.json'
         elif modelType.lower() == 'testteam':
-            JSONPath = 'data/tests/json/teams/teams.json'
+            JSONPath = '../data/tests/json/teams/teams.json'
         else:
             raise Exception('Incorrect model type!')
 
@@ -147,9 +149,9 @@ def __CSVFile(modelType: str, filename: str = None, conversion: str = None) -> T
         elif modelType.lower() == 'team':
             CSVPath = 'data/csv/teams/teams.csv'
         elif modelType.lower() == 'testdriver':
-            CSVPath = 'data/tests/csv/drivers/drivers.csv'
+            CSVPath = '../data/tests/csv/drivers/drivers.csv'
         elif modelType.lower() == 'testteam':
-            CSVPath = 'data/tests/csv/teams/teams.csv'
+            CSVPath = '../data/tests/csv/teams/teams.csv'
         else:
             raise Exception('Incorrect model type!')
 
@@ -212,11 +214,11 @@ def readDictFromJSON(modelType: str, filename: str = None, filepath: str = None)
     tempDict = json.load(JSONFile)
     JSONFile.close()
 
-    if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset').union('testdriver'):
+    if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset'):
         for model in tempDict:
             Driver(tempDict[model])
         return
-    elif modelType.lower() in MODEL_TYPE_DICT.get('teamSubset').union(MODEL_TYPE_DICT.get('testSubset')):
+    elif modelType.lower() in MODEL_TYPE_DICT.get('teamSubset'):
         for model in tempDict:
             Team(tempDict[model])
         return
@@ -252,10 +254,8 @@ def writeDictToJSON(modelType: str, dataDict: dict, filename: str = None, databa
     JSONFile.seek(0)
     JSONFile.truncate(0)
 
-    if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset').union(MODEL_TYPE_DICT.get('teamSubset')).union(
-            MODEL_TYPE_DICT.get('testSubset')):
+    if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset').union(MODEL_TYPE_DICT.get('teamSubset')):
         tempDict = {}
-
         for name in dataDict:
             tempDict[name] = dataDict[name].serialize()
 
