@@ -1,7 +1,6 @@
 from timeit import default_timer as timer
 
 from utilities import futil
-
 from models.driver import Driver
 from models.team import Team
 
