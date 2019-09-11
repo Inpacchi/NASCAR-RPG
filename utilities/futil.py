@@ -1,4 +1,5 @@
 from typing import Union, TextIO
+import os.path
 import json
 import csv
 
@@ -31,18 +32,26 @@ MODEL_TYPE_DICT = {
 }
 
 
-# TODO: Add interactive file input functionality
-
-
-def __JSONFile(modelType: str, filename: str = None, databaseError: str = None) -> TextIO:
+def __JSONFile(modelType: str, filepath: str = None, filename: str = None, databaseError: str = None) -> TextIO:
     """
-    Returns a JSON file based on model type.
+    Returns a JSON file based on given parameters.
 
-    Pseudo-private method that takes in a model type and attempts to open the relevant JSON file. If the file is not
-    found, then it is is created. Once the file has been opened or created, it becomes the return value.
+    If filepath is specified, direct JSONPath to the the given filepath and filename (filename MUST be specified.)
+
+    If filename is specified, direct JSONPath to the intended directory with the given filename.
+
+    If databaseError is specified as 'y', this method was invoked from a database transaction and should
+    direct JSONPath to a temporary file that stores all the uncommitted changes.
+
+    Otherwise, take in a model type and attempt to open the relevant JSON file. If the file is not
+    found, then it is is created.
+
+    Once the file has been opened or created, it becomes the return value.
 
     :param modelType: Type of model being loaded
     :type modelType: string
+    :param filepath: If specified, path to file to be used for I/O
+    :type filepath: string
     :param filename: If specified, name of file to be used for I/O
     :type filename: string
     :param databaseError: 'Y' value denotes that the function is being invoked for a failed database commit
@@ -52,7 +61,12 @@ def __JSONFile(modelType: str, filename: str = None, databaseError: str = None) 
     """
 
     if databaseError is not None and databaseError.lower() == 'y':
-        JSONPath = f'data/sqlite/{filename}.json'
+        if filename is not None:
+            JSONPath = f'data/sqlite/{filename}.json'
+        else:
+            raise Exception('You cannot invoke databaseError without a filename!')
+    elif filepath is not None and filename is not None:
+        JSONPath = f'data/{filepath}/{filename}'
     elif filename is not None:
         if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset'):
             JSONPath = f'data/json/drivers/{filename}.json'
@@ -61,7 +75,7 @@ def __JSONFile(modelType: str, filename: str = None, databaseError: str = None) 
         elif modelType.lower() in MODEL_TYPE_DICT.get('testSubset'):
             JSONPath = f'../data/json/tests/{filename}.json'
         else:
-            raise Exception('You entered a filename, but did not enter a valid model type!')
+            raise Exception('Incorrect model type!')
     else:
         if modelType.lower() == 'driver':
             JSONPath = 'data/json/drivers/drivers.json'
@@ -78,9 +92,9 @@ def __JSONFile(modelType: str, filename: str = None, databaseError: str = None) 
         elif modelType.lower() == '2020schedule':
             JSONPath = 'data/json/seasons/2020/schedule.json'
         elif modelType.lower() == 'testdriver':
-            JSONPath = '../data/tests/json/drivers.json'
+            JSONPath = '../data/tests/json/drivers/drivers.json'
         elif modelType.lower() == 'testteam':
-            JSONPath = '../data/tests/json/teams.json'
+            JSONPath = '../data/tests/json/teams/teams.json'
         else:
             raise Exception('Incorrect model type!')
 
@@ -92,12 +106,19 @@ def __JSONFile(modelType: str, filename: str = None, databaseError: str = None) 
     return JSONFile
 
 
-def __CSVFile(modelType: str, filename: str = None, conversion: str = None) -> Union[str, TextIO]:
+def __CSVFile(modelType: str, filename: str = None, conversion: str = None) -> TextIO:
     """
-    Returns a CSV file based on model type.
+    Returns a CSV file based on given parameters.
 
-    Pseudo-private method that takes in a model type and attempts to open the relevant CSV file. If the file is not
-    found, then it is created. Once the file has been opened or created, it becomes the return value.
+    If conversion is specified as 'y', the intended usage is to store data as a CSV for database operations.
+    CSVPath is directed towards a conversion directory such as to separate these files from regular data.
+
+    If filename is specified, direct CSVPath to the intended directory with the given filename.
+
+    Otherwise, take in a model type and attempt to open the relevant CSV file. If the file is not
+    found, then it is created.
+
+    Once the file has been opened or created, it becomes the return value.
 
     :param modelType: Type of model being loaded
     :type modelType: string
@@ -140,7 +161,16 @@ def __CSVFile(modelType: str, filename: str = None, conversion: str = None) -> U
     return CSVFile
 
 
-def __getCSVHeader(modelType: str):
+def __getCSVHeader(modelType: str) -> list:
+    """
+    Returns the relevant modelType CSV Header.
+
+    :param modelType: Type of model being loaded
+    :type modelType: string
+    :return: list of column names
+    :rtype: list
+    """
+
     if modelType.lower() in (MODEL_TYPE_DICT.get('driverSubset').union('testdriver')):
         header = ['name', 'age', 'teamName', 'contractStatus', 'carNumber', 'shortRating', 'shortIntermediateRating',
                   'intermediateRating', 'superSpeedwayRating', 'restrictedTrackRating', 'roadCourseRating',
@@ -154,31 +184,31 @@ def __getCSVHeader(modelType: str):
         header = ['name', 'length', 'type']
     elif modelType.lower() in MODEL_TYPE_DICT.get('schedules'):
         header = ['name', 'date', 'type', 'track', 'laps', 'stages', 'raceProcessed']
-
     else:
         raise Exception('Incorrect model type!')
 
     return header
 
 
-def readDictFromJSON(modelType: str, filepath: str = None) -> Union[None, dict]:
+def readDictFromJSON(modelType: str, filename: str = None, filepath: str = None) -> Union[None, dict]:
     """
-    Returns a dictionary loaded directly from a JSON file.
+    Reads a dictionary and either populates Model.Instances (if present) or returns the dictionary.
 
-    Package available method that returns a Python dictionary as defined in the relevant JSON file. The function will
-    return either the dictionary converted into models or a directly loaded JSON dictionary.
+    If filepath is specified, open the JSON at the given filepath and filename (filename MUST be specified.)
 
     :param modelType: Type of model being loaded
     :type modelType: string
-    :param filepath: If specified, override the default path generated from modelType with this parameter
+    :param filepath: If specified, path to JSON to be read from
     :type filepath: string
+    :param filename: If specified, name of JSON to be read from
+    :type filename: string
     :return: Dictionary if type is not a model
     :rtype: dictionary
     :return: None if type is a model
     :rtype: None
     """
 
-    JSONFile = __JSONFile(modelType)
+    JSONFile = __JSONFile(modelType, filepath, filename, None)
     tempDict = json.load(JSONFile)
     JSONFile.close()
 
@@ -193,15 +223,18 @@ def readDictFromJSON(modelType: str, filepath: str = None) -> Union[None, dict]:
     elif modelType.lower() in (MODEL_TYPE_DICT.get('miscSubset').union(MODEL_TYPE_DICT.get('schedules'))):
         return tempDict
 
-    print(f'JSON file read from {JSONFile.name}')
+    print(f'JSON file for model type "{modelType}" read from {JSONFile.name}')
 
 
 def writeDictToJSON(modelType: str, dataDict: dict, filename: str = None, databaseError: str = None) -> None:
     """
     Writes the model dictionary to the relevant model type JSON file.
 
-    Package available method that takes in a model type and model dictionary and attempts to write the models to a JSON
-    file.
+    If databaseError is specified, direct output to a temporary file that stores all uncommitted
+    changes (filename MUST be specified)
+
+    Otherwise, take in a model type and model dictionary and attempt to write the models or
+    dictionary to a JSON file.
 
     :param modelType: Type of model being written to
     :type modelType: string
@@ -215,10 +248,7 @@ def writeDictToJSON(modelType: str, dataDict: dict, filename: str = None, databa
     :rtype: None
     """
 
-    if databaseError.lower() == 'y':
-        JSONFile = __JSONFile(modelType, filename, '')
-    else:
-        JSONFile = __JSONFile(modelType, filename)
+    JSONFile = __JSONFile(modelType, None, filename, databaseError)
 
     # Clear the file
     JSONFile.seek(0)
@@ -236,12 +266,12 @@ def writeDictToJSON(modelType: str, dataDict: dict, filename: str = None, databa
         json.dump(dataDict, JSONFile, indent=4)
 
     JSONFile.close()
-    print(f'\nJSON file created at {JSONFile.name}')
+    print(f'\nJSON file for model type "{modelType}" created at {JSONFile.name}')
 
 
 def convertCSVToJSON(modelType: str, filename: str = None) -> None:
     """
-    Imports lines from a CSV file as models and converts to JSON format
+    Import lines from a CSV file as models and convert to dictionary format.
 
     :param modelType: Type of model being loaded
     :type modelType: string
@@ -265,12 +295,12 @@ def convertCSVToJSON(modelType: str, filename: str = None) -> None:
         writeDictToJSON(modelType, Team.instances, filename)
 
     CSVFile.close()
-    print(f'CSV file converted from {CSVFile.name}')
+    print(f'CSV file for model type "{modelType}" converted from {CSVFile.name}')
 
 
 def convertDictToCSV(modelType: str, dataDict: dict = None, filename: str = None, conversion: str = None) -> None:
     """
-    Converts regular dictionaries and model dictionaries to a CSV format.
+    Convert regular dictionaries and model dictionaries to a CSV format.
 
     :param modelType: Type of model being written to
     :type modelType: string

@@ -1,14 +1,11 @@
 import sys
 from os.path import dirname, abspath
-
 import unittest
 
+from utilities import futil, gutil
 from models.driver import Driver
 from models.team import Team
-from utilities import futil, gutil
 
-
-# TODO: Update tests to reflect new futil methods
 
 class ModelTest(unittest.TestCase):
     def testDriverUtilities(self) -> None:
@@ -25,11 +22,11 @@ class ModelTest(unittest.TestCase):
         By default, the following core package functions are tested:
             * __JSONFile()
             * __CSVFile()
-            * __headerDiff()
 
         :return: None
         """
 
+        print('========================= Begin Driver Utility Test =========================')
         futil.convertCSVToJSON('testdriver')
 
         driversDictFromCSV = {}
@@ -47,6 +44,7 @@ class ModelTest(unittest.TestCase):
 
         self.assertEqual(driversDictFromCSV, driversDictFromJSON, 'Dictionaries should be equal.')
         # Add clear for Drier.instances???
+        print('========================= End Driver Utility Test =========================')
 
     def testTeamUtilities(self) -> None:
         """
@@ -63,12 +61,11 @@ class ModelTest(unittest.TestCase):
         By default, the following core package functions are tested:
             * __JSONFile()
             * __CSVFile()
-            * __headerDiff()
 
         :return: None
         """
 
-
+        print('\n\n\n========================= Begin Team Utility Test =========================')
         futil.convertCSVToJSON('testteam')
 
         gutil.importDriversToTeam('testteam', 'testdriver')
@@ -86,6 +83,19 @@ class ModelTest(unittest.TestCase):
             teamsDictFromJSON[team] = teamsDictFromJSON[team].__dict__
 
         self.assertEqual(teamsDictFromCSV, teamsDictFromJSON, 'Dictionaries should be equal.')
+        print('========================= End Team Utility Test =========================')
+
+    def testDriverDatabaseUtilities(self) -> None:
+        """
+        Tests core database utilities functions for driver model types.
+
+        TODO: Complete testDriverDatabseUtilities
+
+        :return: None
+        :rtype: None
+        """
+
+        return
 
 
 if __name__ == '__main__':
