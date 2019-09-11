@@ -51,16 +51,19 @@ class Team(db.Model):
                 f'Drivers: {self.drivers}\n')
 
     def serialize(self):
+        driversList = []
+        for driver in self.drivers:
+            driversList.append(driver.name)
+
         return {
             'name': self.name,
             'owner': self.owner,
             'carManufacturer': self.carManufacturer,
-            'equipmentRating': self.equipmentRating,
-            'teamRating': self.teamRating,
-            'raceRating': self.raceRating,
-            'drivers': self.drivers
+            'equipmentRating': float(self.equipmentRating),
+            'teamRating': float(self.teamRating),
+            'raceRating': float(self.raceRating),
+            'drivers': driversList
         }
-
 
 
 class CharterTeam(Team):
