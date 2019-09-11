@@ -1,4 +1,4 @@
-﻿Name,Age,Team Name,Contract Status,Car Number,Short Rating,Short Intermediate Rating,Intermediate Rating,Superspeedway Rating,Restrictor Plate Rating,Road Rating,Overall Rating,Potential
+﻿name,age,teamName,contractStatus,carNumber,shortRating,shortIntermediateRating,intermediateRating,superSpeedwayRating,restrictedTrackRating,roadCourseRating,overallRating,potential
 Ward Burton,40,Bill Davis Racing,2004,22,74,91,81,78,84,72,81.4,(03)1r
 Hut Stricklin,40,Bill Davis Racing,2002,23,57,55,37,60,36,12,46.7,1r
 Tom Hubert,37,Bill Davis Racing,2002,23,7,31,8,9,7,71,16.5,1r
