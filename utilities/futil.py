@@ -338,7 +338,27 @@ def convertDictToCSV(modelType: str, dataDict: dict = None, filename: str = None
     print(f'\nCSV file created at {CSVFile.name}')
 
 
-def addCSVToDatabase(modelType: str, filename: str = None):
+def addCSVToDatabase(modelType: str, filename: str = None) -> None:
+    """
+    Add rows from a CSV to the database.
+
+    If the commit should fail, the intended changes are written to a file so a commit can be tried again.
+
+    TODO: Add if parameters for other data types.
+
+    :param modelType: Type of model being loaded
+    :type modelType: string
+    :param filename: If specified, name of file to be used for I/O
+    :type filename: string
+    :return: None
+    :rtype: None
+    """
+
+    # TODO: Add the ability to store multiple noncommittals and interactively chose between them.
+    if os.path.exists('data/sqlite/uncommitted-db-session.json'):
+        __retryCommit()
+        return
+
     CSVFile = __CSVFile(modelType, filename)
     reader = csv.DictReader(CSVFile)
     next(reader)
@@ -352,6 +372,7 @@ def addCSVToDatabase(modelType: str, filename: str = None):
             db.session.commit()
         except SQLAlchemyError:
             writeDictToJSON('driver', Driver.instances, 'uncommitted-db-session', 'y')
+            db.session.rollback()
             raise SQLAlchemyError('Database commit failed! Uncommitted changes have been saved to '
                                   'data/sqlite/uncommitted-db-session.json')
     elif modelType in MODEL_TYPE_DICT.get('teamSubset'):
@@ -366,3 +387,37 @@ def addCSVToDatabase(modelType: str, filename: str = None):
             db.session.rollback()
             raise SQLAlchemyError('Database commit failed! Uncommitted changes have been saved to '
                                   'data/sqlite/uncommitted-db-session.json')
+
+
+def __retryCommit(modelType: str) -> None:
+    """
+    Retries commit for uncommitted changes if file is found. If commit fails again, alert user to a fatal error.
+
+    :param modelType: Type of model being loaded
+    :type modelType: string
+    :return: None
+    :rtype: None
+    """
+
+    if modelType in MODEL_TYPE_DICT.get('driverSubset'):
+        if Driver.instances != {}:
+            Driver.instances = {}
+
+        readDictFromJSON(modelType, 'data/sqlite', 'uncommitted-db-session')
+
+        for driver in Driver.instances:
+            db.session.add(Driver.instances[driver])
+    elif modelType in MODEL_TYPE_DICT.get('teamSubset'):
+        if Team.instances != {}:
+            Team.instances = {}
+
+        readDictFromJSON(modelType, 'data/sqlite', 'uncommitted-db-session')
+
+        for team in Team.instances:
+            db.session.add(Team.instances[team])
+
+    try:
+        db.session.commit()
+    except SQLAlchemyError:
+        db.session.rollback()
+        raise SQLAlchemyError('Commit failed on retry! Fatal error occurred, please contact your system administrator.')
