@@ -6,7 +6,7 @@ from models.team import Team
 from models.contract import Contract # Necessary for Driver object creation
 
 
-def importDriversToTeam(teamType: str, driverType: str = None) -> None:
+def importDriversToTeam(teamType: str, driverType: str) -> None:
     """
     Populates each Team model drivers list variable with their respective drivers.
 
@@ -22,7 +22,7 @@ def importDriversToTeam(teamType: str, driverType: str = None) -> None:
     for name in Driver.instances:
         driver = Driver.instances[name]
         if not driver.teamName == "" and driver.teamName in Team.instances:
-            Team.instances[driver.teamName].drivers.append(driver.name)
+            Team.instances[driver.teamName].drivers.append(driver)
 
     futil.writeDictToJSON(teamType, Team.instances)
 
