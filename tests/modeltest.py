@@ -31,7 +31,7 @@ class ModelTest(unittest.TestCase):
 
         driversDictFromCSV = {}
         for driver in Driver.instances:
-            driversDictFromCSV[driver] = Driver.instances[driver].__dict__
+            driversDictFromCSV[driver] = Driver.instances[driver].serialize()
 
         # Because driver models get stored in instances, clear it out before reading from JSON
         Driver.instances = {}
@@ -40,8 +40,9 @@ class ModelTest(unittest.TestCase):
 
         driversDictFromJSON = {}
         for driver in Driver.instances:
-            driversDictFromJSON[driver] = Driver.instances[driver].__dict__
+            driversDictFromJSON[driver] = Driver.instances[driver].serialize()
 
+        # self.maxDiff = None
         self.assertEqual(driversDictFromCSV, driversDictFromJSON, 'Dictionaries should be equal.')
         # Add clear for Drier.instances???
         print('========================= End Driver Utility Test =========================')
@@ -72,7 +73,7 @@ class ModelTest(unittest.TestCase):
 
         teamsDictFromCSV = {}
         for team in Team.instances:
-            teamsDictFromCSV[team] = teamsDictFromCSV[team].__dict__
+            teamsDictFromCSV[team] = Team.instances[team].serialize()
 
         Team.instances = {}
 
@@ -80,8 +81,9 @@ class ModelTest(unittest.TestCase):
 
         teamsDictFromJSON = {}
         for team in Team.instances:
-            teamsDictFromJSON[team] = teamsDictFromJSON[team].__dict__
+            teamsDictFromJSON[team] = Team.instances[team].serialize()
 
+        # self.maxDiff = None
         self.assertEqual(teamsDictFromCSV, teamsDictFromJSON, 'Dictionaries should be equal.')
         print('========================= End Team Utility Test =========================')
 
