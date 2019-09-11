@@ -10,6 +10,10 @@ def importDriversToTeam(teamType: str, driverType: str) -> None:
     """
     Populates each Team model drivers list variable with their respective drivers.
 
+    :param teamType: Type of team to be loaded/written to
+    :type teamType: string
+    :param driverType: Type of driver to be loaded
+    :type driverType: string
     :return: None
     """
 

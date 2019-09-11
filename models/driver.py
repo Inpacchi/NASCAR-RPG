@@ -2,6 +2,26 @@ from webapp import db
 
 
 class Driver(db.Model):
+    """
+    Driver Model Object
+
+    id: A unique value identifying each time assigned when each team is committed to the database
+    name: Name of the Driver
+    age: Age of the Driver
+    teamId: Foreign key that associates a Team model object to the Driver
+    team: Many-to-one relationship referring to the Driver's team
+    contract: One-to-one relationship referring to the Driver's contract
+    carNumber: Number of the Driver's car
+    shortRating: Short Track Rating
+    shortIntermediateRating: Short-Intermediate Track Rating
+    intermediateRating: Intermediate Track Rating
+    superSpeedwayRating: Super Speedway Track Rating
+    restrictedTrackRating: Restricted (Super Speedway) Track Ratings
+    roadCourseRating: Road Course Rating
+    overallRating: An average of all the Driver's track ratings
+    potential: The Driver's progression/peak/regression rate
+    instances: A dictionary that keeps track of each Driver model object created
+    """
     instances = {}
 
     id = db.Column(db.Integer, primary_key=True)
@@ -50,7 +70,14 @@ class Driver(db.Model):
                 f'Overall Rating: {self.overallRating}\n'
                 f'Potential: {self.potential}\n')
 
-    def serialize(self):
+    def serialize(self) -> dict:
+        """
+        Returns a JSON serializable object.
+
+        :return: JSON object
+        :rtype: dict
+        """
+
         return {
             'name': self.name,
             'age': int(self.age),

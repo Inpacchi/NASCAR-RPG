@@ -2,10 +2,21 @@ from webapp import db
 from models.driver import Driver
 
 
-
-
-
 class Team(db.Model):
+    """
+    Team Model Object
+
+    id: A unique value identifying each time assigned when each team is committed to the database
+    name: Name of the Team
+    owner: Name of the Team owner
+    carManufacturer: Name of the Team's car manufacturer
+    equipmentRating: The rating of the team's equipment
+    teamRating: The overall rating of the team
+    raceRating: The average of equipment and team rating, which is applied to races
+    drivers: Many-to-one relationship referring to each driver that is a member of the team
+    instances: A dictionary that keeps track of each Team model object created
+    """
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(32), index=True, nullable=False)
     owner = db.Column(db.String(32), index=True)
@@ -44,7 +55,14 @@ class Team(db.Model):
                 f'Race Rating: {self.raceRating}\n'
                 f'Drivers: {self.drivers}\n')
 
-    def serialize(self):
+    def serialize(self) -> dict:
+        """
+        Returns a JSON serializable object.
+
+        :return: JSON object
+        :rtype: dict
+        """
+
         driversList = []
         for driver in self.drivers:
             driversList.append(driver.name)
@@ -61,6 +79,9 @@ class Team(db.Model):
 
 
 class CharterTeam(Team):
+    """
+    TODO: Define database parameters, may get integrated back into Team model object
+    """
     instances = {}
     CHARTER_DICT_PARAMETERS = ['number', 'placement', 'worth']
 
