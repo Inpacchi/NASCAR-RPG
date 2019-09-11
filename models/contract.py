@@ -7,4 +7,4 @@ class Contract(db.Model):
     length = db.Column(db.Integer)
     salary = db.Column(db.Float)
     driverId = db.Column(db.Integer, db.ForeignKey('driver.id'))
-    driver = db.relationship('Driver', back_populates='contract')
+    driver = db.relationship('Driver', uselist=False, back_populates='contract')
