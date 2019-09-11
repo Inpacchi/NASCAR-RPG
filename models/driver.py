@@ -8,6 +8,7 @@ class Driver(db.Model):
     name = db.Column(db.String(32), index=True, nullable=False)
     age = db.Column(db.Integer, nullable=False)
     teamId = db.Column(db.Integer, db.ForeignKey('team.id'), index=True)
+    team = db.relationship('Team', back_populates='drivers')
     contract = db.relationship('Contract', uselist=False, back_populates='driver')
     carNumber = db.Column(db.Integer, index=True)
     shortRating = db.Column(db.Float, nullable=False)

@@ -9,7 +9,7 @@ class Team(db.Model):
     equipmentRating = db.Column(db.Float, nullable=False)
     teamRating = db.Column(db.Float, nullable=False)
     raceRating = db.Column(db.Float, nullable=False)
-    drivers = db.relationship('Driver', backref='driver')
+    drivers = db.relationship('Driver', back_populates='team')
 
     instances = {}
 
@@ -20,7 +20,8 @@ class Team(db.Model):
         self.equipmentRating = team['equipmentRating']
         self.teamRating = team['teamRating']
         self.raceRating = team['raceRating']
-        self.drivers = team['drivers']
+        self.drivers.append(team['drivers'])
+        #TODO: Append driver object instead
 
         Team.instances[self.name] = self
 
