@@ -8406,8 +8406,9 @@ h1, h2, h3, h4, h5,
   .icon-video-2 span {
     font-size: 20px;
     color: #000000; }
-
-.game-wrap-1 {
+	
+/* Index Page Grayish Block with Countdown Timer */
+.season-schedule-countdown {
   position: relative;
   background: #232931;
   -webkit-box-shadow: 0px 75px 94px -66px rgba(0, 0, 0, 0.66);
@@ -8419,27 +8420,27 @@ h1, h2, h3, h4, h5,
   border-radius: 5px;
   margin-top: -60px; }
   @media (min-width: 576px) {
-    .game-wrap-1 {
+    .season-schedule-countdown {
       margin-top: -60px; } }
-  .game-wrap-1 .text {
+  .season-schedule-countdown .text {
     width: 100%;
     display: block; }
-    .game-wrap-1 .text h3 {
+    .season-schedule-countdown .text h3 {
       font-size: 18px;
       color: #fff; }
-      .game-wrap-1 .text h3 span {
+      .season-schedule-countdown .text h3 span {
         display: block; }
-    .game-wrap-1 .text .league {
+    .season-schedule-countdown .text .league {
       font-size: 18px;
       color: rgba(255, 255, 255, 0.5); }
-    .game-wrap-1 .text span {
+    .season-schedule-countdown .text span {
       color: rgba(255, 255, 255, 0.8); }
-    .game-wrap-1 .text .btn {
+    .season-schedule-countdown .text .btn {
       display: block; }
-  .game-wrap-1 .team-logo {
+  .season-schedule-countdown .team-logo {
     width: 90px;
     position: relative; }
-    .game-wrap-1 .team-logo .img {
+    .season-schedule-countdown .team-logo .img {
       position: absolute;
       top: 0;
       left: 0;
@@ -8449,10 +8450,10 @@ h1, h2, h3, h4, h5,
       -moz-border-radius: 50%;
       -ms-border-radius: 50%;
       border-radius: 50%; }
-      .game-wrap-1 .team-logo .img.img-2 {
+      .season-schedule-countdown .team-logo .img.img-2 {
         left: 35px;
         z-index: -1; }
-  .game-wrap-1 .team-name {
+  .season-schedule-countdown .team-name {
     width: calc(100% - 90px); }
 
 .scoreboard {
