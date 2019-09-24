@@ -25,9 +25,12 @@
     <link rel="stylesheet" href="../static/css/flaticon.css">
     <link rel="stylesheet" href="../static/css/icomoon.css">
     <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/navbar.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/index.css">
   </head>
   <body>
-	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	  <nav class="navbar navbar-expand-lg navbar-dark navbar-js bg-dark cst-navbar-light" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="{{ url_for('index') }}"><span>NASRAC: NG</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,16 +52,18 @@
 	  </nav>
     <!-- END nav -->
 
-  {% block content %}{% endblock %}
+      <div class="block-content">
+        {% block content %}{% endblock %}
+      </div>
 
-  <footer class="ftco-footer ftco-footer-2 ftco-section footer">
+  <footer class="footer section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">NASRAC: NG</h2>
+            <div class="footer-widget mb-4">
+              <h2 class="heading">NASRAC: NG</h2>
               <p>North American Stockcar Racing Analytics Competition: Next Generation</p>
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
+              <ul class="footer-social list-unstyled float-md-left float-lft">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
@@ -66,8 +71,8 @@
             </div>
           </div>
           <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Question?</h2>
+            <div class="footer-widget mb-4">
+            	<h2 class="heading">Have a Question?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
 	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>

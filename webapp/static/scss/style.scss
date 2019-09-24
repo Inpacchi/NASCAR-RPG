@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5,
 }
 
 
-.ftco-navbar-light {
+.cst-navbar-light {
 	background: transparent !important;
 	position: absolute;
 	top: 0;
@@ -564,7 +564,7 @@ h1, h2, h3, h4, h5,
 	}
 }
 
-.game-wrap-1{
+.season-schedule{
 	position: relative;
 	background: $darken;
 	-webkit-box-shadow: 0px 75px 94px -66px rgba(0,0,0,0.66);
@@ -588,7 +588,7 @@ h1, h2, h3, h4, h5,
 				display: block;
 			}
 		}
-		.league{
+		.series{
 			font-size: 18px;
 			color: rgba(255,255,255,.5);
 		}
@@ -615,13 +615,13 @@ h1, h2, h3, h4, h5,
 			}
 		}
 	}
-	.team-name{
+	.race-name{
 		width: calc(100% - 90px);
 	}
 }
 
-//SCOREBOARD FINAL GAME
-.scoreboard{
+//race-results FINAL GAME
+.race-results{
 	width: 100%;
 	border: 1px solid rgba(0,0,0,.1);
 	background: $white;
@@ -636,7 +636,7 @@ h1, h2, h3, h4, h5,
 			font-size: 14px;
 		}	
 	}
-	.sport-team{
+	.driver-standings{
 		display: block;
 		width: 50%;
 		@include media-breakpoint-down(sm){
@@ -668,7 +668,7 @@ h1, h2, h3, h4, h5,
 				}
 			}
 		}
-		.team-name{
+		.race-name{
 			font-size: 16px;
 			font-weight: 700;
 		}
@@ -677,7 +677,7 @@ h1, h2, h3, h4, h5,
 
 
 //GAME SCHEDULE
-.ftco-game-schedule{
+.race-schedule{
 	position: relative;
 	.owl-carousel{
 		margin: 0;
@@ -764,8 +764,8 @@ h1, h2, h3, h4, h5,
 		}
 	}
 }
-.game-schedule{
-	.sport-team{
+.race-info{
+	.driver-standings{
 		display: block;
 		width: 100%;
 		border: 1px solid rgba(0,0,0,.1);
@@ -786,12 +786,12 @@ h1, h2, h3, h4, h5,
 		.desc{
 			width: calc(100% - 100px);
 		}
-		.team-name{
+		.race-name{
 			font-size: 22px;
 			font-weight: 900;
 			margin-bottom: 0;
 		}
-		.venue{
+		.track-name{
 			color: rgba(0,0,0,.7)
 		}
 		.date{
@@ -801,7 +801,7 @@ h1, h2, h3, h4, h5,
 }
 
 
-//LEAGUE TABLE
+//series TABLE
 .table{
 	thead{
 		tr{
@@ -1102,7 +1102,7 @@ textarea.form-control {
 }
 
 
-.ftco-section {
+.section {
 	padding: 6em 0;
 	position: relative;
 	@include media-breakpoint-down(sm){
@@ -1174,16 +1174,16 @@ textarea.form-control {
 	}
 }
 
-.ftco-footer {
+.footer {
 	font-size: 16px;
 	background: $black;
 	padding: 7em 0;
 	z-index: 0;
-	.ftco-footer-logo {
+	.footer-logo {
 		text-transform: uppercase;
 		letter-spacing: .1em;
 	}
-	.ftco-footer-widget {
+	.footer-widget {
 		h2 {
 			font-weight: normal;
 			color: $white;
@@ -1227,7 +1227,7 @@ textarea.form-control {
 }
 
 
-.ftco-footer-social {
+.footer-social {
 	li {
 		list-style: none;
 		margin: 0 10px 0 0;

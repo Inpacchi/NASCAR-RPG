@@ -86,7 +86,7 @@
 				}
 			}
 		});
-		$('.carousel-game-schedule').owlCarousel({
+		$('.carousel-race-schedule').owlCarousel({
 			autoplay: true,
 			autoHeight: true,
 			center: false,
@@ -165,7 +165,7 @@
 		$(window).scroll(function(){
 			var $w = $(this),
 					st = $w.scrollTop(),
-					navbar = $('.ftco_navbar'),
+					navbar = $('.navbar-js'),
 					sd = $('.js-scroll-wrap');
 
 			if (st > 150) {
