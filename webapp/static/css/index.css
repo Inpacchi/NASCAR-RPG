@@ -275,9 +275,18 @@
     color: #fff;
 }
 
-.race-schedule .owl-dots {
-    text-align: center;
-    margin-bottom: 300px;
+@media only screen and (min-width: 720px) {
+    .race-schedule .owl-dots {
+        text-align: center;
+        margin-bottom: 300px;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .race-schedule .owl-dots {
+        text-align: center;
+        margin-bottom: -50px;
+    }
 }
 
 .race-schedule .owl-dots .owl-dot {
