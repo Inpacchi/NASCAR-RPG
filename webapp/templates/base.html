@@ -46,9 +46,13 @@
                     <li class="nav-item"><a href="tracks.html" class="nav-link">Tracks</a></li>
                     <li class="nav-item"><a href="drivers.html" class="nav-link">Drivers</a></li>
                     <li class="nav-item"><a href="teams.html" class="nav-link">Teams</a></li>
-                    <li class="nav-item"><a href="/login" class="nav-link">Log In</a></li>
 
+                    {% if current_user.is_anonymous %}
+                    <li class="nav-item"><a href="/login" class="nav-link">Log In</a></li>
+                    {% else %}
+                            <li class="nav-item"><a href="/logout">Logout</a></li>
                 </ul>
+                    {% endif %}
             </div>
         </div>
     </nav>
