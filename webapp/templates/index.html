@@ -1,176 +1,180 @@
 {% extends "base.html" %}
 
-{% block content %}
-    <div class="hero-wrap js-fullheight" style="background-image: url('../static/images/322934.jpg');" data-stellar-background-ratio="0.5">
-      <div class="container">
+{% block head %}
+    <link rel="stylesheet" href="../static/css/index.css">
+{% endblock %}
+
+{% block body %}
+<div class="hero-wrap js-fullheight" style="background-image: url('../static/images/322934.jpg');" data-stellar-background-ratio="0.5">
+    <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
-          <div class="col-sm-11 col-md-9 col-lg-6 ftco-animate mt-5" data-scrollax=" properties: { translateY: '70%' }">
-            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Welcome to NASRAC: Next Generation!</h1>
-            <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><u>N</u>orth <u>A</u>merican <u>S</u>tockcar <u>R</u>acing <u>A</u>nalytics <u>C</u>ompetition</p>
-          </div>
+            <div class="col-sm-11 col-md-9 col-lg-6 ftco-animate mt-5" data-scrollax=" properties: { translateY: '70%' }">
+                <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Welcome to NASRAC: Next Generation!</h1>
+                <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><u>N</u>orth <u>A</u>merican <u>S</u>tockcar <u>R</u>acing <u>A</u>nalytics <u>C</u>ompetition</p>
+            </div>
         </div>
-      </div>
     </div>
+</div>
 
-    <section class="section ftco-no-pb ftco-no-pt">
-    	<div class="container">
-	    	<div class="row">
-					<div class="col-md-12">
-						<div class="season-schedule p-4">
-							<div class="row p-2">
-								<div class="col-lg-6">
-									<div class="img logo" style="background-image: url(../static/images/race-logos/race-schedule/pennzoil_400.jpeg);"></div>
-								</div>
-								<div class="col-md-12 pb-8 pb-lg-4 col-lg-8">
-									<div class="text">
-										<h3 class="series">Monster Energy NASCAR Cup Series</h3>
-										<span>Regular Season</span>
-									</div>
-								</div>
-								<div class="col-md-6 pb-4 pb-lg-0 col-lg-4">
-									<div class="text">
-										<div id="timer" class="d-flex mb-0">
-										  <div class="time" id="days"></div>
-										  <div class="time pl-3" id="hours"></div>
-										  <div class="time pl-3" id="minutes"></div>
-										  <div class="time pl-3" id="seconds"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-		        </div>
-					</div>
-	    	</div>
-	    </div>
-    </section>
-		
-		<section class="section">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-	          <div class="heading-section">
-	          	<span class="subheading">Race Report</span>
-				<!-- Placeholder for last race name???? -->
-	            <h2 class="mb-4">Daytona 500</h2>
-	          </div>
-	          <div class="race-results mb-5 mb-lg-0">
-	          	<div class="divider text-center"><span>Sunday, February 16, 2020</span></div>
-	          	<div class="d-sm-flex mb-4">
-		          	<div class="driver-standings d-flex align-items-center">
-									<div class="text-center px-1 px-md-3 desc">
-										<h3 class="score win"><span>1st</span></h3>
-										<h4 class="race-name">Driver Number 1</h4>
-									</div>
-		          	</div>
-		          	<div class="driver-standings d-flex align-items-center">
-									<div class="text-center px-1 px-md-3 desc">
-										<h3 class="score lost"><span>2nd</span></h3>
-										<h4 class="race-name">Driver Number 2</h4>
-									</div>
-		          	</div>
-					<div class="driver-standings d-flex align-items-center">
-									<div class="text-center px-1 px-md-3 desc">
-										<h3 class="score lost"><span>3rd</span></h3>
-										<h4 class="race-name">Driver Number 3</h4>
-									</div>
-		          	</div>
-	          	</div>
-	          	<div class="text-center">
-		          	<p><a href="#" class="btn btn-primary">View Results</a></p>
-		          </div>
-	          </div>
-					</div>
-					<div class="col-lg-6 d-flex align-items-stretch">
-						<div class="img d-flex align-items-center justify-content-center py-5" style="background-image: url(../static/images/daytona500.jpg); width: 100%;">
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+<section class="section ftco-no-pb ftco-no-pt">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="season-schedule p-4">
+                    <div class="row p-2">
+                        <div class="col-lg-6">
+                            <div class="img logo" style="background-image: url(../static/images/race-logos/race-schedule/pennzoil_400.jpeg);"></div>
+                        </div>
+                        <div class="col-md-12 pb-8 pb-lg-4 col-lg-8">
+                            <div class="text">
+                                <h3 class="series">Monster Energy NASCAR Cup Series</h3>
+                                <span>Regular Season</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pb-4 pb-lg-0 col-lg-4">
+                            <div class="text">
+                                <div id="timer" class="d-flex mb-0">
+                                    <div class="time" id="days"></div>
+                                    <div class="time pl-3" id="hours"></div>
+                                    <div class="time pl-3" id="minutes"></div>
+                                    <div class="time pl-3" id="seconds"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-		<section class="section race-schedule ftco-no-pt">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 heading-section ftco-animate mb-4">
-          	<span class="subheading">Race Schedule</span>
-					</div>
-				</div>
-				<div class="row ftco-animate">
-					<div class="col-md-12 carousel-race-schedule owl-carousel">
-						<div class="item">
-							<div class="race-info">
-		          	<div class="driver-standings d-flex align-items-center">
-	          			<div class="img logo" style="background-image: url(../static/images/race-logos/race-schedule/pennzoil_400.jpeg);"></div>
-									<div class="pl-4 desc">
-										<span class="track-name">Las Vegas Motor Speedway</span>
-										<h4 class="race-name">Pennzoil 400</h4>
-										<span class="date">February 23, 2020</span>
-									</div>
-		          	</div>
-		          </div>
-	          </div>
-	          <div class="item">
-							<div class="race-info">
-		          	<div class="driver-standings d-flex align-items-center">
-	          			<div class="img logo" style="background-image: url(../static/images/race-logos/race-schedule/auto_club_400.png);"></div>
-									<div class="pl-4 desc">
-										<span class="track-name">Auto Club Speedway</span>
-										<h4 class="race-name">Auto Club 400</h4>
-										<span class="date">March 1, 2020</span>
-									</div>
-		          	</div>
-		          </div>
-	          </div>
-	          <div class="item">
-							<div class="race-info">
-		          	<div class="driver-standings d-flex align-items-center">
-	          			<div class="img logo" style="background-image: url(../static/images/race-logos/race-schedule/ticketguardian_500.jpeg);"></div>
-									<div class="pl-4 desc">
-										<span class="track-name">ISM Raceway</span>
-										<h4 class="race-name">TicketGuardian 500</h4>
-										<span class="date">March 8, 2020</span>
-									</div>
-		          	</div>
-		          </div>
-	          </div>
-	          <div class="item">
-							<div class="race-info">
-		          	<div class="driver-standings d-flex align-items-center">
-	          			<div class="img logo" style="background-image: url(../static/images/race-logos/race-schedule/folds_of_honor_quiktrip_500.jpg);"></div>
-									<div class="pl-4 desc">
-										<span class="track-name">Atlanta Motor Speedway</span>
-										<h4 class="race-name">Folds of Honor QuikTrip 500</h4>
-										<span class="date">March 15, 2020</span>
-									</div>
-		          	</div>
-		          </div>
-	          </div>
-	          <div class="item">
-							<div class="race-info">
-		          	<div class="driver-standings d-flex align-items-center">
-	          			<div class="img logo" style="background-image: url(../static/images/race-logos/race-schedule/mencs.png);"></div>
-									<div class="pl-4 desc">
-										<span class="track-name">Homestead-Miami Speedway</span>
-										<h4 class="race-name">NASCAR Cup Series Race at Homestead</h4>
-										<span class="date">March 22, 2020</span>
-									</div>
-		          	</div>
-		          </div>
-	          </div>
-	          <div class="item">
-							<div class="race-info">
-		          	<div class="driver-standings d-flex align-items-center">
-	          			<div class="img logo" style="background-image: url(../static/images/race-logos/race-schedule/oreilly_auto_parts_500.png);"></div>
-									<div class="pl-4 desc">
-										<span class="track-name">Texas Motor Speedway</span>
-										<h4 class="race-name">O'Reilly Auto Parts 500</h4>
-										<span class="date">March 29, 2020</span>
-									</div>
-		          	</div>
-		          </div>
-	          </div>
-					</div>
-				</div>
-			</div>
-		</section>
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="heading-section">
+                    <span class="subheading">Race Report</span>
+                    <!-- Placeholder for last race name???? -->
+                    <h2 class="mb-4">Daytona 500</h2>
+                </div>
+                <div class="race-results mb-5 mb-lg-0">
+                    <div class="divider text-center"><span>Sunday, February 16, 2020</span></div>
+                    <div class="d-sm-flex mb-4">
+                        <div class="driver-standings d-flex align-items-center">
+                            <div class="text-center px-1 px-md-3 desc">
+                                <h3 class="score win"><span>1st</span></h3>
+                                <h4 class="race-name">Driver Number 1</h4>
+                            </div>
+                        </div>
+                        <div class="driver-standings d-flex align-items-center">
+                            <div class="text-center px-1 px-md-3 desc">
+                                <h3 class="score lost"><span>2nd</span></h3>
+                                <h4 class="race-name">Driver Number 2</h4>
+                            </div>
+                        </div>
+                        <div class="driver-standings d-flex align-items-center">
+                            <div class="text-center px-1 px-md-3 desc">
+                                <h3 class="score lost"><span>3rd</span></h3>
+                                <h4 class="race-name">Driver Number 3</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <p><a href="#" class="btn btn-primary">View Results</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-stretch">
+                <div class="img d-flex align-items-center justify-content-center py-5" style="background-image: url(../static/images/daytona500.jpg); width: 100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section race-schedule ftco-no-pt">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 heading-section ftco-animate mb-4">
+                <span class="subheading">Race Schedule</span>
+            </div>
+        </div>
+        <div class="row ftco-animate">
+            <div class="col-md-12 carousel-race-schedule owl-carousel">
+                <div class="item">
+                    <div class="race-info">
+                        <div class="driver-standings d-flex align-items-center">
+                            <div class="img logo" style="background-image: url(../static/images/race-logos/race-schedule/pennzoil_400.jpeg);"></div>
+                            <div class="pl-4 desc">
+                                <span class="track-name">Las Vegas Motor Speedway</span>
+                                <h4 class="race-name">Pennzoil 400</h4>
+                                <span class="date">February 23, 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="race-info">
+                        <div class="driver-standings d-flex align-items-center">
+                            <div class="img logo" style="background-image: url(../static/images/race-logos/race-schedule/auto_club_400.png);"></div>
+                            <div class="pl-4 desc">
+                                <span class="track-name">Auto Club Speedway</span>
+                                <h4 class="race-name">Auto Club 400</h4>
+                                <span class="date">March 1, 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="race-info">
+                        <div class="driver-standings d-flex align-items-center">
+                            <div class="img logo" style="background-image: url(../static/images/race-logos/race-schedule/ticketguardian_500.jpeg);"></div>
+                            <div class="pl-4 desc">
+                                <span class="track-name">ISM Raceway</span>
+                                <h4 class="race-name">TicketGuardian 500</h4>
+                                <span class="date">March 8, 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="race-info">
+                        <div class="driver-standings d-flex align-items-center">
+                            <div class="img logo" style="background-image: url(../static/images/race-logos/race-schedule/folds_of_honor_quiktrip_500.jpg);"></div>
+                            <div class="pl-4 desc">
+                                <span class="track-name">Atlanta Motor Speedway</span>
+                                <h4 class="race-name">Folds of Honor QuikTrip 500</h4>
+                                <span class="date">March 15, 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="race-info">
+                        <div class="driver-standings d-flex align-items-center">
+                            <div class="img logo" style="background-image: url(../static/images/race-logos/race-schedule/mencs.png);"></div>
+                            <div class="pl-4 desc">
+                                <span class="track-name">Homestead-Miami Speedway</span>
+                                <h4 class="race-name">NASCAR Cup Series Race at Homestead</h4>
+                                <span class="date">March 22, 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="race-info">
+                        <div class="driver-standings d-flex align-items-center">
+                            <div class="img logo" style="background-image: url(../static/images/race-logos/race-schedule/oreilly_auto_parts_500.png);"></div>
+                            <div class="pl-4 desc">
+                                <span class="track-name">Texas Motor Speedway</span>
+                                <h4 class="race-name">O'Reilly Auto Parts 500</h4>
+                                <span class="date">March 29, 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
