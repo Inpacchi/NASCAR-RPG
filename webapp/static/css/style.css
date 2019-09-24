@@ -10573,18 +10573,6 @@ h5,
     color: #000000;
 }
 
-@media only screen and (max-width: 720px) {
-    .login-form {
-        margin-top: 50px;
-    }
-}
-
-@media only screen and (min-width: 720px) {
-    .login-form {
-        margin-top: 150px;
-    }
-}
-
 .table thead tr {
     background: #ffb400;
 }
