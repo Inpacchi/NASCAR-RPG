@@ -8408,9 +8408,9 @@ h1, h2, h3, h4, h5,
     color: #000000; }
 	
 /* Index Page Grayish Block with Countdown Timer */
-.season-schedule-countdown {
+.game-wrap-1 {
   position: relative;
-  background: #232931;
+  background: #232931;ftco-footer
   -webkit-box-shadow: 0px 75px 94px -66px rgba(0, 0, 0, 0.66);
   -moz-box-shadow: 0px 75px 94px -66px rgba(0, 0, 0, 0.66);
   box-shadow: 0px 75px 94px -66px rgba(0, 0, 0, 0.66);
@@ -8420,27 +8420,27 @@ h1, h2, h3, h4, h5,
   border-radius: 5px;
   margin-top: -60px; }
   @media (min-width: 576px) {
-    .season-schedule-countdown {
+    .game-wrap-1 {
       margin-top: -60px; } }
-  .season-schedule-countdown .text {
+  .game-wrap-1 .text {
     width: 100%;
     display: block; }
-    .season-schedule-countdown .text h3 {
+    .game-wrap-1 .text h3 {
       font-size: 18px;
       color: #fff; }
-      .season-schedule-countdown .text h3 span {
+      .game-wrap-1 .text h3 span {
         display: block; }
-    .season-schedule-countdown .text .league {
+    .game-wrap-1 .text .league {
       font-size: 18px;
       color: rgba(255, 255, 255, 0.5); }
-    .season-schedule-countdown .text span {
+    .game-wrap-1 .text span {
       color: rgba(255, 255, 255, 0.8); }
-    .season-schedule-countdown .text .btn {
+    .game-wrap-1 .text .btn {
       display: block; }
-  .season-schedule-countdown .team-logo {
+  .game-wrap-1 .team-logo {
     width: 90px;
     position: relative; }
-    .season-schedule-countdown .team-logo .img {
+    .game-wrap-1 .team-logo .img {
       position: absolute;
       top: 0;
       left: 0;
@@ -8450,10 +8450,10 @@ h1, h2, h3, h4, h5,
       -moz-border-radius: 50%;
       -ms-border-radius: 50%;
       border-radius: 50%; }
-      .season-schedule-countdown .team-logo .img.img-2 {
+      .game-wrap-1 .team-logo .img.img-2 {
         left: 35px;
         z-index: -1; }
-  .season-schedule-countdown .team-name {
+  .game-wrap-1 .team-name {
     width: calc(100% - 90px); }
 
 .scoreboard {
@@ -8972,6 +8972,14 @@ textarea.form-control {
     .footer-small-nav > li a:hover, .footer-small-nav > li a:focus {
       color: #ffb400; }
 
+    .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 400px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+
+    }
 .media .ftco-icon {
   width: 100px; }
   .media .ftco-icon span {
