@@ -1,0 +1,21 @@
+ @media screen and (min-width: 720px) {
+     .bg {
+         background: url("../images/404.jpg") no-repeat center;
+         background-size: auto;
+         padding: 300px;
+         margin-bottom: -150px;
+     }
+ }
+
+  @media screen and (max-width: 720px) {
+     .bg {
+         background: url("../images/404.jpg") no-repeat center;
+         background-size: 150%;
+         padding-top: 350px;
+         margin-bottom: -50px;
+     }
+
+      .link-back {
+          margin-bottom: 20px;
+      }
+ }
