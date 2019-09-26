@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect, url_for
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user, login_user, logout_user, login_required
 
 from models.webapp import User
 from webapp import app, db
@@ -30,6 +30,7 @@ def register():
 
     return render_template('register.html', title='Register', form=form)
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -55,6 +56,7 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
+
 @app.route('/resetPassword', methods=['GET', 'POST'])
 def resetPasswordRequest():
     if current_user.is_authenticated:
@@ -73,6 +75,7 @@ def resetPasswordRequest():
         return redirect(url_for('login'))
 
     return render_template('resetPasswordRequest.html', title='Reset Password', form=form)
+
 
 @app.route('/resetPassword/<token>', methods=['GET', 'POST'])
 def resetPassword(token):
@@ -93,3 +96,11 @@ def resetPassword(token):
         return redirect(url_for('login'))
 
     return render_template('resetPassword.html', form=form)
+
+
+@app.route('/profile/<username>')
+@login_required
+def profile(username):
+    user = User.query.filter_by(username=username).first_or_404()
+
+    return render_template('profile.html', user=user)
