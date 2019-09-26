@@ -13,7 +13,7 @@
                         <h1 class="card-title text-center">Login Page</h1>
                         <form action="" method="post" novalidate>
                             {{ form.hidden_tag() }}
-                            <div class="form-field mx-auto">
+                            <div class="form-field">
                                 {{ form.username(size=32, class="form-control", placeholder="Username") }}
 
                                 {% for error in form.username.errors %}
@@ -21,7 +21,7 @@
                                 {% endfor %}
                             </div>
 
-                            <div class="form-field mx-auto">
+                            <div class="form-field">
                                 {{ form.password(size=32, class="form-control", placeholder="Password") }}
 
                                 {% for error in form.password.errors %}
@@ -29,7 +29,7 @@
                                 {% endfor %}
                             </div>
 
-                            <div class="mx-auto">
+                            <div class="text-center">
                                 <div class="form-check">
                                     {{ form.rememberMe(class="form-check-input") }} {{ form.rememberMe.label }}
                                 </div>
@@ -40,17 +40,21 @@
                                     {{ form.submit(class="btn btn-primary btn-block btn-lg") }}
                                 </div>
                             </div>
+
+                            <div class="text-center">
+                                <p>Don't have an account? <a href="{{ url_for('register') }}">Click here to register!</a></p>
+                            </div>
                         </form>
-                        <div class="mx-auto">
-                            {% with messages = get_flashed_messages() %}
-                                {% if messages %}
-                                    <ul>
-                                        {% for message in messages %}
-                                            <li>{{ message }}</li>
-                                        {% endfor %}
-                                    </ul>
-                                {% endif %}
-                            {% endwith %}
+                        <div class="text-center">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <ul>
+                                    {% for message in messages %}
+                                    <span style="color: red;"><li>{{ message }}</li></span>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        {% endwith %}
                         </div>
                     </div>
                 </div>
