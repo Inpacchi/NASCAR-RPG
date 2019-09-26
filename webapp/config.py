@@ -22,3 +22,8 @@ class Config(object):
     # FOR TESTING PURPOSES ONLY
     # MAIL_SERVER = 'localhost'
     # MAIL_PORT = 8025
+
+    # GOOGLE SETTINGS
+    # MAIL_SERVER = 'smtp.gmail.com'
+    # MAIL_PORT = 587
+    # MAIL_USE_TLS = True
