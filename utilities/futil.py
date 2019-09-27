@@ -6,6 +6,7 @@ import csv
 from sqlalchemy.exc import SQLAlchemyError
 
 from models.driver import Driver
+from models.gameapp import Schedule, Track
 from models.team import Team
 from webapp import db
 
@@ -26,7 +27,9 @@ MODEL_TYPE_DICT = {
     },
     'miscSubset': {
         'standings',
-        'tracks'
+        'track'
+        'tracks',
+        'schedule',
     },
     'schedules': {
         '2020schedule'
@@ -141,6 +144,8 @@ def __CSVFile(modelType: str, filename: str = None, conversion: str = None) -> T
             CSVPath = f'data/csv/teams/{filename}.csv'
         elif modelType.lower() in MODEL_TYPE_DICT.get('testSubset'):
             CSVPath = f'../data/csv/tests/{filename}.csv'
+        elif modelType.lower() in MODEL_TYPE_DICT.get('miscSubset').union(MODEL_TYPE_DICT.get('schedules')):
+            CSVPath = f'data/csv/{filename}.csv'
         else:
             raise Exception('You entered a filename, but did not enter a valid model type!')
     else:
@@ -152,6 +157,8 @@ def __CSVFile(modelType: str, filename: str = None, conversion: str = None) -> T
             CSVPath = '../data/tests/csv/drivers/drivers.csv'
         elif modelType.lower() == 'testteam':
             CSVPath = '../data/tests/csv/teams/teams.csv'
+        elif modelType.lower() in MODEL_TYPE_DICT.get('miscSubset').union(MODEL_TYPE_DICT.get('schedules')):
+            CSVPath = f'data/csv/{modelType}.csv'
         else:
             raise Exception('Incorrect model type!')
 
@@ -235,7 +242,7 @@ def readDictFromJSON(modelType: str, filename: str = None, filepath: str = None)
         return tempDict
 
 
-def writeDictToJSON(modelType: str, dataDict: dict, filename: str = None, databaseError: str = None) -> None:
+def writeDictToJSON(modelType: str, dataDict: dict = None, filename: str = None, databaseError: str = None) -> None:
     """
     Writes the model dictionary to the relevant model type JSON file.
 
@@ -247,7 +254,7 @@ def writeDictToJSON(modelType: str, dataDict: dict, filename: str = None, databa
 
     :param modelType: Type of model being written to
     :type modelType: string
-    :param dataDict: Dictionary of data or models to be written to the JSON file
+    :param dataDict: If specified, dictionary of data or models to be written to the JSON file
     :type dataDict: dict
     :param filename: If specified, name of file to be written to
     :type filename: string
@@ -256,6 +263,14 @@ def writeDictToJSON(modelType: str, dataDict: dict, filename: str = None, databa
     :return: None
     :rtype: None
     """
+
+    if dataDict is None:
+        if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset'):
+            dataDict = Driver.instances
+        elif modelType.lower() in MODEL_TYPE_DICT.get('teamSubset'):
+            dataDict = Team.instances
+        else:
+            raise Exception("No data dictionary was passed in and one could not be loaded. Please try again.")
 
     JSONFile = __JSONFile(modelType, None, filename, databaseError)
 
@@ -367,8 +382,13 @@ def addCSVToDatabase(modelType: str, filename: str = None) -> None:
 
     # TODO: Add the ability to store multiple noncommittals and interactively chose between them.
     if os.path.exists('data/sqlite/uncommitted-db-session.json'):
-        __retryCommit()
+        __retryCommit(modelType)
         return
+
+    if modelType.lower() in MODEL_TYPE_DICT.get('miscSubset') and not os.path.exists(f'data/csv/{modelType}.csv'):
+        if modelType.lower() in MODEL_TYPE_DICT.get('schedules') and os.path.exists(
+                f'data/json/seasons/{modelType[:4]}/schedule.json'):
+            convertDictToCSV(modelType)
 
     CSVFile = __CSVFile(modelType, filename)
     reader = csv.DictReader(CSVFile)
@@ -376,28 +396,24 @@ def addCSVToDatabase(modelType: str, filename: str = None) -> None:
 
     if modelType in MODEL_TYPE_DICT.get('driverSubset'):
         for row in reader:
-            tempDriver = Driver(row)
-            db.session.add(tempDriver)
-
-        try:
-            db.session.commit()
-        except SQLAlchemyError:
-            writeDictToJSON('driver', Driver.instances, 'uncommitted-db-session', 'y')
-            db.session.rollback()
-            raise SQLAlchemyError('Database commit failed! Uncommitted changes have been saved to '
-                                  'data/sqlite/uncommitted-db-session.json')
+            db.session.add(Driver(row))
     elif modelType in MODEL_TYPE_DICT.get('teamSubset'):
         for row in reader:
-            tempTeam = Team(row)
-            db.session.add(tempTeam)
+            db.session.add(Team(row))
+    elif modelType == 'schedule':
+        for row in reader:
+            db.session.add(Schedule(row))
+    elif modelType.lower() == 'track':
+        for row in reader:
+            db.session.add(Track(row))
 
-        try:
-            db.session.commit()
-        except SQLAlchemyError:
-            writeDictToJSON('driver', Team.instances, 'uncommitted-db-session', 'y')
-            db.session.rollback()
-            raise SQLAlchemyError('Database commit failed! Uncommitted changes have been saved to '
-                                  'data/sqlite/uncommitted-db-session.json')
+    try:
+        db.session.commit()
+    except SQLAlchemyError:
+        writeDictToJSON(modelType, filename='uncommitted-db-session', databaseError='y')
+        db.session.rollback()
+        raise SQLAlchemyError('Database commit failed! Uncommitted changes have been saved to '
+                              'data/sqlite/uncommitted-db-session.json')
 
 
 def __retryCommit(modelType: str) -> None:

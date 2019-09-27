@@ -104,3 +104,7 @@ def profile(username):
     user = User.query.filter_by(username=username).first_or_404()
 
     return render_template('profile.html', user=user)
+
+@app.route('/schedule')
+def displaySchedule():
+    return render_template('schedule.html')
