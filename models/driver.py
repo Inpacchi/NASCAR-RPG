@@ -70,6 +70,9 @@ class Driver(db.Model):
                 f'Overall Rating: {self.overallRating}\n'
                 f'Potential: {self.potential}\n')
 
+    def __repr__(self):
+        return f'<gameapp.Driver object for {self.name}'
+
     def serialize(self) -> dict:
         """
         Returns a JSON serializable object.

@@ -55,6 +55,9 @@ class Team(db.Model):
                 f'Race Rating: {self.raceRating}\n'
                 f'Drivers: {self.drivers}\n')
 
+    def __repr__(self):
+        return f'<gameapp.Team object for {self.name}'
+
     def serialize(self) -> dict:
         """
         Returns a JSON serializable object.

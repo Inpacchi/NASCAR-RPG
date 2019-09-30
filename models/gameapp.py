@@ -7,6 +7,8 @@ class Track(db.Model):
     length = db.Column(db.Float)
     type = db.Column(db.String(32))
     schedule = db.relationship('Schedule', secondary='TrackScheduleAssociation')
+    def __repr__(self):
+        return f'<gameapp.Track object for {self.name}>'
 
 
 class Schedule(db.Model):
@@ -24,6 +26,8 @@ class Schedule(db.Model):
 class TrackScheduleAssociation(db.Model):
     trackId = db.Column(db.Integer, db.ForeignKey('track.id'), primary_key=True)
     scheduleId = db.Column(db.Integer, db.ForeignKey('schedule.id'), primary_key=True)
+    def __repr__(self):
+        return f'<gameapp.Schedule object for {self.name}>'
 
 
 class Contract(db.Model):
@@ -33,3 +37,5 @@ class Contract(db.Model):
     salary = db.Column(db.Float)
     driverId = db.Column(db.Integer, db.ForeignKey('driver.id'))
     driver = db.relationship('Driver', uselist=False, back_populates='contract')
+    def __repr__(self):
+        return f'<gameapp.Contract object for {self.driver}>'
