@@ -80,7 +80,7 @@ def __JSONFile(modelType: str, filepath: str = None, filename: str = None, datab
         elif modelType.lower() in MODEL_TYPE_DICT.get('testSubset'):
             JSONPath = f'../data/json/tests/{filename}.json'
         else:
-            raise Exception('Incorrect model type!')
+            raise Exception(f'\'{modelType}\' is not a valid model type!')
     else:
         if modelType.lower() == 'driver':
             JSONPath = 'data/json/drivers/drivers.json'
@@ -101,7 +101,7 @@ def __JSONFile(modelType: str, filepath: str = None, filename: str = None, datab
         elif modelType.lower() == 'testteam':
             JSONPath = '../data/tests/json/teams/teams.json'
         else:
-            raise Exception('Incorrect model type!')
+            raise Exception(f'\'{modelType}\' is not a valid model type!')
 
     try:
         JSONFile = open(JSONPath, 'r+', encoding='utf-8-sig')
@@ -160,7 +160,7 @@ def __CSVFile(modelType: str, filename: str = None, conversion: str = None) -> T
         elif modelType.lower() in MODEL_TYPE_DICT.get('miscSubset').union(MODEL_TYPE_DICT.get('schedules')):
             CSVPath = f'data/csv/{modelType}.csv'
         else:
-            raise Exception('Incorrect model type!')
+            raise Exception(f'\'{modelType}\' is not a valid model type!')
 
     try:
         CSVFile = open(CSVPath, 'r+', encoding='utf-8-sig')
@@ -194,7 +194,7 @@ def __getCSVHeader(modelType: str) -> list:
     elif modelType.lower() in MODEL_TYPE_DICT.get('schedules'):
         header = ['name', 'date', 'type', 'track', 'laps', 'stages', 'raceProcessed']
     else:
-        raise Exception('Incorrect model type!')
+        raise Exception(f'\'{modelType}\' is not a valid model type!')
 
     return header
 
