@@ -27,7 +27,6 @@ MODEL_TYPE_DICT = {
     },
     'miscSubset': {
         'standings',
-        'track'
         'tracks',
         'schedule',
     },
@@ -385,14 +384,16 @@ def addCSVToDatabase(modelType: str, filename: str = None) -> None:
         __retryCommit(modelType)
         return
 
-    if modelType.lower() in MODEL_TYPE_DICT.get('miscSubset') and not os.path.exists(f'data/csv/{modelType}.csv'):
-        if modelType.lower() in MODEL_TYPE_DICT.get('schedules') and os.path.exists(
-                f'data/json/seasons/{modelType[:4]}/schedule.json'):
+    if modelType.lower() in MODEL_TYPE_DICT.get('miscSubset').union(MODEL_TYPE_DICT.get('schedules')) \
+            and not os.path.exists(f'data/csv/{modelType}.csv'):
+        if modelType.lower() in MODEL_TYPE_DICT.get('schedules') \
+                and os.path.exists(f'data/json/seasons/{modelType[:4]}/schedule.json'):
+            convertDictToCSV(modelType)
+        elif os.path.exists(f'data/json/{modelType}.json'):
             convertDictToCSV(modelType)
 
     CSVFile = __CSVFile(modelType, filename)
     reader = csv.DictReader(CSVFile)
-    next(reader)
 
     if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset'):
         for row in reader:
