@@ -394,16 +394,16 @@ def addCSVToDatabase(modelType: str, filename: str = None) -> None:
     reader = csv.DictReader(CSVFile)
     next(reader)
 
-    if modelType in MODEL_TYPE_DICT.get('driverSubset'):
+    if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset'):
         for row in reader:
             db.session.add(Driver(row))
-    elif modelType in MODEL_TYPE_DICT.get('teamSubset'):
+    elif modelType.lower() in MODEL_TYPE_DICT.get('teamSubset'):
         for row in reader:
             db.session.add(Team(row))
-    elif modelType == 'schedule':
+    elif modelType.lower() in MODEL_TYPE_DICT.get('schedules'):
         for row in reader:
             db.session.add(Schedule(row))
-    elif modelType.lower() == 'track':
+    elif modelType.lower() == 'tracks':
         for row in reader:
             db.session.add(Track(row))
 
@@ -426,7 +426,7 @@ def __retryCommit(modelType: str) -> None:
     :rtype: None
     """
 
-    if modelType in MODEL_TYPE_DICT.get('driverSubset'):
+    if modelType.lower() in MODEL_TYPE_DICT.get('driverSubset'):
         if Driver.instances != {}:
             Driver.instances = {}
 
@@ -434,7 +434,7 @@ def __retryCommit(modelType: str) -> None:
 
         for driver in Driver.instances:
             db.session.add(Driver.instances[driver])
-    elif modelType in MODEL_TYPE_DICT.get('teamSubset'):
+    elif modelType.lower() in MODEL_TYPE_DICT.get('teamSubset'):
         if Team.instances != {}:
             Team.instances = {}
 
