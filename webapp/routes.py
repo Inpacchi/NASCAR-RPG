@@ -1,6 +1,7 @@
 from flask import render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 
+from models.gameapp import Schedule, Track
 from models.webapp import User
 from webapp import app, db
 from webapp.email import sendPasswordResetEmail
@@ -105,6 +106,7 @@ def profile(username):
 
     return render_template('profile.html', user=user)
 
+
 @app.route('/schedule')
-def displaySchedule():
-    return render_template('schedule.html')
+def schedule():
+    return render_template('schedule.html', schedule=Schedule.query.all(), trackDb=Track)

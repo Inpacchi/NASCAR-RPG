@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="../static/css/schedule.css">
+{% endblock %}
+
+{% block body %}
+<div class="container schedule-table">
+    <div class="row">
+        <table class="table table-hover table-responsive-sm table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Type</th>
+                <th scope="col">Track</th>
+                <th scope="col">Laps</th>
+                <th scope="col">Stages</th>
+                <th scope="col">Race Processed?</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sl in schedule %}
+                <tr id="{{ sl.id }}">
+                    <th scope="row">{{ sl.name }}</th>
+                    <td>{{ sl.date.strftime('%B %d %Y') }}</td>
+                    <td>{{ sl.type }}</td>
+                    <td>{{ trackDb.query.filter_by(id=sl.trackId).first().name }}</td>
+                    <td>{{ sl.laps }}</td>
+                    <td>{{ sl.stages }}</td>
+                    {% if sl.raceProcessed == 'no' %}
+                        <!-- TODO: Fire AJAX request to backend to run race -->
+                        <!-- TODO: Hotlink track to track page -->
+                        <td><button type="button" class="btn btn-primary">Run Race</button></td>
+                    {% else %}
+                        <td class="text-center">&#10004</td> <!-- UTF-8 Dingbat for Check Mark -->
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+{% endblock %}
