@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="../static/css/schedule.css">
+{% endblock %}
+
+{% block body %}
+<div class="container schedule-table">
+    <div class="row">
+        <table class="table table-hover table-responsive-sm table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Length</th>
+                    <th scope="col">Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for track in tracks %}
+                <tr id="{{ track.id }}">
+                    <th scope="row">{{ track.name }}</th>
+                    <td>{{ track.type }}</td>
+                    <td>{{ track.length }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

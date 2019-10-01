@@ -110,3 +110,8 @@ def profile(username):
 @app.route('/schedule')
 def schedule():
     return render_template('schedule.html', schedule=Schedule.query.all(), trackDb=Track)
+
+
+@app.route('/tracks')
+def tracks():
+    return render_template('tracks.html', tracks=Track.query.all())
