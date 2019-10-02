@@ -6,32 +6,68 @@
 
 {% block body %}
 <!-- TODO: Generalize template so that only one is needed for multiple tracks -->
-<div class="container header">
-    <div class="row"><h1 class="mx-auto">Daytona International Speedway</h1></div>
-    <div class="row"><img src="../../static/images/tracks/daytona-international-speedway/track-header.jpg" class="img-fluid mx-auto rounded"></div>
-    <div class="row">
-        <div class="description mx-auto" tabindex="0" itemprop="caption">
-            Location: Daytona Beach, Florida
-            <br>
-            Year of first Cup event: 1959
-            <br>
-            Banking: Turns (31)
-            <br>
-            Backstretch (3) and Tri-oval (18)
-            <br>
-            Length/Track type: 2.5 miles, paved (One of two tracks to use restrictor plates)
-            <br>
-            Cup events currently hosted: Advance Auto Parts Clash (held in February, non-points)
-            <br>
-            Can-Am Duels (held in February, non-points)
-            <br>
-            Daytona 500 (held in February)
-            <br>
-            Coke Zero Sugar 400 (held in July)
-            <br>
+
+<div class="jumbotron header">
+    <div class="container text-center text-lg-left">
+        <div class="row jumbotron-header">
+            <h1 class="mx-auto display-4">Daytona International Speedway</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-7">
+                <img src="../../static/images/tracks/daytona-international-speedway/track-header.jpg" class="img-fluid rounded track-header">
+            </div>
+            <div class="col-lg-5">
+                <div class="description"> <!-- &#176; is the dingbat for degree -->
+                    <b>Location:</b> Daytona Beach, Florida
+                    <br>
+                    <b>Length:</b> 2.5 miles
+                    <br>
+                    <b>Type:</b> Restricted Super Speedway
+                    <br>
+                    <br>
+                    <h4>Banking</h4>
+                    <br>
+                    <table class="table table-hover table-striped mx-auto">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Turns</th>
+                                <td>31&#176;</td>
+                            </tr>
+                            <tr>
+                               <th scope="row">Backstretch</th>
+                                <td>3&#176;</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tri-oval</th>
+                                <td>18&#176;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
+</div>
+<div class="container">
     <div class="row"><h3 class="mx-auto header-3">Track Overview</h3></div>
-    <div class="row"><img src="../../static/images/tracks/daytona-international-speedway/track-overview.jpg" class="img-fluid mx-auto rounded track-overview"></div>
+    <div class="row">
+        <div id="map" class="track-overview"></div>
+        <script>
+        function initMap() {
+            var trackLocation = $.getJSON("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=daytona%20international%20speedway&inputtype=textquery&fields=geometry&key=AIzaSyDMw-JJFPLK8vvyKuettOvCIzK80jmkMTg");
+            const trackCoordinates = trackLocation.responseJSON.candidates[0].geometry.location;
+            var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: trackCoordinates});
+            var marker = new google.maps.Marker({position: trackCoordinates, map: map});
+        }
+            </script>
+            <!--Load the API from the specified URL
+            * The async attribute allows the browser to render the page while the API loads
+            * The key parameter will contain your own API key (which is not needed for this tutorial)
+            * The callback parameter executes the initMap() function
+            -->
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMw-JJFPLK8vvyKuettOvCIzK80jmkMTg&callback=initMap">
+        </script>
+    </div>
 </div>
 {% endblock %}
