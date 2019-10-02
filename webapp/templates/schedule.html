@@ -25,7 +25,7 @@
                     <th scope="row">{{ sl.name }}</th>
                     <td>{{ sl.date.strftime('%B %d %Y') }}</td>
                     <td>{{ sl.type }}</td>
-                    <td>{{ trackDb.query.filter_by(id=sl.trackId).first().name }}</td>
+                    <td><a href="{{ url_for('tracks', trackId=sl.trackId) }}"> {{ trackDb.query.filter_by(id=sl.trackId).first().name }}</a></td>
                     <td>{{ sl.laps }}</td>
                     <td>{{ sl.stages }}</td>
                     {% if sl.raceProcessed == 'no' %}

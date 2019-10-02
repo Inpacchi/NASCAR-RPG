@@ -1,0 +1,20 @@
+.header {
+    margin-top: 150px;
+}
+
+.header-3 {
+    margin-top: 50px;
+}
+
+.track-overview {
+    margin-top: 25px;
+    margin-bottom: 600px;
+}
+
+.description {
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    padding: 10px 30px 10px 30px;
+    border-top: 1px solid #EFEFEF;
+}

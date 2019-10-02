@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="../../static/css/tracks.css">
+{% endblock %}
+
+{% block body %}
+<!-- TODO: Generalize template so that only one is needed for multiple tracks -->
+<div class="container header">
+    <div class="row"><h1 class="mx-auto">Daytona International Speedway</h1></div>
+    <div class="row"><img src="../../static/images/tracks/daytona-international-speedway/track-header.jpg" class="img-fluid mx-auto rounded"></div>
+    <div class="row">
+        <div class="description mx-auto" tabindex="0" itemprop="caption">
+            Location: Daytona Beach, Florida
+            <br>
+            Year of first Cup event: 1959
+            <br>
+            Banking: Turns (31)
+            <br>
+            Backstretch (3) and Tri-oval (18)
+            <br>
+            Length/Track type: 2.5 miles, paved (One of two tracks to use restrictor plates)
+            <br>
+            Cup events currently hosted: Advance Auto Parts Clash (held in February, non-points)
+            <br>
+            Can-Am Duels (held in February, non-points)
+            <br>
+            Daytona 500 (held in February)
+            <br>
+            Coke Zero Sugar 400 (held in July)
+            <br>
+        </div>
+    </div>
+    <div class="row"><h3 class="mx-auto header-3">Track Overview</h3></div>
+    <div class="row"><img src="../../static/images/tracks/daytona-international-speedway/track-overview.jpg" class="img-fluid mx-auto rounded track-overview"></div>
+</div>
+{% endblock %}

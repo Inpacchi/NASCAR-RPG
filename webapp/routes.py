@@ -1,6 +1,7 @@
 from flask import render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 
+from models.driver import Driver
 from models.gameapp import Schedule, Track
 from models.webapp import User
 from webapp import app, db
@@ -113,5 +114,11 @@ def schedule():
 
 
 @app.route('/tracks')
-def tracks():
-    return render_template('tracks.html', tracks=Track.query.all())
+@app.route('/tracks/<trackId>')
+def tracks(trackId=None):
+    if trackId is None:
+        return render_template('tracks.html', tracks=Track.query.all())
+    else:
+        trackName = Track.query.filter_by(id=trackId).first().name.replace(' ', '-').lower()
+        webpage = f'tracks/{trackName}.html'
+        return render_template(webpage)
