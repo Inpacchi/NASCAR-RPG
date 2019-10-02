@@ -180,6 +180,7 @@
 
 .race-schedule {
     position: relative;
+    margin-bottom: 60px;
 }
 
 .race-schedule .owl-carousel {
