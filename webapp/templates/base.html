@@ -11,6 +11,10 @@
     <!-- Open Iconic Bootstrap v1.1.1 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css">
 
+    <!-- jQuery Minified v3.4.1 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
     <!-- Bootstrap v4.3.1 -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="../static/css/external/bootstrap.min.css">
@@ -50,7 +54,7 @@
                     <li class="nav-item"><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="{{ url_for('schedule') }}" class="nav-link">Schedule</a></li>
                     <li class="nav-item"><a href="{{ url_for('tracks') }}" class="nav-link">Tracks</a></li>
-                    <li class="nav-item"><a href="drivers.html" class="nav-link">Drivers</a></li>
+                    <li class="nav-item"><a href="{{ url_for('drivers') }}" class="nav-link">Drivers</a></li>
                     <li class="nav-item"><a href="teams.html" class="nav-link">Teams</a></li>
 
                     {% if current_user.is_anonymous %}
@@ -114,10 +118,6 @@
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"></div>
 
-    <!-- jQuery Minified v3.4.1 -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
 
     <!-- jQuery Migrate Minified v3.1.0 -->
     <script src="https://code.jquery.com/jquery-migrate-3.1.0.min.js"
