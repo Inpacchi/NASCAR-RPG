@@ -117,11 +117,10 @@ def schedule():
 @app.route('/tracks/<trackId>')
 def tracks(trackId=None):
     if trackId is None:
-        return render_template('tracks.html', tracks=Track.query.all())
+        return render_template('trackList.html', tracks=Track.query.all())
     else:
-        trackName = Track.query.filter_by(id=trackId).first().name.replace(' ', '-').lower()
-        webpage = f'tracks/{trackName}.html'
-        return render_template(webpage)
+        track = Track.query.filter_by(id=trackId).first()
+        return render_template('trackInfo.html', track=track)
 
 
 @app.route('/drivers')
