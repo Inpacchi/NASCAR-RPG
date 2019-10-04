@@ -1,9 +1,17 @@
 .header {
-    margin-top: 150px;
+    padding-top: 150px;
 }
 
-.jumbotron-header {
+.jumbotron {
+    background: linear-gradient(to bottom right, rgba(136, 136, 136, .7), rgba(136, 136, 136, .1),  rgba(136, 136, 136, .7));
+}
+
+.jumbotron-spacer {
     margin-bottom: 25px;
+}
+
+.jumbotron #header {
+    font-family: "Bangers";
 }
 
 .track-header {
@@ -12,23 +20,30 @@
 
 .description {
     text-align: center;
+    color: black;
     border-left: 1px solid #000000;
     padding-left: 100px;
-}
-.jumbotron {
-    background: linear-gradient(to left, rgba(247, 231, 206, .35), rgba(231, 231, 231, 1));
+    font-family: "Kalam";
 }
 
-.header-3 {
+.description #table-title {
     margin-top: 50px;
+    margin-bottom: -10px;
 }
 
-.track-overview {
-    margin-top: 25px;
-    margin-bottom: 600px;
+.section-title {
+    margin-top: 60px;
+    font-family: "Big Shoulders Text";
 }
+
+.section-content {
+    margin-top: 25px;
+    margin-bottom: 50px;
+    font-family: "Big Shoulders Text";
+}
+
 #map {
-   width: 100%;
-   height: 400px;
-   background-color: grey;
+    width: 100%;
+    height: 500px;
+    background-color: grey;
  }

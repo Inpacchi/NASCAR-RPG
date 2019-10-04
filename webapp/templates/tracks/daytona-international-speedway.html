@@ -2,72 +2,114 @@
 
 {% block head %}
     <link rel="stylesheet" href="../../static/css/tracks.css">
+    <link rel="stylesheet" href="../../static/css/external/animations/slide.css">
+<link href="https://fonts.googleapis.com/css?family=Bangers|Big+Shoulders+Text|Kalam&display=swap" rel="stylesheet">
+
 {% endblock %}
 
 {% block body %}
-<!-- TODO: Generalize template so that only one is needed for multiple tracks -->
-
-<div class="jumbotron header">
-    <div class="container text-center text-lg-left">
-        <div class="row jumbotron-header">
-            <h1 class="mx-auto display-4">Daytona International Speedway</h1>
-        </div>
-        <div class="row">
-            <div class="col-lg-7">
-                <img src="../../static/images/tracks/daytona-international-speedway/track-header.jpg" class="img-fluid rounded track-header">
+<div class="header u--slideUp">
+    <!-- TODO: Generalize template so that only one is needed for multiple tracks -->
+    <div class="jumbotron">
+        <div class="container text-center text-lg-left">
+            <div class="row jumbotron-spacer">
+                <h1 id="header" class="mx-auto display-4">Daytona International Speedway</h1>
             </div>
-            <div class="col-lg-5">
-                <div class="description"> <!-- &#176; is the dingbat for degree -->
-                    <b>Location:</b> Daytona Beach, Florida
-                    <br>
-                    <b>Length:</b> 2.5 miles
-                    <br>
-                    <b>Type:</b> Restricted Super Speedway
-                    <br>
-                    <br>
-                    <h4>Banking</h4>
-                    <br>
-                    <table class="table table-hover table-striped mx-auto">
-                        <tbody>
-                            <tr>
-                                <th scope="row">Turns</th>
-                                <td>31&#176;</td>
-                            </tr>
-                            <tr>
-                               <th scope="row">Backstretch</th>
-                                <td>3&#176;</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Tri-oval</th>
-                                <td>18&#176;</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="row">
+                <div class="col-lg-7">
+                    <img src="../../static/images/tracks/daytona-international-speedway/track-header.jpg" class="img-fluid rounded track-header">
+                </div>
+                <div class="col-lg-5">
+                    <div class="description"> <!-- &#176; is the dingbat for degree -->
+                        <b>Location:</b> Daytona Beach, Florida
+                        <br>
+                        <b>Length:</b> 2.5 miles
+                        <br>
+                        <b>Type:</b> Restricted Super Speedway
+                        <br>
+                        <h4 id="table-title">Banking</h4>
+                        <br>
+                        <table class="table table-hover table-striped mx-auto">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Turns</th>
+                                    <td>31&#176;</td>
+                                </tr>
+                                <tr>
+                                   <th scope="row">Backstretch</th>
+                                    <td>3&#176;</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Tri-oval</th>
+                                    <td>18&#176;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container">
-    <div class="row"><h3 class="mx-auto header-3">Track Overview</h3></div>
-    <div class="row">
-        <div id="map" class="track-overview"></div>
-        <script>
-        function initMap() {
-            var trackLocation = $.getJSON("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=daytona%20international%20speedway&inputtype=textquery&fields=geometry&key=AIzaSyDMw-JJFPLK8vvyKuettOvCIzK80jmkMTg");
-            const trackCoordinates = trackLocation.responseJSON.candidates[0].geometry.location;
-            var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: trackCoordinates});
-            var marker = new google.maps.Marker({position: trackCoordinates, map: map});
-        }
+    <div class="container">
+        <div class="row"><h1 class="mx-auto section-title">Overview</h1></div>
+        <div class="row">
+            <div id="map" class="section-content"></div>
+            <script>
+                function initMap() {
+                    // Replace Heroku App URL in production
+                    const locationURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=daytona%20international%20speedway&inputtype=textquery&fields=geometry&key=AIzaSyDMw-JJFPLK8vvyKuettOvCIzK80jmkMTg";
+                    $.getJSON(locationURL, function(json) {
+                        const trackCoordinates = json.candidates[0].geometry.location;
+                        const googleMapOptions = {
+                            zoom: 15,
+                            center: trackCoordinates,
+                            gestureHandling: 'cooperative',
+                            mapTypeId: 'satellite'
+                        };
+                        const mapCanvas = new google.maps.Map(document.getElementById('map'), googleMapOptions);
+                        const marker = new google.maps.Marker({position: trackCoordinates, map: mapCanvas});
+                    });
+                }
             </script>
-            <!--Load the API from the specified URL
-            * The async attribute allows the browser to render the page while the API loads
-            * The key parameter will contain your own API key (which is not needed for this tutorial)
-            * The callback parameter executes the initMap() function
-            -->
-            <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMw-JJFPLK8vvyKuettOvCIzK80jmkMTg&callback=initMap">
-        </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMw-JJFPLK8vvyKuettOvCIzK80jmkMTg&callback=initMap"></script>
+        </div>
+        <div class="row"><h1 class="mx-auto section-title">History</h1></div>
+        <div class="row section-content">
+            <table class="table table-hover table-responsive-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Event Name</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Winning Driver</th>
+                        <th scope="col">Team</th>
+                        <th scope="col">Manufacturer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Test Event #1</th>
+                        <td>January 01, 1970</td>
+                        <td>Test Driver #1</td>
+                        <td>Test Team #1</td>
+                        <td>Test Manufacturer #1</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Test Event #2</th>
+                        <td>January 08, 1970</td>
+                        <td>Test Driver #2</td>
+                        <td>Test Team #2</td>
+                        <td>Test Manufacturer #2</td>
+                    </tr>
+                   <tr>
+                        <th scope="row">Test Event #3</th>
+                        <td>January 15, 1970</td>
+                        <td>Test Driver #3</td>
+                        <td>Test Team #3</td>
+                        <td>Test Manufacturer #3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 {% endblock %}
