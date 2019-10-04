@@ -122,3 +122,13 @@ def tracks(trackId=None):
         trackName = Track.query.filter_by(id=trackId).first().name.replace(' ', '-').lower()
         webpage = f'tracks/{trackName}.html'
         return render_template(webpage)
+
+
+@app.route('/drivers')
+def drivers():
+    return render_template('drivers.html')
+
+
+@app.route('/teams')
+def teams():
+    return render_template('teams.html')
