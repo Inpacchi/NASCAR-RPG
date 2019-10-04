@@ -18,12 +18,19 @@
     box-shadow: 10px 10px 5px grey;
 }
 
-.description {
+.description-box {
     text-align: center;
     color: black;
     border-left: 1px solid #000000;
     padding-left: 100px;
     font-family: "Kalam";
+    height: 100%;
+    display: flex;
+}
+
+.description {
+    margin: auto;
+    width: 100%;
 }
 
 .description #table-title {
