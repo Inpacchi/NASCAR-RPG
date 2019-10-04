@@ -46,7 +46,7 @@ class Schedule(db.Model):
 
     def __str__(self):
         return (f'Race Name: {self.name}\n'
-                f'Date: {self.length}\n'
+                f'Date: {self.date}\n'
                 f'Type: {self.type}\n'
                 f'Track: {Track.query.filter_by(id=self.id).first().name}'
                 f'Laps: {self.laps}'
