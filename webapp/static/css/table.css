@@ -1,13 +1,17 @@
 @media screen and (max-width: 720px){
-    .schedule-table {
+    .table-spacing {
         margin-top: 50px;
         margin-bottom: 50px;
     }
 }
 
 @media screen and (min-width: 720px){
-    .schedule-table {
+    .table-spacing {
         margin-top: 150px;
         margin-bottom: 500px;
+    }
+
+    .table-shadow {
+        box-shadow:rgba(0, 0, 0, 0.5) -20px 20px 5px -5px;
     }
 }
