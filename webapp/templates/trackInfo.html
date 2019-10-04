@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block head %}
-    <link rel="stylesheet" href="../../static/css/tracks.css">
-    <link rel="stylesheet" href="../../static/css/external/animations/slide.css">
+    <link rel="stylesheet" href="../static/css/tracks.css">
+    <link rel="stylesheet" href="../static/css/external/animations/slide.css">
 <link href="https://fonts.googleapis.com/css?family=Bangers|Big+Shoulders+Text|Kalam&display=swap" rel="stylesheet">
 
 {% endblock %}
@@ -13,19 +13,33 @@
     <div class="jumbotron">
         <div class="container text-center text-lg-left">
             <div class="row jumbotron-spacer">
-                <h1 id="header" class="mx-auto display-4">Daytona International Speedway</h1>
+                <h1 id="header" class="mx-auto display-4">{{ track.name }}</h1>
             </div>
             <div class="row">
                 <div class="col-lg-7">
-                    <img src="../../static/images/tracks/daytona-international-speedway/track-header.jpg" class="img-fluid rounded track-header">
+                    <img src="../static/images/tracks/{{ track.name.replace(' ', '-') }}/track-header.jpg" class="img-fluid rounded track-header">
                 </div>
                 <div class="col-lg-5">
-                    <div class="description"> <!-- &#176; is the dingbat for degree -->
-                        <b>Location:</b> Daytona Beach, Florida
+                    <div class="description-box"> <!-- &#176; is the dingbat for degree -->
+                        <div class="description">
+                            <b>Location:</b> {{ track.location }}
                         <br>
-                        <b>Length:</b> 2.5 miles
+                        <b>Length:</b> {{ track.length }} miles
                         <br>
-                        <b>Type:</b> Restricted Super Speedway
+                        <b>Type:</b>
+                        {% if track.type == 'short' %}
+                            Short Track
+                        {% elif track.type == 'short-intermediate' %}
+                            Short-Intermediate Track
+                        {% elif track.type == 'intermediate' %}
+                            Intermediate Track
+                        {% elif track.type == 'superspeedway' %}
+                            Super Speedway
+                        {% elif track.type == 'restricted' %}
+                            Restricted Super Speedway
+                        {% elif track.type == 'road' %}
+                            Road Course
+                        {% endif %}
                         <br>
                         <h4 id="table-title">Banking</h4>
                         <br>
@@ -45,6 +59,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,7 +72,8 @@
             <script>
                 function initMap() {
                     // Replace Heroku App URL in production
-                    const locationURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=daytona%20international%20speedway&inputtype=textquery&fields=geometry&key=AIzaSyDMw-JJFPLK8vvyKuettOvCIzK80jmkMTg";
+                    const baseURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?inputtype=textquery&fields=geometry&key=AIzaSyDMw-JJFPLK8vvyKuettOvCIzK80jmkMTg&input=";
+                    const locationURL = baseURL + "{{ track.name }}".replace(/ /g, "%20");
                     $.getJSON(locationURL, function(json) {
                         const trackCoordinates = json.candidates[0].geometry.location;
                         const googleMapOptions = {
