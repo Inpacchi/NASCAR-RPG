@@ -8,7 +8,7 @@
 {% block body %}
 <div class="container u--fadeInLeft">
     <div class="row">
-        <table class="table table-hover table-responsive-sm table-bordered schedule-table">
+        <table class="table table-hover table-bordered table-responsive-sm table-spacing table-shadow">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Name</th>
@@ -26,7 +26,7 @@
                     <th scope="row">{{ sl.name }}</th>
                     <td>{{ sl.date.strftime('%B %d %Y') }}</td>
                     <td>{{ sl.type }}</td>
-                    <td><a href="{{ url_for('tracks', trackId=sl.trackId) }}"> {{ trackDb.query.filter_by(id=sl.trackId).first().name }}</a></td>
+                    <td><a href="{{ url_for('tracks', trackId=sl.trackId) }}">{{ trackDb.query.filter_by(id=sl.trackId).first().name }}</a></td>
                     <td>{{ sl.laps }}</td>
                     <td>{{ sl.stages }}</td>
                     {% if sl.raceProcessed == 'no' %}
