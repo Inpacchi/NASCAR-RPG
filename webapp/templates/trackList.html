@@ -19,7 +19,7 @@
             <tbody>
                 {% for track in tracks %}
                 <tr id="{{ track.id }}">
-                    <th scope="row"><a href="{{ url_for('tracks', trackId=track.id) }}">{{ track.name }}</a></th>
+                    <th scope="row"><a href="{{ url_for('tracks', trackName=track.name.lower().replace(' ', '-')) }}">{{ track.name }}</a></th>
                     <td>{{ track.type }}</td>
                     <td>{{ track.length }}</td>
                 </tr>

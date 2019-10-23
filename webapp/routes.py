@@ -1,5 +1,6 @@
 from flask import render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
+from sqlalchemy import func
 
 from models.driver import Driver
 from models.gameapp import Schedule, Track
@@ -114,12 +115,13 @@ def schedule():
 
 
 @app.route('/tracks')
-@app.route('/tracks/<trackId>')
-def tracks(trackId=None):
-    if trackId is None:
+@app.route('/tracks/<trackName>')
+def tracks(trackName=None):
+    if trackName is None:
         return render_template('trackList.html', tracks=Track.query.all())
     else:
-        track = Track.query.filter_by(id=trackId).first()
+        trackName = trackName.replace('-', ' ')
+        track = Track.query.filter(func.lower(Track.name) == func.lower(trackName)).first()
         return render_template('trackInfo.html', track=track)
 
 
