@@ -8,6 +8,7 @@ class Track(db.Model):
     name = db.Column(db.String(64), index=True, unique=True)
     length = db.Column(db.Float)
     type = db.Column(db.String(32))
+    #location = db.Column(db.String(64))
     schedule = db.relationship('Schedule')
 
     def __init__(self, track):
@@ -34,6 +35,8 @@ class Schedule(db.Model):
     stages = db.Column(db.String(32))
     # stages = db.Column(db.Array(db.Integer))  # PostgreSQL
     raceProcessed = db.Column(db.String(3))
+    qualifyingResults = db.relationship('QualifyingResults')
+    raceResults = db.relationship('RaceResults')
 
     def __init__(self, schedule):
         self.name = schedule['name']
@@ -55,6 +58,37 @@ class Schedule(db.Model):
 
     def __repr__(self):
         return f'<gameapp.Schedule object for {self.name}>'
+
+
+class QualifyingResults(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    raceId = db.Column(db.Integer, db.ForeignKey('schedule.id'))
+    driverId = db.Column(db.Integer, db.ForeignKey('driver.id'))
+    teamId = db.Column(db.Integer, db.ForeignKey('team.id'))
+    position = db.Column(db.Integer, index=True)
+    fastestLap = db.Column(db.Float, index=True)
+    rangeHits = db.Column(db.Integer)
+
+    def __init__(self, driverId, standingsDict):
+        self.driverId = driverId
+        self.position = standingsDict['qualifyingPosition']
+        self.rangeHits = standingsDict['timesQualifyingRangeHit']
+
+
+class RaceResults(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    raceId = db.Column(db.Integer, db.ForeignKey('schedule.id'))
+    driverId = db.Column(db.Integer, db.ForeignKey('driver.id'))
+    teamId = db.Column(db.Integer, db.ForeignKey('team.id'))
+    position = db.Column(db.Integer, index=True)
+    lapsLed = db.Column(db.Integer, index=True)
+    fastestLap = db.Column(db.Float, index=True)
+    rangeHits = db.Column(db.Integer)
+
+    def __init__(self, driverId, standingsDict):
+        self.driverId = driverId
+        self.position = standingsDict['finishingPosition']
+        self.rangeHits = standingsDict['timesRaceRangeHit']
 
 
 class Contract(db.Model):

@@ -25,6 +25,8 @@ class Team(db.Model):
     teamRating = db.Column(db.Float, nullable=False)
     raceRating = db.Column(db.Float, nullable=False)
     drivers = db.relationship('Driver', back_populates='team')
+    qualifyingResults = db.relationship('QualifyingResults')
+    raceResults = db.relationship('RaceResults')
 
     instances = {}
 

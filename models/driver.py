@@ -39,6 +39,8 @@ class Driver(db.Model):
     roadCourseRating = db.Column(db.Float, nullable=False)
     overallRating = db.Column(db.Float, nullable=False)
     potential = db.Column(db.String(16), nullable=False)
+    qualifyingResults = db.relationship('QualifyingResults')
+    raceResults = db.relationship('RaceResults')
 
     def __init__(self, driver):
         self.name = driver['name']
