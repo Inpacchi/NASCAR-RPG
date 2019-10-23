@@ -1,9 +1,11 @@
 from random import randint
 
 from game import potential
+from models.gameapp import Schedule, Track
 from models.driver import Driver
 from models.team import Team
-from utilities import futil
+from utilities import dbutil
+from webapp import db
 
 # Pseudo-Private Global Constants
 __DRIVER_FACTOR = 1.25
@@ -15,7 +17,7 @@ __standingsDict = {}
 __endingRange = 0
 
 
-def processStage() -> None:
+def processStage(raceName: str = None, trackName: str = None) -> None:
     """
     Main entry method for raceweekend.py
 
@@ -25,30 +27,27 @@ def processStage() -> None:
     :rtype: None
     """
 
-   #  scheduleDict = futil.readDictFromJSON('2020schedule')
+    if raceName is not None:
+        race = db.session.query(Schedule.trackId).filter(Schedule.name.like(f'%{raceName}%')).subquery()
+        track = Track.query.filter(Track.id.in_(race)).first()
+        print(track.name)
+    elif trackName is not None:
+        track = Track.query.filter(Track.name.like(f'%{trackName}%')).first()
+        print(track.name)
+    else:
+        raise Exception('Either raceName or trackName must be specified!')
 
-    # for raceObject in scheduleDict:
-    #     race = scheduleDict[raceObject]
-    #     if race['raceProcessed'] == 'no':
-    #         unprocessedRaces[raceIndex] = (race['name'])
-    #         raceIndex += 1
-            # if len(race['name']) > longestWordLength:
-            #     longestWordLength = len(race['name']) + 10
+    drivers = Driver.query.all()
 
-    # futil.readDictFromJSON('currentdrivers')
-    # futil.readDictFromJSON('teams')
-    #
-    # tracksDict = futil.readDictFromJSON('tracks')
-    #
-    # __populateRangesDict()
-    # __populateStandingsDict()
+    # __populateRangesDict(drivers, track)
+    # __populateStandingsDict(drivers)
     # __qualifying()
     # __race()
-    # futil.writeDictToJSON('standings', __standingsDict)
-    # __processDriverPotential()
+    # dbutil.populateStandings(__standingsDict)
+    # potential.processStage(__standingsDict, drivers)
 
 
-def __populateRangesDict() -> None:
+def __populateRangesDict(drivers, track) -> None:
     """
     Populates the rateRangesDict with rate ranges to be used for race stage processing.
 
@@ -57,9 +56,7 @@ def __populateRangesDict() -> None:
     """
 
     placementRange = 0
-    for name in Driver.instances:
-        driver = Driver.instances[name]
-
+    for driver in drivers:
         dictToAdd = {
             driver.name: {
                 "startingRange": placementRange,
@@ -67,18 +64,16 @@ def __populateRangesDict() -> None:
             }
         }
 
-        if driver.teamName != '':
-            placementRange += __calculateRange(driver, Team.instances.get(driver.teamName))
-            dictToAdd[driver.name]['endingRange'] = placementRange
-            __rateRangesDict.update(dictToAdd)
-            placementRange += 1
-            break
+        placementRange += __calculateRange(track, driver)
+        dictToAdd[driver.name]['endingRange'] = placementRange
+        __rateRangesDict.update(dictToAdd)
+        placementRange += 1
 
     global __endingRange
     __endingRange = placementRange
 
 
-def __calculateRange(driver: Driver, team: Team, startingBonus: int = 0) -> float:
+def __calculateRange(track, driver: Driver, team: Team = None, startingBonus: int = 0) -> float:
     """
     Returns a range for each driver dependent upon their overall rating as well as their team rating and any bonuses.
 
@@ -92,16 +87,29 @@ def __calculateRange(driver: Driver, team: Team, startingBonus: int = 0) -> floa
     :rtype: float
     """
 
-    trackRating = 0
+    if track.type == 'short':
+        driverResult = pow(float(driver.shortRating), __DRIVER_FACTOR)
+    elif track.type == 'short-intermediate':
+        driverResult = pow(float(driver.shortIntermediateRating), __DRIVER_FACTOR)
+    elif track.type == 'intermediate':
+        driverResult = pow(float(driver.intermediateRating), __DRIVER_FACTOR)
+    elif track.type == 'superspeedway':
+        driverResult = pow(float(driver.superSpeedwayRating), __DRIVER_FACTOR)
+    elif track.type == 'restricted':
+        driverResult = pow(float(driver.restrictedTrackRating), __DRIVER_FACTOR)
+    elif track.type == 'road':
+        driverResult = pow(float(driver.roadCourseRating), __DRIVER_FACTOR)
+    else:
+        raise Exception('Track type not defined')
 
-    driverResult = pow(float(driver.overallRating), __DRIVER_FACTOR)
-    teamResult = pow(team.raceRating, __TEAM_FACTOR)
+    # teamResult = pow(team.raceRating, __TEAM_FACTOR)
+    teamResult = pow(50, __TEAM_FACTOR)
     bonusResult = startingBonus * 50
 
     return round(((driverResult * teamResult) + bonusResult) / 100)
 
 
-def __populateStandingsDict() -> None:
+def __populateStandingsDict(drivers) -> None:
     """
     Populates the standingsDict with the standard standings that will be generated during race stage processing.
 
@@ -109,9 +117,9 @@ def __populateStandingsDict() -> None:
     :rtype: None
     """
 
-    for driver in Driver.instances:
+    for driver in drivers:
         dictToAdd = {
-            driver: {
+            driver.name: {
                 "qualifyingPosition": 0,
                 "finishingPosition": 0,
                 "lapsLed": 0,
@@ -170,19 +178,3 @@ def __race() -> None:
                     finishingPosition += 1
                 else:
                     __standingsDict[rateRange]['timesRaceRangeHit'] += 1
-
-
-def __processDriverPotential() -> None:
-    """
-    Processes driver potential after the race stages has run.
-
-    :return: None
-    :rtype: None
-    """
-
-    global __standingsDict
-
-    if not __standingsDict:
-        __standingsDict = futil.readDictFromJSON('standings')
-
-    potential.processStage(__standingsDict, Driver.instances)
