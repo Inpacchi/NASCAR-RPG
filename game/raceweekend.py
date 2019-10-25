@@ -12,8 +12,8 @@ __DRIVER_FACTOR = 1.25
 __TEAM_FACTOR = 1.4
 
 # Pseudo-Private Mutable Parameters
-__rateRangesDict = {}
-__standingsDict = {}
+__rateRanges = {}
+__standings = {}
 __endingRange = 0
 
 
@@ -27,9 +27,12 @@ def processStage(raceName: str = None, trackName: str = None) -> None:
     :rtype: None
     """
 
+    race = None
+
     if raceName is not None:
-        race = db.session.query(Schedule.trackId).filter(Schedule.name.like(f'%{raceName}%')).subquery()
-        track = Track.query.filter(Track.id.in_(race)).first()
+        race = Schedule.query.filter(Schedule.name.like(f'%{raceName}%')).first()
+        subquery = db.session.query(Schedule.trackId).filter(Schedule.name.like(f'%{raceName}%')).subquery()
+        track = Track.query.filter(Track.id.in_(subquery)).first()
     elif trackName is not None:
         track = Track.query.filter(Track.name.like(f'%{trackName}%')).first()
     else:
@@ -39,10 +42,10 @@ def processStage(raceName: str = None, trackName: str = None) -> None:
 
     __populateRangesDict(drivers, track)
     __populateStandingsDict(drivers)
-    __qualifying()
+    __qualifying(race)
     __race()
-    dbutil.populateStandings(__standingsDict)
-    # potential.processStage(__standingsDict, drivers)
+    dbutil.populateStandings(__standings)
+    # potential.processStage(__standings, drivers)
 
 
 def __populateRangesDict(drivers, track) -> None:
@@ -64,7 +67,7 @@ def __populateRangesDict(drivers, track) -> None:
 
         placementRange += __calculateRange(track, driver)
         dictToAdd[driver.name]['endingRange'] = placementRange
-        __rateRangesDict.update(dictToAdd)
+        __rateRanges.update(dictToAdd)
         placementRange += 1
 
     global __endingRange
@@ -100,8 +103,11 @@ def __calculateRange(track, driver: Driver, team: Team = None, startingBonus: in
     else:
         raise Exception('Track type not defined')
 
-    # teamResult = pow(team.raceRating, __TEAM_FACTOR)
-    teamResult = pow(50, __TEAM_FACTOR)
+    if team is not None:
+        teamResult = pow(team.raceRating, __TEAM_FACTOR)
+    else:
+        teamResult = pow(50, __TEAM_FACTOR)
+
     bonusResult = startingBonus * 50
 
     return round(((driverResult * teamResult) + bonusResult) / 100)
@@ -118,6 +124,7 @@ def __populateStandingsDict(drivers) -> None:
     for driver in drivers:
         dictToAdd = {
             driver.name: {
+                "raceId": 0,
                 "qualifyingPosition": 0,
                 "finishingPosition": 0,
                 "lapsLed": 0,
@@ -127,10 +134,10 @@ def __populateStandingsDict(drivers) -> None:
             }
         }
 
-        __standingsDict.update(dictToAdd)
+        __standings.update(dictToAdd)
 
 
-def __qualifying() -> None:
+def __qualifying(race=None) -> None:
     """
     Processes the qualifying stage of the race and writes the results to the standingsDict.
 
@@ -140,18 +147,21 @@ def __qualifying() -> None:
 
     qualifyingPosition = 1
 
-    while qualifyingPosition != len(__standingsDict) + 1:
+    while qualifyingPosition != len(__standings) + 1:
         randomNumber = randint(0, __endingRange)
 
-        for rateRange in __rateRangesDict:
-            if __rateRangesDict[rateRange]['startingRange'] <= randomNumber <= __rateRangesDict[rateRange][
+        for rateRange in __rateRanges:
+            if race is not None and __standings[rateRange]['raceId'] == 0:
+                __standings[rateRange]['raceId'] = race.id
+
+            if __rateRanges[rateRange]['startingRange'] <= randomNumber <= __rateRanges[rateRange][
                 'endingRange']:
-                if __standingsDict[rateRange]['qualifyingPosition'] == 0:
-                    __standingsDict[rateRange]['qualifyingPosition'] = qualifyingPosition
-                    __standingsDict[rateRange]['timesQualifyingRangeHit'] += 1
+                if __standings[rateRange]['qualifyingPosition'] == 0:
+                    __standings[rateRange]['qualifyingPosition'] = qualifyingPosition
+                    __standings[rateRange]['timesQualifyingRangeHit'] += 1
                     qualifyingPosition += 1
                 else:
-                    __standingsDict[rateRange]['timesQualifyingRangeHit'] += 1
+                    __standings[rateRange]['timesQualifyingRangeHit'] += 1
 
 
 def __race() -> None:
@@ -164,15 +174,16 @@ def __race() -> None:
 
     finishingPosition = 1
 
-    while finishingPosition != len(__standingsDict) + 1:
+    while finishingPosition != len(__standings) + 1:
         randomNumber = randint(0, __endingRange)
 
-        for rateRange in __rateRangesDict:
-            if __rateRangesDict[rateRange]['startingRange'] <= randomNumber <= __rateRangesDict[rateRange][
+        for rateRange in __rateRanges:
+            if __rateRanges[rateRange]['startingRange'] <= randomNumber <= __rateRanges[rateRange][
                 'endingRange']:
-                if __standingsDict[rateRange]['finishingPosition'] == 0:
-                    __standingsDict[rateRange]['finishingPosition'] = finishingPosition
-                    __standingsDict[rateRange]['timesRaceRangeHit'] += 1
+                if __standings[rateRange]['finishingPosition'] == 0:
+                    __standings[rateRange]['finishingPosition'] = finishingPosition
+                    __standings[rateRange]['timesRaceRangeHit'] += 1
                     finishingPosition += 1
                 else:
-                    __standingsDict[rateRange]['timesRaceRangeHit'] += 1
+                    __standings[rateRange]['timesRaceRangeHit'] += 1
+

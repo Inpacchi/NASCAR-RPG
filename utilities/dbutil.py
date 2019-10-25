@@ -3,11 +3,12 @@ from models.driver import Driver
 
 from webapp import db
 
-def populateStandings(standingsDict):
-    for blockName in standingsDict:
-        driver = Driver.query.filter_by(name=blockName).first()
 
-        db.session.add(QualifyingResults(driver.id, standingsDict[blockName]))
-        db.session.add(RaceResults(driver.id, standingsDict[blockName]))
+def populateStandings(standings):
+    for block in standings:
+        driver = Driver.query.filter_by(name=block).first()
+
+        db.session.add(QualifyingResults(standings[block], driver.id))
+        db.session.add(RaceResults(standings[block], driver.id))
 
         db.session.commit()

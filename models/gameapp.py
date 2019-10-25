@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from models.driver import Driver
+from models.team import Team
 from webapp import db
 
 
@@ -69,10 +71,28 @@ class QualifyingResults(db.Model):
     fastestLap = db.Column(db.Float, index=True)
     rangeHits = db.Column(db.Integer)
 
-    def __init__(self, driverId, standingsDict):
+    def __init__(self, standings, driverId, teamId = None):
         self.driverId = driverId
-        self.position = standingsDict['qualifyingPosition']
-        self.rangeHits = standingsDict['timesQualifyingRangeHit']
+        self.position = standings['qualifyingPosition']
+        self.rangeHits = standings['timesQualifyingRangeHit']
+
+        if standings['raceId'] != 0:
+            self.raceId = standings['raceId']
+
+        if teamId is not None:
+            self.teamId = teamId
+
+    def __str__(self):
+        return ('Qualifying Results:\n'
+                f'Race: {Schedule.query.filter_by(id=self.raceId).first().name}\n'
+                f'Driver: {Driver.query.filter_by(id=self.driverId.first().name)}\n'
+                f'Team: {Team.query.filter_by(id=self.teamId.first().name)}\n'
+                f'Position: {self.position}\n'
+                f'Fastest Lap: {self.fastestLap}\n'
+                f'Range Hits: {self.rangeHits}')
+
+    def __repr__(self):
+        return f'<gameapp.QualifyingResults object for {Schedule.query.filter_by(id=self.raceId).first().name}'
 
 
 class RaceResults(db.Model):
@@ -85,20 +105,26 @@ class RaceResults(db.Model):
     fastestLap = db.Column(db.Float, index=True)
     rangeHits = db.Column(db.Integer)
 
-    def __init__(self, driverId, standingsDict):
+    def __init__(self, standings, driverId, teamId = None):
         self.driverId = driverId
-        self.position = standingsDict['finishingPosition']
-        self.rangeHits = standingsDict['timesRaceRangeHit']
+        self.position = standings['finishingPosition']
+        self.rangeHits = standings['timesRaceRangeHit']
 
+        if standings['raceId'] != 0:
+            self.raceId = standings['raceId']
 
-class Contract(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+        if teamId is not None:
+            self.teamId = teamId
 
     def __str__(self):
-        return (f'Status: {self.status}\n'
-                f'Length: {self.length}\n'
-                f'Salary: {self.salary}\n'
-                f'Driver: {self.driver}\n')
+        return ('Race Results:\n'
+                f'Race: {Schedule.query.filter_by(id=self.raceId).first().name}\n'
+                f'Driver: {Driver.query.filter_by(id=self.driverId.first().name)}\n'
+                f'Team: {Team.query.filter_by(id=self.teamId.first().name)}\n'
+                f'Position: {self.position}\n'
+                f'Laps Led: {self.lapsLed}\n'
+                f'Fastest Lap: {self.fastestLap}\n'
+                f'Range Hits: {self.rangeHits}')
 
     def __repr__(self):
-        return f'<gameapp.Contract object for {self.driver}>'
+        return f'<gameapp.RaceResults object for {Schedule.query.filter_by(id=self.raceId).first().name}'
