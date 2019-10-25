@@ -3,7 +3,6 @@ from timeit import default_timer as timer
 from utilities import futil
 from models.driver import Driver
 from models.team import Team
-from models.gameapp import Contract  # Necessary for Driver object creation
 
 
 def importDriversToTeam(teamType: str, driverType: str) -> None:

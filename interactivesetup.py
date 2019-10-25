@@ -2,7 +2,7 @@ import importlib
 
 from models.team import Team
 from models.driver import Driver
-from models.gameapp import Schedule, Track, Contract
+from models.gameapp import Schedule, Track
 from game import  *
 from utilities import *
 from webapp import db
