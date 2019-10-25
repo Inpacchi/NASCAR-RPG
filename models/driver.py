@@ -22,14 +22,10 @@ class Driver(db.Model):
     potential: The Driver's progression/peak/regression rate
     instances: A dictionary that keeps track of each Driver model object created
     """
-    instances = {}
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(32), index=True, nullable=False)
     age = db.Column(db.Integer, nullable=False)
-    teamId = db.Column(db.Integer, db.ForeignKey('team.id'), index=True)
-    team = db.relationship('Team', back_populates='drivers')
-    carNumber = db.Column(db.Integer, index=True)
     shortRating = db.Column(db.Float, nullable=False)
     shortIntermediateRating = db.Column(db.Float, nullable=False)
     intermediateRating = db.Column(db.Float, nullable=False)
@@ -40,12 +36,12 @@ class Driver(db.Model):
     potential = db.Column(db.String(16), nullable=False)
     qualifyingResults = db.relationship('QualifyingResults')
     raceResults = db.relationship('RaceResults')
+    team = db.relationship('TeamDrivers')
+    car = db.relationship('TeamCars')
 
     def __init__(self, driver):
         self.name = driver['name']
         self.age = driver['age']
-        self.teamName = driver['teamName']
-        self.carNumber = driver['carNumber']
         self.shortRating = driver['shortRating']
         self.shortIntermediateRating = driver['shortIntermediateRating']
         self.intermediateRating = driver['intermediateRating']
@@ -54,8 +50,6 @@ class Driver(db.Model):
         self.roadCourseRating = driver['roadCourseRating']
         self.overallRating = driver['overallRating']
         self.potential = driver['potential']
-
-        Driver.instances[self.name] = self
 
     def __str__(self):
         return (f'Driver Name: {self.name}\n'
