@@ -1,14 +1,17 @@
 import os
 
-projectRoot = os.path.abspath(os.path.dirname('..'))
+project_root = os.path.abspath(os.path.dirname('..'))
 
 
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'replace-me-in-production'
     TEMPLATES_AUTO_RELOAD = True
-
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'sqlite:///' + f'{projectRoot}\\data\\sqlite\\database.sqlite'
+    
+    # SQLite URI
+    # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+    #     'sqlite:///' + f'{project_root}\\data\\sqlite\\database.sqlite'
+    
+    SQLALCHEMY_DATABASE_URI = 'postgresql://USERNAME:PASSWORD@SERVER_IP/DATABASE_NAME'
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
