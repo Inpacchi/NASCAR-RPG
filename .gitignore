@@ -124,3 +124,7 @@ dmypy.json
 *.xml
 *.iml
 logs/
+
+setup.bat
+
+webapp/config.py
