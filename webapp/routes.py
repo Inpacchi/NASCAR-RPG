@@ -6,8 +6,8 @@ from models.driver import Driver
 from models.gameapp import Schedule, Track
 from models.webapp import User
 from webapp import app, db
-from webapp.email import sendPasswordResetEmail
-from webapp.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm
+from webapp.email import send_password_reset_email
+from webapp.forms import LoginForm, RegistrationForm, reset_password_request_form, reset_password_form
 
 
 @app.route('/')
@@ -48,7 +48,7 @@ def login():
             flash('Invalid username or password')
             return redirect(url_for('login'))
 
-        login_user(user, remember=form.rememberMe.data)
+        login_user(user, remember=form.remember_me.data)
         return redirect(url_for('index'))
 
     return render_template('login.html', title='Sign In', form=form)
@@ -60,37 +60,37 @@ def logout():
     return redirect(url_for('index'))
 
 
-@app.route('/resetPassword', methods=['GET', 'POST'])
-def resetPasswordRequest():
+@app.route('/reset_password', methods=['GET', 'POST'])
+def reset_passwordRequest():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
 
-    form = ResetPasswordRequestForm()
+    form = reset_password_request_form()
 
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
         if user:
-            sendPasswordResetEmail(user)
+            send_password_reset_email(user)
 
         flash('Please check your email for the instructions to reset your password.')
 
         return redirect(url_for('login'))
 
-    return render_template('resetPasswordRequest.html', title='Reset Password', form=form)
+    return render_template('reset_passwordRequest.html', title='Reset Password', form=form)
 
 
-@app.route('/resetPassword/<token>', methods=['GET', 'POST'])
-def resetPassword(token):
+@app.route('/reset_password/<token>', methods=['GET', 'POST'])
+def reset_password(token):
     if current_user.is_authenticated:
         return redirect(url_for('index'))
 
-    user = User.verifyResetPasswordToken(token)
+    user = User.verify_reset_password_token(token)
 
     if not user:
         return redirect(url_for('index'))
 
-    form = ResetPasswordForm()
+    form = reset_password_form()
 
     if form.validate_on_submit():
         user.setPassword(form.password.data)
@@ -98,7 +98,7 @@ def resetPassword(token):
         flash('Your password has been reset.')
         return redirect(url_for('login'))
 
-    return render_template('resetPassword.html', form=form)
+    return render_template('reset_password.html', form=form)
 
 
 @app.route('/profile/<username>')
@@ -115,13 +115,13 @@ def schedule():
 
 
 @app.route('/tracks')
-@app.route('/tracks/<trackName>')
-def tracks(trackName=None):
-    if trackName is None:
+@app.route('/tracks/<track_name>')
+def tracks(track_name=None):
+    if track_name is None:
         return render_template('trackList.html', tracks=Track.query.all())
     else:
-        trackName = trackName.replace('-', ' ')
-        track = Track.query.filter(func.lower(Track.name) == func.lower(trackName)).first()
+        track_name = track_name.replace('-', ' ')
+        track = Track.query.filter(func.lower(Track.name) == func.lower(track_name)).first()
         return render_template('trackInfo.html', track=track)
 
 

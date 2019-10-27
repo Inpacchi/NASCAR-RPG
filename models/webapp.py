@@ -8,7 +8,7 @@ from webapp import app, db, login
 
 
 @login.user_loader
-def loadUser(id):
+def load_user(id):
     return User.query.get(int(id))
 
 
@@ -27,14 +27,14 @@ class User(UserMixin, db.Model):
     def checkPassword(self, password):
         return check_password_hash(self.password_hash, password)
 
-    def getResetPasswordToken(self, expiresIn=600):
-        return jwt.encode({'resetPassword': self.id, 'exp': time() + expiresIn}, app.config['SECRET_KEY'],
+    def get_reset_password_token(self, expires=600):
+        return jwt.encode({'reset_password': self.id, 'exp': time() + expires}, app.config['SECRET_KEY'],
                           algorithm='HS256').decode('utf-8')
 
     @staticmethod
-    def verifyResetPasswordToken(token):
+    def verify_reset_password_token(token):
         try:
-            id = jwt.decode(token, app.config['SECRET_KEY'], algorithms=['HS256'])['resetPassword']
+            id = jwt.decode(token, app.config['SECRET_KEY'], algorithms=['HS256'])['reset_password']
         except Exception:
             return
 

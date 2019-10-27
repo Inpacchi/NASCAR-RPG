@@ -4,7 +4,7 @@ from models.driver import Driver
 from webapp import db
 
 
-def populateStandings(standings):
+def commit_standings_to_db(standings):
     for block in standings:
         driver = Driver.query.filter_by(name=block).first()
 

@@ -6,7 +6,7 @@
     "track": "Daytona International Speedway",
     "laps": 75,
     "stages": [],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Gander RV Duel 1 at Daytona": {
     "name": "Gander RV Duel 1 at Daytona",
@@ -15,7 +15,7 @@
     "track": "Daytona International Speedway",
     "laps": 60,
     "stages": [],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Gander RV Duel 2 at Daytona": {
     "name": "Gander RV Duel 2 at Daytona",
@@ -24,7 +24,7 @@
     "track": "Daytona International Speedway",
     "laps": 60,
     "stages": [],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Daytona 500": {
     "name": "Daytona 500",
@@ -33,7 +33,7 @@
     "track": "Daytona International Speedway",
     "laps": 200,
     "stages": [60, 60, 80],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Pennzoil 400": {
     "name": "Pennzoil 400",
@@ -42,7 +42,7 @@
     "track": "Las Vegas Motor Speedway",
     "laps": 267,
     "stages": [80, 80, 107],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Auto Club 400": {
     "name": "Auto Club 400",
@@ -51,7 +51,7 @@
     "track": "Auto Club Speedway",
     "laps": 200,
     "stages": [60, 60, 80],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "TicketGuardian 500": {
     "name": "TicketGuardian 500",
@@ -60,7 +60,7 @@
     "track": "ISM Raceway",
     "laps": 312,
     "stages": [75, 75, 162],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Folds of Honor QuikTrip 500": {
     "name": "Folds of Honor QuikTrip 500",
@@ -69,7 +69,7 @@
     "track": "Atlanta Motor Speedway",
     "laps": 325,
     "stages": [85, 85, 155],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "NASCAR Cup Series Race at Homestead": {
     "name": "NASCAR Cup Series Race at Homestead",
@@ -78,7 +78,7 @@
     "track": "Homestead-Miami Speedway",
     "laps": 267,
     "stages": [80, 80, 107],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "O’Reilly Auto Parts 500": {
     "name": "O’Reilly Auto Parts 500",
@@ -87,7 +87,7 @@
     "track": "Texas Motor Speedway",
     "laps": 334,
     "stages": [80, 80, 107],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Food City 500": {
     "name": "Food City 500",
@@ -96,7 +96,7 @@
     "track": "Bristol Motor Speedway",
     "laps": 500,
     "stages": [125, 125, 250],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Toyota Owners 400": {
     "name": "Toyota Owners 400",
@@ -105,7 +105,7 @@
     "track": "Richmond Raceway",
     "laps": 400,
     "stages": [100, 100, 200],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "GEICO 500": {
     "name": "GEICO 500",
@@ -114,7 +114,7 @@
     "track": "Talladega Superspeedway",
     "laps": 188,
     "stages": [55, 55, 78],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "NASCAR Cup Series Race #1 at Dover": {
     "name": "NASCAR Cup Series #1 Race at Dover",
@@ -123,7 +123,7 @@
     "track": "Dover International Speedway",
     "laps": 400,
     "stages": [120, 120, 160],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "STP 500": {
     "name": "STP 500",
@@ -132,7 +132,7 @@
     "track": "Martinsville Speedway",
     "laps": 500,
     "stages": [130, 130, 240],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "NASCAR Open": {
     "name": "NASCAR Open",
@@ -141,7 +141,7 @@
     "track": "Charlotte Motor Speedway",
     "laps": 60,
     "stages": [20, 20, 10],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "NASCAR All-Star Race": {
     "name": "NASCAR All-Star Race",
@@ -150,7 +150,7 @@
     "track": "Charlotte Motor Speedway",
     "laps": 85,
     "stages": [30, 20, 20, 15],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Coca-Cola 600": {
     "name": "Coca-Cola 600",
@@ -159,7 +159,7 @@
     "track": "Charlotte Motor Speedway",
     "laps": 400,
     "stages": [100, 100, 100, 100],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "NASCAR Cup Series Race at Kansas": {
     "name": "NASCAR Cup Series Race at Kansas",
@@ -168,7 +168,7 @@
     "track": "Kansas Speedway",
     "laps": 267,
     "stages": [80, 80, 107],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "FireKeepers Casino 400": {
     "name": "FireKeepers Casino 400",
@@ -177,7 +177,7 @@
     "track": "Michigan International Speedway",
     "laps": 200,
     "stages": [60, 60, 80],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Toyota/Save Mart 350": {
     "name": "Toyota/Save Mart 350",
@@ -186,7 +186,7 @@
     "track": "Sonoma Raceway",
     "laps": 90,
     "stages": [20, 20, 50],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Camping World 400": {
     "name": "Camping World 400",
@@ -195,7 +195,7 @@
     "track": "Chicagoland Speedway",
     "laps": 267,
     "stages": [80, 80, 107],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Pocono 400": {
     "name": "Pocono 400",
@@ -204,7 +204,7 @@
     "track": "Pocono Raceway",
     "laps": 160,
     "stages": [50, 50, 60],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Gander RV 400": {
     "name": "Gander RV 400",
@@ -213,7 +213,7 @@
     "track": "Pocono Raceway",
     "laps": 160,
     "stages": [50, 50, 60],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Big Machine Vodka 400 at the Brickyard": {
     "name": "Big Machine Vodka 400 at the Brickyard",
@@ -222,7 +222,7 @@
     "track": "Indianapolis Motor Speedway",
     "laps": 160,
     "stages": [50, 50, 60],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Quaker State 400": {
     "name": "Quaker State 400",
@@ -231,7 +231,7 @@
     "track": "Kentucky Speedway",
     "laps": 267,
     "stages": [80, 80, 107],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Foxwoods Resort Casino 301": {
     "name": "Foxwoods Resort Casino 301",
@@ -240,7 +240,7 @@
     "track": "New Hampshire Motor Speedway",
     "laps": 301,
     "stages": [75, 75, 151],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Consumers Energy 400": {
     "name": "Consumers Energy 400",
@@ -249,7 +249,7 @@
     "track": "Michigan International Speedway",
     "laps": 200,
     "stages": [60, 60, 80],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "GoBowling at The Glen": {
     "name": "GoBowling at The Glen",
@@ -258,7 +258,7 @@
     "track": "Watkins Glen International",
     "laps": 90,
     "stages": [20, 20, 50],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "NASCAR Cup Series Race #2 at Dover": {
     "name": "NASCAR Cup Series #2 Race at Dover",
@@ -267,7 +267,7 @@
     "track": "Dover International Speedway",
     "laps": 400,
     "stages": [120, 120, 160],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Coke Zero Sugar 400": {
     "name": "Coke Zero Sugar 400",
@@ -276,7 +276,7 @@
     "track": "Daytona International Speedway",
     "laps": 160,
     "stages": [50, 50, 60],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Bojangles’ Southern 500": {
     "name": "Bojangles’ Southern 500",
@@ -285,7 +285,7 @@
     "track": "Darlington Raceway",
     "laps": 367,
     "stages": [100, 100, 167],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Federated Auto Parts 400": {
     "name": "Federated Auto Parts 400",
@@ -294,7 +294,7 @@
     "track": "Richmond Raceway",
     "laps": 400,
     "stages": [100, 100, 200],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Bass Pro Shops NRA Night Race": {
     "name": "Bass Pro Shops NRA Night Race",
@@ -303,7 +303,7 @@
     "track": "Bristol Motor Speedway",
     "laps": 500,
     "stages": [125, 125, 250],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "South Point 400": {
     "name": "South Point 400",
@@ -312,7 +312,7 @@
     "track": "Las Vegas Motor Speedway",
     "laps": 267,
     "stages": [80, 80, 107],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "1000Bulbs.com 500": {
     "name": "1000Bulbs.com 500",
@@ -321,7 +321,7 @@
     "track": "Talladega Superspeedway",
     "laps": 188,
     "stages": [55, 55, 78],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Bank of America Roval 400": {
     "name": "Bank of America Roval 400",
@@ -330,7 +330,7 @@
     "track": "Charlotte Motor Speedway Road Course",
     "laps": 109,
     "stages": [25, 25, 59],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "Hollywood Casino 400": {
     "name": "Hollywood Casino 400",
@@ -339,7 +339,7 @@
     "track": "Kansas Speedway",
     "laps": 267,
     "stages": [80, 80, 107],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "AAA Texas 500": {
     "name": "AAA Texas 500",
@@ -348,7 +348,7 @@
     "track": "Texas Motor Speedway",
     "laps": 334,
     "stages": [85, 85, 164],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "First Data 500": {
     "name": "First Data 500",
@@ -357,7 +357,7 @@
     "track": "Martinsville Speedway",
     "laps": 500,
     "stages": [130, 130, 240],
-    "raceProcessed": "no"
+    "race_processed": false
   },
   "NASCAR Cup Series Race at ISM Raceway": {
     "name": "NASCAR Cup Series Race at ISM Raceway",
@@ -366,6 +366,6 @@
     "track": "ISM Raceway",
     "laps": 312,
     "stages": [75, 75, 162],
-    "raceProcessed": "no"
+    "race_processed": false
   }
 }

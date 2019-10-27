@@ -25,7 +25,7 @@ def upgrade():
     sa.Column('type', sa.String(length=16), nullable=True),
     sa.Column('laps', sa.Integer(), nullable=True),
     sa.Column('stages', sa.String(length=32), nullable=True),
-    sa.Column('raceProcessed', sa.String(length=3), nullable=True),
+    sa.Column('race_processed', sa.String(length=3), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_schedule_name'), 'schedule', ['name'], unique=False)
@@ -38,11 +38,11 @@ def upgrade():
     )
     op.create_index(op.f('ix_track_name'), 'track', ['name'], unique=True)
     op.create_table('track_schedule_association',
-    sa.Column('trackId', sa.Integer(), nullable=False),
+    sa.Column('track_id', sa.Integer(), nullable=False),
     sa.Column('scheduleId', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['scheduleId'], ['schedule.id'], ),
-    sa.ForeignKeyConstraint(['trackId'], ['track.id'], ),
-    sa.PrimaryKeyConstraint('trackId', 'scheduleId')
+    sa.ForeignKeyConstraint(['track_id'], ['track.id'], ),
+    sa.PrimaryKeyConstraint('track_id', 'scheduleId')
     )
     op.drop_table('track_to_migrate')
     op.drop_table('schedule_to_migrate')

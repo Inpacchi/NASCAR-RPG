@@ -8,7 +8,7 @@ from models.webapp import User
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
-    rememberMe = BooleanField('Remember Me')
+    remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
 
 
@@ -19,23 +19,23 @@ class RegistrationForm(FlaskForm):
     password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Register')
 
-
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
             raise ValidationError('Username not available!')
-
 
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Email address already in use!')
 
-class ResetPasswordRequestForm(FlaskForm):
+
+class reset_password_request_form(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     submit = SubmitField('Request Password Reset')
 
-class ResetPasswordForm(FlaskForm):
+
+class reset_password_form(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Request Password Reset')

@@ -25,11 +25,11 @@ def upgrade():
         sa.Column('name', sa.String(length=64), nullable=False),
         sa.Column('date', sa.Date(), nullable=True),
         sa.Column('type', sa.String(length=16), nullable=True),
-        sa.Column('trackId', sa.Integer(), nullable=True),
-        sa.ForeignKeyConstraint(['trackId'], ['track.id']),
+        sa.Column('track_id', sa.Integer(), nullable=True),
+        sa.ForeignKeyConstraint(['track_id'], ['track.id']),
         sa.Column('laps', sa.Integer(), nullable=True),
         sa.Column('stages', sa.String(length=32), nullable=True),
-        sa.Column('raceProcessed', sa.String(length=3), nullable=True),
+        sa.Column('race_processed', sa.String(length=3), nullable=True),
         sa.PrimaryKeyConstraint('id')
     )
 
@@ -50,17 +50,17 @@ def downgrade():
         sa.Column('type', sa.String(length=16), nullable=True),
         sa.Column('laps', sa.Integer(), nullable=True),
         sa.Column('stages', sa.String(length=32), nullable=True),
-        sa.Column('raceProcessed', sa.String(length=3), nullable=True),
+        sa.Column('race_processed', sa.String(length=3), nullable=True),
         sa.PrimaryKeyConstraint('id')
     )
 
     op.create_index(op.f('ix_schedule_name'), 'schedule', ['name'], unique=False)
 
     op.create_table('track_schedule_association',
-        sa.Column('trackId', sa.INTEGER(), nullable=False),
+        sa.Column('track_id', sa.INTEGER(), nullable=False),
         sa.Column('scheduleId', sa.INTEGER(), nullable=False),
         sa.ForeignKeyConstraint(['scheduleId'], ['schedule.id'], ),
-        sa.ForeignKeyConstraint(['trackId'], ['track.id'], ),
-        sa.PrimaryKeyConstraint('trackId', 'scheduleId')
+        sa.ForeignKeyConstraint(['track_id'], ['track.id'], ),
+        sa.PrimaryKeyConstraint('track_id', 'scheduleId')
     )
     # ### end Alembic commands ###

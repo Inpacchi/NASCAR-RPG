@@ -2,8 +2,8 @@
     "Hendrick Motorsports": {
         "name": "Hendrick Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 98.0,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 98.0,
         "teamRating": 95.0,
         "raceRating": 97.0,
         "drivers": [
@@ -16,8 +16,8 @@
     "Richard Childress Racing": {
         "name": "Richard Childress Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 87.0,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 87.0,
         "teamRating": 87.0,
         "raceRating": 87.0,
         "drivers": [
@@ -29,8 +29,8 @@
     "Xpress Motorsports": {
         "name": "Xpress Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 72.0,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 72.0,
         "teamRating": 65.0,
         "raceRating": 69.0,
         "drivers": []
@@ -38,8 +38,8 @@
     "Petty Enterprises": {
         "name": "Petty Enterprises",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 66.0,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 66.0,
         "teamRating": 61.0,
         "raceRating": 64.0,
         "drivers": []
@@ -47,8 +47,8 @@
     "Reiser Racing": {
         "name": "Reiser Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 80.0,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 80.0,
         "teamRating": 61.0,
         "raceRating": 70.0,
         "drivers": []

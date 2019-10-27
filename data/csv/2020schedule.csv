@@ -1,42 +1,1 @@
-﻿name,date,type,track,laps,stages,raceProcessed
-Advance Auto Parts Clash,02/09/2020,exhibition,Daytona International Speedway,75,[],no
-Gander RV Duel 1 at Daytona,02/13/2020,qualifying,Daytona International Speedway,60,[],no
-Gander RV Duel 2 at Daytona,02/13/2020,qualifying,Daytona International Speedway,60,[],no
-Daytona 500,02/16/2020,regular,Daytona International Speedway,200,"[60, 60, 80]",no
-Pennzoil 400,02/23/2020,regular,Las Vegas Motor Speedway,267,"[80, 80, 107]",no
-Auto Club 400,03/01/2020,regular,Auto Club Speedway,200,"[60, 60, 80]",no
-TicketGuardian 500,03/08/2020,regular,ISM Raceway,312,"[75, 75, 162]",no
-Folds of Honor QuikTrip 500,03/15/2020,regular,Atlanta Motor Speedway,325,"[85, 85, 155]",no
-NASCAR Cup Series Race at Homestead,03/22/2020,regular,Homestead-Miami Speedway,267,"[80, 80, 107]",no
-O’Reilly Auto Parts 500,03/29/2020,regular,Texas Motor Speedway,334,"[80, 80, 107]",no
-Food City 500,04/05/2020,regular,Bristol Motor Speedway,500,"[125, 125, 250]",no
-Toyota Owners 400,04/19/2020,regular,Richmond Raceway,400,"[100, 100, 200]",no
-GEICO 500,04/26/2020,regular,Talladega Superspeedway,188,"[55, 55, 78]",no
-NASCAR Cup Series #1 Race at Dover,05/03/2020,regular,Dover International Speedway,400,"[120, 120, 160]",no
-STP 500,05/09/2020,regular,Martinsville Speedway,500,"[130, 130, 240]",no
-NASCAR Open,05/16/2020,regular,Charlotte Motor Speedway,60,"[20, 20, 10]",no
-NASCAR All-Star Race,05/16/2020,regular,Charlotte Motor Speedway,85,"[30, 20, 20, 15]",no
-Coca-Cola 600,05/24/2020,regular,Charlotte Motor Speedway,400,"[100, 100, 100, 100]",no
-NASCAR Cup Series Race at Kansas,05/31/2020,regular,Kansas Speedway,267,"[80, 80, 107]",no
-FireKeepers Casino 400,06/07/2020,regular,Michigan International Speedway,200,"[60, 60, 80]",no
-Toyota/Save Mart 350,06/14/2020,regular,Sonoma Raceway,90,"[20, 20, 50]",no
-Camping World 400,06/21/2020,regular,Chicagoland Speedway,267,"[80, 80, 107]",no
-Pocono 400,06/27/2020,regular,Pocono Raceway,160,"[50, 50, 60]",no
-Gander RV 400,06/28/2020,regular,Pocono Raceway,160,"[50, 50, 60]",no
-Big Machine Vodka 400 at the Brickyard,07/05/2020,regular,Indianapolis Motor Speedway,160,"[50, 50, 60]",no
-Quaker State 400,07/11/2020,regular,Kentucky Speedway,267,"[80, 80, 107]",no
-Foxwoods Resort Casino 301,07/19/2020,regular,New Hampshire Motor Speedway,301,"[75, 75, 151]",no
-Consumers Energy 400,08/09/2020,regular,Michigan International Speedway,200,"[60, 60, 80]",no
-GoBowling at The Glen,08/16/2020,regular,Watkins Glen International,90,"[20, 20, 50]",no
-NASCAR Cup Series #2 Race at Dover,08/23/2020,regular,Dover International Speedway,400,"[120, 120, 160]",no
-Coke Zero Sugar 400,08/29/2020,regular,Daytona International Speedway,160,"[50, 50, 60]",no
-Bojangles’ Southern 500,09/06/2020,playoff,Darlington Raceway,367,"[100, 100, 167]",no
-Federated Auto Parts 400,09/12/2020,playoff,Richmond Raceway,400,"[100, 100, 200]",no
-Bass Pro Shops NRA Night Race,09/19/2020,playoff,Bristol Motor Speedway,500,"[125, 125, 250]",no
-South Point 400,09/27/2020,playoff,Las Vegas Motor Speedway,267,"[80, 80, 107]",no
-1000Bulbs.com 500,10/04/2020,playoff,Talladega Superspeedway,188,"[55, 55, 78]",no
-Bank of America Roval 400,10/11/2020,playoff,Charlotte Motor Speedway Road Course,109,"[25, 25, 59]",no
-Hollywood Casino 400,10/18/2020,playoff,Kansas Speedway,267,"[80, 80, 107]",no
-AAA Texas 500,10/25/2020,playoff,Texas Motor Speedway,334,"[85, 85, 164]",no
-First Data 500,11/01/2020,playoff,Martinsville Speedway,500,"[130, 130, 240]",no
-NASCAR Cup Series Race at ISM Raceway,11/08/2020,playoff,ISM Raceway,312,"[75, 75, 162]",no
+﻿name,date,type,track,laps,stages,race_processedAdvance Auto Parts Clash,02/09/2020,exhibition,Daytona International Speedway,75,[],noGander RV Duel 1 at Daytona,02/13/2020,qualifying,Daytona International Speedway,60,[],noGander RV Duel 2 at Daytona,02/13/2020,qualifying,Daytona International Speedway,60,[],noDaytona 500,02/16/2020,regular,Daytona International Speedway,200,"[60, 60, 80]",noPennzoil 400,02/23/2020,regular,Las Vegas Motor Speedway,267,"[80, 80, 107]",noAuto Club 400,03/01/2020,regular,Auto Club Speedway,200,"[60, 60, 80]",noTicketGuardian 500,03/08/2020,regular,ISM Raceway,312,"[75, 75, 162]",noFolds of Honor QuikTrip 500,03/15/2020,regular,Atlanta Motor Speedway,325,"[85, 85, 155]",noNASCAR Cup Series Race at Homestead,03/22/2020,regular,Homestead-Miami Speedway,267,"[80, 80, 107]",noO’Reilly Auto Parts 500,03/29/2020,regular,Texas Motor Speedway,334,"[80, 80, 107]",noFood City 500,04/05/2020,regular,Bristol Motor Speedway,500,"[125, 125, 250]",noToyota Owners 400,04/19/2020,regular,Richmond Raceway,400,"[100, 100, 200]",noGEICO 500,04/26/2020,regular,Talladega Superspeedway,188,"[55, 55, 78]",noNASCAR Cup Series #1 Race at Dover,05/03/2020,regular,Dover International Speedway,400,"[120, 120, 160]",noSTP 500,05/09/2020,regular,Martinsville Speedway,500,"[130, 130, 240]",noNASCAR Open,05/16/2020,regular,Charlotte Motor Speedway,60,"[20, 20, 10]",noNASCAR All-Star Race,05/16/2020,regular,Charlotte Motor Speedway,85,"[30, 20, 20, 15]",noCoca-Cola 600,05/24/2020,regular,Charlotte Motor Speedway,400,"[100, 100, 100, 100]",noNASCAR Cup Series Race at Kansas,05/31/2020,regular,Kansas Speedway,267,"[80, 80, 107]",noFireKeepers Casino 400,06/07/2020,regular,Michigan International Speedway,200,"[60, 60, 80]",noToyota/Save Mart 350,06/14/2020,regular,Sonoma Raceway,90,"[20, 20, 50]",noCamping World 400,06/21/2020,regular,Chicagoland Speedway,267,"[80, 80, 107]",noPocono 400,06/27/2020,regular,Pocono Raceway,160,"[50, 50, 60]",noGander RV 400,06/28/2020,regular,Pocono Raceway,160,"[50, 50, 60]",noBig Machine Vodka 400 at the Brickyard,07/05/2020,regular,Indianapolis Motor Speedway,160,"[50, 50, 60]",noQuaker State 400,07/11/2020,regular,Kentucky Speedway,267,"[80, 80, 107]",noFoxwoods Resort Casino 301,07/19/2020,regular,New Hampshire Motor Speedway,301,"[75, 75, 151]",noConsumers Energy 400,08/09/2020,regular,Michigan International Speedway,200,"[60, 60, 80]",noGoBowling at The Glen,08/16/2020,regular,Watkins Glen International,90,"[20, 20, 50]",noNASCAR Cup Series #2 Race at Dover,08/23/2020,regular,Dover International Speedway,400,"[120, 120, 160]",noCoke Zero Sugar 400,08/29/2020,regular,Daytona International Speedway,160,"[50, 50, 60]",noBojangles’ Southern 500,09/06/2020,playoff,Darlington Raceway,367,"[100, 100, 167]",noFederated Auto Parts 400,09/12/2020,playoff,Richmond Raceway,400,"[100, 100, 200]",noBass Pro Shops NRA Night Race,09/19/2020,playoff,Bristol Motor Speedway,500,"[125, 125, 250]",noSouth Point 400,09/27/2020,playoff,Las Vegas Motor Speedway,267,"[80, 80, 107]",no1000Bulbs.com 500,10/04/2020,playoff,Talladega Superspeedway,188,"[55, 55, 78]",noBank of America Roval 400,10/11/2020,playoff,Charlotte Motor Speedway Road Course,109,"[25, 25, 59]",noHollywood Casino 400,10/18/2020,playoff,Kansas Speedway,267,"[80, 80, 107]",noAAA Texas 500,10/25/2020,playoff,Texas Motor Speedway,334,"[85, 85, 164]",noFirst Data 500,11/01/2020,playoff,Martinsville Speedway,500,"[130, 130, 240]",noNASCAR Cup Series Race at ISM Raceway,11/08/2020,playoff,ISM Raceway,312,"[75, 75, 162]",no

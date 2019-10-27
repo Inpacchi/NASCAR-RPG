@@ -8,17 +8,17 @@ class Driver(db.Model):
     id: A unique value identifying each time assigned when each team is committed to the database
     name: Name of the Driver
     age: Age of the Driver
-    teamId: Foreign key that associates a Team model object to the Driver
+    team_id: Foreign key that associates a Team model object to the Driver
     team: Many-to-one relationship referring to the Driver's team
     contract: One-to-one relationship referring to the Driver's contract
-    carNumber: Number of the Driver's car
-    shortRating: Short Track Rating
-    shortIntermediateRating: Short-Intermediate Track Rating
-    intermediateRating: Intermediate Track Rating
-    superSpeedwayRating: Super Speedway Track Rating
-    restrictedTrackRating: Restricted (Super Speedway) Track Ratings
-    roadCourseRating: Road Course Rating
-    overallRating: An average of all the Driver's track ratings
+    car_number: Number of the Driver's car
+    short_rating: Short Track Rating
+    short_intermediate_rating: Short-Intermediate Track Rating
+    intermediate_rating: Intermediate Track Rating
+    super_speedway_rating: Super Speedway Track Rating
+    restricted_track_rating: Restricted (Super Speedway) Track Ratings
+    road_course_rating: Road Course Rating
+    overall_rating: An average of all the Driver's track ratings
     potential: The Driver's progression/peak/regression rate
     instances: A dictionary that keeps track of each Driver model object created
     """
@@ -26,43 +26,43 @@ class Driver(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(32), index=True, nullable=False)
     age = db.Column(db.Integer, nullable=False)
-    shortRating = db.Column(db.Float, nullable=False)
-    shortIntermediateRating = db.Column(db.Float, nullable=False)
-    intermediateRating = db.Column(db.Float, nullable=False)
-    superSpeedwayRating = db.Column(db.Float, nullable=False)
-    restrictedTrackRating = db.Column(db.Float, nullable=False)
-    roadCourseRating = db.Column(db.Float, nullable=False)
-    overallRating = db.Column(db.Float, nullable=False)
+    short_rating = db.Column(db.Float, nullable=False)
+    short_intermediate_rating = db.Column(db.Float, nullable=False)
+    intermediate_rating = db.Column(db.Float, nullable=False)
+    super_speedway_rating = db.Column(db.Float, nullable=False)
+    restricted_track_rating = db.Column(db.Float, nullable=False)
+    road_course_rating = db.Column(db.Float, nullable=False)
+    overall_rating = db.Column(db.Float, nullable=False)
     potential = db.Column(db.String(16), nullable=False)
-    qualifyingResults = db.relationship('QualifyingResults')
-    raceResults = db.relationship('RaceResults')
+    qualifying_results = db.relationship('QualifyingResults')
+    race_results = db.relationship('RaceResults')
     team = db.relationship('TeamDrivers')
     car = db.relationship('TeamCars')
 
     def __init__(self, driver):
         self.name = driver['name']
         self.age = driver['age']
-        self.shortRating = driver['shortRating']
-        self.shortIntermediateRating = driver['shortIntermediateRating']
-        self.intermediateRating = driver['intermediateRating']
-        self.superSpeedwayRating = driver['superSpeedwayRating']
-        self.restrictedTrackRating = driver['restrictedTrackRating']
-        self.roadCourseRating = driver['roadCourseRating']
-        self.overallRating = driver['overallRating']
+        self.short_rating = driver['short_rating']
+        self.short_intermediate_rating = driver['short_intermediate_rating']
+        self.intermediate_rating = driver['intermediate_rating']
+        self.super_speedway_rating = driver['super_speedway_rating']
+        self.restricted_track_rating = driver['restricted_track_rating']
+        self.road_course_rating = driver['road_course_rating']
+        self.overall_rating = driver['overall_rating']
         self.potential = driver['potential']
 
     def __str__(self):
         return (f'Driver Name: {self.name}\n'
                 f'Age: {self.age}\n'
                 f'Team Name: {self.teamName}\n'
-                f'Car Number: {self.carNumber}\n'
-                f'Short Track Rating: {self.shortRating}\n'
-                f'Short-Intermediate Track Rating: {self.shortIntermediateRating}\n'
-                f'Intermediate Track Rating: {self.intermediateRating}\n'
-                f'Superspeedway Track Rating: {self.superSpeedwayRating}\n'
-                f'Restricted (Super Speedway) Track Rating: {self.restrictedTrackRating}\n'
-                f'Road Course Rating: {self.roadCourseRating}\n'
-                f'Overall Rating: {self.overallRating}\n'
+                f'Car Number: {self.car_number}\n'
+                f'Short Track Rating: {self.short_rating}\n'
+                f'Short-Intermediate Track Rating: {self.short_intermediate_rating}\n'
+                f'Intermediate Track Rating: {self.intermediate_rating}\n'
+                f'Superspeedway Track Rating: {self.super_speedway_rating}\n'
+                f'Restricted (Super Speedway) Track Rating: {self.restricted_track_rating}\n'
+                f'Road Course Rating: {self.road_course_rating}\n'
+                f'Overall Rating: {self.overall_rating}\n'
                 f'Potential: {self.potential}\n')
 
     def __repr__(self):
@@ -80,13 +80,13 @@ class Driver(db.Model):
             'name': self.name,
             'age': int(self.age),
             'teamName': self.teamName,
-            'carNumber': int(self.carNumber),
-            'shortRating': float(self.shortRating),
-            'shortIntermediateRating': float(self.shortIntermediateRating),
-            'intermediateRating': float(self.intermediateRating),
-            'superSpeedwayRating': float(self.superSpeedwayRating),
-            'restrictedTrackRating': float(self.restrictedTrackRating),
-            'roadCourseRating': float(self.roadCourseRating),
-            'overallRating': float(self.overallRating),
+            'car_number': int(self.car_number),
+            'short_rating': float(self.short_rating),
+            'short_intermediate_rating': float(self.short_intermediate_rating),
+            'intermediate_rating': float(self.intermediate_rating),
+            'super_speedway_rating': float(self.super_speedway_rating),
+            'restricted_track_rating': float(self.restricted_track_rating),
+            'road_course_rating': float(self.road_course_rating),
+            'overall_rating': float(self.overall_rating),
             'potential': self.potential
         }

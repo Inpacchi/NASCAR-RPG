@@ -2,86 +2,85 @@ import json
 from utilities import futil
 from models.driver import Driver
 
-# Global Pseudo-Private Variable Declaration
-__progressionDict = {}
-__regressionDict = {}
+progression = {}
+regression = {}
 
-__driverPotentialDict = {}
-
-
-def processStage(standingsDict, driversDict):
-    __getPotentialDicts()
-    __getDriverPotentialDict(driversDict)
-    __calculateDriverPotential(driversDict, standingsDict)
+driver_potential = {}
 
 
-def __getPotentialDicts():
+def process_stage(standings, driversDict):
+    _load_potential_rates()
+    _load_driver_potential(driversDict)
+    _calculate_driver_potential(driversDict, standings)
+
+
+def _load_potential_rates():
     with open('data/json/potential/progression.json', 'r') as progressionJSON:
-        __progressionDict.update(json.load(progressionJSON))
+        progression.update(json.load(progressionJSON))
 
     with open('data/json/potential/regression.json', 'r') as regressionJSON:
-        __regressionDict.update(json.load(regressionJSON))
+        regression.update(json.load(regressionJSON))
 
 
-def __getDriverPotentialDict():
+def _load_driver_potential():
     for driver in Driver.instances:
-        tempDict = {
+        temp_dict = {
             driver: {
                 "age": Driver.instances[driver].age,
                 "potential": Driver.instances[driver].potential
             }
         }
 
-        __driverPotentialDict.update(tempDict)
+        driver_potential.update(temp_dict)
 
 
 # TODO: Update proper progression/regression training
-def __calculateDriverPotential(standingsDict):
-    for driverName in __driverPotentialDict:
-        driver = Driver.instances[driverName]
+def _calculate_driver_potential(standings):
+    for driver_name in driver_potential:
+        driver = Driver.instances[driver_name]
 
-        string = __driverPotentialDict[driverName]['potential'].split(';')
-        ageRange = string[1]
+        string = driver_potential[driver_name]['potential'].split(';')
+        age_range = string[1]
 
-        standingPlacement = determineStandingPlacement(standingsDict[driverName]['finishingPosition'])
+        standing_placement = determine_standing_placement(standings[driver_name]['finishing_position'])
         rate = 0
 
-        if driver.age < ageRange[0]:
-            rate = __progressionDict[string[0]][standingPlacement]
-        elif driver.age in ageRange:
-            rate = __progressionDict['0p'][standingPlacement]
-        elif driver.age > ageRange or driver.age > ageRange[1]:
-            rate = __regressionDict[string[2]][standingPlacement]
+        if driver.age < age_range[0]:
+            rate = progression[string[0]][standing_placement]
+        elif driver.age in age_range:
+            rate = progression['0p'][standing_placement]
+        elif driver.age > age_range or driver.age > age_range[1]:
+            rate = regression[string[2]][standing_placement]
 
-        overallRating = float(Driver.instances[driverName].overallRating)
-        overallRating += rate
-        Driver.instances[driverName].overallRating = str(overallRating)
+        overall_rating = float(Driver.instances[driver_name].overall_rating)
+        overall_rating += rate
+        Driver.instances[driver_name].overall_rating = str(overall_rating)
 
-    futil.writeDictToJSON('currentdrivers', Driver.instances)
+    futil.write_dict_to_json('currentdrivers', Driver.instances)
 
 
-def determineStandingPlacement(finishingPosition):
-    if finishingPosition == 1:
+def determine_standing_placement(finishing_position):
+    if finishing_position == 1:
         return 'first'
-    elif 2 <= finishingPosition <= 3:
+    elif 2 <= finishing_position <= 3:
         return 'top3'
-    elif 4 <= finishingPosition <= 5:
+    elif 4 <= finishing_position <= 5:
         return 'top5'
-    elif 6 <= finishingPosition <= 10:
+    elif 6 <= finishing_position <= 10:
         return 'top10'
-    elif 11 <= finishingPosition <= 15:
+    elif 11 <= finishing_position <= 15:
         return 'top15'
-    elif 16 <= finishingPosition <= 20:
+    elif 16 <= finishing_position <= 20:
         return 'top20'
-    elif 21 <= finishingPosition <= 25:
+    elif 21 <= finishing_position <= 25:
         return 'top25'
-    elif 26 <= finishingPosition <= 30:
+    elif 26 <= finishing_position <= 30:
         return 'top30'
-    elif 31 <= finishingPosition <= 35:
+    elif 31 <= finishing_position <= 35:
         return 'top35'
-    elif 36 <= finishingPosition <= 40:
+    elif 36 <= finishing_position <= 40:
         return 'top40'
-    elif 41 <= finishingPosition:
+    elif 41 <= finishing_position:
         return 'DNF'
-    elif finishingPosition == 'DNQ':
+    elif finishing_position == 'DNQ':
         return 'DNQ'

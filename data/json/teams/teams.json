@@ -2,8 +2,8 @@
     "Joe Gibbs Racing": {
         "name": "Joe Gibbs Racing",
         "owner": "",
-        "carManufacturer": "Pontiac",
-        "equipmentRating": 101,
+        "car_manufacturer": "Pontiac",
+        "equipment_rating": 101,
         "teamRating": 100,
         "raceRating": 101,
         "drivers": [
@@ -15,8 +15,8 @@
     "Roush Racing": {
         "name": "Roush Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 96,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 96,
         "teamRating": 101,
         "raceRating": 99,
         "drivers": [
@@ -31,8 +31,8 @@
     "Hendrick Motorsports": {
         "name": "Hendrick Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 98,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 98,
         "teamRating": 95,
         "raceRating": 97,
         "drivers": [
@@ -45,8 +45,8 @@
     "Penske Racing": {
         "name": "Penske Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 92,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 92,
         "teamRating": 93,
         "raceRating": 93,
         "drivers": [
@@ -57,8 +57,8 @@
     "Chip Ganassi Racing": {
         "name": "Chip Ganassi Racing",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 94,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 94,
         "teamRating": 91,
         "raceRating": 93,
         "drivers": [
@@ -70,8 +70,8 @@
     "Robert Yates Racing": {
         "name": "Robert Yates Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 90,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 90,
         "teamRating": 87,
         "raceRating": 89,
         "drivers": [
@@ -82,8 +82,8 @@
     "Dale Earnhardt Inc.": {
         "name": "Dale Earnhardt Inc.",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 89,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 89,
         "teamRating": 91,
         "raceRating": 90,
         "drivers": [
@@ -95,8 +95,8 @@
     "Evernham Motorsports": {
         "name": "Evernham Motorsports",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 86,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 86,
         "teamRating": 85,
         "raceRating": 86,
         "drivers": [
@@ -107,8 +107,8 @@
     "Richard Childress Racing": {
         "name": "Richard Childress Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 87,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 87,
         "teamRating": 87,
         "raceRating": 87,
         "drivers": [
@@ -120,8 +120,8 @@
     "Bill Davis Racing": {
         "name": "Bill Davis Racing",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 76,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 76,
         "teamRating": 76,
         "raceRating": 76,
         "drivers": [
@@ -134,8 +134,8 @@
     "MB2 Motorsports": {
         "name": "MB2 Motorsports",
         "owner": "",
-        "carManufacturer": "Pontiac",
-        "equipmentRating": 71,
+        "car_manufacturer": "Pontiac",
+        "equipment_rating": 71,
         "teamRating": 70,
         "raceRating": 71,
         "drivers": [
@@ -146,8 +146,8 @@
     "Jasper Motorsports": {
         "name": "Jasper Motorsports",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 87,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 87,
         "teamRating": 67,
         "raceRating": 77,
         "drivers": [
@@ -158,8 +158,8 @@
     "Wood Brothers Racing": {
         "name": "Wood Brothers Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 86,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 86,
         "teamRating": 66,
         "raceRating": 76,
         "drivers": [
@@ -169,8 +169,8 @@
     "Xpress Motorsports": {
         "name": "Xpress Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 72,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 72,
         "teamRating": 65,
         "raceRating": 69,
         "drivers": []
@@ -178,8 +178,8 @@
     "Ultra Motorsports": {
         "name": "Ultra Motorsports",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 81,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 81,
         "teamRating": 67,
         "raceRating": 74,
         "drivers": [
@@ -190,8 +190,8 @@
     "PPI Motorsports": {
         "name": "PPI Motorsports",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 88,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 88,
         "teamRating": 63,
         "raceRating": 76,
         "drivers": [
@@ -201,8 +201,8 @@
     "Petty Enterprises": {
         "name": "Petty Enterprises",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 66,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 66,
         "teamRating": 61,
         "raceRating": 64,
         "drivers": [
@@ -216,8 +216,8 @@
     "Reiser Racing": {
         "name": "Reiser Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 80,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 80,
         "teamRating": 61,
         "raceRating": 70,
         "drivers": []
@@ -225,8 +225,8 @@
     "Haas-Carter Motorsports": {
         "name": "Haas-Carter Motorsports",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 80,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 80,
         "teamRating": 60,
         "raceRating": 70,
         "drivers": [
@@ -239,8 +239,8 @@
     "Brewco Motorsports": {
         "name": "Brewco Motorsports",
         "owner": "",
-        "carManufacturer": "Pontiac",
-        "equipmentRating": 67,
+        "car_manufacturer": "Pontiac",
+        "equipment_rating": 67,
         "teamRating": 58,
         "raceRating": 63,
         "drivers": []
@@ -248,8 +248,8 @@
     "Harvick Motorsports": {
         "name": "Harvick Motorsports",
         "owner": "Kevin Harvick",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 58,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 58,
         "teamRating": 58,
         "raceRating": 58,
         "drivers": []
@@ -257,8 +257,8 @@
     "ppc Racing": {
         "name": "ppc Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 80,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 80,
         "teamRating": 63,
         "raceRating": 72,
         "drivers": []
@@ -266,8 +266,8 @@
     "Andy Petree Racing": {
         "name": "Andy Petree Racing",
         "owner": "Andy Petree",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 61,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 61,
         "teamRating": 54,
         "raceRating": 58,
         "drivers": [
@@ -278,8 +278,8 @@
     "Bobby Hamilton Racing": {
         "name": "Bobby Hamilton Racing",
         "owner": "Bobby Hamilton ",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 62,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 62,
         "teamRating": 59,
         "raceRating": 61,
         "drivers": []
@@ -287,8 +287,8 @@
     "Addington Racing": {
         "name": "Addington Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 52,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 52,
         "teamRating": 48,
         "raceRating": 50,
         "drivers": []
@@ -296,8 +296,8 @@
     "Evans Motorsports": {
         "name": "Evans Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 59,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 59,
         "teamRating": 48,
         "raceRating": 54,
         "drivers": []
@@ -305,8 +305,8 @@
     "Phoenix Racing": {
         "name": "Phoenix Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 50,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 50,
         "teamRating": 47,
         "raceRating": 49,
         "drivers": [
@@ -316,8 +316,8 @@
     "Morgan-McClure Motorsports": {
         "name": "Morgan-McClure Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 52,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 52,
         "teamRating": 45,
         "raceRating": 49,
         "drivers": [
@@ -327,8 +327,8 @@
     "Haas CNC Racing": {
         "name": "Haas CNC Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 93,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 93,
         "teamRating": 45,
         "raceRating": 69,
         "drivers": [
@@ -338,8 +338,8 @@
     "Herzog Motorsports": {
         "name": "Herzog Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 52,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 52,
         "teamRating": 46,
         "raceRating": 49,
         "drivers": []
@@ -347,8 +347,8 @@
     "NEMCO Motorsports": {
         "name": "NEMCO Motorsports",
         "owner": "Joe Nemecheck",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 48,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 48,
         "teamRating": 48,
         "raceRating": 48,
         "drivers": [
@@ -358,8 +358,8 @@
     "Akins Motorsports": {
         "name": "Akins Motorsports",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 45,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 45,
         "teamRating": 44,
         "raceRating": 45,
         "drivers": []
@@ -367,8 +367,8 @@
     "FitzBradshaw Racing": {
         "name": "FitzBradshaw Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 76,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 76,
         "teamRating": 42,
         "raceRating": 59,
         "drivers": [
@@ -378,8 +378,8 @@
     "Michael Waltrip Racing": {
         "name": "Michael Waltrip Racing",
         "owner": "Michael Waltrip ",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 76,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 76,
         "teamRating": 42,
         "raceRating": 59,
         "drivers": []
@@ -387,8 +387,8 @@
     "Biagi Brothers": {
         "name": "Biagi Brothers",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 46,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 46,
         "teamRating": 37,
         "raceRating": 42,
         "drivers": []
@@ -396,8 +396,8 @@
     "SealMaster Racing": {
         "name": "SealMaster Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 36,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 36,
         "teamRating": 36,
         "raceRating": 36,
         "drivers": []
@@ -405,8 +405,8 @@
     "Henderson Motorsports": {
         "name": "Henderson Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 35,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 35,
         "teamRating": 35,
         "raceRating": 35,
         "drivers": []
@@ -414,8 +414,8 @@
     "HT Motorsports": {
         "name": "HT Motorsports",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 36,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 36,
         "teamRating": 36,
         "raceRating": 36,
         "drivers": []
@@ -423,8 +423,8 @@
     "Circle Bar Racing": {
         "name": "Circle Bar Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 42,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 42,
         "teamRating": 35,
         "raceRating": 39,
         "drivers": []
@@ -432,8 +432,8 @@
     "ST Motorsports": {
         "name": "ST Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 77,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 77,
         "teamRating": 42,
         "raceRating": 60,
         "drivers": []
@@ -441,8 +441,8 @@
     "Lewis Motorsports": {
         "name": "Lewis Motorsports",
         "owner": "Ashton Lewis",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 39,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 39,
         "teamRating": 34,
         "raceRating": 37,
         "drivers": []
@@ -450,8 +450,8 @@
     "Carroll Racing": {
         "name": "Carroll Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 42,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 42,
         "teamRating": 33,
         "raceRating": 38,
         "drivers": []
@@ -459,8 +459,8 @@
     "Moy Racing": {
         "name": "Moy Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 38,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 38,
         "teamRating": 32,
         "raceRating": 35,
         "drivers": []
@@ -468,8 +468,8 @@
     "A. J. Foyt Racing": {
         "name": "A. J. Foyt Racing",
         "owner": "",
-        "carManufacturer": "Pontiac",
-        "equipmentRating": 43,
+        "car_manufacturer": "Pontiac",
+        "equipment_rating": 43,
         "teamRating": 32,
         "raceRating": 38,
         "drivers": [
@@ -480,8 +480,8 @@
     "Innovative Motorsports": {
         "name": "Innovative Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 45,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 45,
         "teamRating": 32,
         "raceRating": 39,
         "drivers": [
@@ -491,8 +491,8 @@
     "AP Performance Racing": {
         "name": "AP Performance Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 41,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 41,
         "teamRating": 30,
         "raceRating": 36,
         "drivers": []
@@ -500,8 +500,8 @@
     "BACE Motorsports": {
         "name": "BACE Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 51,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 51,
         "teamRating": 30,
         "raceRating": 41,
         "drivers": [
@@ -512,8 +512,8 @@
     "Team Rensi Motorsports": {
         "name": "Team Rensi Motorsports",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 80,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 80,
         "teamRating": 31,
         "raceRating": 56,
         "drivers": []
@@ -521,8 +521,8 @@
     "BAM Racing": {
         "name": "BAM Racing",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 41,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 41,
         "teamRating": 29,
         "raceRating": 35,
         "drivers": [
@@ -533,8 +533,8 @@
     "Day Enterprises": {
         "name": "Day Enterprises",
         "owner": "",
-        "carManufacturer": "Pontiac",
-        "equipmentRating": 36,
+        "car_manufacturer": "Pontiac",
+        "equipment_rating": 36,
         "teamRating": 27,
         "raceRating": 32,
         "drivers": []
@@ -542,8 +542,8 @@
     "Morgan-Dollar Motorsports": {
         "name": "Morgan-Dollar Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 48,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 48,
         "teamRating": 29,
         "raceRating": 39,
         "drivers": []
@@ -551,8 +551,8 @@
     "Team Jesel": {
         "name": "Team Jesel",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 40,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 40,
         "teamRating": 27,
         "raceRating": 34,
         "drivers": []
@@ -560,8 +560,8 @@
     "Brett Bodine Racing": {
         "name": "Brett Bodine Racing",
         "owner": "Brett Bodine",
-        "carManufacturer": "Ford",
-        "equipmentRating": 80,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 80,
         "teamRating": 26,
         "raceRating": 53,
         "drivers": [
@@ -571,8 +571,8 @@
     "BLV Motorsports": {
         "name": "BLV Motorsports",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 42,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 42,
         "teamRating": 25,
         "raceRating": 34,
         "drivers": []
@@ -580,8 +580,8 @@
     "Orleans Racing": {
         "name": "Orleans Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 50,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 50,
         "teamRating": 24,
         "raceRating": 37,
         "drivers": [
@@ -592,8 +592,8 @@
     "Ken Schrader Racing": {
         "name": "Ken Schrader Racing",
         "owner": "Ken Schrader",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 33,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 33,
         "teamRating": 24,
         "raceRating": 29,
         "drivers": []
@@ -601,8 +601,8 @@
     "Marsh Racing": {
         "name": "Marsh Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 22,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 22,
         "teamRating": 22,
         "raceRating": 22,
         "drivers": []
@@ -610,8 +610,8 @@
     "Matrix Motorsports": {
         "name": "Matrix Motorsports",
         "owner": "Kevin Lepage",
-        "carManufacturer": "Ford",
-        "equipmentRating": 29,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 29,
         "teamRating": 21,
         "raceRating": 25,
         "drivers": []
@@ -619,8 +619,8 @@
     "Tommy Baldwin Racing": {
         "name": "Tommy Baldwin Racing",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 66,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 66,
         "teamRating": 21,
         "raceRating": 44,
         "drivers": []
@@ -628,8 +628,8 @@
     "Billy Ballew Motorsports": {
         "name": "Billy Ballew Motorsports",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 31,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 31,
         "teamRating": 20,
         "raceRating": 26,
         "drivers": []
@@ -637,8 +637,8 @@
     "Frank Cicci Racing": {
         "name": "Frank Cicci Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 22,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 22,
         "teamRating": 20,
         "raceRating": 21,
         "drivers": []
@@ -646,8 +646,8 @@
     "Green Light Racing": {
         "name": "Green Light Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 41,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 41,
         "teamRating": 20,
         "raceRating": 31,
         "drivers": []
@@ -655,8 +655,8 @@
     "Melling Racing": {
         "name": "Melling Racing",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 27,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 27,
         "teamRating": 20,
         "raceRating": 24,
         "drivers": [
@@ -666,8 +666,8 @@
     "MB Motorsports": {
         "name": "MB Motorsports",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 31,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 31,
         "teamRating": 20,
         "raceRating": 26,
         "drivers": []
@@ -675,8 +675,8 @@
     "Spears Racing": {
         "name": "Spears Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 42,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 42,
         "teamRating": 19,
         "raceRating": 31,
         "drivers": []
@@ -684,8 +684,8 @@
     "Stanton Barrett Motorsports": {
         "name": "Stanton Barrett Motorsports",
         "owner": "Stanton Barrett",
-        "carManufacturer": "Ford",
-        "equipmentRating": 86,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 86,
         "teamRating": 19,
         "raceRating": 53,
         "drivers": []
@@ -693,8 +693,8 @@
     "Marcis Auto Racing": {
         "name": "Marcis Auto Racing",
         "owner": "Dave Marics",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 77,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 77,
         "teamRating": 19,
         "raceRating": 48,
         "drivers": [
@@ -708,8 +708,8 @@
     "Victory Motorsports": {
         "name": "Victory Motorsports",
         "owner": "Morgan Sheppard",
-        "carManufacturer": "Ford",
-        "equipmentRating": 19,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 19,
         "teamRating": 19,
         "raceRating": 19,
         "drivers": [
@@ -719,8 +719,8 @@
     "MacDonald Motorsports": {
         "name": "MacDonald Motorsports",
         "owner": "Randy MacDonald",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 23,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 23,
         "teamRating": 18,
         "raceRating": 21,
         "drivers": []
@@ -728,8 +728,8 @@
     "Donlavey Racing": {
         "name": "Donlavey Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 80,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 80,
         "teamRating": 18,
         "raceRating": 49,
         "drivers": [
@@ -739,8 +739,8 @@
     "Team CLR": {
         "name": "Team CLR",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 80,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 80,
         "teamRating": 18,
         "raceRating": 49,
         "drivers": [
@@ -751,8 +751,8 @@
     "Quest Motor Racing": {
         "name": "Quest Motor Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 17,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 17,
         "teamRating": 17,
         "raceRating": 17,
         "drivers": [
@@ -762,8 +762,8 @@
     "GIC Mixon Motorsports": {
         "name": "GIC Mixon Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 20,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 20,
         "teamRating": 17,
         "raceRating": 19,
         "drivers": []
@@ -771,8 +771,8 @@
     "JD Motorsports": {
         "name": "JD Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 17,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 17,
         "teamRating": 17,
         "raceRating": 17,
         "drivers": []
@@ -780,8 +780,8 @@
     "Linro Motorsports": {
         "name": "Linro Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 16,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 16,
         "teamRating": 16,
         "raceRating": 16,
         "drivers": []
@@ -789,8 +789,8 @@
     "Kirk Shelmerdine Racing": {
         "name": "Kirk Shelmerdine Racing",
         "owner": "Kirk Shelmerdine",
-        "carManufacturer": "Ford",
-        "equipmentRating": 19,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 19,
         "teamRating": 16,
         "raceRating": 18,
         "drivers": [
@@ -800,8 +800,8 @@
     "SCORE Motorsports": {
         "name": "SCORE Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 30,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 30,
         "teamRating": 16,
         "raceRating": 23,
         "drivers": [
@@ -811,8 +811,8 @@
     "Baker Curb Racing": {
         "name": "Baker Curb Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 15,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 15,
         "teamRating": 15,
         "raceRating": 15,
         "drivers": []
@@ -820,8 +820,8 @@
     "Curb Racing": {
         "name": "Curb Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 15,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 15,
         "teamRating": 15,
         "raceRating": 15,
         "drivers": []
@@ -829,8 +829,8 @@
     "Roadrunner Motorsports": {
         "name": "Roadrunner Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 15,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 15,
         "teamRating": 15,
         "raceRating": 15,
         "drivers": [
@@ -840,8 +840,8 @@
     "Means Motorsports": {
         "name": "Means Motorsports",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 20,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 20,
         "teamRating": 15,
         "raceRating": 18,
         "drivers": []
@@ -849,8 +849,8 @@
     "Sadler Brothers Racing": {
         "name": "Sadler Brothers Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 24,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 24,
         "teamRating": 15,
         "raceRating": 20,
         "drivers": []
@@ -858,8 +858,8 @@
     "McGlynn Racing": {
         "name": "McGlynn Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 15,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 15,
         "teamRating": 13,
         "raceRating": 14,
         "drivers": []
@@ -867,8 +867,8 @@
     "Leik Motorsports": {
         "name": "Leik Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 13,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 13,
         "teamRating": 13,
         "raceRating": 13,
         "drivers": []
@@ -876,8 +876,8 @@
     "K Automotive Racing": {
         "name": "K Automotive Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 40,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 40,
         "teamRating": 33,
         "raceRating": 37,
         "drivers": []
@@ -885,8 +885,8 @@
     "Bailey Racing": {
         "name": "Bailey Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 10,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 10,
         "teamRating": 10,
         "raceRating": 10,
         "drivers": []
@@ -894,8 +894,8 @@
     "Bobby Gerhart Racing": {
         "name": "Bobby Gerhart Racing",
         "owner": "Bobby Gerhart",
-        "carManufacturer": "Pontiac",
-        "equipmentRating": 10,
+        "car_manufacturer": "Pontiac",
+        "equipment_rating": 10,
         "teamRating": 10,
         "raceRating": 10,
         "drivers": [
@@ -905,8 +905,8 @@
     "DF2 Motorsports": {
         "name": "DF2 Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 10,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 10,
         "teamRating": 10,
         "raceRating": 10,
         "drivers": []
@@ -914,8 +914,8 @@
     "Glidden Racing": {
         "name": "Glidden Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 10,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 10,
         "teamRating": 10,
         "raceRating": 10,
         "drivers": []
@@ -923,8 +923,8 @@
     "Hover Motorsports": {
         "name": "Hover Motorsports",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 10,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 10,
         "teamRating": 10,
         "raceRating": 10,
         "drivers": []
@@ -932,8 +932,8 @@
     "Lefturn Motorsports": {
         "name": "Lefturn Motorsports",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 20,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 20,
         "teamRating": 10,
         "raceRating": 15,
         "drivers": []
@@ -941,8 +941,8 @@
     "Derrike Cope Racing": {
         "name": "Derrike Cope Racing",
         "owner": "Derrike Cope",
-        "carManufacturer": "Ford",
-        "equipmentRating": 10,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 10,
         "teamRating": 10,
         "raceRating": 10,
         "drivers": []
@@ -950,8 +950,8 @@
     "Mansion Motorsports": {
         "name": "Mansion Motorsports",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 12,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 12,
         "teamRating": 9,
         "raceRating": 11,
         "drivers": [
@@ -961,8 +961,8 @@
     "Team Racing": {
         "name": "Team Racing",
         "owner": "",
-        "carManufacturer": "Pontiac",
-        "equipmentRating": 10,
+        "car_manufacturer": "Pontiac",
+        "equipment_rating": 10,
         "teamRating": 9,
         "raceRating": 10,
         "drivers": []
@@ -970,8 +970,8 @@
     "Lowell Bennett Racing": {
         "name": "Lowell Bennett Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 8,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 8,
         "teamRating": 8,
         "raceRating": 8,
         "drivers": []
@@ -979,8 +979,8 @@
     "Team Bristol Motorsports": {
         "name": "Team Bristol Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 21,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 21,
         "teamRating": 8,
         "raceRating": 15,
         "drivers": [
@@ -990,8 +990,8 @@
     "Ware Racing Enterprises": {
         "name": "Ware Racing Enterprises",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 24,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 24,
         "teamRating": 17,
         "raceRating": 21,
         "drivers": []
@@ -999,8 +999,8 @@
     "Truex Motorsports": {
         "name": "Truex Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 23,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 23,
         "teamRating": 8,
         "raceRating": 16,
         "drivers": []
@@ -1008,8 +1008,8 @@
     "RDS Motorsports": {
         "name": "RDS Motorsports",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 18,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 18,
         "teamRating": 7,
         "raceRating": 13,
         "drivers": []
@@ -1017,8 +1017,8 @@
     "Havill-Spoerl Racing": {
         "name": "Havill-Spoerl Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 7,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 7,
         "teamRating": 6,
         "raceRating": 7,
         "drivers": []
@@ -1026,8 +1026,8 @@
     "Jarvis Racin": {
         "name": "Jarvis Racin",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 6,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 6,
         "teamRating": 6,
         "raceRating": 6,
         "drivers": []
@@ -1035,8 +1035,8 @@
     "Robinson-Blakeney Racing": {
         "name": "Robinson-Blakeney Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 25,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 25,
         "teamRating": 6,
         "raceRating": 16,
         "drivers": []
@@ -1044,8 +1044,8 @@
     "Santerre Racing": {
         "name": "Santerre Racing",
         "owner": "Andy Santerre",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 17,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 17,
         "teamRating": 6,
         "raceRating": 12,
         "drivers": []
@@ -1053,8 +1053,8 @@
     "Benning Racing ": {
         "name": "Benning Racing ",
         "owner": "Norm Benning",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 5,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 5,
         "teamRating": 5,
         "raceRating": 5,
         "drivers": []
@@ -1062,8 +1062,8 @@
     "Big Fan Racing": {
         "name": "Big Fan Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 5,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 5,
         "teamRating": 5,
         "raceRating": 5,
         "drivers": []
@@ -1071,8 +1071,8 @@
     "Bost Motorsports": {
         "name": "Bost Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 12,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 12,
         "teamRating": 5,
         "raceRating": 9,
         "drivers": []
@@ -1080,8 +1080,8 @@
     "Brian Weber & Associates Racing": {
         "name": "Brian Weber & Associates Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 11,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 11,
         "teamRating": 5,
         "raceRating": 8,
         "drivers": []
@@ -1089,8 +1089,8 @@
     "CDS Racing": {
         "name": "CDS Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 5,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 5,
         "teamRating": 5,
         "raceRating": 5,
         "drivers": []
@@ -1098,8 +1098,8 @@
     "Conely Racing": {
         "name": "Conely Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 5,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 5,
         "teamRating": 5,
         "raceRating": 5,
         "drivers": []
@@ -1107,8 +1107,8 @@
     "Craig Racing": {
         "name": "Craig Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 5,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 5,
         "teamRating": 5,
         "raceRating": 5,
         "drivers": []
@@ -1116,8 +1116,8 @@
     "Danford Motorsports": {
         "name": "Danford Motorsports",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 5,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 5,
         "teamRating": 5,
         "raceRating": 5,
         "drivers": []
@@ -1125,8 +1125,8 @@
     "EVI Motorsports": {
         "name": "EVI Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 8,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 8,
         "teamRating": 5,
         "raceRating": 7,
         "drivers": []
@@ -1134,8 +1134,8 @@
     "Fauerbach Racing": {
         "name": "Fauerbach Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 5,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 5,
         "teamRating": 5,
         "raceRating": 5,
         "drivers": []
@@ -1143,8 +1143,8 @@
     "Hensley Racing": {
         "name": "Hensley Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 34,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 34,
         "teamRating": 13,
         "raceRating": 24,
         "drivers": []
@@ -1152,8 +1152,8 @@
     "Hispanic Racing Team": {
         "name": "Hispanic Racing Team",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 77,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 77,
         "teamRating": 5,
         "raceRating": 41,
         "drivers": []
@@ -1161,8 +1161,8 @@
     "Hoff Racing": {
         "name": "Hoff Racing",
         "owner": "",
-        "carManufacturer": "Pontiac",
-        "equipmentRating": 5,
+        "car_manufacturer": "Pontiac",
+        "equipment_rating": 5,
         "teamRating": 5,
         "raceRating": 5,
         "drivers": []
@@ -1170,8 +1170,8 @@
     "Horn Auto Racing": {
         "name": "Horn Auto Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 10,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 10,
         "teamRating": 5,
         "raceRating": 8,
         "drivers": []
@@ -1179,8 +1179,8 @@
     "Jim & Judie Motorsports": {
         "name": "Jim & Judie Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 5,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 5,
         "teamRating": 5,
         "raceRating": 5,
         "drivers": []
@@ -1188,8 +1188,8 @@
     "Joe Bessey Racing": {
         "name": "Joe Bessey Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 5,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 5,
         "teamRating": 5,
         "raceRating": 5,
         "drivers": []
@@ -1197,8 +1197,8 @@
     "L & R Motorsports": {
         "name": "L & R Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 24,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 24,
         "teamRating": 5,
         "raceRating": 15,
         "drivers": []
@@ -1206,8 +1206,8 @@
     "Mac Hill Racing": {
         "name": "Mac Hill Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 5,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 5,
         "teamRating": 5,
         "raceRating": 5,
         "drivers": []
@@ -1215,8 +1215,8 @@
     "Midgley Racing": {
         "name": "Midgley Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 5,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 5,
         "teamRating": 5,
         "raceRating": 5,
         "drivers": []
@@ -1224,8 +1224,8 @@
     "Portenga Motorsports": {
         "name": "Portenga Motorsports",
         "owner": "Steve Portenga",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 11,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 11,
         "teamRating": 5,
         "raceRating": 8,
         "drivers": []
@@ -1233,8 +1233,8 @@
     "Price Motorsports": {
         "name": "Price Motorsports",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 5,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 5,
         "teamRating": 5,
         "raceRating": 5,
         "drivers": [
@@ -1244,8 +1244,8 @@
     "": {
         "name": "",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 5,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 5,
         "teamRating": 5,
         "raceRating": 5,
         "drivers": []
@@ -1253,8 +1253,8 @@
     "SKI Motorsports": {
         "name": "SKI Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 8,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 8,
         "teamRating": 5,
         "raceRating": 7,
         "drivers": []
@@ -1262,8 +1262,8 @@
     "Tri-State Motorsports": {
         "name": "Tri-State Motorsports",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 5,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 5,
         "teamRating": 5,
         "raceRating": 5,
         "drivers": [
@@ -1273,8 +1273,8 @@
     "Tuttle Racing": {
         "name": "Tuttle Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 9,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 9,
         "teamRating": 5,
         "raceRating": 7,
         "drivers": []
@@ -1282,8 +1282,8 @@
     "Powers Motorsports": {
         "name": "Powers Motorsports",
         "owner": "Tom Powers",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 15,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 15,
         "teamRating": 4,
         "raceRating": 10,
         "drivers": []
@@ -1291,8 +1291,8 @@
     "Sonntag Racing": {
         "name": "Sonntag Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 7,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 7,
         "teamRating": 4,
         "raceRating": 6,
         "drivers": []
@@ -1300,8 +1300,8 @@
     "Troxell Motorsports": {
         "name": "Troxell Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 13,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 13,
         "teamRating": 4,
         "raceRating": 9,
         "drivers": []
@@ -1309,8 +1309,8 @@
     "Wellrich Motorsports": {
         "name": "Wellrich Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 4,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 4,
         "teamRating": 4,
         "raceRating": 4,
         "drivers": []
@@ -1318,8 +1318,8 @@
     "Long Brothers Racing": {
         "name": "Long Brothers Racing",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 3,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 3,
         "teamRating": 3,
         "raceRating": 3,
         "drivers": []
@@ -1327,8 +1327,8 @@
     "Premier Motorsports": {
         "name": "Premier Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 3,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 3,
         "teamRating": 3,
         "raceRating": 3,
         "drivers": []
@@ -1336,8 +1336,8 @@
     "R & J Racing": {
         "name": "R & J Racing",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 10,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 10,
         "teamRating": 3,
         "raceRating": 7,
         "drivers": []
@@ -1345,8 +1345,8 @@
     "Richardson Motorsports": {
         "name": "Richardson Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 10,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 10,
         "teamRating": 3,
         "raceRating": 7,
         "drivers": []
@@ -1354,8 +1354,8 @@
     "Smith Brothers Motorsports": {
         "name": "Smith Brothers Motorsports",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 14,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 14,
         "teamRating": 3,
         "raceRating": 9,
         "drivers": []
@@ -1363,8 +1363,8 @@
     "Miller Racing": {
         "name": "Miller Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 2,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 2,
         "teamRating": 2,
         "raceRating": 2,
         "drivers": []
@@ -1372,8 +1372,8 @@
     "Otto Motorsports": {
         "name": "Otto Motorsports",
         "owner": "",
-        "carManufacturer": "Ford",
-        "equipmentRating": 80,
+        "car_manufacturer": "Ford",
+        "equipment_rating": 80,
         "teamRating": 2,
         "raceRating": 41,
         "drivers": [
@@ -1383,8 +1383,8 @@
     "Sockwell Racing": {
         "name": "Sockwell Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 17,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 17,
         "teamRating": 12,
         "raceRating": 15,
         "drivers": []
@@ -1392,8 +1392,8 @@
     "Team EJP": {
         "name": "Team EJP",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 10,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 10,
         "teamRating": 10,
         "raceRating": 10,
         "drivers": []
@@ -1401,8 +1401,8 @@
     "Young Racing": {
         "name": "Young Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 10,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 10,
         "teamRating": 2,
         "raceRating": 6,
         "drivers": []
@@ -1410,8 +1410,8 @@
     "ORTEC Racing": {
         "name": "ORTEC Racing",
         "owner": "",
-        "carManufacturer": "Chevrolet",
-        "equipmentRating": 3,
+        "car_manufacturer": "Chevrolet",
+        "equipment_rating": 3,
         "teamRating": 3,
         "raceRating": 3,
         "drivers": []
@@ -1419,8 +1419,8 @@
     "Norm Benning Racing": {
         "name": "Norm Benning Racing",
         "owner": "",
-        "carManufacturer": "Dodge",
-        "equipmentRating": 5,
+        "car_manufacturer": "Dodge",
+        "equipment_rating": 5,
         "teamRating": 9,
         "raceRating": 7,
         "drivers": [
