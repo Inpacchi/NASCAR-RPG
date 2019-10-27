@@ -10,18 +10,20 @@ class Track(db.Model):
     name = db.Column(db.String(64), index=True, unique=True)
     length = db.Column(db.Float)
     type = db.Column(db.String(32))
-    #location = db.Column(db.String(64))
+    location = db.Column(db.String(64))
     schedule = db.relationship('Schedule')
 
     def __init__(self, track):
         self.name = track['name']
         self.length = track['length']
         self.type = track['type']
+        self.location = track['location']
 
     def __str__(self):
         return (f'Track Name: {self.name}\n'
                 f'Length: {self.length}\n'
-                f'Type: {self.type}\n')
+                f'Type: {self.type}\n'
+                f'Location: {self.location}\n')
 
     def __repr__(self):
         return f'<gameapp.Track object for {self.name}>'
@@ -34,9 +36,8 @@ class Schedule(db.Model):
     type = db.Column(db.String(16))
     trackId = db.Column(db.Integer, db.ForeignKey('track.id'))
     laps = db.Column(db.Integer)
-    stages = db.Column(db.String(32))
-    # stages = db.Column(db.Array(db.Integer))  # PostgreSQL
-    raceProcessed = db.Column(db.String(3))
+    stages = db.Column(db.Array(db.Integer))
+    raceProcessed = db.Column(db.Boolean)
     qualifyingResults = db.relationship('QualifyingResults')
     raceResults = db.relationship('RaceResults')
 

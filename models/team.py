@@ -1,5 +1,4 @@
 from webapp import db
-from models.driver import Driver
 
 
 class Team(db.Model):
