@@ -36,7 +36,7 @@ class Schedule(db.Model):
     type = db.Column(db.String(16))
     track_id = db.Column(db.Integer, db.ForeignKey('track.id'))
     laps = db.Column(db.Integer)
-    stages = db.Column(db.Array(db.Integer))
+    stages = db.Column(db.ARRAY(db.Integer))
     race_processed = db.Column(db.Boolean)
     qualifying_results = db.relationship('QualifyingResults')
     race_results = db.relationship('RaceResults')
