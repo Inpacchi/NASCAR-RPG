@@ -1,0 +1,77 @@
+name,car_manufacturer,used_equipment_rating,actual_equipment_rating,personnel_rating,team_performance,notes,equipment_rented_from,cup_cars,xfinity_cars,gander_cars
+Joe Gibbs Racing,Toyota,97,97,97,97,,,"11,18,19,20","18,19,20",
+Team Pesnke,Ford,94,94,94,94,,,"2,12,22","12p,22",
+Stewart-Haas Racing,Ford,88,88,88,88,,,"4,10,14,41","00,98",
+Hendrick Motorsports,Chevy,86,86,86,86,,,"9,24,48,88",,
+Chip Ganassi Racing,Chevy,86,86,86,86,,,"1,42",,
+Wood Brothers Racing,Ford,89,70,70,79.5,,Team Pesnke,21,,
+Richard Childress Racing,Chevy,78,78,78,78,,,"3,8,31p","2,21p",
+Roush Racing,Ford,76,76,76,76,,,"6,17",,
+JR Motorsports,Chevy,81,70,70,75.5,,Hendrick Motorsports,,"1,7,8,9",
+Leavine Family Racing,Toyota,92,58,58,75,,Joe Gibbs Racing,,,
+JTG Daugherty Racing,Chevy,72,72,72,72,,,"37,47",,
+Kaulig Racing,Chevy,73,62,62,67.5,,Richard Childress Racing,,"10,11,16p",
+Kyle Busch Motorsports,Toyota,65,65,65,65,,,,,"4,18,46p,51"
+Germain Racing,Chevy,73,54,54,63.5,,Richard Childress Racing,13,,
+Richard Petty Motorsports,Chevy,73,53,53,63,,Richard Childress Racing,43,,
+GMS Racing,Chevy,62,62,62,62,,,,23,"2,21p,24"
+RSS Racing,Chevy,73,38,38,55.5,,Richard Childress Racing,,"38,39,93",
+Front Row Motorsports,Ford,55,55,55,55,,,"34,36,38",,
+XCI Racing,Toyota,92,15,15,53.5,,Joe Gibbs Racing,81p,81p,
+Hattori Racing Enterprises,Toyota,53,53,53,53,,,,61p,16
+ThorSport Racing,Ford,53,53,53,53,,,,,"13,27p,88,99,98"
+Jeremy Clements Racing,Chevy,48,48,48,48,,,,51,
+Halmar Friesen Racing,Chevy,57,38,38,47.5,,GMS Racing,,,52
+DGR-Crosley,Toyota,47,47,47,47,,,,,"5p,15p,17,54"
+Beard Motorsports,Chevy,73,15,15,44,,Richard Childress Racing,62p,,
+Go Fas Racing,Ford,40,40,40,40,,,32,,
+Niece Motorsports,Chevy,38,38,38,38,,,,,"38p,44.45"
+StarCom Racing,Chevy,36,36,36,36,,,"00,",,
+H2 Motorsports,Toyota,36,36,36,36,,,,28p,
+SS-Green Light Racing,Chevy,33,33,33,33,,,,"07,08",
+AM Racing,Chevy,31,31,31,31,,,,,22
+Henderson Motorsports,Chevy,31,31,31,31,,,,,75p
+Bill McAnally Racing,Toyota,30,30,30,30,,,,,19p
+On Point Motorsports,Toyota,30,30,30,30,,,,,30p
+NEMCO Motorsports,Toyota,29,29,29,29,,,,,"8,87p"
+RBR Enterprises,Ford,28,28,28,28,,,,,92p
+Brandonbilt Motorsports,Chevy,27,27,27,27,,,,68p.86,
+Premium Motorsports,Chevy,26,26,26,26,,,"15,27p",,
+MBM Motorsports,Toyota,26,26,26,26,,,"46p,66p","13,35,42,66",
+DGM Racing,Chevy,26,26,26,26,,,,"36,90,92p",
+Jimmy Means Racing,Chevy,24,24,24,24,,,,"52,53p",
+Young's Motorsports,Chevy,24,24,24,24,,,,,"02,12,20"
+All Out Motorsports,Toyota,23,23,23,23,,,,,7p
+B. J. McLeod Motorsports,Chevy,22,22,22,22,,,,"5,78,99",
+Jordan Anderson Racing,Chevy,22,22,22,22,,,,,3
+Gaunt Brothers Racing,Toyota,21,21,21,21,,,96p,,
+JD Motorsports,Chevy,21,21,21,21,,,,"0,01,4,15",
+Reaume Brothers Racing,Chevy,21,21,21,21,,,,,"32p,33,34p"
+JJL Motorsports,Ford,20,20,20,20,,,,,97p
+Rick Ware Racing,Chevy,18,18,18,18,,,"51,52,53p,54p",17p,
+ACG Motorsports,Chevy,18,18,18,18,,,,25p,
+Chad Finley Racing,Chevy,18,18,18,18,,,,,42p
+Glenden Enterprises,Toyota,18,18,18,18,,,,,47p
+Clay Greenfield Motorsports,Toyota,18,18,18,18,,,,,68p
+Vizion Motorsports,Toyota,17,17,17,17,,,,,1p
+Jennifer Jo Cobb Racing,Chevy,16,16,16,16,,,,,0p10
+Beaver Motorsports,Chevy,16,16,16,16,,,,,50p
+Hill Motorsports,Chevy,15,15,15,15,,,,,56p
+Mike Harmon Racing,Chevy,14,14,14,14,,,,74,
+Spire Motorsports,Chevy,13,13,13,13,,,77,,
+Roper Racing,Ford,13,13,13,13,,,,,04p
+Shepherd Racing Ventures,Chevy,12,12,12,12,,,,89p,
+Norm Benning Racing,Chevy,11,11,11,11,,,,,6p
+Pardus Racing Inc.,Chevy,10,10,10,10,,,,43p,
+FDNY Racing,Chevy,10,10,10,10,,,,,28p
+Mike Affarano Motorsports,Chevy,7,7,7,7,,,,,03p
+Trey Hutchens Racing,Chevy,7,7,7,7,,,,,14p
+Ted Minor Motorsports,Chevy,6,6,6,6,,,,,25p
+Jacob Wallace Racing,Ford,6,6,6,6,,,,,80p
+Rette Jones Racing,Toyota,6,6,6,6,,,,,11p
+CMI Motorsports,Chevy,5,5,5,5,,,,,49p
+Copp Motorsports,Chevy,5,5,5,5,,,,,63p
+CR7 Motorsports,Chevy,5,5,5,5,,,,,9p
+Lou Goss Racing,Chevy,5,5,5,5,,,,,74p
+Tony Mrakovich Racing,Chevy,5,5,5,5,,,,,43p
+Kart Idaho Racing,Toyota,5,5,5,5,,,,,08p
