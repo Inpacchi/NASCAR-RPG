@@ -1,4 +1,4 @@
-name,age,teamName,contractStatus,car_number,short_rating,intermediate_rating,short_intermediate_rating,super_speedway_rating,restricted_track_rating,road_course_rating,dirtTrackRating,overall_rating,potential
+name,age,team_name,contract_status,car_number,short_rating,intermediate_rating,short_intermediate_rating,super_speedway_rating,restricted_track_rating,road_course_rating,dirt_track_rating,overall_rating,potential
 Kyle Busch,35,Joe Gibbs Racing,2022,18,100,94,97,88,86,94,,93.61,
 Joey Logano,30,Team Penske Racing,2023,22,95,95,90,91,85,87,,91.72,
 Denny Hamlin,39,Joe Gibbs Racing,2022,11,92,90,95,94,89,85,,91.31,

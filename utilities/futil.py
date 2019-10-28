@@ -241,7 +241,7 @@ def read_dict_from_json(model_type: str, file_name: str = None, file_path: str =
         return temp_dict
 
 
-def write_dict_to_json(model_type: str, data_dict: dict = None, file_name: str = None, database_error: str = None) -> None:
+def write_dict_to_json(model_type: str, models: dict = None, file_name: str = None, database_error: str = None) -> None:
     """
     Writes the model dictionary to the relevant model type JSON file.
 
@@ -253,8 +253,8 @@ def write_dict_to_json(model_type: str, data_dict: dict = None, file_name: str =
 
     :param model_type: Type of model being written to
     :type model_type: string
-    :param data_dict: If specified, dictionary of data or models to be written to the JSON file
-    :type data_dict: dict
+    :param models: If specified, dictionary of data or models to be written to the JSON file
+    :type models: dict
     :param file_name: If specified, name of file to be written to
     :type file_name: string
     :param database_error: 'Y' value denotes that the function is being invoked for a failed database commit
@@ -263,11 +263,11 @@ def write_dict_to_json(model_type: str, data_dict: dict = None, file_name: str =
     :rtype: None
     """
 
-    if data_dict is None:
+    if models is None:
         if model_type.lower() in MODEL_TYPE_DICT.get('driver_subset'):
-            data_dict = Driver.instances
+            models = Driver.query.all()
         elif model_type.lower() in MODEL_TYPE_DICT.get('team_subset'):
-            data_dict = Team.instances
+            models = Team.query.all()
         else:
             raise Exception("No data dictionary was passed in and one could not be loaded. Please try again.")
 
@@ -279,17 +279,17 @@ def write_dict_to_json(model_type: str, data_dict: dict = None, file_name: str =
 
     if model_type.lower() in MODEL_TYPE_DICT.get('driver_subset').union(MODEL_TYPE_DICT.get('team_subset')):
         temp_dict = {}
-        for name in data_dict:
-            temp_dict[name] = data_dict[name].serialize()
+        for name in models:
+            temp_dict[name] = models[name].serialize()
 
             if model_type.lower() in MODEL_TYPE_DICT.get('team_subset'):
                 temp_dict[name]['drivers'] = []
-                for driver in data_dict[name].drivers:
+                for driver in models[name].drivers:
                     temp_dict[name]['drivers'].append(driver.name)
 
         json.dump(temp_dict, json_file, indent=4)
     elif model_type.lower() in MODEL_TYPE_DICT.get('misc_subset').union(MODEL_TYPE_DICT.get('schedules')):
-        json.dump(data_dict, json_file, indent=4)
+        json.dump(models, json_file, indent=4)
 
     json_file.close()
     print(f'\nJSON file for model type "{model_type}" created at {json_file.name}')
@@ -323,14 +323,14 @@ def convert_csv_to_json(model_type: str, file_name: str = None) -> None:
     print(f'CSV file for model type "{model_type}" converted from {csv_file.name}')
 
 
-def convert_dict_to_csv(model_type: str, data_dict: dict = None, file_name: str = None, conversion: str = None) -> None:
+def convert_dict_to_csv(model_type: str, models: dict = None, file_name: str = None, conversion: str = None) -> None:
     """
     Convert regular dictionaries and model dictionaries to a CSV format.
 
     :param model_type: Type of model being written to
     :type model_type: string
-    :param data_dict: If specified, a dictionary of values
-    :type data_dict: dict
+    :param models: If specified, a dictionary of values
+    :type models: dict
     :param file_name: If specified, the specific path to write the CSV file to
     :type file_name: string
     :param conversion: If specified, use conversion output path
@@ -339,10 +339,10 @@ def convert_dict_to_csv(model_type: str, data_dict: dict = None, file_name: str 
     :rtype: None
     """
 
-    if data_dict is None and model_type.lower() in MODEL_TYPE_DICT.get('misc_subset').union(
+    if models is None and model_type.lower() in MODEL_TYPE_DICT.get('misc_subset').union(
             MODEL_TYPE_DICT.get('schedules')):
-        data_dict = read_dict_from_json(model_type)
-    elif not Driver.instances and data_dict is None:
+        models = read_dict_from_json(model_type)
+    elif not Driver.instances and models is None:
         read_dict_from_json(model_type)
 
     csv_file = _csv_file(model_type, file_name, conversion)
@@ -357,7 +357,7 @@ def convert_dict_to_csv(model_type: str, data_dict: dict = None, file_name: str 
         for team in Team.instances.values():
             writer.writerow(team.serialize())
     else:
-        writer.writerows(data_dict.values())
+        writer.writerows(models.values())
 
     csv_file.close()
     print(f'\nCSV file created at {csv_file.name}')
