@@ -13,3 +13,5 @@
 /.
 # Project exclude paths
 /.
+# Datasource local storage ignored files
+/dataSources/
