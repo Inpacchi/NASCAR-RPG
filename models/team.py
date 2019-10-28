@@ -20,21 +20,25 @@ class Team(db.Model):
     name = db.Column(db.String(32), index=True, nullable=False)
     owner = db.Column(db.String(32), index=True)
     car_manufacturer = db.Column(db.String(32))
-    equipment_rating = db.Column(db.Float, nullable=False)
+    used_equipment_rating = db.Column(db.Float, nullable=False)
+    actual_equipment_rating = db.Column(db.Float, nullable=False)
     personnel_rating = db.Column(db.Float, nullable=False)
     team_performance = db.Column(db.Float, nullable=False)
+    notes = db.Column(db.String(128))
+    equipment_rented_from = db.Column(db.Integer, db.ForeignKey('team.id'))
     drivers = db.relationship('TeamDrivers')
-    rentals = db.relationship('TeamRentals')
     cars = db.relationship('TeamCars')
     qualifying_results = db.relationship('QualifyingResults')
     race_results = db.relationship('RaceResults')
 
     def __init__(self, team, switch = None):
-        self.name = team['Name']
-        self.car_manufacturer = team['Manufacturer']
-        self.equipment_rating = team['Equipment Rating']
-        self.personnel_rating = team['Personnel Rating']
-        self.team_performance = team['Team Performance']
+        self.name = team['name']
+        self.car_manufacturer = team['car_manufacturer']
+        self.used_equipment_rating = team['used_equipment_rating']
+        self.actual_equipment_rating = team['actual_equipment_rating']
+        self.personnel_rating = team['personnel_rating']
+        self.team_performance = team['team_performance']
+        self.notes = team['notes']
 
     def __str__(self):
         return (f'Team Name: {self.name}\n'
@@ -68,22 +72,20 @@ class Team(db.Model):
 class TeamRentals(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     equipment_bonus = db.Column(db.Integer)
-    from_team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
-    to_team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
-    from_team = db.relationship('Team', foreign_keys='TeamRentals.from_team_id')
-    to_team = db.relationship('Team', foreign_keys='TeamRentals.to_team_id')
+    from_id = db.Column(db.Integer, db.ForeignKey('team.id'))
+    to_id = db.Column(db.Integer, db.ForeignKey('team.id'))
 
 
 class TeamCars(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    series = db.Column(db.String(32), index=True)
+    car_number = db.Column(db.Integer)
     team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
     driver_id = db.Column(db.Integer, db.ForeignKey('driver.id'))
-    car_number = db.Column(db.Integer)
-    series = db.Column(db.String(32), index=True)
 
 
 class TeamDrivers(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    series = db.Column(db.String(32), index=True)
     team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
     driver_id = db.Column(db.Integer, db.ForeignKey('driver.id'))
-    series = db.Column(db.String(32), index=True)
