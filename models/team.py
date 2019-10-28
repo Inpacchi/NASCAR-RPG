@@ -67,9 +67,11 @@ class Team(db.Model):
 
 class TeamRentals(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    from_id = db.Column(db.Integer, db.ForeignKey('team.id'))
-    to_id = db.Column(db.Integer, db.ForeignKey('team.id'))
     equipment_bonus = db.Column(db.Integer)
+    from_team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
+    to_team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
+    from_team = db.relationship('Team', foreign_keys='TeamRentals.from_team_id')
+    to_team = db.relationship('Team', foreign_keys='TeamRentals.to_team_id')
 
 
 class TeamCars(db.Model):
