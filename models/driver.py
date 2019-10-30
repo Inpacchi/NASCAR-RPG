@@ -1,3 +1,5 @@
+from models.team import Team, TeamCars, TeamDrivers
+
 from webapp import db
 
 
@@ -50,6 +52,13 @@ class Driver(db.Model):
         self.road_course_rating = driver['road_course_rating']
         self.overall_rating = driver['overall_rating']
         self.potential = driver['potential']
+
+        if driver['team_name'] is not None:
+            team_id = Team.query.filter(Team.name.like(driver['team_name'])).first().id
+            TeamDrivers(self.id, team_id)
+
+            if driver['car_number'] is not None:
+                TeamCars(driver_id=self.id, team_id=team_id, car_number=driver['car_number'])
 
     def __str__(self):
         return (f'Driver Name: {self.name}\n'
