@@ -52,13 +52,22 @@ class Driver(db.Model):
         self.road_course_rating = driver['road_course_rating']
         self.overall_rating = driver['overall_rating']
         self.potential = driver['potential']
+        db.session.add(self)
 
-        if driver['team_name'] is not None:
-            team_id = Team.query.filter(Team.name.like(driver['team_name'])).first().id
-            TeamDrivers(self.id, team_id)
-
-            if driver['car_number'] is not None:
-                TeamCars(driver_id=self.id, team_id=team_id, car_number=driver['car_number'])
+    def add_team(self, driver):
+        if driver['team_name'] not in [None, '']:
+            name = driver['team_name']
+            try:
+                team_id = Team.query.filter(Team.name.like(f'%{name}%')).first().id
+            except AttributeError as ae:
+                raise Exception(f'Query for "{name}" returned no results') from ae
+            if driver['car_number'] not in [None, '']:
+                print(driver['car_number'])
+                car = TeamCars.query.filter_by(car_number=driver['car_number'], team_id=team_id).first()
+                car.driver_id = self.id # FIXME
+                TeamDrivers(self.id, team_id, car.series)
+            else:
+                TeamDrivers(self.id, team_id)
 
     def __str__(self):
         return (f'Driver Name: {self.name}\n'
@@ -75,7 +84,7 @@ class Driver(db.Model):
                 f'Potential: {self.potential}\n')
 
     def __repr__(self):
-        return f'<gameapp.Driver object for {self.name}'
+        return f'<gameapp.Driver object for {self.name}>'
 
     def serialize(self) -> dict:
         """

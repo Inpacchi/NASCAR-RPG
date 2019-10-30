@@ -3,11 +3,11 @@ import os.path
 import json
 import csv
 
-from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.exc import SQLAlchemyError, IntegrityError
 
 from models.driver import Driver
 from models.gameapp import Schedule, Track
-from models.team import Team
+from models.team import Team, TeamRentals
 from webapp import db
 
 MODEL_TYPE_DICT = {
@@ -36,16 +36,13 @@ MODEL_TYPE_DICT = {
 }
 
 
-def _json_file(model_type: str, file_path: str = None, file_name: str = None, database_error: str = None) -> TextIO:
+def _json_file(model_type: str, file_path: str = None, file_name: str = None) -> TextIO:
     """
     Returns a JSON file based on given parameters.
 
     If file_path is specified, direct json_path to the the given file_path and file_name (file_name MUST be specified.)
 
     If file_name is specified, direct json_path to the intended directory with the given file_name.
-
-    If database_error is specified as 'y', this method was invoked from a database transaction and should
-    direct json_path to a temporary file that stores all the uncommitted changes.
 
     Otherwise, take in a model type and attempt to open the relevant JSON file. If the file is not
     found, then it is is created.
@@ -58,18 +55,11 @@ def _json_file(model_type: str, file_path: str = None, file_name: str = None, da
     :type file_path: string
     :param file_name: If specified, name of file to be used for I/O
     :type file_name: string
-    :param database_error: 'Y' value denotes that the function is being invoked for a failed database commit
-    :type database_error: string
     :return: Raw JSON connection string
     :rtype: TextIO
     """
 
-    if database_error is not None and database_error.lower() == 'y':
-        if file_name is not None:
-            json_path = f'data/sqlite/{file_name}.json'
-        else:
-            raise Exception('You cannot invoke database_error without a file_name!')
-    elif file_path is not None and file_name is not None:
+    if file_path is not None and file_name is not None:
         json_path = f'data/{file_path}/{file_name}'
     elif file_name is not None:
         if model_type.lower() in MODEL_TYPE_DICT.get('driver_subset'):
@@ -241,12 +231,9 @@ def read_dict_from_json(model_type: str, file_name: str = None, file_path: str =
         return temp_dict
 
 
-def write_dict_to_json(model_type: str, models: dict = None, file_name: str = None, database_error: str = None) -> None:
+def write_dict_to_json(model_type: str, models: dict = None, file_name: str = None) -> None:
     """
     Writes the model dictionary to the relevant model type JSON file.
-
-    If database_error is specified, direct output to a temporary file that stores all uncommitted
-    changes (file_name MUST be specified)
 
     Otherwise, take in a model type and model dictionary and attempt to write the models or
     dictionary to a JSON file.
@@ -257,8 +244,6 @@ def write_dict_to_json(model_type: str, models: dict = None, file_name: str = No
     :type models: dict
     :param file_name: If specified, name of file to be written to
     :type file_name: string
-    :param database_error: 'Y' value denotes that the function is being invoked for a failed database commit
-    :type database_error: string
     :return: None
     :rtype: None
     """
@@ -271,7 +256,7 @@ def write_dict_to_json(model_type: str, models: dict = None, file_name: str = No
         else:
             raise Exception("No data dictionary was passed in and one could not be loaded. Please try again.")
 
-    json_file = _json_file(model_type, None, file_name, database_error)
+    json_file = _json_file(model_type, None, file_name)
 
     # Clear the file
     json_file.seek(0)
@@ -379,11 +364,6 @@ def add_csv_to_db(model_type: str, file_name: str = None) -> None:
     :rtype: None
     """
 
-    # TODO: Add the ability to store multiple noncommittals and interactively chose between them.
-    if os.path.exists('data/sqlite/uncommitted-db-session.json'):
-        _retry_commit(model_type)
-        return
-
     if model_type.lower() in MODEL_TYPE_DICT.get('misc_subset').union(MODEL_TYPE_DICT.get('schedules')) \
             and not os.path.exists(f'data/csv/{model_type}.csv'):
         if model_type.lower() in MODEL_TYPE_DICT.get('schedules') \
@@ -397,10 +377,30 @@ def add_csv_to_db(model_type: str, file_name: str = None) -> None:
 
     if model_type.lower() in MODEL_TYPE_DICT.get('driver_subset'):
         for row in reader:
-            db.session.add(Driver(row))
+            name = row['name']
+            if Driver.query.filter(Driver.name.like(f'%{name}%')).scalar() is None:
+                driver = Driver(row)
+                db.session.flush()
+            else:
+                driver = Driver.query.filter(Driver.name.like(f'%{name}%')).first()
+            driver.add_team(row)
     elif model_type.lower() in MODEL_TYPE_DICT.get('team_subset'):
+        rentals = []
         for row in reader:
-            db.session.add(Team(row))
+            name = row['name']
+            if Team.query.filter(Team.name.like(f'%{name}%')).scalar() is None:
+                team = Team(row)
+                db.session.flush()
+            else:
+                team = Team.query.filter(Team.name.like(f'%{name}%')).first()
+            if row['equipment_rented_from'] not in (None, ''):
+                rentals.append((row['equipment_rented_from'], row['name']))
+            team.populate_cars(row)
+        for rental in rentals:
+            equipment_lender_id = Team.query.filter(Team.name.like(f'%{rental[0]}%')).first().id
+            equipment_lendee = Team.query.filter(Team.name.like(f'%{rental[1]}%')).first()
+            if TeamRentals.query.filter_by(from_id=equipment_lender_id, to_id=equipment_lendee.id).scalar() is None:
+                equipment_lendee.add_rental(equipment_lender_id)
     elif model_type.lower() in MODEL_TYPE_DICT.get('schedules'):
         for row in reader:
             db.session.add(Schedule(row))
@@ -408,44 +408,12 @@ def add_csv_to_db(model_type: str, file_name: str = None) -> None:
         for row in reader:
             db.session.add(Track(row))
 
-    try:
-        db.session.commit()
-    except SQLAlchemyError:
-        write_dict_to_json(model_type, file_name='uncommitted-db-session', database_error='y')
-        db.session.rollback()
-        raise SQLAlchemyError('Database commit failed! Uncommitted changes have been saved to '
-                              'data/sqlite/uncommitted-db-session.json')
+    _try_commit()
 
 
-def _retry_commit(model_type: str) -> None:
-    """
-    Retries commit for uncommitted changes if file is found. If commit fails again, alert user to a fatal error.
-
-    :param model_type: Type of model being loaded
-    :type model_type: string
-    :return: None
-    :rtype: None
-    """
-
-    if model_type.lower() in MODEL_TYPE_DICT.get('driver_subset'):
-        if Driver.instances != {}:
-            Driver.instances = {}
-
-        read_dict_from_json(model_type, 'data/sqlite', 'uncommitted-db-session')
-
-        for driver in Driver.instances:
-            db.session.add(Driver.instances[driver])
-    elif model_type.lower() in MODEL_TYPE_DICT.get('team_subset'):
-        if Team.instances != {}:
-            Team.instances = {}
-
-        read_dict_from_json(model_type, 'data/sqlite', 'uncommitted-db-session')
-
-        for team in Team.instances:
-            db.session.add(Team.instances[team])
-
+def _try_commit():
     try:
         db.session.commit()
     except SQLAlchemyError:
         db.session.rollback()
-        raise SQLAlchemyError('Commit failed on retry! Fatal error occurred, please contact your system administrator.')
+        raise SQLAlchemyError
