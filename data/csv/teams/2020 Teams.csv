@@ -1,10 +1,10 @@
 name,car_manufacturer,used_equipment_rating,actual_equipment_rating,personnel_rating,team_performance,notes,equipment_rented_from,cup_cars,xfinity_cars,gander_cars
 Joe Gibbs Racing,Toyota,97,97,97,97,,,"11,18,19,20","18,19,20",
-Team Pesnke,Ford,94,94,94,94,,,"2,12,22","12p,22",
+Team Penske Racing,Ford,94,94,94,94,,,"2,12,22","12p,22",
 Stewart-Haas Racing,Ford,88,88,88,88,,,"4,10,14,41","00,98",
 Hendrick Motorsports,Chevy,86,86,86,86,,,"9,24,48,88",,
 Chip Ganassi Racing,Chevy,86,86,86,86,,,"1,42",,
-Wood Brothers Racing,Ford,89,70,70,79.5,,Team Pesnke,21,,
+Wood Brothers Racing,Ford,89,70,70,79.5,,Team Penske Racing,21,,
 Richard Childress Racing,Chevy,78,78,78,78,,,"3,8,31p","2,21p",
 Roush Racing,Ford,76,76,76,76,,,"6,17",,
 JR Motorsports,Chevy,81,70,70,75.5,,Hendrick Motorsports,,"1,7,8,9",
@@ -25,7 +25,7 @@ Halmar Friesen Racing,Chevy,57,38,38,47.5,,GMS Racing,,,52
 DGR-Crosley,Toyota,47,47,47,47,,,,,"5p,15p,17,54"
 Beard Motorsports,Chevy,73,15,15,44,,Richard Childress Racing,62p,,
 Go Fas Racing,Ford,40,40,40,40,,,32,,
-Niece Motorsports,Chevy,38,38,38,38,,,,,"38p,44.45"
+Niece Motorsports,Chevy,38,38,38,38,,,,,"38p,44,45"
 StarCom Racing,Chevy,36,36,36,36,,,"00,",,
 H2 Motorsports,Toyota,36,36,36,36,,,,28p,
 SS-Green Light Racing,Chevy,33,33,33,33,,,,"07,08",
@@ -35,7 +35,7 @@ Bill McAnally Racing,Toyota,30,30,30,30,,,,,19p
 On Point Motorsports,Toyota,30,30,30,30,,,,,30p
 NEMCO Motorsports,Toyota,29,29,29,29,,,,,"8,87p"
 RBR Enterprises,Ford,28,28,28,28,,,,,92p
-Brandonbilt Motorsports,Chevy,27,27,27,27,,,,68p.86,
+Brandonbilt Motorsports,Chevy,27,27,27,27,,,,"68p,86",
 Premium Motorsports,Chevy,26,26,26,26,,,"15,27p",,
 MBM Motorsports,Toyota,26,26,26,26,,,"46p,66p","13,35,42,66",
 DGM Racing,Chevy,26,26,26,26,,,,"36,90,92p",

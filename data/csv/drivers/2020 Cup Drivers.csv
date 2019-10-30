@@ -2,7 +2,7 @@ name,age,team_name,contract_status,car_number,short_rating,intermediate_rating,s
 Kyle Busch,35,Joe Gibbs Racing,2022,18,100,94,97,88,86,94,,93.61,
 Joey Logano,30,Team Penske Racing,2023,22,95,95,90,91,85,87,,91.72,
 Denny Hamlin,39,Joe Gibbs Racing,2022,11,92,90,95,94,89,85,,91.31,
-Kevin Harvick,44,Stewart Haas Racing,,4,90,94,92,89,88,89,,91.08,r
+Kevin Harvick,44,Stewart-Haas Racing,,4,90,94,92,89,88,89,,91.08,r
 Kurt Busch,41,Chip Ganassi Racing,2019,1,93,91,92,87,90,86,,90.31,r
 Martin Truex Jr.,40,Joe Gibbs Racing,,19,86,97,93,88,72,93,,89.89,r
 Brad Keselowski,36,Team Penske Racing,2020+,2,87,89,90,96,87,82,,89.19,
@@ -10,14 +10,14 @@ Chase Elliott,24,Hendrick Motorsports,2020,9,87,84,90,87,91,93,,87.53,p
 Kyle Larson,27,Chip Ganassi Racing,,42,88,86,96,91,68,79,,86.25,p
 Ryan Blaney,26,Team Penske Racing,,12,79,83,86,93,70,89,,83.56,p
 Erik Jones,24,Joe Gibbs Racing,2020,20,73,80,87,83,86,84,,81.50,
-Aric Almirola,36,Stewart Haas Racing,2020,10,81,84,87,63,94,66,,80.11,
+Aric Almirola,36,Stewart-Haas Racing,2020,10,81,84,87,63,94,66,,80.11,
 Alex Bowman,27,Hendrick Motorsports,2020,88,81,88,79,68,73,78,,79.50,
 William Byron,22,Hendrick Motorsports,,24,69,77,80,88,81,80,,78.69,p
-Clint Bowyer,41,Stewart Haas Racing,2019,14,86,74,78,70,81,82,,77.44,r
+Clint Bowyer,41,Stewart-Haas Racing,2019,14,86,74,78,70,81,82,,77.44,r
 Ryan Newman,42,Roush Racing,2021,6,79,78,74,80,76,75,,77.36,r
 Matt DiBenedetto,28,Leavine Family Racing,Free Agent,95,86,74,79,65,78,84,,76.61,p
 Chris Buescher,27,JTG Daugherty,2019+,37,76,78,64,84,80,78,,76.56,
-Daniel Suárez,28,Stewart Haas Racing,2020+,41,74,76,78,81,58,81,,75.25,p
+Daniel Suárez,28,Stewart-Haas Racing,2020+,41,74,76,78,81,58,81,,75.25,p
 Jimmie Johnson,44,Hendrick Motorsports,2020,48,70,79,83,64,82,76,,75.75,r
 Tyler Reddick(i),24,Richard Childress Racing,,,64,82,61,77,81,59,,72.64,
 Ricky Stenhouse Jr.,32,Roush Racing,2021,17,76,66,69,66,97,48,,70.11,
@@ -31,7 +31,7 @@ Ryan Preece,29,JTG Daugherty,,47,66,48,53,70,78,63,,60.08,
 Darrell Wallace Jr.,26,Richard Petty Motorsports,2020,43,50,64,66,61,80,18,,59.44,
 Daniel Hemric,29,Richard Childress Racing,2020,8,52,55,45,77,76,61,,59.33,
 Regan Smith,36,,,,41,61,58,58,69,50,,56.64,
-Corey LaJoie,28,GoFas Racing,,32,67,61,45,59,68,22,,56.53,
+Corey LaJoie,28,Go Fas Racing,,32,67,61,45,59,68,22,,56.53,
 David Ragan,34,Front Row Motorsports,Retire,38,66,51,41,64,86,31,,56.22,
 Michael McDowell,35,Front Row Motorsports,,34,56,52,38,53,74,66,,54.11,
 Trevor Bayne,29,,,,66,52,38,48,85,31,,53.25,
