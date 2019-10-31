@@ -164,7 +164,11 @@ class TeamDrivers(db.Model):
             row = self.query.filter_by(team_id=team_id, driver_id=driver_id).first()
             row.driver_id = driver_id
             row.team_id = team_id
+            if series is not None:
+                row.series = series
         else:
             self.driver_id = driver_id
             self.team_id = team_id
+            if series is not None:
+                self.series = series
             db.session.add(self)
