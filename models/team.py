@@ -91,34 +91,34 @@ class Team(db.Model):
 
 class TeamRentals(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    lender_id = db.Column(db.Integer, db.ForeignKey('team.id'))
+    lender_team = db.relationship('Team', foreign_keys=[lender_id])
+    lendee_id = db.Column(db.Integer, db.ForeignKey('team.id'))
+    lendee_team = db.relationship('Team', foreign_keys=[lendee_id])
     equipment_bonus = db.Column(db.Integer)
-    from_id = db.Column(db.Integer, db.ForeignKey('team.id'))
-    from_team = db.relationship('Team', foreign_keys=[from_id])
-    to_id = db.Column(db.Integer, db.ForeignKey('team.id'))
-    to_team = db.relationship('Team', foreign_keys=[to_id])
 
-    def __init__(self, from_id, to_id, equipment_bonus):
-        if self.query.filter_by(from_id=from_id, to_id=to_id).scalar() is not None:
-            row = self.query.filter_by(from_id=from_id, to_id=to_id).first()
-            row.from_id = from_id
-            row.to_id = to_id
+    def __init__(self, lender_id, lendee_id, equipment_bonus):
+        if self.query.filter_by(lender_id=lender_id, lendee_id=lendee_id).scalar() is not None:
+            row = self.query.filter_by(lender_id=lender_id, lendee_id=lendee_id).first()
+            row.lender_id = lender_id
+            row.lendee_id = lendee_id
             row.equipment_bonus = equipment_bonus
         else:
-            self.from_id = from_id
-            self.to_id = to_id
+            self.lender_id = lender_id
+            self.lendee_id = lendee_id
             self.equipment_bonus = equipment_bonus
             db.session.add(self)
 
 
 class TeamCars(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    series = db.Column(db.String(32), index=True)
-    car_number = db.Column(db.Integer, index=True)
-    status = db.Column(db.String(2), index=True)
     team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
     team = db.relationship('Team')
     driver_id = db.Column(db.Integer, db.ForeignKey('driver.id'))
     driver = db.relationship('Driver')
+    car_number = db.Column(db.Integer, index=True)
+    series = db.Column(db.String(32), index=True)
+    status = db.Column(db.String(2), index=True)
 
     def __init__(self, car_number, team_id, driver_id=None, series=None):
         if series is not None:
@@ -155,11 +155,11 @@ class TeamCars(db.Model):
 
 class TeamDrivers(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    series = db.Column(db.String(32), index=True)
     team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
     driver_id = db.Column(db.Integer, db.ForeignKey('driver.id'))
+    series = db.Column(db.String(32), index=True)
 
-    def __init__(self, driver_id, team_id, series = None):
+    def __init__(self, team_id, driver_id, series = None):
         if self.query.filter_by(team_id=team_id, driver_id=driver_id).scalar() is not None:
             row = self.query.filter_by(team_id=team_id, driver_id=driver_id).first()
             row.driver_id = driver_id
