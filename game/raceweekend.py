@@ -15,7 +15,7 @@ standings = {}
 ending_range = 0
 
 
-def process_stage(race_name: str = None, track_name: str = None) -> None:
+def process_stage(race_id: int = None, race_name: str = None, track_name: str = None) -> None:
     """
     Main entry method for raceweekend.py
 
@@ -27,14 +27,16 @@ def process_stage(race_name: str = None, track_name: str = None) -> None:
 
     race = None
 
-    if race_name is not None:
+    if race_id is not None:
+        race = Schedule.query.filter_by(id=race_id).first()
+        track = Track.query.filter_by(id=race.track_id).first()
+    elif race_name is not None:
         race = Schedule.query.filter(Schedule.name.like(f'%{race_name}%')).first()
-        subquery = db.session.query(Schedule.track_id).filter(Schedule.name.like(f'%{race_name}%')).subquery()
-        track = Track.query.filter(Track.id.in_(subquery)).first()
+        track = Track.query.filter(id=race.track_id).first()
     elif track_name is not None:
         track = Track.query.filter(Track.name.like(f'%{track_name}%')).first()
     else:
-        raise Exception('Either race_name or track_name must be specified!')
+        raise Exception('Either race_id, race_name or track_name must be specified!')
 
     drivers = Driver.query.all()
 
@@ -42,7 +44,9 @@ def process_stage(race_name: str = None, track_name: str = None) -> None:
     _populate_standings(drivers)
     _qualifying(race)
     _race()
-    dbutil.commit_standings_to_db(standings)
+    dbutil.add_standings_to_session(standings)
+    race.race_processed = True
+    dbutil.commit()
     # potential.process_stage(standings, drivers)
 
 
