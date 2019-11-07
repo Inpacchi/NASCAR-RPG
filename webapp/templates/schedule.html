@@ -2,10 +2,14 @@
 
 {% block head %}
     <link rel="stylesheet" href="../static/css/table.css">
+    <link rel="stylesheet" href="../static/css/ajax.css">
     <link rel="stylesheet" href="../static/css/external/animations/fade.css">
 {% endblock %}
 
 {% block body %}
+<div id="processing" style="display: none">
+    <img src="../static/gifs/processing.gif" id="processing_gif" style="display: none"/>
+</div>
 <div class="container u--fadeInLeft">
     <div class="row">
         <table class="table table-hover table-bordered table-responsive-sm table-spacing table-shadow">
@@ -32,7 +36,11 @@
                     {% if row.race_processed == false %}
                         <!-- TODO: Fire AJAX request to backend to run race -->
                         <!-- TODO: Hotlink track to track page -->
-                        <td><button type="button" class="btn btn-primary">Run Race</button></td>
+                        <td id="process_race_{{ row.id }}" class="text-center">
+                            <button type="button" class="btn btn-primary" onclick="process_race('td#process_race_{{row.id}}', '{{ row.id }}')">
+                                Run Race
+                            </button>
+                        </td>
                     {% else %}
                         <td class="text-center">&#10004</td> <!-- UTF-8 Dingbat for Check Mark -->
                     {% endif %}
@@ -41,5 +49,26 @@
         </tbody>
     </table>
     </div>
+    <script>
+        function process_race(button_element, race_id){
+            $('#processing_gif').show();
+            $('#processing').show();
+            $.ajax({
+                type: 'POST',
+                url: '/process_race/' + race_id,
+                success:function () {
+                    $('#processing_gif').hide();
+                    $('#processing').hide();
+                    $(button_element).html('&#10004');
+                },
+                error:function () {
+                    $('#processing_gif').hide();
+                    $('#processing').hide();
+                    $(button_element).html('&#10006');
+                    alert('Error running race. Please raise an issue in the Discord server.');
+                }
+            })
+        }
+    </script>
 </div>
 {% endblock %}

@@ -2,6 +2,7 @@ from flask import render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 from sqlalchemy import func
 
+from game import raceweekend
 from models.driver import Driver
 from models.gameapp import Schedule, Track
 from models.webapp import User
@@ -133,3 +134,7 @@ def drivers():
 @app.route('/teams')
 def teams():
     return render_template('teams.html')
+@app.route('/process_race/<race_id>', methods=['POST'])
+def process_race(race_id):
+    raceweekend.process_stage(race_id)
+    return jsonify(status='success')
