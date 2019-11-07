@@ -17,7 +17,8 @@ class Track(db.Model):
         self.name = track['name']
         self.length = track['length']
         self.type = track['type']
-        self.location = track['location']
+        if 'location' in track.keys():
+            self.location = track['location']
 
     def __str__(self):
         return (f'Track Name: {self.name}\n'
@@ -43,12 +44,19 @@ class Schedule(db.Model):
 
     def __init__(self, schedule):
         self.name = schedule['name']
-        self.date = datetime.strptime(schedule['date'], '%m/%d/%Y').date()
         self.type = schedule['type']
-        self.track_id = Track.query.filter_by(name=schedule['track']).first().id
         self.laps = schedule['laps']
-        self.stages = schedule['stages']
-        self.race_processed = schedule['race_processed']
+        self.date = datetime.strptime(schedule['date'], '%m/%d/%Y').date()
+        self.track_id = Track.query.filter_by(name=schedule['track']).first().id
+        if schedule['stages'] != '':
+            self.stages = (int(stage) for stage in schedule['stages'].split(','))
+        if schedule['race_processed'] in ('true', 'True', 'yes', 'y', 'Y'):
+            self.race_processed = True
+        elif schedule['race_processed'] in ('false', 'False', ' no', 'n', 'N'):
+            schedule['race_processed'] = False
+        else:
+            race_processed = schedule['race_processed']
+            raise TypeError(f'"{race_processed}" is not a valid type.')
 
     def __str__(self):
         return (f'Race Name: {self.name}\n'
