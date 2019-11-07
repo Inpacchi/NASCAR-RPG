@@ -399,7 +399,7 @@ def add_csv_to_db(model_type: str, file_name: str = None) -> None:
         for rental in rentals:
             equipment_lender_id = Team.query.filter(Team.name.like(f'%{rental[0]}%')).first().id
             equipment_lendee = Team.query.filter(Team.name.like(f'%{rental[1]}%')).first()
-            if TeamRentals.query.filter_by(from_id=equipment_lender_id, to_id=equipment_lendee.id).scalar() is None:
+            if TeamRentals.query.filter_by(lender_id=equipment_lender_id, lendee_id=equipment_lendee.id).scalar() is None:
                 equipment_lendee.add_rental(equipment_lender_id)
     elif model_type.lower() in MODEL_TYPE_DICT.get('schedules'):
         for row in reader:

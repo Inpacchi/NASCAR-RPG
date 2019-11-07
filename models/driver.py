@@ -62,9 +62,12 @@ class Driver(db.Model):
             except AttributeError as ae:
                 raise Exception(f'Query for "{name}" returned no results') from ae
             if driver['car_number'] not in [None, '']:
-                print(driver['car_number'])
-                car = TeamCars.query.filter_by(car_number=driver['car_number'], team_id=team_id).first()
-                car.driver_id = self.id # FIXME
+                try:
+                    car = TeamCars.query.filter_by(car_number=driver['car_number'], team_id=team_id).first()
+                    car.driver_id = self.id
+                except AttributeError as ae:
+                    car_number = driver['car_number']
+                    raise Exception(f'Query for "{name}" and car number "{car_number}" returned no results') from ae
                 TeamDrivers(self.id, team_id, car.series)
             else:
                 TeamDrivers(self.id, team_id)
