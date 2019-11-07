@@ -180,7 +180,6 @@
 
 .race-schedule {
     position: relative;
-    margin-bottom: 60px;
 }
 
 .race-schedule .owl-carousel {
@@ -279,7 +278,6 @@
 @media only screen and (min-width: 720px) {
     .race-schedule .owl-dots {
         text-align: center;
-        margin-bottom: 300px;
     }
 }
 

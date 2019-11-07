@@ -21,8 +21,8 @@
 .description-box {
     text-align: center;
     color: black;
-    border-left: 1px solid #000000;
-    padding-left: 100px;
+    border-right: 1px solid #000000;
+    padding-right: 100px;
     font-family: "Kalam";
     height: 100%;
     display: flex;
@@ -40,13 +40,13 @@
 
 .section-title {
     margin-top: 60px;
-    font-family: "Big Shoulders Text";
+    font-family: "Bangers";
 }
 
 .section-content {
     margin-top: 25px;
     margin-bottom: 50px;
-    font-family: "Big Shoulders Text";
+    font-family: "Kalam";
 }
 
 #map {
