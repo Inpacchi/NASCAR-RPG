@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block head %}
-    <link rel="stylesheet" href="../static/css/tracks.css">
+    <link rel="stylesheet" href="../static/css/trackInfo.css">
     <link rel="stylesheet" href="../static/css/external/animations/slide.css">
-<link href="https://fonts.googleapis.com/css?family=Bangers|Big+Shoulders+Text|Kalam&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Bangers|Kalam&display=swap" rel="stylesheet">
 
 {% endblock %}
 
@@ -16,51 +16,35 @@
                 <h1 id="header" class="mx-auto display-4">{{ track.name }}</h1>
             </div>
             <div class="row">
-                <div class="col-lg-7">
-                    <img src="../static/images/tracks/{{ track.name.replace(' ', '-') }}/track-header.jpg" class="img-fluid rounded track-header">
-                </div>
                 <div class="col-lg-5">
                     <div class="description-box"> <!-- &#176; is the dingbat for degree -->
                         <div class="description">
                             <b>Location:</b> {{ track.location }}
-                        <br>
-                        <b>Length:</b> {{ track.length }} miles
-                        <br>
-                        <b>Type:</b>
-                        {% if track.type == 'short' %}
-                            Short Track
-                        {% elif track.type == 'short-intermediate' %}
-                            Short-Intermediate Track
-                        {% elif track.type == 'intermediate' %}
-                            Intermediate Track
-                        {% elif track.type == 'superspeedway' %}
-                            Super Speedway
-                        {% elif track.type == 'restricted' %}
-                            Restricted Super Speedway
-                        {% elif track.type == 'road' %}
-                            Road Course
-                        {% endif %}
-                        <br>
-                        <h4 id="table-title">Banking</h4>
-                        <br>
-                        <table class="table table-hover table-striped mx-auto">
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Turns</th>
-                                    <td>31&#176;</td>
-                                </tr>
-                                <tr>
-                                   <th scope="row">Backstretch</th>
-                                    <td>3&#176;</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Tri-oval</th>
-                                    <td>18&#176;</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            <br>
+                            <b>Length:</b> {{ track.length }} miles
+                            <br>
+                            <b>Type:</b>
+                            {% if track.type == 'short' %}
+                                Short Track
+                            {% elif track.type == 'short-intermediate' %}
+                                Short-Intermediate Track
+                            {% elif track.type == 'intermediate' %}
+                                Intermediate Track
+                            {% elif track.type == 'superspeedway' %}
+                                Super Speedway
+                            {% elif track.type == 'restricted' %}
+                                Restricted Super Speedway
+                            {% elif track.type == 'road' %}
+                                Road Course
+                            {% endif %}
+                            <br>
+                            <br>
+                            <img src="../static/images/tracks/{{ track.name.replace(' ', '-') }}/logo.png" class="img-fluid rounded track-header">
                         </div>
                     </div>
+                </div>
+                <div class="col-lg-7">
+                    <img src="../static/images/tracks/{{ track.name.replace(' ', '-') }}/track-header.jpg" class="img-fluid rounded track-header">
                 </div>
             </div>
         </div>
