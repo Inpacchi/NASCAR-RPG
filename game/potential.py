@@ -26,8 +26,8 @@ def _load_driver_potential():
     for driver in Driver.instances:
         temp_dict = {
             driver: {
-                "age": Driver.instances[driver].age,
-                "potential": Driver.instances[driver].potential
+                "age": driver.age,
+                "potential": driver.potential
             }
         }
 
