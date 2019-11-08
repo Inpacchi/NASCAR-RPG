@@ -75,8 +75,6 @@ class Driver(db.Model):
     def __str__(self):
         return (f'Driver Name: {self.name}\n'
                 f'Age: {self.age}\n'
-                f'Team Name: {self.teamName}\n'
-                f'Car Number: {self.car_number}\n'
                 f'Short Track Rating: {self.short_rating}\n'
                 f'Short-Intermediate Track Rating: {self.short_intermediate_rating}\n'
                 f'Intermediate Track Rating: {self.intermediate_rating}\n'

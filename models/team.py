@@ -45,7 +45,8 @@ class Team(db.Model):
         return (f'Team Name: {self.name}\n'
                 f'Owner: {self.owner}\n'
                 f'Car Manufacturer: {self.car_manufacturer}\n'
-                f'Equipment Rating: {self.equipment_rating}\n'
+                f'Used Equipment Rating: {self.used_equipment_rating}\n'
+                f'Actual Equipment Rating: {self.actual_equipment_rating}\n'
                 f'Personnel Rating: {self.personnel_rating}\n'
                 f'Team Performance: {self.team_performance}\n')
 
@@ -172,3 +173,6 @@ class TeamDrivers(db.Model):
             if series is not None:
                 self.series = series
             db.session.add(self)
+
+    def __repr__(self):
+        return f'<gameapp.TeamDrivers object for {self.team_id}, {self.driver_id}>'
