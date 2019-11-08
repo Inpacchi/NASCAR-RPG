@@ -58,7 +58,10 @@
             $('#processing').show();
             $.ajax({
                 type: 'POST',
-                url: '/process_race/' + race_id,
+                url: '/process_race',
+                data: {
+                    race_id:race_id
+                },
                 success:function () {
                     $('#processing_gif').hide();
                     $('#processing').hide();

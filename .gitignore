@@ -127,3 +127,4 @@ logs/
 # Configuration Files
 setup.bat
 webapp/config.py
+.DS_Store

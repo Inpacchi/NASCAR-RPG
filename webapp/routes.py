@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, jsonify, request
 from flask_login import current_user, login_user, logout_user, login_required
 from sqlalchemy import func
 
@@ -135,10 +135,14 @@ def drivers():
 @app.route('/teams')
 def teams():
     return render_template('teams.html')
-@app.route('/process_race/<race_id>', methods=['POST'])
-def process_race(race_id):
-    raceweekend.process_stage(race_id)
-    return jsonify(status='success')
+
+@app.route('/process_race', methods=['POST'])
+def process_race():
+    if 'race_id' in request.form:
+        # raceweekend.process_stage(int(request.form['race_id']))
+        return jsonify(status='success')
+    else:
+        return jsonify(status='error')
 
 
 @app.route('/results/<race_id>')
