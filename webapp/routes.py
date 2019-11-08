@@ -5,6 +5,7 @@ from sqlalchemy import func
 from game import raceweekend
 from models.driver import Driver
 from models.gameapp import Schedule, Track
+from models.gameapp import Schedule, Track, QualifyingResults, RaceResults
 from models.webapp import User
 from webapp import app, db
 from webapp.email import send_password_reset_email
@@ -138,3 +139,27 @@ def teams():
 def process_race(race_id):
     raceweekend.process_stage(race_id)
     return jsonify(status='success')
+
+
+@app.route('/results/<race_id>')
+def results(race_id):
+    race_name = db.session.query(Schedule.name).filter_by(id=race_id).first().name
+
+    qualifying_results = db.session.query(Driver.name.label('driver_name'), QualifyingResults.position,
+                                          QualifyingResults.fastest_lap, QualifyingResults.range_hits) \
+        .join(Schedule, Schedule.id == QualifyingResults.race_id) \
+        .join(Driver, Driver.id == QualifyingResults.driver_id) \
+        .filter(QualifyingResults.race_id == race_id) \
+        .order_by(QualifyingResults.position) \
+        .all()
+
+    race_results = db.session.query(Driver.name.label('driver_name'), RaceResults.position, RaceResults.fastest_lap,
+                                    RaceResults.range_hits) \
+        .join(Schedule, Schedule.id == RaceResults.race_id) \
+        .join(Driver, Driver.id == RaceResults.driver_id) \
+        .filter(RaceResults.race_id == race_id) \
+        .order_by(RaceResults.position) \
+        .all()
+
+    return render_template('results.html', race_name=race_name, qualifying_results=qualifying_results,
+                           race_results=race_results)

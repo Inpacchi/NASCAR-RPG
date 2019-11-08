@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/css/table.css">
+<link rel="stylesheet" href="../static/css/results.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container u--fadeInLeft">
+        <div class="row">
+            <h1 id="page_title" class="text-center">{{ race_name }}</h1>
+        </div>
+        <div class="row">
+            <h2 class="table_title">Qualifying Results</h2>
+        </div>
+        <div class="row">
+            <table class="table table-hover table-bordered table-responsive-sm table-spacing table-shadow" id="qualifying_results">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Qualifying Position</th>
+                        <th scope="col">Driver Name</th>
+    <!--                    <th scope="col">Team Name</th>-->
+                        <th scope="col">Fastest Lap</th>
+                        <th scope="col">Range Hits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for qualifying_row in qualifying_results %}
+                        <tr id="{{ qualifying_row.id }}">
+                            <th scope="row">{{ qualifying_row.position }}</th>
+    <!--                        <td>{{ qualifying_row.team_id }}</td>-->
+                            <td>{{ qualifying_row.driver_name }}</td>
+                            <td>{{ qualifying_row.fastest_lap }}</td>
+                            <td>{{ qualifying_row.range_hits }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <h2 class="table_title">Race Results</h2>
+        </div>
+        <div class="row">
+            <table class="table table-hover table-bordered table-responsive-sm table-spacing table-shadow" id="race_results">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Finish Position</th>
+                        <th scope="col">Driver Name</th>
+    <!--                    <th scope="col">Team Name</th>-->
+                        <th scope="col">Fastest Lap</th>
+                        <th scope="col">Range Hits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for race_row in race_results %}
+                        <tr id="{{ race_row.id }}">
+                            <th scope="row">{{ race_row.position }}</th>
+    <!--                        <td>{{ race_row.team_id }}</td>-->
+                            <td>{{ race_row.driver_name }}</td>
+                            <td>{{ race_row.fastest_lap }}</td>
+                            <td>{{ race_row.range_hits }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

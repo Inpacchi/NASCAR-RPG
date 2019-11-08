@@ -1,0 +1,21 @@
+#page_title {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table_title {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 720px) {
+    #page_title {
+        margin-top: 150px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    #page_title {
+        margin-top: 50px;
+    }
+}

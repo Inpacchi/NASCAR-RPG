@@ -34,7 +34,6 @@
                     <td>{{ row.laps }}</td>
                     <td>{{ row.stages }}</td>
                     {% if row.race_processed == false %}
-                        <!-- TODO: Fire AJAX request to backend to run race -->
                         <!-- TODO: Hotlink track to track page -->
                         <td id="process_race_{{ row.id }}" class="text-center">
                             <button type="button" class="btn btn-primary" onclick="process_race('td#process_race_{{row.id}}', '{{ row.id }}')">
@@ -42,7 +41,11 @@
                             </button>
                         </td>
                     {% else %}
-                        <td class="text-center">&#10004</td> <!-- UTF-8 Dingbat for Check Mark -->
+                        <td id="view_race_results_{{ row.id }}" class="text-center">
+                            <a href="{{ url_for('results', race_id=row.id) }}">
+                                View Results
+                            </a>
+                        </td>
                     {% endif %}
                 </tr>
             {% endfor %}
