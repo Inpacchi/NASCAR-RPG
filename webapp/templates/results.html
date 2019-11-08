@@ -19,7 +19,7 @@
                     <tr>
                         <th scope="col">Qualifying Position</th>
                         <th scope="col">Driver Name</th>
-    <!--                    <th scope="col">Team Name</th>-->
+                        <th scope="col">Team Name</th>
                         <th scope="col">Fastest Lap</th>
                         <th scope="col">Range Hits</th>
                     </tr>
@@ -28,8 +28,8 @@
                     {% for qualifying_row in qualifying_results %}
                         <tr id="{{ qualifying_row.id }}">
                             <th scope="row">{{ qualifying_row.position }}</th>
-    <!--                        <td>{{ qualifying_row.team_id }}</td>-->
                             <td>{{ qualifying_row.driver_name }}</td>
+                            <td>{{ qualifying_row.team_name }}</td>
                             <td>{{ qualifying_row.fastest_lap }}</td>
                             <td>{{ qualifying_row.range_hits }}</td>
                         </tr>
@@ -46,7 +46,7 @@
                     <tr>
                         <th scope="col">Finish Position</th>
                         <th scope="col">Driver Name</th>
-    <!--                    <th scope="col">Team Name</th>-->
+                        <th scope="col">Team Name</th>
                         <th scope="col">Fastest Lap</th>
                         <th scope="col">Range Hits</th>
                     </tr>
@@ -55,8 +55,8 @@
                     {% for race_row in race_results %}
                         <tr id="{{ race_row.id }}">
                             <th scope="row">{{ race_row.position }}</th>
-    <!--                        <td>{{ race_row.team_id }}</td>-->
                             <td>{{ race_row.driver_name }}</td>
+                            <td>{{ race_row.team_name }}</td>
                             <td>{{ race_row.fastest_lap }}</td>
                             <td>{{ race_row.range_hits }}</td>
                         </tr>

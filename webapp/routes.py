@@ -6,6 +6,7 @@ from game import raceweekend
 from models.driver import Driver
 from models.gameapp import Schedule, Track
 from models.gameapp import Schedule, Track, QualifyingResults, RaceResults
+from models.team import Team
 from models.webapp import User
 from webapp import app, db
 from webapp.email import send_password_reset_email
@@ -139,7 +140,7 @@ def teams():
 @app.route('/process_race', methods=['POST'])
 def process_race():
     if 'race_id' in request.form:
-        # raceweekend.process_stage(int(request.form['race_id']))
+        raceweekend.process_stage(int(request.form['race_id']))
         return jsonify(status='success')
     else:
         return jsonify(status='error')
@@ -149,18 +150,21 @@ def process_race():
 def results(race_id):
     race_name = db.session.query(Schedule.name).filter_by(id=race_id).first().name
 
-    qualifying_results = db.session.query(Driver.name.label('driver_name'), QualifyingResults.position,
-                                          QualifyingResults.fastest_lap, QualifyingResults.range_hits) \
+    qualifying_results = db.session.query(Driver.name.label('driver_name'), Team.name.label('team_name'),
+                                          QualifyingResults.position, QualifyingResults.fastest_lap,
+                                          QualifyingResults.range_hits) \
         .join(Schedule, Schedule.id == QualifyingResults.race_id) \
         .join(Driver, Driver.id == QualifyingResults.driver_id) \
+        .join(Team, Team.id == QualifyingResults.team_id) \
         .filter(QualifyingResults.race_id == race_id) \
         .order_by(QualifyingResults.position) \
         .all()
 
-    race_results = db.session.query(Driver.name.label('driver_name'), RaceResults.position, RaceResults.fastest_lap,
-                                    RaceResults.range_hits) \
+    race_results = db.session.query(Driver.name.label('driver_name'), Team.name.label('team_name'),
+                                    RaceResults.position, RaceResults.fastest_lap, RaceResults.range_hits) \
         .join(Schedule, Schedule.id == RaceResults.race_id) \
         .join(Driver, Driver.id == RaceResults.driver_id) \
+        .join(Team, Team.id == RaceResults.team_id) \
         .filter(RaceResults.race_id == race_id) \
         .order_by(RaceResults.position) \
         .all()

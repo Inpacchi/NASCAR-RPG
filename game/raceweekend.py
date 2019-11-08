@@ -42,10 +42,11 @@ def process_stage(race_id: int = None, race_name: str = None, track_name: str = 
 
     _populate_ranges(drivers, track)
     _populate_standings(drivers)
-    _qualifying(race)
+    _qualifying(race, track)
     _race()
-    dbutil.add_standings_to_session(standings)
-    race.race_processed = True
+    dbutil.add_standings_to_session(standings, track)
+    if race_id is not None or race_name is not None:
+        race.race_processed = True
     dbutil.commit()
     # potential.process_stage(standings, drivers)
 
@@ -67,7 +68,15 @@ def _populate_ranges(drivers, track) -> None:
             }
         }
 
-        placement_range += _calculate_range(track, driver)
+        if len(driver.team) == 0:
+            team = None
+        elif len(driver.team) == 1:
+            team = Team.query.filter_by(id=driver.team[0].team_id).first()
+        else:
+            # TODO: Add series column to schedule table to determine team if driver is associated with more than 1
+            team = None
+
+        placement_range += _calculate_range(track, driver, team)
         dict_to_add[driver.name]['ending_range'] = placement_range
         rate_ranges.update(dict_to_add)
         placement_range += 1
@@ -76,7 +85,7 @@ def _populate_ranges(drivers, track) -> None:
     ending_range = placement_range
 
 
-def _calculate_range(track, driver: Driver, team: Team = None, startingBonus: int = 0) -> float:
+def _calculate_range(track, driver: Driver, team: Team, startingBonus: int = 0) -> float:
     """
     Returns a range for each driver dependent upon their overall rating as well as their team rating and any bonuses.
 
@@ -106,7 +115,7 @@ def _calculate_range(track, driver: Driver, team: Team = None, startingBonus: in
         raise Exception('Track type not defined')
 
     if team is not None:
-        team_result = pow(team.raceRating, TEAM_FACTOR)
+        team_result = pow((team.used_equipment_rating + team.personnel_rating) / 2, TEAM_FACTOR)
     else:
         team_result = pow(50, TEAM_FACTOR)
 
@@ -126,20 +135,21 @@ def _populate_standings(drivers) -> None:
     for driver in drivers:
         dict_to_add = {
             driver.name: {
-                "race_id": 0,
-                "qualifying_position": 0,
-                "finishing_position": 0,
-                "laps_led": 0,
-                "times_qualifying_range_hit": 0,
-                "times_race_range_hit": 0,
-                "fastest_qualifying_lap": 0
+                "race_id": None,
+                "track_id": None,
+                "qualifying_position": None,
+                "finishing_position": None,
+                "laps_led": None,
+                "times_qualifying_range_hit": None,
+                "times_race_range_hit": None,
+                "fastest_qualifying_lap": None
             }
         }
 
         standings.update(dict_to_add)
 
 
-def _qualifying(race=None) -> None:
+def _qualifying(race=None, track=None) -> None:
     """
     Processes the qualifying stage of the race and writes the results to the standings.
 
@@ -153,13 +163,15 @@ def _qualifying(race=None) -> None:
         random_number = randint(0, ending_range)
 
         for rate_range in rate_ranges:
-            if race is not None and standings[rate_range]['race_id'] == 0:
+            if race is not None and standings[rate_range]['race_id'] is None:
                 standings[rate_range]['race_id'] = race.id
+            elif track is not None and standings[rate_range]['track_id'] is None:
+                standings[rate_range]['track_id'] = track.id
 
             if rate_ranges[rate_range]['starting_range'] <= random_number <= rate_ranges[rate_range]['ending_range']:
-                if standings[rate_range]['qualifying_position'] == 0:
+                if standings[rate_range]['qualifying_position'] is None:
                     standings[rate_range]['qualifying_position'] = qualifying_position
-                    standings[rate_range]['times_qualifying_range_hit'] += 1
+                    standings[rate_range]['times_qualifying_range_hit'] = 1
                     qualifying_position += 1
                 else:
                     standings[rate_range]['times_qualifying_range_hit'] += 1
@@ -180,10 +192,9 @@ def _race() -> None:
 
         for rate_range in rate_ranges:
             if rate_ranges[rate_range]['starting_range'] <= random_number <= rate_ranges[rate_range]['ending_range']:
-                if standings[rate_range]['finishing_position'] == 0:
+                if standings[rate_range]['finishing_position'] is None:
                     standings[rate_range]['finishing_position'] = finishing_position
-                    standings[rate_range]['times_race_range_hit'] += 1
+                    standings[rate_range]['times_race_range_hit'] = 1
                     finishing_position += 1
                 else:
                     standings[rate_range]['times_race_range_hit'] += 1
-

@@ -74,16 +74,20 @@ class Schedule(db.Model):
 class QualifyingResults(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     race_id = db.Column(db.Integer, db.ForeignKey('schedule.id'))
+    track_id = db.Column(db.Integer, db.ForeignKey('track.id'))
+    process_date_time = db.Column(db.DateTime)
     driver_id = db.Column(db.Integer, db.ForeignKey('driver.id'))
     team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
     position = db.Column(db.Integer, index=True)
     fastest_lap = db.Column(db.Float, index=True)
     range_hits = db.Column(db.Integer)
 
-    def __init__(self, standings, driver_id, team_id = None):
+    def __init__(self, standings, track_id, process_date_time, driver_id, team_id=None):
         self.driver_id = driver_id
         self.position = standings['qualifying_position']
         self.range_hits = standings['times_qualifying_range_hit']
+        self.process_date_time = process_date_time
+        self.track_id = track_id
 
         if standings['race_id'] != 0:
             self.race_id = standings['race_id']
@@ -107,6 +111,8 @@ class QualifyingResults(db.Model):
 class RaceResults(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     race_id = db.Column(db.Integer, db.ForeignKey('schedule.id'))
+    track_id = db.Column(db.Integer, db.ForeignKey('track.id'))
+    process_date_time = db.Column(db.DateTime)
     driver_id = db.Column(db.Integer, db.ForeignKey('driver.id'))
     team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
     position = db.Column(db.Integer, index=True)
@@ -114,10 +120,12 @@ class RaceResults(db.Model):
     fastest_lap = db.Column(db.Float, index=True)
     range_hits = db.Column(db.Integer)
 
-    def __init__(self, standings, driver_id, team_id = None):
+    def __init__(self, standings, track_id, process_date_time, driver_id, team_id=None):
         self.driver_id = driver_id
         self.position = standings['finishing_position']
         self.range_hits = standings['times_race_range_hit']
+        self.process_date_time = process_date_time
+        self.track_id = track_id
 
         if standings['race_id'] != 0:
             self.race_id = standings['race_id']
