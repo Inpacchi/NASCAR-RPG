@@ -68,6 +68,8 @@ def _json_file(model_type: str, file_path: str = None, file_name: str = None) ->
             json_path = f'data/json/teams/{file_name}.json'
         elif model_type.lower() in MODEL_TYPE_DICT.get('test_subset'):
             json_path = f'../data/json/tests/{file_name}.json'
+        elif model_type.lower() in MODEL_TYPE_DICT.get('misc_subset'):
+            json_path = f'data/json/{file_name}.json'
         else:
             raise Exception(f'\'{model_type}\' is not a valid model type!')
     else:

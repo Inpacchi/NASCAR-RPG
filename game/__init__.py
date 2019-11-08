@@ -1,1 +1,1 @@
-__all__ = ["potential", "raceweekend"]
+__all__ = ["potential", "raceweekend", "test_race_weekend"]
