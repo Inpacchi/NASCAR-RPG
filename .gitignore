@@ -121,10 +121,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-*.xml
 *.iml
 logs/
 
+# Configuration Files
 setup.bat
-
 webapp/config.py
