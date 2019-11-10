@@ -60,7 +60,9 @@ def _json_file(model_type: str, file_path: str = None, file_name: str = None) ->
     """
 
     if file_path is not None and file_name is not None:
-        json_path = f'data/{file_path}/{file_name}'
+        if not os.path.exists(f'data/json/{file_path}'):
+            os.makedirs(f'data/json/{file_path}')
+        json_path = f'data/json/{file_path}/{file_name}.json'
     elif file_name is not None:
         if model_type.lower() in MODEL_TYPE_DICT.get('driver_subset'):
             json_path = f'data/json/drivers/{file_name}.json'
@@ -233,7 +235,7 @@ def read_dict_from_json(model_type: str, file_name: str = None, file_path: str =
         return temp_dict
 
 
-def write_dict_to_json(model_type: str, models: dict = None, file_name: str = None) -> None:
+def write_dict_to_json(model_type: str, models: dict = None, file_path: str = None, file_name: str = None) -> None:
     """
     Writes the model dictionary to the relevant model type JSON file.
 
@@ -258,7 +260,7 @@ def write_dict_to_json(model_type: str, models: dict = None, file_name: str = No
         else:
             raise Exception("No data dictionary was passed in and one could not be loaded. Please try again.")
 
-    json_file = _json_file(model_type, None, file_name)
+    json_file = _json_file(model_type, file_path, file_name)
 
     # Clear the file
     json_file.seek(0)
