@@ -2,7 +2,7 @@ from datetime import datetime
 
 from sqlalchemy.exc import SQLAlchemyError
 
-from models.gameapp import QualifyingResults, RaceResults
+from models.game_app import QualifyingResults, RaceResults
 from models.driver import Driver
 from models.team import Team
 

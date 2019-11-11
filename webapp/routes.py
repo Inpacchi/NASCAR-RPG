@@ -4,8 +4,8 @@ from sqlalchemy import func
 
 from game import raceweekend
 from models.driver import Driver
-from models.gameapp import Schedule, Track
-from models.gameapp import Schedule, Track, QualifyingResults, RaceResults
+from models.game_app import Schedule, Track
+from models.game_app import Schedule, Track, QualifyingResults, RaceResults
 from models.team import Team
 from models.webapp import User
 from webapp import app, db

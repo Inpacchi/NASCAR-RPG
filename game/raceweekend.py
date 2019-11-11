@@ -1,7 +1,7 @@
 from random import randint
 
 from game import potential
-from models.gameapp import Schedule, Track
+from models.game_app import Schedule, Track
 from models.driver import Driver
 from models.team import Team
 from utilities import dbutil

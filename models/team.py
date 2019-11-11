@@ -51,7 +51,7 @@ class Team(db.Model):
                 f'Team Performance: {self.team_performance}\n')
 
     def __repr__(self):
-        return f'<gameapp.Team object for {self.name}>'
+        return f'<models.Team>[{self.name}]'
 
     def serialize(self) -> dict:
         """
@@ -175,4 +175,4 @@ class TeamDrivers(db.Model):
             db.session.add(self)
 
     def __repr__(self):
-        return f'<gameapp.TeamDrivers object for {self.team_id}, {self.driver_id}>'
+        return f'<models.TeamDrivers>[driver_id={self.driver_id}, team_id={self.team_id}]'

@@ -85,7 +85,7 @@ class Driver(db.Model):
                 f'Potential: {self.potential}\n')
 
     def __repr__(self):
-        return f'<gameapp.Driver object for {self.name}>'
+        return f'<models.Driver>[{self.name}]'
 
     def serialize(self) -> dict:
         """

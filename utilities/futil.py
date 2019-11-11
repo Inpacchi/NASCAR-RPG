@@ -6,7 +6,7 @@ import csv
 from sqlalchemy.exc import SQLAlchemyError, IntegrityError
 
 from models.driver import Driver
-from models.gameapp import Schedule, Track
+from models.game_app import Schedule, Track
 from models.team import Team, TeamRentals
 from webapp import db
 
