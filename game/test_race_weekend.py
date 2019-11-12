@@ -8,6 +8,7 @@ from utilities import futil
 
 DRIVER_FACTOR = 1.25
 TEAM_FACTOR = 1.4
+CAUTION_THRESHOLD = 5
 
 standings = {}
 rate_ranges = {}
@@ -302,3 +303,6 @@ def _calculate_post_race_stats():
         standings[driver]['top_15_lap_percentage'] = standings[driver]['top_15_lap_percentage'] / standings[driver]['total_lap_count']
         standings[driver]['average_position'] = standings[driver]['average_position'] / standings[driver]['total_lap_count']
         # TODO: Driver Rating
+
+def _caution(average_laps_under_caution, lap_count):
+    pass
