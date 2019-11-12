@@ -68,7 +68,7 @@ def process_stage():
 
     _populate_ranges(drivers)
     _populate_standings(drivers)
-    _race(500, drivers)
+    _race(200, drivers)
 
 
 def _populate_ranges(drivers):
@@ -126,18 +126,19 @@ def _populate_standings(drivers):
     for driver in drivers:
         standings.update({
             driver.name: {
-                'start_position': None,
-                'mid_race_position': None,
-                'finish_position': None,
-                'lowest_position': None,
-                'highest_position': None,
-                'average_position': None,
-                'lap_lead_count': None,
-                'lap_lead_percentage': None,
-                'top_15_lap_count': None,
-                'top_15_lap_percentage': None,
-                'total_lap_count': None,
-                'driver_rating': None,
+                'start_position': 0,
+                'mid_race_position': 0,
+                'finish_position': 0,
+                'lowest_position': 0,
+                'highest_position': 0,
+                'average_position': 0,
+                'current_position': 0,
+                'lap_lead_count': 0,
+                'lap_lead_percentage': 0,
+                'top_15_lap_count': 0,
+                'top_15_lap_percentage': 0,
+                'total_lap_count': 1,
+                'driver_rating': 0,
                 'dnf_odds': 0
             }
         })
@@ -165,7 +166,7 @@ def _race(laps, drivers):
 
             for driver in rate_ranges:
                 _calculate_lap_position(last_position, floor_position, average_position_change, driver, random.randint(0, ending_range), position_changes)
-            _calculate_after_lap_stats()
+            _calculate_post_lap_stats()
             # futil.write_dict_to_json('standings', standings, 'test_simulation/standings', f'standings_lap_{lap_count}')
             # futil.write_dict_to_json('standings', rate_ranges, 'test_simulation/rate_ranges', f'rate_ranges_lap_{lap_count}')
 
@@ -179,7 +180,7 @@ def _race(laps, drivers):
     # futil.write_dict_to_json('standings', standings, 'test_simulation/standings', 'finish_standings')
 
 
-def _calculate_after_lap_stats():
+def _calculate_post_lap_stats():
     for driver in standings:
         standings[driver]['average_position'] = standings[driver]['average_position'] + standings[driver]['current_position']
         standings[driver]['total_lap_count'] = standings[driver]['total_lap_count'] + 1
@@ -197,24 +198,33 @@ def _calculate_after_lap_stats():
                 standings[driver]['highest_position'] = standings[driver]['current_position']
 
 
+def _calculate_post_race_stats():
+    for driver in standings:
+        standings[driver]['finish_position'] = standings[driver]['current_position']
+        standings[driver]['lap_lead_percentage'] = round(standings[driver]['lap_lead_count'] / standings[driver]['total_lap_count'], 2)
+        standings[driver]['top_15_lap_percentage'] = round(standings[driver]['top_15_lap_count'] / standings[driver]['total_lap_count'], 2)
+        standings[driver]['average_position'] = round(standings[driver]['average_position'] / standings[driver]['total_lap_count'])
+        # TODO: Driver Rating
+
+
 def _calculate_lap_1_positions():
     running_position = 1
     non_range_hits = 0
-    random_number = random.randint(0, ending_range)
 
     for driver in rate_ranges:
+        random_number = random.randint(0, ending_range)
         # Any driver that has their rate range hit will get first pickings at the high end of the positions
         # Use the non_range_hits to keep track of how many drivers' don't get their ranges hit
         if rate_ranges[driver]['starting_range'] <= random_number <= rate_ranges[driver]['ending_range']:
             if running_position == 1:
                 standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .0001
             else:
-                standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .0003
+                standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .003
 
-            standings[driver]['position'] = running_position
+            standings[driver]['current_position'] = running_position
             running_position = running_position + 1
         else:
-            standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .0007
+            standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .01
             non_range_hits = non_range_hits + 1
 
     # For any driver that doesn't have their range hit, assign them a random position based on what's left
@@ -226,12 +236,9 @@ def _calculate_lap_1_positions():
         iterator = iterator + 1
 
     for driver in rate_ranges:
-        if standings[driver]['current_position'] is None:
+        if standings[driver]['current_position'] == 0:
             standings[driver]['current_position'] = random.choice(positions)
             positions.remove(standings[driver]['current_position'])
-
-        if standings[driver]['current_position'] <= 15:
-            standings[driver]['top_15_lap_count'] = 1
 
         standings[driver]['start_position'] = standings[driver]['current_position']
         standings[driver]['lowest_position'] = standings[driver]['current_position']
@@ -256,23 +263,23 @@ def _calculate_lap_position(last_position, floor_position, average_position_chan
                 standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .0001
                 position_changes.append(1)
             else:
-                standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .0003
+                standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .0005
                 while random_position == 1:
                     if current_position <= average_position_change:
                         random_position = random.randint(2, current_position)
                     else:
                         random_position = random.randint(current_position - average_position_change, current_position)
         else:
-            standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .0007
+            standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .003
 
         previous_position = standings[driver]['current_position']
         standings[driver]['current_position'] = random_position
 
         while random_position != previous_position:
             for next_driver in rate_ranges:
-                if next_driver != previous_driver and standings[next_driver]['position'] == random_position:
+                if next_driver != previous_driver and standings[next_driver]['current_position'] == random_position:
                     random_position = random_position + 1
-                    standings[next_driver]['position'] = random_position
+                    standings[next_driver]['current_position'] = random_position
                     previous_driver = next_driver
                     break
     else:
@@ -285,7 +292,7 @@ def _calculate_lap_position(last_position, floor_position, average_position_chan
             random_position = random.randint(current_position, lowest_position)
 
         standings[driver]['current_position'] = random_position
-        standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .0005
+        standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .01
 
         while random_position != previous_position:
             for next_driver in rate_ranges:
@@ -295,14 +302,6 @@ def _calculate_lap_position(last_position, floor_position, average_position_chan
                     previous_driver = next_driver
                     break
 
-
-def _calculate_post_race_stats():
-    for driver in standings:
-        standings[driver]['finish_position'] = standings[driver]['current_position']
-        standings[driver]['lap_lead_percentage'] = standings[driver]['lap_lead_percentage'] / standings[driver]['total_lap_count']
-        standings[driver]['top_15_lap_percentage'] = standings[driver]['top_15_lap_percentage'] / standings[driver]['total_lap_count']
-        standings[driver]['average_position'] = standings[driver]['average_position'] / standings[driver]['total_lap_count']
-        # TODO: Driver Rating
 
 def _caution(average_laps_under_caution, lap_count):
     pass
