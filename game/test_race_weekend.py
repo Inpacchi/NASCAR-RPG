@@ -201,8 +201,8 @@ def _calculate_post_lap_stats():
 def _calculate_post_race_stats():
     for driver in standings:
         standings[driver]['finish_position'] = standings[driver]['current_position']
-        standings[driver]['lap_lead_percentage'] = round(standings[driver]['lap_lead_count'] / standings[driver]['total_lap_count'], 2)
-        standings[driver]['top_15_lap_percentage'] = round(standings[driver]['top_15_lap_count'] / standings[driver]['total_lap_count'], 2)
+        standings[driver]['lap_lead_percentage'] = (standings[driver]['lap_lead_count'] / standings[driver]['total_lap_count']) * 100
+        standings[driver]['top_15_lap_percentage'] = (standings[driver]['top_15_lap_count'] / standings[driver]['total_lap_count']) * 100
         standings[driver]['average_position'] = round(standings[driver]['average_position'] / standings[driver]['total_lap_count'])
         # TODO: Driver Rating
 
