@@ -1,3 +1,4 @@
+import math
 import random
 from math import floor
 
@@ -144,7 +145,7 @@ def _populate_standings(drivers):
                 'dnf_odds': 0
             }
         })
-        standings[driver.name]['dnf_odds'] = random.uniform(0, .09)
+        standings[driver.name]['dnf_odds'] = random.uniform(0, .09) * math.pow(driver.restricted_track_rating, 2)
 
 
 def _race(laps, drivers):
@@ -173,7 +174,7 @@ def _race(laps, drivers):
 
             for driver in standings:
                 if standings[driver]['dnf_odds'] > .1:
-                    current_lap = _determine_caution_flag(driver, current_lap)
+                    current_lap = _determine_caution_flag(driver, drivers, current_lap)
             # futil.write_dict_to_json('standings', standings, 'test_simulation/standings', f'standings_lap_{lap_count}')
             # futil.write_dict_to_json('standings', rate_ranges, 'test_simulation/rate_ranges', f'rate_ranges_lap_{lap_count}')
 
@@ -307,18 +308,18 @@ def _calculate_lap_position(last_position, floor_position, average_position_chan
                     break
 
 
-def _determine_caution_flag(driver, current_lap):
-    if random.uniform(0, 1) < .015:
-        standings[driver]['cautions_caused'] = standings[driver]['cautions_caused'] + 1
-        print('\n - - - - - - - - Caution Flag! - - - - - - - - ')
-        print(f'        {driver} caused the caution')
+def _determine_caution_flag(driver_name, drivers, current_lap):
+    if random.uniform(0, 1) < .0005:
+        standings[driver_name]['cautions_caused'] = standings[driver_name]['cautions_caused'] + 1
+        print('\n - - - - - - - - Caution Flag - - - - - - - - ')
+        print(f'        {driver_name} caused the caution')
 
         if random.uniform(0, 1) < .5:
-            print(f'{driver} caused a wreck and has crashed')
-            standings[driver]['status'] = 'crash'
+            print(f'{driver_name} caused a wreck and has crashed')
+            standings[driver_name]['status'] = 'crash'
         else:
-            print(f'{driver} caused a wreck')
-        _caution_flag_out(driver)
+            print(f'{driver_name} caused a wreck')
+        _caution_flag_out(driver_name)
 
         end_caution_lap = current_lap + random.randint(1, 4)
 
@@ -326,10 +327,13 @@ def _determine_caution_flag(driver, current_lap):
             current_lap += 1
             print(f'\n * - * - * - * - CAUTION LAP {current_lap} - * - * - * - * ')
 
-        for driver in standings:
-            standings[driver]['dnf_odds'] = random.uniform(0, .09)
+        for driver in drivers:
+            standings[driver.name]['dnf_odds'] = random.uniform(0, .09) * math.pow(driver.restricted_track_rating, 2)
     else:
-        standings[driver]['dnf_odds'] = random.uniform(0, .09)
+        for driver in drivers:
+            if driver.name == driver_name:
+                standings[driver.name]['dnf_odds'] = random.uniform(0, .09) * math.pow(driver.restricted_track_rating, 2)
+                break
 
     return current_lap
 
