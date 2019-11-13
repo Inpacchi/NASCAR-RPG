@@ -139,9 +139,12 @@ def _populate_standings(drivers):
                 'top_15_lap_percentage': 0,
                 'total_lap_count': 1,
                 'driver_rating': 0,
+                'cautions_caused': 0,
+                'status': 'running',
                 'dnf_odds': 0
             }
         })
+        standings[driver.name]['dnf_odds'] = random.uniform(0, .09)
 
 
 def _race(laps, drivers):
@@ -167,6 +170,10 @@ def _race(laps, drivers):
             for driver in rate_ranges:
                 _calculate_lap_position(last_position, floor_position, average_position_change, driver, random.randint(0, ending_range), position_changes)
             _calculate_post_lap_stats()
+
+            for driver in standings:
+                if standings[driver]['dnf_odds'] > .1:
+                    current_lap = _determine_caution_flag(driver, current_lap)
             # futil.write_dict_to_json('standings', standings, 'test_simulation/standings', f'standings_lap_{lap_count}')
             # futil.write_dict_to_json('standings', rate_ranges, 'test_simulation/rate_ranges', f'rate_ranges_lap_{lap_count}')
 
@@ -217,14 +224,14 @@ def _calculate_lap_1_positions():
         # Use the non_range_hits to keep track of how many drivers' don't get their ranges hit
         if rate_ranges[driver]['starting_range'] <= random_number <= rate_ranges[driver]['ending_range']:
             if running_position == 1:
-                standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .0001
+                standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + random.uniform(0, .001)
             else:
-                standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .003
+                standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + random.uniform(0, .002)
 
             standings[driver]['current_position'] = running_position
             running_position = running_position + 1
         else:
-            standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .01
+            standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + random.uniform(.002, .003)
             non_range_hits = non_range_hits + 1
 
     # For any driver that doesn't have their range hit, assign them a random position based on what's left
@@ -244,9 +251,6 @@ def _calculate_lap_1_positions():
         standings[driver]['lowest_position'] = standings[driver]['current_position']
         standings[driver]['highest_position'] = standings[driver]['current_position']
 
-    # futil.write_dict_to_json('standings', rate_ranges, 'test_simulation/rate_ranges', 'start_rate_ranges')
-    # futil.write_dict_to_json('standings', standings, 'test_simulation/standings', 'start_standings')
-
 
 def _calculate_lap_position(last_position, floor_position, average_position_change, driver, random_number, position_changes):
     current_position = standings[driver]['current_position']
@@ -260,17 +264,17 @@ def _calculate_lap_position(last_position, floor_position, average_position_chan
 
         if random_position == 1:
             if 1 not in position_changes:
-                standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .0001
+                standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + random.uniform(0, .001)
                 position_changes.append(1)
             else:
-                standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .0005
+                standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + random.uniform(0, .0015)
                 while random_position == 1:
                     if current_position <= average_position_change:
                         random_position = random.randint(2, current_position)
                     else:
                         random_position = random.randint(current_position - average_position_change, current_position)
         else:
-            standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .003
+            standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + random.uniform(0, .002)
 
         previous_position = standings[driver]['current_position']
         standings[driver]['current_position'] = random_position
@@ -292,7 +296,7 @@ def _calculate_lap_position(last_position, floor_position, average_position_chan
             random_position = random.randint(current_position, lowest_position)
 
         standings[driver]['current_position'] = random_position
-        standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + .01
+        standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + random.uniform(.002, .003)
 
         while random_position != previous_position:
             for next_driver in rate_ranges:
@@ -303,5 +307,54 @@ def _calculate_lap_position(last_position, floor_position, average_position_chan
                     break
 
 
-def _caution(average_laps_under_caution, lap_count):
-    pass
+def _determine_caution_flag(driver, current_lap):
+    if random.uniform(0, 1) < .015:
+        standings[driver]['cautions_caused'] = standings[driver]['cautions_caused'] + 1
+        print('\n - - - - - - - - Caution Flag! - - - - - - - - ')
+        print(f'        {driver} caused the caution')
+
+        if random.uniform(0, 1) < .5:
+            print(f'{driver} caused a wreck and has crashed')
+            standings[driver]['status'] = 'crash'
+        else:
+            print(f'{driver} caused a wreck')
+        _caution_flag_out(driver)
+
+        end_caution_lap = current_lap + random.randint(1, 4)
+
+        while current_lap < end_caution_lap:
+            current_lap += 1
+            print(f'\n * - * - * - * - CAUTION LAP {current_lap} - * - * - * - * ')
+
+        for driver in standings:
+            standings[driver]['dnf_odds'] = random.uniform(0, .09)
+    else:
+        standings[driver]['dnf_odds'] = random.uniform(0, .09)
+
+    return current_lap
+
+
+def _caution_flag_out(caution_driver):
+    drivers_involved_in_crash = random.randint(0, 8)
+    for driver in standings:
+        if driver != caution_driver and standings[driver]['status'] == 'running':
+
+
+            caution_driver_position = standings[caution_driver]['current_position']
+            driver_position = standings[driver]['current_position']
+
+
+
+
+
+
+            if standings[driver]['dnf_odds'] > .1:
+                if random.uniform(0, 1) < .20:
+                    standings[driver]['dnf_odds'] = 0
+                    standings[driver]['status'] = 'crash'
+                    print(f'{driver} was involved in the wreck and has crashed!')
+                else:
+                    if random.uniform(0, 1) < .4:
+                        standings[driver]['dnf_odds'] = .01
+                        # Lose position
+                        print(f'{driver} was involved in the wreck!')
