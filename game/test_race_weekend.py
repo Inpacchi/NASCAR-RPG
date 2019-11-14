@@ -15,6 +15,8 @@ standings = {}
 rate_ranges = {}
 ending_range = None
 
+crashed_drivers = []
+
 position_bonuses = {
     1: .25,
     2: .18,
@@ -96,22 +98,25 @@ def _populate_ranges(drivers):
 def _repopulate_ranges(drivers):
     placement_range = 0
     for driver in drivers:
-        team = Team.query.filter_by(id=driver.team[0].team_id).first()
+        if standings[driver.name]['status'] == 'running':
+            team = Team.query.filter_by(id=driver.team[0].team_id).first()
 
-        rate_ranges[driver.name]['starting_range'] = floor(placement_range)
+            rate_ranges[driver.name]['starting_range'] = floor(placement_range)
 
-        placement_range = placement_range + _calculate_range(driver, team, standings[driver.name]['lap_lead_count'])
+            placement_range = placement_range + _calculate_range(driver, team, standings[driver.name]['lap_lead_count'])
 
-        position_bonus = position_bonuses[standings[driver.name]['current_position']]
+            position_bonus = position_bonuses[standings[driver.name]['current_position']]
 
-        bonus_range = floor((placement_range * position_bonus) + placement_range)
+            bonus_range = floor((placement_range * position_bonus) + placement_range)
 
-        if rate_ranges[driver.name]['ending_range'] <= bonus_range:
-            rate_ranges[driver.name]['ending_range'] = bonus_range
-        else:
-            rate_ranges[driver.name]['ending_range'] = floor((rate_ranges[driver.name]['ending_range'] * position_bonus) + rate_ranges[driver.name]['ending_range'])
+            if rate_ranges[driver.name]['ending_range'] <= bonus_range:
+                rate_ranges[driver.name]['ending_range'] = bonus_range
+            else:
+                rate_ranges[driver.name]['ending_range'] = floor(
+                    (rate_ranges[driver.name]['ending_range'] * position_bonus) + rate_ranges[driver.name][
+                        'ending_range'])
 
-        placement_range = rate_ranges[driver.name]['ending_range'] + 1
+            placement_range = rate_ranges[driver.name]['ending_range'] + 1
     global ending_range
     ending_range = placement_range
 
@@ -128,12 +133,13 @@ def _populate_standings(drivers):
         standings.update({
             driver.name: {
                 'start_position': 0,
-                'mid_race_position': 0,
+                'mid_race_position': None,
                 'finish_position': 0,
                 'lowest_position': 0,
                 'highest_position': 0,
                 'average_position': 0,
                 'current_position': 0,
+                'position_when_wrecked': None,
                 'lap_lead_count': 0,
                 'lap_lead_percentage': 0,
                 'top_15_lap_count': 0,
@@ -145,7 +151,7 @@ def _populate_standings(drivers):
                 'dnf_odds': 0
             }
         })
-        standings[driver.name]['dnf_odds'] = random.uniform(0, .09) * math.pow(driver.restricted_track_rating, 2)
+        standings[driver.name]['dnf_odds'] = random.uniform(0, .09) * math.pow((driver.restricted_track_rating / 100), 2)
 
 
 def _race(laps, drivers):
@@ -169,48 +175,56 @@ def _race(laps, drivers):
             _repopulate_ranges(drivers)
 
             for driver in rate_ranges:
-                _calculate_lap_position(last_position, floor_position, average_position_change, driver, random.randint(0, ending_range), position_changes)
+                if standings[driver]['status'] == 'running':
+                    _calculate_lap_position(last_position, floor_position, average_position_change, driver,
+                                            random.randint(0, ending_range), position_changes)
             _calculate_post_lap_stats()
 
             for driver in standings:
-                if standings[driver]['dnf_odds'] > .1:
-                    current_lap = _determine_caution_flag(driver, drivers, current_lap)
+                if standings[driver]['status'] == 'running' and standings[driver]['dnf_odds'] > .1:
+                    current_lap = _determine_if_caution_flag_waved(driver, drivers, current_lap)
             # futil.write_dict_to_json('standings', standings, 'test_simulation/standings', f'standings_lap_{lap_count}')
             # futil.write_dict_to_json('standings', rate_ranges, 'test_simulation/rate_ranges', f'rate_ranges_lap_{lap_count}')
 
         if current_lap == mid_race_lap:
             for driver in standings:
-                standings[driver]['mid_race_position'] = standings[driver]['current_position']
+                if standings[driver]['status'] == 'running':
+                    standings[driver]['mid_race_position'] = standings[driver]['current_position']
         current_lap = current_lap + 1
 
-    _calculate_post_race_stats()
+    _post_race_processing()
     # futil.write_dict_to_json('standings', rate_ranges, 'test_simulation/rate_ranges', 'finish_rate_ranges')
-    # futil.write_dict_to_json('standings', standings, 'test_simulation/standings', 'finish_standings')
+    futil.write_dict_to_json('standings', standings, 'test_simulation/standings', 'finish_standings')
 
 
 def _calculate_post_lap_stats():
     for driver in standings:
-        standings[driver]['average_position'] = standings[driver]['average_position'] + standings[driver]['current_position']
-        standings[driver]['total_lap_count'] = standings[driver]['total_lap_count'] + 1
+        if standings[driver]['status'] == 'running':
+            standings[driver]['average_position'] = standings[driver]['average_position'] + standings[driver][
+                'current_position']
+            standings[driver]['total_lap_count'] = standings[driver]['total_lap_count'] + 1
 
-        if standings[driver]['current_position'] <= 15:
-            standings[driver]['top_15_lap_count'] = standings[driver]['top_15_lap_count'] + 1
+            if standings[driver]['current_position'] <= 15:
+                standings[driver]['top_15_lap_count'] = standings[driver]['top_15_lap_count'] + 1
 
-        if standings[driver]['current_position'] == 1:
-            standings[driver]['lap_lead_count'] = standings[driver]['lap_lead_count'] + 1
-            standings[driver]['highest_position'] = 1
-        else:
-            if standings[driver]['current_position'] > standings[driver]['lowest_position']:
-                standings[driver]['lowest_position'] = standings[driver]['current_position']
-            elif standings[driver]['current_position'] < standings[driver]['highest_position']:
-                standings[driver]['highest_position'] = standings[driver]['current_position']
+            if standings[driver]['current_position'] == 1:
+                standings[driver]['lap_lead_count'] = standings[driver]['lap_lead_count'] + 1
+                standings[driver]['highest_position'] = 1
+            else:
+                if standings[driver]['current_position'] > standings[driver]['lowest_position']:
+                    standings[driver]['lowest_position'] = standings[driver]['current_position']
+                elif standings[driver]['current_position'] < standings[driver]['highest_position']:
+                    standings[driver]['highest_position'] = standings[driver]['current_position']
 
 
-def _calculate_post_race_stats():
+def _post_race_processing():
     for driver in standings:
-        standings[driver]['finish_position'] = standings[driver]['current_position']
-        standings[driver]['lap_lead_percentage'] = (standings[driver]['lap_lead_count'] / standings[driver]['total_lap_count']) * 100
-        standings[driver]['top_15_lap_percentage'] = (standings[driver]['top_15_lap_count'] / standings[driver]['total_lap_count']) * 100
+        if standings[driver]['status'] == 'running':
+            standings[driver]['finish_position'] = standings[driver]['current_position']
+        standings[driver]['current_position'] = None
+        standings[driver]['dnf_odds'] = None
+        standings[driver]['lap_lead_percentage'] = round(standings[driver]['lap_lead_count'] / standings[driver]['total_lap_count'], 4) * 100
+        standings[driver]['top_15_lap_percentage'] = round(standings[driver]['top_15_lap_count'] / standings[driver]['total_lap_count'], 4) * 100
         standings[driver]['average_position'] = round(standings[driver]['average_position'] / standings[driver]['total_lap_count'])
         # TODO: Driver Rating
 
@@ -308,57 +322,87 @@ def _calculate_lap_position(last_position, floor_position, average_position_chan
                     break
 
 
-def _determine_caution_flag(driver_name, drivers, current_lap):
-    if random.uniform(0, 1) < .0005:
+def _determine_if_caution_flag_waved(driver_name, drivers, current_lap):
+    if random.uniform(0, 1) < .05:
         standings[driver_name]['cautions_caused'] = standings[driver_name]['cautions_caused'] + 1
         print('\n - - - - - - - - Caution Flag - - - - - - - - ')
-        print(f'        {driver_name} caused the caution')
 
         if random.uniform(0, 1) < .5:
             print(f'{driver_name} caused a wreck and has crashed')
-            standings[driver_name]['status'] = 'crash'
+            _driver_did_not_finish(driver_name)
         else:
             print(f'{driver_name} caused a wreck')
         _caution_flag_out(driver_name)
 
         end_caution_lap = current_lap + random.randint(1, 4)
-
         while current_lap < end_caution_lap:
             current_lap += 1
             print(f'\n * - * - * - * - CAUTION LAP {current_lap} - * - * - * - * ')
+            _calculate_post_lap_stats()
 
         for driver in drivers:
-            standings[driver.name]['dnf_odds'] = random.uniform(0, .09) * math.pow(driver.restricted_track_rating, 2)
+            if standings[driver.name]['status'] == 'running':
+                standings[driver.name]['dnf_odds'] = random.uniform(0, .09) * math.pow((driver.restricted_track_rating / 100), 2)
     else:
         for driver in drivers:
-            if driver.name == driver_name:
-                standings[driver.name]['dnf_odds'] = random.uniform(0, .09) * math.pow(driver.restricted_track_rating, 2)
+            if standings[driver.name]['status'] == 'running' and driver.name == driver_name:
+                standings[driver.name]['dnf_odds'] = random.uniform(0, .09) * math.pow((driver.restricted_track_rating / 100), 2)
                 break
 
     return current_lap
 
 
 def _caution_flag_out(caution_driver):
-    drivers_involved_in_crash = random.randint(0, 8)
+    drivers_involved_chances = random.uniform(0, 1)
+    if drivers_involved_chances < .05:
+        drivers_involved_in_crash = random.randint(13, 22)
+    elif drivers_involved_chances < .1:
+        drivers_involved_in_crash = random.randint(9, 12)
+    elif drivers_involved_chances < .25:
+        drivers_involved_in_crash = random.randint(5, 8)
+    else:
+        drivers_involved_in_crash = random.randint(1, 4)
+
+    caution_driver_position = standings[caution_driver]['current_position']
+    if caution_driver_position > 4:
+        caution_impact_range = [caution_driver_position - 4, caution_driver_position + drivers_involved_in_crash]
+    else:
+        caution_impact_range = [1, caution_driver_position + drivers_involved_in_crash]
+
     for driver in standings:
-        if driver != caution_driver and standings[driver]['status'] == 'running':
+        if drivers_involved_in_crash > 0 and standings[driver]['status'] == 'running' and driver != caution_driver \
+                and caution_impact_range[0] <= standings[driver]['current_position'] <= caution_impact_range[1]:
+            wreck_chances = random.uniform(0, 1)
+            if wreck_chances < .5:
+                print(f'{driver} was involved in the wreck and has crashed')
+                drivers_involved_in_crash -= 1
+                _driver_did_not_finish(driver)
+            elif wreck_chances < .9:
+                standings[driver]['dnf_odds'] = .01
+                # Lose position
+                print(f'{driver} was involved in the wreck')
+                drivers_involved_in_crash -= 1
 
 
-            caution_driver_position = standings[caution_driver]['current_position']
-            driver_position = standings[driver]['current_position']
+def _driver_did_not_finish(driver_dnf):
+    if not crashed_drivers:
+        last_available_position = 0
+        for driver in standings:
+            if standings[driver]['current_position'] > last_available_position:
+                last_available_position = standings[driver]['current_position']
+        standings[driver_dnf]['finish_position'] = last_available_position + 1
+    else:
+        last_available_position = 40
+        for driver in crashed_drivers:
+            if standings[driver]['finish_position'] < last_available_position:
+                last_available_position = standings[driver]['finish_position']
+        standings[driver_dnf]['finish_position'] = last_available_position - 1
+    standings[driver_dnf]['lowest_position'] = standings[driver_dnf]['finish_position']
+    standings[driver_dnf]['dnf_odds'] = None
+    standings[driver_dnf]['status'] = 'crash'
+    standings[driver_dnf]['position_when_wrecked'] = standings[driver_dnf]['current_position']
+    crashed_drivers.append(driver_dnf)
 
 
-
-
-
-
-            if standings[driver]['dnf_odds'] > .1:
-                if random.uniform(0, 1) < .20:
-                    standings[driver]['dnf_odds'] = 0
-                    standings[driver]['status'] = 'crash'
-                    print(f'{driver} was involved in the wreck and has crashed!')
-                else:
-                    if random.uniform(0, 1) < .4:
-                        standings[driver]['dnf_odds'] = .01
-                        # Lose position
-                        print(f'{driver} was involved in the wreck!')
+def _lose_position():
+    pass
