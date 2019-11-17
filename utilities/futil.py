@@ -210,7 +210,7 @@ def read_dict_from_json(model_type: str, file_name: str = None, file_path: str =
     :rtype: None
     """
 
-    json_file = _json_file(model_type, file_path, file_name, None)
+    json_file = _json_file(model_type, file_path, file_name)
     temp_dict = json.load(json_file)
     json_file.close()
 
