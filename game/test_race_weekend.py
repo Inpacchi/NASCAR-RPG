@@ -15,8 +15,6 @@ standings = {}
 rate_ranges = {}
 ending_range = None
 
-crashed_drivers = []
-
 position_bonuses = {
     1: .25,
     2: .18,
@@ -117,6 +115,11 @@ def _repopulate_ranges(drivers):
                         'ending_range'])
 
             placement_range = rate_ranges[driver.name]['ending_range'] + 1
+        else:
+            try:
+                del rate_ranges[driver.name]
+            except KeyError:
+                pass
     global ending_range
     ending_range = placement_range
 
@@ -162,11 +165,11 @@ def _race(laps, drivers):
     average_laps_under_caution =  4
 
     current_lap = 1
-    last_position = len(standings)
-    floor_position = last_position - average_position_change
     mid_race_lap = laps / 2
 
     while current_lap <= laps:
+        last_position = _determine_last_position()
+        floor_position = last_position - average_position_change
         print(f'********** Processing lap {current_lap} **********')
         if current_lap == 1:
             _calculate_lap_1_positions()
@@ -183,7 +186,7 @@ def _race(laps, drivers):
             for driver in standings:
                 if standings[driver]['status'] == 'running' and standings[driver]['dnf_odds'] > .1:
                     current_lap = _determine_if_caution_flag_waved(driver, drivers, current_lap)
-            # futil.write_dict_to_json('standings', standings, 'test_simulation/standings', f'standings_lap_{lap_count}')
+            # futil.write_dict_to_json('standings', standings, 'test_simulation/standings', f'standings_lap_{current_lap}')
             # futil.write_dict_to_json('standings', rate_ranges, 'test_simulation/rate_ranges', f'rate_ranges_lap_{lap_count}')
 
         if current_lap == mid_race_lap:
@@ -194,7 +197,7 @@ def _race(laps, drivers):
 
     _post_race_processing()
     # futil.write_dict_to_json('standings', rate_ranges, 'test_simulation/rate_ranges', 'finish_rate_ranges')
-    futil.write_dict_to_json('standings', standings, 'test_simulation/standings', 'finish_standings')
+    # futil.write_dict_to_json('standings', standings, 'test_simulation/standings', 'post_post_race_processing')
 
 
 def _calculate_post_lap_stats():
@@ -223,9 +226,12 @@ def _post_race_processing():
             standings[driver]['finish_position'] = standings[driver]['current_position']
         standings[driver]['current_position'] = None
         standings[driver]['dnf_odds'] = None
-        standings[driver]['lap_lead_percentage'] = round(standings[driver]['lap_lead_count'] / standings[driver]['total_lap_count'], 4) * 100
-        standings[driver]['top_15_lap_percentage'] = round(standings[driver]['top_15_lap_count'] / standings[driver]['total_lap_count'], 4) * 100
-        standings[driver]['average_position'] = round(standings[driver]['average_position'] / standings[driver]['total_lap_count'])
+        standings[driver]['lap_lead_percentage'] = \
+            round(standings[driver]['lap_lead_count'] / standings[driver]['total_lap_count'], 4) * 100
+        standings[driver]['top_15_lap_percentage'] = \
+            round(standings[driver]['top_15_lap_count'] / standings[driver]['total_lap_count'], 4) * 100
+        standings[driver]['average_position'] = \
+            round(standings[driver]['average_position'] / standings[driver]['total_lap_count'])
         # TODO: Driver Rating
 
 
@@ -294,32 +300,18 @@ def _calculate_lap_position(last_position, floor_position, average_position_chan
         previous_position = standings[driver]['current_position']
         standings[driver]['current_position'] = random_position
 
-        while random_position != previous_position:
-            for next_driver in rate_ranges:
-                if next_driver != previous_driver and standings[next_driver]['current_position'] == random_position:
-                    random_position = random_position + 1
-                    standings[next_driver]['current_position'] = random_position
-                    previous_driver = next_driver
-                    break
+        _shift_drivers(previous_driver, previous_position, random_position, 'up')
     else:
         previous_position = standings[driver]['current_position']
-        lowest_position = current_position + average_position_change
+        standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + random.uniform(.002, .003)
 
         if current_position >= floor_position:
             random_position = random.randint(previous_position, last_position)
         else:
-            random_position = random.randint(current_position, lowest_position)
+            random_position = random.randint(current_position, current_position + average_position_change)
 
         standings[driver]['current_position'] = random_position
-        standings[driver]['dnf_odds'] = standings[driver]['dnf_odds'] + random.uniform(.002, .003)
-
-        while random_position != previous_position:
-            for next_driver in rate_ranges:
-                if next_driver != previous_driver and standings[next_driver]['current_position'] == random_position:
-                    random_position = random_position - 1
-                    standings[next_driver]['current_position'] = random_position
-                    previous_driver = next_driver
-                    break
+        _shift_drivers(previous_driver, previous_position, random_position, 'down')
 
 
 def _determine_if_caution_flag_waved(driver_name, drivers, current_lap):
@@ -328,7 +320,8 @@ def _determine_if_caution_flag_waved(driver_name, drivers, current_lap):
         print('\n - - - - - - - - Caution Flag - - - - - - - - ')
 
         if random.uniform(0, 1) < .5:
-            print(f'{driver_name} caused a wreck and has crashed')
+            x = standings[driver_name]['current_position']
+            print(f'{driver_name} caused a wreck in position #{x} and has crashed')
             _driver_did_not_finish(driver_name)
         else:
             print(f'{driver_name} caused a wreck')
@@ -342,13 +335,14 @@ def _determine_if_caution_flag_waved(driver_name, drivers, current_lap):
 
         for driver in drivers:
             if standings[driver.name]['status'] == 'running':
-                standings[driver.name]['dnf_odds'] = random.uniform(0, .09) * math.pow((driver.restricted_track_rating / 100), 2)
+                standings[driver.name]['dnf_odds'] = \
+                    random.uniform(0, .09) * math.pow((driver.restricted_track_rating / 100), 2)
     else:
         for driver in drivers:
             if standings[driver.name]['status'] == 'running' and driver.name == driver_name:
-                standings[driver.name]['dnf_odds'] = random.uniform(0, .09) * math.pow((driver.restricted_track_rating / 100), 2)
+                standings[driver.name]['dnf_odds'] = \
+                    random.uniform(0, .09) * math.pow((driver.restricted_track_rating / 100), 2)
                 break
-
     return current_lap
 
 
@@ -374,34 +368,52 @@ def _caution_flag_out(caution_driver):
                 and caution_impact_range[0] <= standings[driver]['current_position'] <= caution_impact_range[1]:
             wreck_chances = random.uniform(0, 1)
             if wreck_chances < .5:
-                print(f'{driver} was involved in the wreck and has crashed')
+                x = standings[driver]['current_position']
+                print(f'{driver} in position #{x} was involved in the wreck and has crashed')
                 drivers_involved_in_crash -= 1
                 _driver_did_not_finish(driver)
             elif wreck_chances < .9:
+                x = standings[driver]['current_position']
+                print(f'{driver} in position #{x} was involved in the wreck')
+                drivers_involved_in_crash -= 1
                 standings[driver]['dnf_odds'] = .01
                 # Lose position
-                print(f'{driver} was involved in the wreck')
-                drivers_involved_in_crash -= 1
 
 
 def _driver_did_not_finish(driver_dnf):
-    if not crashed_drivers:
-        last_available_position = 0
-        for driver in standings:
-            if standings[driver]['current_position'] > last_available_position:
-                last_available_position = standings[driver]['current_position']
-        standings[driver_dnf]['finish_position'] = last_available_position + 1
-    else:
-        last_available_position = 40
-        for driver in crashed_drivers:
-            if standings[driver]['finish_position'] < last_available_position:
-                last_available_position = standings[driver]['finish_position']
-        standings[driver_dnf]['finish_position'] = last_available_position - 1
+    standings[driver_dnf]['finish_position'] = len(standings)
     standings[driver_dnf]['lowest_position'] = standings[driver_dnf]['finish_position']
+    standings[driver_dnf]['position_when_wrecked'] = standings[driver_dnf]['current_position']
+    standings[driver_dnf]['current_position'] = standings[driver_dnf]['finish_position']
     standings[driver_dnf]['dnf_odds'] = None
     standings[driver_dnf]['status'] = 'crash'
-    standings[driver_dnf]['position_when_wrecked'] = standings[driver_dnf]['current_position']
-    crashed_drivers.append(driver_dnf)
+    _shift_drivers(
+        driver_dnf, standings[driver_dnf]['position_when_wrecked'], standings[driver_dnf]['finish_position'], 'down')
+
+
+def _shift_drivers(previous_driver, old_position, new_position, direction):
+    while new_position != old_position:
+        for next_driver in standings:
+            if previous_driver != next_driver and standings[next_driver]['current_position'] == new_position:
+                if direction == 'up':
+                    new_position += 1
+                elif direction == 'down':
+                    new_position -= 1
+                else:
+                    raise Exception('No direction was specified')
+                standings[next_driver]['current_position'] = new_position
+                previous_driver = next_driver
+                if standings[next_driver]['status'] == 'crash':
+                    standings[next_driver]['finish_position'] = new_position
+                break
+
+
+def _determine_last_position():
+    last_position = len(standings)
+    for driver in standings:
+        if standings[driver]['status'] == 'crash':
+            last_position -= 1
+    return last_position
 
 
 def _lose_position():
