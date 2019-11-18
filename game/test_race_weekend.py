@@ -373,11 +373,11 @@ def _caution_flag_out(caution_driver):
                 drivers_involved_in_crash -= 1
                 _driver_did_not_finish(driver)
             elif wreck_chances < .9:
-                x = standings[driver]['current_position']
-                print(f'{driver} in position #{x} was involved in the wreck')
+                # x = standings[driver]['current_position']
+                # print(f'{driver} in position #{x} was involved in the wreck')
                 drivers_involved_in_crash -= 1
                 standings[driver]['dnf_odds'] = .01
-                # Lose position
+                # TODO: Lose position
 
 
 def _driver_did_not_finish(driver_dnf):
@@ -414,7 +414,3 @@ def _determine_last_position():
         if standings[driver]['status'] == 'crash':
             last_position -= 1
     return last_position
-
-
-def _lose_position():
-    pass
