@@ -156,9 +156,9 @@ def _csv_file(model_type: str, file_name: str = None, conversion: str = None) ->
             raise Exception(f'\'{model_type}\' is not a valid model type!')
 
     try:
-        csv_file = open(csv_path, 'r+', encoding='utf-8-sig')
+        csv_file = open(csv_path, 'r+', encoding='utf-8-sig', newline='')
     except IOError:
-        csv_file = open(csv_path, 'w+', encoding='utf-8-sig')
+        csv_file = open(csv_path, 'w+', encoding='utf-8-sig', newline='')
 
     return csv_file
 
@@ -180,8 +180,11 @@ def _get_csv_header(model_type: str) -> list:
     elif model_type.lower() in (MODEL_TYPE_DICT.get('team_subset').union('testteam')):
         header = ['name', 'owner', 'car_manufacturer', 'equipment_rating', 'teamRating', 'raceRating', 'drivers']
     elif model_type.lower() == 'standings':
-        header = ["qualifying_position", "finishing_position", "laps_led", "times_qualifying_range_hit", "times_race_range_hit",
-                  "fastest_qualifying_lap"]
+        header = ['driver_name', 'start_position', 'mid_race_position', 'finish_position', 'lowest_position',
+                  'highest_position', 'average_race_position', 'average_running_position', 'current_position',
+                  'stage_1_position', 'stage_2_position', 'position_when_wrecked', 'caution_lap_count',
+                  'lap_lead_count', 'lap_lead_percentage', 'top_15_lap_count', 'top_15_lap_percentage',
+                  'total_lap_count', 'driver_rating', 'cautions_caused', 'status', 'dnf_odds']
     elif model_type.lower() == 'tracks':
         header = ['name', 'length', 'type']
     elif model_type.lower() in MODEL_TYPE_DICT.get('schedules'):
@@ -331,7 +334,7 @@ def convert_dict_to_csv(model_type: str, models: dict = None, file_name: str = N
     if models is None and model_type.lower() in MODEL_TYPE_DICT.get('misc_subset').union(
             MODEL_TYPE_DICT.get('schedules')):
         models = read_dict_from_json(model_type)
-    elif not Driver.instances and models is None:
+    elif models is None:
         read_dict_from_json(model_type)
 
     csv_file = _csv_file(model_type, file_name, conversion)
@@ -346,7 +349,11 @@ def convert_dict_to_csv(model_type: str, models: dict = None, file_name: str = N
         for team in Team.instances.values():
             writer.writerow(team.serialize())
     else:
-        writer.writerows(models.values())
+        if type(models) == list:
+            for row in models:
+                writer.writerow(row)
+        else:
+            writer.writerows(models.values())
 
     csv_file.close()
     print(f'\nCSV file created at {csv_file.name}')
@@ -421,3 +428,72 @@ def _try_commit():
     except SQLAlchemyError:
         db.session.rollback()
         raise SQLAlchemyError
+
+
+def flatten_standings(standings):
+    standings_new = []
+
+    for name in standings:
+        standings_new.append({
+            'driver_name': name,
+            'start_position': standings[name]['start_position'],
+            'mid_race_position': standings[name]['mid_race_position'],
+            'finish_position': standings[name]['finish_position'],
+            'lowest_position': standings[name]['lowest_position'],
+            'highest_position': standings[name]['highest_position'],
+            'average_race_position': standings[name]['average_race_position'],
+            'average_running_position': standings[name]['average_running_position'],
+            'current_position': standings[name]['current_position'],
+            'stage_1_position': standings[name]['stage_1_position'],
+            'stage_2_position': standings[name]['stage_2_position'],
+            'position_when_wrecked': standings[name]['position_when_wrecked'],
+            'caution_lap_count': standings[name]['caution_lap_count'],
+            'lap_lead_count': standings[name]['lap_lead_count'],
+            'lap_lead_percentage': standings[name]['lap_lead_percentage'],
+            'top_15_lap_count': standings[name]['top_15_lap_count'],
+            'top_15_lap_percentage': standings[name]['top_15_lap_percentage'],
+            'total_lap_count': standings[name]['total_lap_count'],
+            'driver_rating': standings[name]['driver_rating'],
+            'cautions_caused': standings[name]['cautions_caused'],
+            'status': standings[name]['status'],
+            'dnf_odds': standings[name]['dnf_odds']
+        })
+
+    return standings_new
+
+
+# def flatten_json(model_type, file_path, file_name):
+def flatten_standings_json(file_path, file_name):
+    json_file = _json_file('standings', file_path, file_name)
+    temp_dict = json.load(json_file)
+    json_file.close()
+
+    standings = []
+
+    for name in temp_dict:
+        standings.append({
+            'driver_name': name,
+            'start_position': temp_dict[name]['start_position'],
+            'mid_race_position': temp_dict[name]['mid_race_position'],
+            'finish_position': temp_dict[name]['finish_position'],
+            'lowest_position': temp_dict[name]['lowest_position'],
+            'highest_position': temp_dict[name]['highest_position'],
+            'average_race_position': temp_dict[name]['average_race_position'],
+            'average_running_position': temp_dict[name]['average_running_position'],
+            'current_position': temp_dict[name]['current_position'],
+            'stage_1_position': temp_dict[name]['stage_1_position'],
+            'stage_2_position': temp_dict[name]['stage_2_position'],
+            'position_when_wrecked': temp_dict[name]['position_when_wrecked'],
+            'caution_lap_count': temp_dict[name]['caution_lap_count'],
+            'lap_lead_count': temp_dict[name]['lap_lead_count'],
+            'lap_lead_percentage': temp_dict[name]['lap_lead_percentage'],
+            'top_15_lap_count': temp_dict[name]['top_15_lap_count'],
+            'top_15_lap_percentage': temp_dict[name]['top_15_lap_percentage'],
+            'total_lap_count': temp_dict[name]['total_lap_count'],
+            'driver_rating': temp_dict[name]['driver_rating'],
+            'cautions_caused': temp_dict[name]['cautions_caused'],
+            'status': temp_dict[name]['status'],
+            'dnf_odds': temp_dict[name]['dnf_odds']
+        })
+
+    write_dict_to_json('standings', standings, file_path, f'{file_name}_flattened')
