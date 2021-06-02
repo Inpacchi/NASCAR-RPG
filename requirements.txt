@@ -63,7 +63,7 @@ sqliteschema==0.16.2
 tabledata==0.9.1
 traitlets==4.3.2
 typepy==0.6.0
-urllib3==1.25.3
+urllib3==1.26.5
 Werkzeug==0.15.6
 WTForms==2.2.1
 xlrd==1.2.0
