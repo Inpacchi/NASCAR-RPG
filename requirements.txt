@@ -25,7 +25,7 @@ Jinja2==2.10.1
 jsonschema==3.0.2
 jupyter-core==4.5.0
 Logbook==1.5.2
-Mako==1.1.0
+Mako==1.2.2
 Markdown==2.6.11
 MarkupSafe==1.1.1
 mbstrdecoder==0.8.1
